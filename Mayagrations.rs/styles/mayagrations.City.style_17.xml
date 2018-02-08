@@ -1,0 +1,44 @@
+<repast.simphony.visualization.editedStyle.DefaultEditedStyleData2D>
+  <shapeWkt>X</shapeWkt>
+  <size>15.0</size>
+  <sizeMax>100.0</sizeMax>
+  <sizeMin>0.0</sizeMin>
+  <sizeScale>500.0</sizeScale>
+  <sizeMethodName>getLabor</sizeMethodName>
+  <label></label>
+  <labelMethod>getWaterPerCap</labelMethod>
+  <labelPosition>bottom</labelPosition>
+  <labelPrecision>3</labelPrecision>
+  <labelOffset>5.0</labelOffset>
+  <labelFontSize>18</labelFontSize>
+  <labelFontType>1</labelFontType>
+  <labelFontFamily>Anonymous Pro</labelFontFamily>
+  <labelColor>
+    <float>0.0</float>
+    <float>0.0</float>
+    <float>0.0</float>
+  </labelColor>
+  <color>
+    <float>0.0</float>
+    <float>0.0</float>
+    <float>0.0</float>
+  </color>
+  <redMethodName>getWater</redMethodName>
+  <greenMethodName>getWater</greenMethodName>
+  <blueMethodName>getWater</blueMethodName>
+  <colorMax>
+    <float>255.0</float>
+    <float>0.0</float>
+    <float>255.0</float>
+  </colorMax>
+  <colorMin>
+    <float>0.0</float>
+    <float>0.0</float>
+    <float>0.0</float>
+  </colorMin>
+  <colorScale>
+    <float>0.0</float>
+    <float>0.0</float>
+    <float>1.0</float>
+  </colorScale>
+</repast.simphony.visualization.editedStyle.DefaultEditedStyleData2D>
