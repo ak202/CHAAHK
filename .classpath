@@ -6,14 +6,6 @@
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
 	<classpathentry kind="con" path="REPAST_SIMPHONY_SUPPORT"/>
 	<classpathentry kind="lib" path="/opt/eclipse/plugins/com.google.guava_15.0.0.v201403281430.jar"/>
-	<classpathentry kind="lib" path="/home/akara/workspace/Mayagrations/lib/org.eclipse.jdt.junit4.runtime.source_1.1.600.v20160505-0715.jar"/>
-	<classpathentry kind="lib" path="/home/akara/workspace/Mayagrations/lib/org.eclipse.jdt.junit.runtime.source_3.4.600.v20160505-0715.jar"/>
-	<classpathentry kind="lib" path="/home/akara/workspace/Mayagrations/lib/org.eclipse.jdt.junit.core.source_3.8.0.v20160421-1701.jar"/>
-	<classpathentry kind="lib" path="/home/akara/workspace/Mayagrations/lib/org.eclipse.jdt.junit4.runtime_1.1.600.v20160505-0715.jar"/>
-	<classpathentry kind="lib" path="/home/akara/workspace/Mayagrations/lib/org.eclipse.jdt.junit.runtime_3.4.600.v20160505-0715.jar"/>
-	<classpathentry kind="lib" path="/home/akara/workspace/Mayagrations/lib/org.eclipse.jdt.junit.source_3.9.0.v20160421-1701.jar"/>
-	<classpathentry kind="lib" path="/home/akara/workspace/Mayagrations/lib/org.eclipse.jdt.junit.core_3.8.0.v20160421-1701.jar"/>
-	<classpathentry kind="lib" path="/home/akara/workspace/Mayagrations/lib/org.eclipse.jdt.junit_3.9.0.v20160421-1701.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

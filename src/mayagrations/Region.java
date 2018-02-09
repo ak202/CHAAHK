@@ -69,6 +69,10 @@ public class Region {
 		minPop = 0;
 		maxPop = 0;
 		finalPop = 0;
+		
+//		for (Center center : centers) {
+//			System.out.println(center.getBajo());
+//		}
 	}
 	
 	@ScheduledMethod(start = 1, interval = 5)

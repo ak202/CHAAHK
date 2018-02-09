@@ -25,10 +25,13 @@ public class Route<T> extends RepastEdge<T> {
 //	STATIC ENTITY VARIABLES
 	protected T source;
 	protected T target;
+	private Center sourceCenter;
+	private Center targetCenter;
 	protected boolean directed;
 	private double costBase;
 	private double costMax;
 	private double costMin;
+	private boolean terrain;
 	
 //	STATIC GLOBAL VARIABLES
 	private double costIncRate;
@@ -64,10 +67,13 @@ public class Route<T> extends RepastEdge<T> {
 		costEngineered = weight;
 		costIncrease = 0;
 		costDecrease = 0;
+		terrain = false;
 		
 //		STATIC ENTITY VARIABLES
 		this.source = source;
 		this.target = target;
+		sourceCenter = (Center) source;
+		targetCenter = (Center) target;
 	
 		this.directed = directed;
 		costBase = weight;
@@ -83,23 +89,48 @@ public class Route<T> extends RepastEdge<T> {
 		trafficShortCoefficient = (Double)params.getValue("trafficShortCoefficient");
 		trafficLongCoefficient = (Double)params.getValue("trafficLongCoefficient");
 		
-		int sourceID = ((Center)source).getID();
-		int targetID = ((Center)target).getID();
+		int sourceID = sourceCenter.getID();
+		int targetID = targetCenter.getID();
 		
 
+		if (sourceCenter.getBajo() == true | targetCenter.getBajo() ==  true) {
+			System.out.println("Bajo");
+			makeMountain(params, weight);
+		}
+		
+		
+		for (int i = 0; i < 17; i++) {
+			if (sourceID == i | targetID == i) {
+				makeMountain(params, weight);
+			}
+		}
 		if ((sourceID-16)%17==0 & (targetID-16)%17==0) {
+			this.weight = weight;
 			makeRiver(params);
 		}
 		if ((sourceID-0)%17==0 & (targetID-0)%17==0) {
+			this.weight = weight;
 			makeRiver(params);
 		}
 		for (int i = 0; i < 16; i++) {
 			if (sourceID == i & targetID == i + 1) {
+				this.weight = weight;
+				makeRiver(params);
+			}
+		}
+		for (int i = 102; i < 106; i++) {
+			if (sourceID == i & targetID == i + 1) {
+				this.weight = weight;
+				makeRiver(params);
+			}
+		}
+		for (int i = 215; i < 220; i++) {
+			if (sourceID == i & targetID == i + 1) {
+				this.weight = weight;
 				makeRiver(params);
 			}
 		}
 
-	
 		droughtMod = (Integer)params.getValue("disturbanceDelay");
 		
 		
@@ -167,6 +198,7 @@ public class Route<T> extends RepastEdge<T> {
 	}
 	
 	private void makeRiver(Parameters params) {
+		terrain = true;
 		this.weight = weight / 15;
 		costEmployable = weight/15;
 		costEngineered = weight/15;
@@ -175,8 +207,25 @@ public class Route<T> extends RepastEdge<T> {
 		costMax = costBase;
 	}
 	
-	private void makeUplands() {
-				
+	public void makeUplands() {
+		terrain = true;
+		weight = weight * 10;
+		costEmployable =  weight;
+		costEngineered =  weight;
+		costBase =  weight;
+		costMin =  weight/5;
+		costMax =  weight;
+		costDecRate = costDecRate / 2;
+	}
+	
+	public void makeMountain(Parameters params, double weight) {
+		terrain = true;
+		this.weight = weight * 1000;
+		costEmployable =  weight * 1000;
+		costEngineered =  weight * 1000;
+		costBase =  weight * 1000;
+		costMin =  weight * 1000;
+		costMax =  weight * 1000;
 	}
 	
 	public double getTrafficLong() {
@@ -322,6 +371,18 @@ public class Route<T> extends RepastEdge<T> {
 	
 	public void setTrafficLong(double tl){
 		trafficLong = tl;
+	}
+
+	public Center getSourceCenter() {
+		return sourceCenter;
+	}
+
+	public Center getTargetCenter() {
+		return targetCenter;
+	}
+	
+	public boolean getTerrain() {
+		return terrain;
 	}
 }
 

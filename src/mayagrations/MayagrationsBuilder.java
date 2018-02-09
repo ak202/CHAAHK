@@ -16,6 +16,7 @@ import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.continuous.SimpleCartesianAdder;
 import repast.simphony.space.graph.DefaultEdgeCreator;
 import repast.simphony.space.graph.Network;
+import repast.simphony.space.graph.RepastEdge;
 
 public class MayagrationsBuilder implements ContextBuilder<Object> {
 
@@ -81,6 +82,23 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 			} if(i % 17 != 16) {
 				if((i/17)%2 == 0) {
 					addMayaEdge(net, space, centers.get(i), centers.get(i-16));
+				}
+			}
+		}
+		
+		for (Center center : centers) {
+			int bajo = RandomHelper.nextIntFromTo(0,10);
+			if (bajo > 7) {
+				
+				center.makeBajo();
+			}
+		}
+		
+		for (RepastEdge<Object> e : net.getEdges()) {
+			Route<Object> m = (Route<Object>) e;
+			if (m.getSourceCenter().getBajo() == true | m.getTargetCenter().getBajo() ==  true) {
+				if (m.getTerrain() == false) {
+					m.makeUplands();
 				}
 			}
 		}

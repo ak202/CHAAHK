@@ -41,6 +41,7 @@ public class Center {
 //	STATIC ENTITY VARIABLES	
 	private int id;							//excluded
 	private Context<Object> context;
+	private boolean bajo;
 	
 //	STATIC GLOBAL VARIABLES
 	private double infertility;
@@ -102,6 +103,7 @@ public class Center {
 		
 		this.id = id;						//excluded
 		this.context = context;
+		bajo = false;
 		
 //		STATIC GLOBAL VARIABLES
 		infertility = (Integer)params.getValue("infert");
@@ -118,7 +120,7 @@ public class Center {
 		for (int i = 0; i < fecundityReck; i++) {
 			fecundityDamageQueue.add(fecundityBase);
 		}
-		
+
 //		UNKNOWN STATUS?
 //		deathFraction = (Double)params.getValue("deathFraction");
 //		push = (Double)params.getValue("push");
@@ -131,6 +133,9 @@ public class Center {
 		importsDeaths = 0;
 		born = 0;
 		settled = 0;		
+		
+		
+		
 	}
 	
 
@@ -439,6 +444,14 @@ public class Center {
 	
 	public double getDistToExporter() {
 		return distToExporter;
+	}
+	
+	public void makeBajo() {
+		bajo = true;
+	}
+	
+	public boolean getBajo() {
+		return bajo;
 	}
 	
 	public int getLabor60() {
