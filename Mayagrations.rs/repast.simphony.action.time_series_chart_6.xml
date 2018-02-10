@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>weight flux</name>
+  <name>fecundityf flux</name>
   <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
   <yAxisLabel>amount</yAxisLabel>
-  <chartTitle>weight flux</chartTitle>
+  <chartTitle>fecundity flux</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,24 +21,24 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>route increase</string>
+      <string>increase</string>
       <SeriesData>
-        <label>route increase</label>
+        <label>increase</label>
         <color>
-          <red>255</red>
-          <green>0</green>
+          <red>0</red>
+          <green>255</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
     </entry>
     <entry>
-      <string>route decrease</string>
+      <string>decrease</string>
       <SeriesData>
-        <label>route decrease</label>
+        <label>decrease</label>
         <color>
-          <red>0</red>
-          <green>204</green>
+          <red>255</red>
+          <green>0</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>

@@ -28,11 +28,9 @@ public class Group {
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		this.homeCenter = homeCenter;
 		this.migrantStatus = migrant;
-		this.stay = 0;
+		stay = 0;
 		this.source = source;
 		migrationDistanceThreshold = (Double)params.getValue("migrationDistanceThreshold");
-//		dead = false;
-		
 		destinations = null;
 		pullFractions = null;
 	}
@@ -42,14 +40,7 @@ public class Group {
 	
 	@ScheduledMethod(start = 3, interval = 5)
 	public void consumeEndemic() {
-//		System.out.print("group from ");
-//		System.out.print(source);
-//		System.out.println(" is moving as a brahmin");
-//		if (dead) {
-//			return;
-//		}
 		if (!migrantStatus) {
-			
 			if (homeCenter.getStaples() >= 1) {
 				homeCenter.modStaples(-1);
 			} else {
@@ -57,7 +48,6 @@ public class Group {
 				trouble();
 				return;
 			} 
-			
 			if (homeCenter.getImports() >= 1) {
 				homeCenter.modImports(-1);
 			} else {
@@ -70,13 +60,6 @@ public class Group {
 	
 	@ScheduledMethod(start = 4, interval = 5)
 	public void consumeMigrant() {
-//		System.out.print("group from ");
-//		System.out.print(source);
-//		System.out.println(" is moving as a migrant");
-//		if (dead) {
-//			return;
-//		}
-		
 		if (migrantStatus) {
 			if (homeCenter.getStaples() >= 1) {
 				homeCenter.modStaples(-1);
@@ -84,7 +67,6 @@ public class Group {
 				trouble();
 				return;
 			}
-
 			if (homeCenter.getImports() >= 1) {
 				homeCenter.modImports(-1);
 			} else {
@@ -99,7 +81,6 @@ public class Group {
 	public void trouble() {
 		double chance = RandomHelper.nextDoubleFromTo(0, 1);
 		if (chance < .33) {
-//			dead = true;
 			homeCenter.killGroup(this);
 		} else if (chance < .66) {
 			migrate();
@@ -161,13 +142,5 @@ public class Group {
 		Object pullfras = pullFractions.clone();
 		this.pullFractions = (ArrayList<Double>) pullfras;
 	}
-	
-
 }
-
-//public void die() {
-//this.homeCenter.setLabor(-1);
-//Context<Object> context = ContextUtils.getContext(this);
-//context.remove(this);
-//}
 

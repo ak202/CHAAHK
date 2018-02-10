@@ -17,31 +17,31 @@ public class Center {
 	
 //	DYNAMIC ENTITY VARIABLES
 	private List<Group> residents; 			//people
-	private int labor; 
-	private int groupsEndemic;
-
-	private double pull;					//migration
+	private int labor; //L
+	private int groupsEndemic; //B
+	private double pull;				
 	private double pullFraction;
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
 	
 	private int staples;					//staples
-	private double fecundityEmployable;
-	private double fecundityEngineered;
-	private LinkedList<Double> fecundityDamageQueue; 
-	private double fecundityIncrease;
-	private double fecundityDecrease;
+	private double fecundityEmployable; //Fp
+	private double fecundityEngineered; //Fg
+	private LinkedList<Double> fecundityDamageQueue; //Faq 
+	private double fecundityIncrease; //Fi
+	private double fecundityDecrease; //Fd
 	
-	private double imports;					//imports
-	private double distToExporter;
+	private double imports; //I				//imports
+	private double distToExporter; //D
 	
 	private List<Route<Object>> path;		//excluded
-	
 	
 //	STATIC ENTITY VARIABLES	
 	private int id;							//excluded
 	private Context<Object> context;
-	private boolean bajo;
+	private boolean upland;
+	private boolean water;
+	private boolean terrain;
 	
 //	STATIC GLOBAL VARIABLES
 	private double infertility;
@@ -54,13 +54,6 @@ public class Center {
 	private double fecundityResil; //Frs
 	private int fecundityReck; //Frk
 	private double fecundityDisturbance; //Fd
-	
-	
-	
-	
-//	UNKNOWN STATUS?
-	private double deathFraction;
-	private double push;
 	private int droughtMod;
 	
 //	METRICS
@@ -72,8 +65,6 @@ public class Center {
 	private int born;
 	private int settled;
 	
-	
-	
 	public Center(int labor, int id, Context<Object> context) {
 		
 		Parameters params = RunEnvironment.getInstance().getParameters();
@@ -82,6 +73,8 @@ public class Center {
 		residents = new ArrayList<Group>();	//people
 		this.labor = labor;
 		groupsEndemic = 0;
+		destinations = null;
+		pullFractions = null;
 		
 		staples = 3;						//staples
 		fecundityEngineered = 3;
@@ -89,21 +82,19 @@ public class Center {
 		fecundityDamageQueue = new LinkedList<Double>();
 		fecundityIncrease = 0;
 		fecundityDecrease = 0;
-
 		
 		imports = 0.0;						//imports
 		distToExporter = 0;
 		pull = 0;
 		pullFraction = 0;
 		
-		destinations = null;
-		pullFractions = null;
-		
 //		STATIC ENTITY VARIABLES		
 		
 		this.id = id;						//excluded
 		this.context = context;
-		bajo = false;
+		upland = false;
+		water = true;
+		terrain = false;
 		
 //		STATIC GLOBAL VARIABLES
 		infertility = (Integer)params.getValue("infert");
@@ -121,9 +112,6 @@ public class Center {
 			fecundityDamageQueue.add(fecundityBase);
 		}
 
-//		UNKNOWN STATUS?
-//		deathFraction = (Double)params.getValue("deathFraction");
-//		push = (Double)params.getValue("push");
 		droughtMod = (Integer)params.getValue("disturbanceDelay");
 		
 //		METRICS
@@ -134,76 +122,77 @@ public class Center {
 		born = 0;
 		settled = 0;		
 		
-		
-		
+		if ((id-16)%17==0 | (id)%17==0) {
+			setWater(true);
+			terrain = true;
+		}
+		for (int i=0;i<17;i++){
+			if(i == id) {
+				setWater(true);
+				terrain = true;
+			}	
+		}
 	}
 	
-
-	
-
-    
     public void calculateStaples() {
-//    	reproduce();
-    	
+
     	/*the values of Faq are equal to Fg - Fb, which is calculated later in the method. 
     	 * Frk determines the length of Faq, and therefore the delay between the calculation 
     	 * of Fa and its utilization by the following statement. */
     	
-		double fecundityDamage = fecundityDamageQueue.removeFirst(); //Fa
-		
-    	double fecundityCarryingFactor = 1 - Math.pow(fecundityDamage/fecundityMax, 2);
-    	fecundityIncrease = fecundityCarryingFactor * labor * fecundityIncRate;
-    	
-    	double fecundityOvershoot = fecundityEmployable - fecundityMax;
-    	if (fecundityOvershoot > 0) {
-    		int fecundityDamageDiff = (int)fecundityOvershoot;
-    		for (int i = 0; i < fecundityDamageDiff; i++) {
-    			fecundityDamageQueue.removeFirst();
-    			fecundityDamageQueue.addLast(fecundityEmployable);
-    		}
-    	}
-
-    	
-    //	The purpose of the Fuf 
-		double fecundityUtilFraction;
-		double laborViaFecundityGrowth = labor - fecundityBase;
-		if (laborViaFecundityGrowth < 0) {
-			laborViaFecundityGrowth = 0;
-		}
-		double fecundityEngineeredGrowth = fecundityEngineered - fecundityBase;
-		if (laborViaFecundityGrowth < (int)fecundityEngineeredGrowth) {
-			fecundityUtilFraction = laborViaFecundityGrowth/fecundityEngineeredGrowth;
-		} else {
-			fecundityUtilFraction = 1;
-		}
-    	double fecundityResFactor = 1 - (fecundityUtilFraction + (1 - fecundityUtilFraction ) * fecundityResil);
-    	fecundityDecrease = fecundityResFactor * fecundityDecRate;
-
-    	double newfecundity = fecundityEmployable + fecundityIncrease - fecundityDecrease;
-
-    	if (newfecundity > fecundityEngineered) {
-    		fecundityEngineered = newfecundity; 
-    	} else {
-    		if (fecundityEngineered > fecundityBase) {
-    			fecundityEngineered -= fecundityRegen;
-    		} else {
-    			newfecundity += fecundityRegen;
-    			fecundityEngineered = fecundityBase;
-    		}
-    	}
-    	
-
-//    	fecundityTotalGrowth = fecundityEngineered - fecundityBase;     
-    	fecundityEmployable = newfecundity;
-    	fecundityDamageQueue.addLast(fecundityEngineered);
-    	if (fecundityEmployable < fecundityMin) {
-    		fecundityEmployable = fecundityMin;
-    	}
-    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-    	if (tick > 10000+droughtMod & tick < 11000+droughtMod) {
-    		staples = Math.round((float)(fecundityEmployable*fecundityDisturbance));
-    	} else {
-    		staples = Math.round((float)fecundityEmployable);
+    	if (!water) {
+			double fecundityDamage = fecundityDamageQueue.removeFirst(); //Fa
+			
+	    	double fecundityCarryingFactor = 1 - Math.pow(fecundityDamage/fecundityMax, 2);
+	    	fecundityIncrease = fecundityCarryingFactor * labor * fecundityIncRate;
+	    	
+	    	double fecundityOvershoot = fecundityEmployable - fecundityMax;
+	    	if (fecundityOvershoot > 0) {
+	    		int fecundityDamageDiff = (int)fecundityOvershoot;
+	    		for (int i = 0; i < fecundityDamageDiff; i++) {
+	    			fecundityDamageQueue.removeFirst();
+	    			fecundityDamageQueue.addLast(fecundityEmployable);
+	    		}
+	    	}
+	
+			double fecundityUtilFraction;
+			double laborViaFecundityGrowth = labor - fecundityBase;
+			if (laborViaFecundityGrowth < 0) {
+				laborViaFecundityGrowth = 0;
+			}
+			double fecundityEngineeredGrowth = fecundityEngineered - fecundityBase;
+			if (laborViaFecundityGrowth < (int)fecundityEngineeredGrowth) {
+				fecundityUtilFraction = laborViaFecundityGrowth/fecundityEngineeredGrowth;
+			} else {
+				fecundityUtilFraction = 1;
+			}
+	    	double fecundityResFactor = 1 - (fecundityUtilFraction + (1 - fecundityUtilFraction ) * fecundityResil);
+	    	fecundityDecrease = fecundityResFactor * fecundityDecRate;
+	
+	    	double newfecundity = fecundityEmployable + fecundityIncrease - fecundityDecrease;
+	
+	    	if (newfecundity > fecundityEngineered) {
+	    		fecundityEngineered = newfecundity; 
+	    	} else {
+	    		if (fecundityEngineered > fecundityBase) {
+	    			fecundityEngineered -= fecundityRegen;
+	    		} else {
+	    			newfecundity += fecundityRegen;
+	    			fecundityEngineered = fecundityBase;
+	    		}
+	    	}
+	    	    
+	    	fecundityEmployable = newfecundity;
+	    	fecundityDamageQueue.addLast(fecundityEngineered);
+	    	if (fecundityEmployable < fecundityMin) {
+	    		fecundityEmployable = fecundityMin;
+	    	}
+	    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+	    	if (tick > 10000+droughtMod & tick < 11000+droughtMod) {
+	    		staples = Math.round((float)(fecundityEmployable*fecundityDisturbance));
+	    	} else {
+	    		staples = Math.round((float)fecundityEmployable);
+	    	}
     	}
     }
     
@@ -231,23 +220,17 @@ public class Center {
 		}
     }
     
-
-    
-//    @ScheduledMethod(start = 10000)
-//    public void Death() {
-//
-//    	List<Group> dead = new ArrayList<Group>();
-//    	for (Group maya : residents) {
-//    		double fate = RandomHelper.nextDoubleFromTo(0,1);
-//    		if (fate < deathFraction) {
-//    			dead.add(maya);
-//    		}
-//    	}
-//    	for (Group m : dead) {
-//    		killGroup(m);
-//    	}
-//
-//    }
+    public void setWater(boolean water) {
+    	if (!terrain) {
+        	this.water = water;
+        	if (water) {
+            	fecundityBase = 0;
+            	fecundityMax = 0;
+            	fecundityMin = 0;
+            	staples = 0;
+        	}
+    	}
+    }
     
     public void setPull(double pull) {
     	this.pull = pull;
@@ -270,9 +253,6 @@ public class Center {
     }
 
 	public void setLabor(int flux) {
-//		if (labor == 0 & flux < 0) {
-//			System.out.println(RunEnvironment.getInstance().getCurrentSchedule().getTickCount());
-//		}
 		this.labor += flux;
 	}
 	public int getLabor() {
@@ -305,8 +285,6 @@ public class Center {
 			decEndemic();
 		}
 	}
-	
-	
 	
 	public void immigrate(Group maya) {
 		residents.add(maya);
@@ -388,26 +366,6 @@ public class Center {
 		return fecundityDecrease;
 	}
 
-	public double getStaplesStuck() {
-		int window = fecundityDamageQueue.size();
-		if (window > 7) {
-			window = 7;
-		} 
-		double greatestDamage = 0;
-		for (int i = 0; i < window; i++) {
-			double fecundityDamage = fecundityDamageQueue.get(i);
-			if(fecundityDamage > greatestDamage) {
-				greatestDamage = fecundityDamage;
-			}
-		}
-		double staplesStuck = greatestDamage - fecundityBase;
-		if (staplesStuck < 0) {
-			return(0);
-		} else {
-			return(staplesStuck);
-		}
-	}
-	
 	public double getImportsPerCap() {
 		return ((double)imports + 1)/((double)residents.size() + 1);
 	}
@@ -446,12 +404,14 @@ public class Center {
 		return distToExporter;
 	}
 	
-	public void makeBajo() {
-		bajo = true;
+	public void makeUpland() {
+		if (!terrain) {
+			upland = true;
+		}
 	}
 	
-	public boolean getBajo() {
-		return bajo;
+	public boolean getUpland() {
+		return upland;
 	}
 	
 	public int getLabor60() {
@@ -525,144 +485,5 @@ public class Center {
 		Object pullfras = pullFractions.clone();
 		this.pullFractions = (ArrayList<Double>) pullfras;
 	}
-
 	
-
-//  private void build(double tick) {
-//	double buildScore = RandomHelper.nextDoubleFromTo(0,Math.log(labor*staplesPerCap));
-//	Parameters params = RunEnvironment.getInstance().getParameters();
-//	double stelaeculty = (Double)params.getValue("stelaeculty");
-//	if (buildScore > stelaeculty) {
-//		termD = (int)(tick/45.0 + 600);
-//		stela++;
-//	}
-//	
-//}
-
-//@ScheduledMethod(start = 5000, interval = 999999)
-//public void warfare (){
-//	Parameters params = RunEnvironment.getInstance().getParameters();
-//	double warfare = (Double)params.getValue("killGroup");
-//	List<Group> dead = new ArrayList<Group>();
-//	
-//	for (Group maya : residents) {
-//		double deathChance = RandomHelper.nextDoubleFromTo(0, 1);
-//		if (deathChance > warfare) {
-//			dead.add(maya);
-//		}
-//	}
-//	for (Group m : dead) {
-//		killGroup(m);
-//	}
-//}
-
-	
-//	public double getMarket() {
-//		return this.market;
-//	}
-//	
-//	public void setMarket(double market) {
-//		this.market = market;
-//	}
-//	
-
-//	double fecundityImprovement = labor * fecundityIncreaseRate;
-//	if (terraIncognita == false) {
-//		System.out.println();
-//		System.out.println("ID              is " +  id       );
-//		System.out.println("labor           is " +  labor       );
-//		System.out.println("fecundityEmployable     is " +  fecundityEmployable    );
-//		System.out.println("fecundityEngineered         is " +  fecundityEngineered        );
-//		System.out.println("fecundityTotalGrowth is " +  fecundityTotalGrowth);
-//		
-//		
-//
-//		double fecundityUtilFraction;
-//		double laborViafecundityImprovement = labor - fecundityBase;
-//		if (laborViafecundityImprovement < 0) {
-//			laborViafecundityImprovement = 0;
-//		}
-//		System.out.print("fecundityTotalGrowth is ");
-//		System.out.println(fecundityTotalGrowth);
-//		System.out.print("laborViafecundityImprovement is ");
-//		System.out.println(laborViafecundityImprovement);
-//		if (laborViafecundityImprovement < (int)fecundityTotalGrowth) {
-//			fecundityUtilFraction = laborViafecundityImprovement/fecundityTotalGrowth;
-//		} else {
-//			fecundityUtilFraction = 1;
-//		}
-//		System.out.print("fecundityUtilFraction is ");
-//		System.out.println(fecundityUtilFraction);
-//    	double fecundityResFactor = 1 - (fecundityUtilFraction + (1 - fecundityUtilFraction ) * fecundityResil);
-//		System.out.print("fecundityResFactor is ");
-//		System.out.println(fecundityResFactor);
-//    	double fecundityDecay = fecundityResFactor * fecundityDecreaseRate;
-//    	System.out.print("fecundityDecay is ");
-//    	System.out.println(fecundityDecay);
-//    	System.out.print("fecundityImprovement is ");
-//    	System.out.println(fecundityImprovement);
-//    	fecundityImprovement -= fecundityDecay;
-//    	System.out.print("decayed fecundityImprovement is ");
-//    	System.out.println(fecundityImprovement);
-//    	
-//    	System.out.print("currentfecundity is ");
-//    	System.out.println(fecundityEmployable);
-//    	
-//    	double newfecundity = fecundityEmployable + fecundityImprovement;
-//    	System.out.print("basic newfecundity is ");
-//    	System.out.println(newfecundity);
-//    	
-//    	if (newfecundity > fecundityMax) {
-//    		System.out.println("**hit maximum fecundity limit**");
-//    		newfecundity = fecundityMax;
-//    		System.out.print("newfecundity is ");
-//        	System.out.println(newfecundity);
-//    	}
-//    	if (newfecundity > fecundityEngineered) {
-//    		System.out.println("**new fecundityEngineered**");
-//    		fecundityEngineered = newfecundity;
-//    		System.out.println("fecundityEngineered         is " +  fecundityEngineered        );
-//    	} else {
-//    		System.out.println("**attempting regeneration**");
-//    		System.out.println("fecundityEngineered         is " +  fecundityEngineered        );
-//    		if (fecundityEngineered > fecundityBase) {
-//    			System.out.println("**fecundityEngineered > fecundityBase**");
-//    			fecundityEngineered = fecundityEngineered - fecundityRegen;
-//    			System.out.println("new fecundityEngineered         is " +  fecundityEngineered        );
-//    		} else {
-//    			newfecundity += fecundityRegen;
-//    			fecundityEngineered = fecundityBase;
-//    		}
-//    	} 
-//    	System.out.println("**calculating fecundityTotalGrowth**");
-//    	fecundityTotalGrowth = fecundityEngineered - fecundityBase;     
-//    	System.out.println("fecundityTotalGrowth is " +  fecundityTotalGrowth);
-//    	System.out.println("**recalculating fecundityEmployable");
-//    	fecundityEmployable = newfecundity;
-//    	System.out.println("fecundityEmployable     is " +  fecundityEmployable    );
-//    	System.out.println("**checking not minimum**");
-//    	if (fecundityEmployable < fecundityMin) {
-//    		fecundityEmployable = fecundityMin;
-//    	}
-//    	System.out.println("new fecundityEmployable is ");
-//    	System.out.println(fecundityEmployable);
-//    	
-//    	System.out.println("**filling with staples**");
-//    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-//    	if (tick > 10000 & tick < 11000) {
-//    		staples = Math.round((float)(fecundityEmployable*fecundityDisturbance));
-//    	} else {
-//    		staples = Math.round((float)fecundityEmployable);
-//    	}
-//    	System.out.print("staples is ");
-//    	System.out.println(staples);	
-//		
-//		
-//		
-//		
-//	} else {
-//		staples = (int)fecundityBase;
-//	}
-//}
-
 }

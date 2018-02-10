@@ -70,9 +70,6 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 			}
 			
 		}
-		
-		
-		
 		for (int i = 17; i < centers.size(); i++) {
 			addMayaEdge(net, space, centers.get(i), centers.get(i-17));
 			if(i % 17 != 0) {
@@ -85,30 +82,29 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 				}
 			}
 		}
-		
 		for (Center center : centers) {
 			int bajo = RandomHelper.nextIntFromTo(0,10);
 			if (bajo > 7) {
-				
-				center.makeBajo();
-			}
+				center.makeUpland();
+			} 
 		}
-		
 		for (RepastEdge<Object> e : net.getEdges()) {
 			Route<Object> m = (Route<Object>) e;
-			if (m.getSourceCenter().getBajo() == true | m.getTargetCenter().getBajo() ==  true) {
-				if (m.getTerrain() == false) {
-					m.makeUplands();
+			if (m.getTerrain() == false) {
+				if (m.getSourceCenter().getUpland()) {
+					m.makeUpland();
+					m.getTargetCenter().setWater(false);
+				} else if (m.getTargetCenter().getUpland()) {
+					m.makeUpland();
+					m.getSourceCenter().setWater(false);
+				} else {
+					m.makeBajo(m.getWeight());
 				}
-			}
+			}		
 		}
-
 		Region graph = new Region(centers, context);
 		context.add(graph);
-
-		
 		RunEnvironment.getInstance().endAt(16500);
-		
 		return context;
 	}
 	
@@ -118,5 +114,4 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 		double distance = space.getDistance(sourceLoc, targetLoc);
 		net.addEdge(source, target, distance);
 	}
-	
 }
