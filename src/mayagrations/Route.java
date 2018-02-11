@@ -18,10 +18,6 @@ public class Route<T> extends RepastEdge<T> {
 	private double costDecrease;
 	
 //	STATIC ENTITY VARIABLES
-//	private int obSourceID;
-//	private int obTargetID;
-//	protected T source;
-//	protected T target;
 	private Center sourceCenter;
 	private Center targetCenter;
 	protected boolean directed;
@@ -131,9 +127,14 @@ public class Route<T> extends RepastEdge<T> {
 	
 	@ScheduledMethod(start = 2, interval = 5)
 	public void calcWeight() {
-//		System.out.println();
-//		System.out.print("Cep is ");
-//		System.out.println(costEmployable);
+//		if (!terrain) {
+//			System.out.println();
+//			System.out.print("Cp is ");
+//			System.out.println(costEmployable);
+//			System.out.print("Cg is ");
+//			System.out.println(costEngineered);
+//		}
+
 		
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
@@ -158,7 +159,7 @@ public class Route<T> extends RepastEdge<T> {
 		}		
 		
 		double costEngineeredImprovement = costBase - costEngineered;
-		if (trafficViaImprovement < (int) costEngineeredImprovement) {
+		if (trafficViaImprovement < costEngineeredImprovement) {
 			costUtilFraction = trafficViaImprovement/costEngineeredImprovement;
 		} else {
 			costUtilFraction = 1;
@@ -167,8 +168,23 @@ public class Route<T> extends RepastEdge<T> {
 		costIncrease = costResFactor * costIncRate;	
 		
 		costEmployable = costEmployable - costDecrease + costIncrease; 
-//		System.out.print("costEmployable is ");
-//		System.out.println(costEmployable);
+		
+		if (!terrain) {
+			System.out.print("trafficViaImprovement is ");
+			System.out.println(trafficViaImprovement);
+			System.out.print("costEngineeredImprovement is ");
+			System.out.println(costEngineeredImprovement);
+			System.out.print("costUtilFraction is ");
+			System.out.println(costUtilFraction);
+			System.out.print("costResFactor is ");
+			System.out.println(costResFactor);
+			System.out.print("increase is");
+			System.out.println(costIncrease);
+			System.out.print("Cp is ");
+			System.out.println(costEmployable);
+
+		}
+
 		
     	if (costEmployable  < costMin) {
     		costEmployable  = costMin;
@@ -194,42 +210,43 @@ public class Route<T> extends RepastEdge<T> {
     	
     	
     	
-		
-//		System.out.print("ccf is ");
-//		System.out.println(costCarryingFactor);
-//		System.out.print("id 1 is ");
-//		System.out.println(((Center)source).getID());
-//		System.out.print("id2 is ");
-//		System.out.println(((Center)target).getID());
-//		System.out.print("costBase is ");
-//		System.out.println(costBase);
-//		System.out.print("costEmployable is ");
-//		System.out.println(costEmployable);
-//		System.out.print("trafficShort is ");
-//		System.out.println(trafficShort);
-//		System.out.print("trafficLong is ");
-//		System.out.println(trafficLong);
-//		System.out.print("trafficFinalis ");
-//		System.out.println(trafficFinal);
-//		System.out.print("costUtilFraction is ");
-//		System.out.println(costUtilFraction);
-//		System.out.print("trafficViaImprovement is ");
-//		System.out.println(trafficViaImprovement);
-//		System.out.print("costResFactor is ");
-//		System.out.println(costResFactor);
-//		System.out.print("decrease is ");
-//		System.out.println(costDecrease);
-//		System.out.print("increase is");
-//		System.out.println(costIncrease);
-//		System.out.print("costEmployable is ");
-//		System.out.println(costEmployable);
-//		
-//		System.out.print("costBase is ");
-//		System.out.println(costBase);
-//		System.out.print("costMin is ");
-//		System.out.println(costMin);
-//		System.out.print("costMax is ");
-//		System.out.println(costMax);
+		if (!terrain) {
+			System.out.print("Cg is ");
+			System.out.println(costEngineered);
+			System.out.print("ccf is ");
+			System.out.println(costCarryingFactor);
+			System.out.print("id 1 is ");
+			System.out.println(((Center)source).getID());
+			System.out.print("id2 is ");
+			System.out.println(((Center)target).getID());
+			System.out.print("costBase is ");
+			System.out.println(costBase);
+			System.out.print("costEmployable is ");
+			System.out.println(costEmployable);
+			System.out.print("trafficShort is ");
+			System.out.println(trafficShort);
+			System.out.print("trafficLong is ");
+			System.out.println(trafficLong);
+			System.out.print("trafficFinal is ");
+			System.out.println(trafficFinal);
+			System.out.print("costUtilFraction is ");
+			System.out.println(costUtilFraction);
+			System.out.print("trafficViaImprovement is ");
+			System.out.println(trafficViaImprovement);
+			System.out.print("costResFactor is ");
+			System.out.println(costResFactor);
+			System.out.print("decrease is ");
+			System.out.println(costDecrease);
+			System.out.print("costEmployable is ");
+			System.out.println(costEmployable);
+			System.out.print("costBase is ");
+			System.out.println(costBase);
+			System.out.print("costMin is ");
+			System.out.println(costMin);
+			System.out.print("costMax is ");
+			System.out.println(costMax);
+		}
+
 	}
 	
 	private void makeRiver(Parameters params) {
@@ -269,33 +286,54 @@ public class Route<T> extends RepastEdge<T> {
 		costEngineered =  this.weight;
 		costBase =  this.weight;
 		costMin =  this.weight/2;
-		costMax =  this.weight*5;
+		costMax =  this.weight*50;
 	}
 	
-	public double getWeightMeaningful() {
+	public double getWeightBajo() {
 		if (!terrain) {
 			return weight;
 		} else {
 			return 0;
 		}
 	}
-	public double getCpMeaningful() {
+	public double getCostEmployableBajo() {
 		if (!terrain) {
 			return costEmployable;
 		} else {
 			return 0;
 		}
 	}
-	public double getCgMeaningful() {
+	public double getCostEngineeredBajo() {
 		if (!terrain) {
 			return costEngineered;
 		} else {
 			return 0;
 		}
 	}
-	public double getCbMeaningful() {
+	public double getCostBaseBajo() {
 		if (!terrain) {
 			return costBase;
+		} else {
+			return 0;
+		}
+	}
+	public double getTrafficShortBajo() {
+		if (!terrain) {
+			return trafficShort/20;
+		} else {
+			return 0;
+		}
+	}
+	public double getTrafficLongBajo() {
+		if (!terrain) {
+			return trafficLong/20;
+		} else {
+			return 0;
+		}
+	}
+	public double getTrafficFinalBajo() {
+		if (!terrain) {
+			return trafficFinal/20;
 		} else {
 			return 0;
 		}

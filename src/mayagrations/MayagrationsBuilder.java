@@ -97,8 +97,6 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 				} else if (m.getTargetCenter().getUpland()) {
 					m.makeUpland();
 					m.getSourceCenter().setWater(false);
-				} else {
-					m.makeBajo(m.getWeight());
 				}
 			}		
 		}
