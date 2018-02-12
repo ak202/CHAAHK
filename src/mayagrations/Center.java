@@ -378,12 +378,20 @@ public class Center {
 		return(imports);
 	}
 	
+	public double getImportsPopulated() {
+		if (labor > 0 ) {
+			return(imports);
+		} else {
+			return 0;
+		}
+	}
+	
 	public void modImports(double imports) {
 		this.imports += imports;
 	}
 	
 	public void calculateImports() {
-		this.imports = (labor * 2 + 1) * Math.pow(distToExporter, -.3) + .78;
+		this.imports = (labor * 2 + 1) * Math.pow(distToExporter, -.2) + .51;
 	}
 	
 	public void setMineDistance(double distanceToExporter) {

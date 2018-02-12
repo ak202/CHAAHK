@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
-  <name>causes of death</name>
-  <dataSet>causes of deaths</dataSet>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
+  <name>fecundityf flux</name>
+  <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>abundance of event</yAxisLabel>
-  <chartTitle>death map</chartTitle>
+  <yAxisLabel>amount</yAxisLabel>
+  <chartTitle>fecundity flux</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,45 +21,9 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>staples</string>
+      <string>increase</string>
       <SeriesData>
-        <label>staples</label>
-        <color>
-          <red>0</red>
-          <green>0</green>
-          <blue>204</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>imports</string>
-      <SeriesData>
-        <label>imports</label>
-        <color>
-          <red>255</red>
-          <green>0</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>move failure</string>
-      <SeriesData>
-        <label>move failure</label>
-        <color>
-          <red>51</red>
-          <green>51</green>
-          <blue>51</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>move success</string>
-      <SeriesData>
-        <label>move success</label>
+        <label>increase</label>
         <color>
           <red>0</red>
           <green>255</green>
@@ -69,12 +33,12 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>born</string>
+      <string>decrease</string>
       <SeriesData>
-        <label>born</label>
+        <label>decrease</label>
         <color>
           <red>255</red>
-          <green>255</green>
+          <green>0</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>

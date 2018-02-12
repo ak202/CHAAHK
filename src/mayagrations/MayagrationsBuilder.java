@@ -90,16 +90,27 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 		}
 		for (RepastEdge<Object> e : net.getEdges()) {
 			Route<Object> m = (Route<Object>) e;
-			if (m.getTerrain() == false) {
-				if (m.getSourceCenter().getUpland()) {
-					m.makeUpland();
-					m.getTargetCenter().setWater(false);
-				} else if (m.getTargetCenter().getUpland()) {
-					m.makeUpland();
-					m.getSourceCenter().setWater(false);
-				}
-			}		
+			if (m.getSourceCenter().getUpland()) {
+				m.makeUpland();
+				m.getTargetCenter().setWater(false);
+			} else if (m.getTargetCenter().getUpland()) {
+				m.makeUpland();
+				m.getSourceCenter().setWater(false);
+			}	
 		}
+		for (RepastEdge<Object> e : net.getEdges()) {
+			Route<Object> m = (Route<Object>) e;
+			if (m.getType() == "bajo") {
+				m.initBajo();
+			} else if (m.getType() == "upland") {
+				m.initUpland();
+			} else if (m.getType() == "river") {
+				m.initRiver();
+			} else if (m.getType() == "mountain") {
+				m.initMountain();
+			}
+		}
+		
 		Region graph = new Region(centers, context);
 		context.add(graph);
 		RunEnvironment.getInstance().endAt(16500);

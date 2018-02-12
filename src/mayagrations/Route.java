@@ -24,7 +24,7 @@ public class Route<T> extends RepastEdge<T> {
 	private double costBase;
 	private double costMax;
 	private double costMin;
-	private boolean terrain;
+	private String type;
 	
 //	STATIC GLOBAL VARIABLES
 	private double costIncRate;
@@ -58,7 +58,6 @@ public class Route<T> extends RepastEdge<T> {
 		costEngineered = weight;
 		costIncrease = 0;
 		costDecrease = 0;
-		terrain = false;
 		
 //		STATIC ENTITY VARIABLES
 		this.source = source;
@@ -67,15 +66,16 @@ public class Route<T> extends RepastEdge<T> {
 		targetCenter = (Center) target;
 	
 		this.directed = directed;
-		costBase = weight;
-		costMax = costBase * (Double)params.getValue("costMaxFactor");
-		costMin = costBase * (Double)params.getValue("costMinFactor");
+		costMax = (Double)params.getValue("costMaxFactor");
+		costMin = (Double)params.getValue("costMinFactor");
+		
+		type = "none";
 		
 //		STATIC GLOBAL VARIABLES
 		costIncRate = (Double)params.getValue("costIncRate");
-		costDecRate = (Double)params.getValue("costDecRate") * costBase;
+		costDecRate = (Double)params.getValue("costDecRate");
 		costResil = (Double)params.getValue("costResil");
-		costRegen = (Double)params.getValue("costRegen") * costBase;
+		costRegen = (Double)params.getValue("costRegen");
 		costDisturbance = (Double)params.getValue("costDisturbance");
 		trafficShortCoefficient = (Double)params.getValue("trafficShortCoefficient");
 		trafficLongCoefficient = (Double)params.getValue("trafficLongCoefficient");
@@ -85,9 +85,6 @@ public class Route<T> extends RepastEdge<T> {
 		int targetID = targetCenter.getID();
 		
 
-		if (sourceCenter.getUpland() == true | targetCenter.getUpland() ==  true) {
-			makeUpland();
-		}
 		for (int i = 0; i < 17; i++) {
 			if (sourceID == i | targetID == i) {
 				makeMountain(params, weight);
@@ -119,7 +116,7 @@ public class Route<T> extends RepastEdge<T> {
 				makeRiver(params);
 			}
 		}
-		if (!terrain) {
+		if (type == "none") {
 			makeBajo(weight);
 		}
 
@@ -169,21 +166,20 @@ public class Route<T> extends RepastEdge<T> {
 		
 		costEmployable = costEmployable - costDecrease + costIncrease; 
 		
-		if (!terrain) {
-			System.out.print("trafficViaImprovement is ");
-			System.out.println(trafficViaImprovement);
-			System.out.print("costEngineeredImprovement is ");
-			System.out.println(costEngineeredImprovement);
-			System.out.print("costUtilFraction is ");
-			System.out.println(costUtilFraction);
-			System.out.print("costResFactor is ");
-			System.out.println(costResFactor);
-			System.out.print("increase is");
-			System.out.println(costIncrease);
-			System.out.print("Cp is ");
-			System.out.println(costEmployable);
-
-		}
+//		if (!terrain) {
+//			System.out.print("trafficViaImprovement is ");
+//			System.out.println(trafficViaImprovement);
+//			System.out.print("costEngineeredImprovement is ");
+//			System.out.println(costEngineeredImprovement);
+//			System.out.print("costUtilFraction is ");
+//			System.out.println(costUtilFraction);
+//			System.out.print("costResFactor is ");
+//			System.out.println(costResFactor);
+//			System.out.print("increase is");
+//			System.out.println(costIncrease);
+//			System.out.print("Cp is ");
+//			System.out.println(costEmployable);
+//		}
 
 		
     	if (costEmployable  < costMin) {
@@ -210,129 +206,153 @@ public class Route<T> extends RepastEdge<T> {
     	
     	
     	
-		if (!terrain) {
-			System.out.print("Cg is ");
-			System.out.println(costEngineered);
-			System.out.print("ccf is ");
-			System.out.println(costCarryingFactor);
-			System.out.print("id 1 is ");
-			System.out.println(((Center)source).getID());
-			System.out.print("id2 is ");
-			System.out.println(((Center)target).getID());
-			System.out.print("costBase is ");
-			System.out.println(costBase);
-			System.out.print("costEmployable is ");
-			System.out.println(costEmployable);
-			System.out.print("trafficShort is ");
-			System.out.println(trafficShort);
-			System.out.print("trafficLong is ");
-			System.out.println(trafficLong);
-			System.out.print("trafficFinal is ");
-			System.out.println(trafficFinal);
-			System.out.print("costUtilFraction is ");
-			System.out.println(costUtilFraction);
-			System.out.print("trafficViaImprovement is ");
-			System.out.println(trafficViaImprovement);
-			System.out.print("costResFactor is ");
-			System.out.println(costResFactor);
-			System.out.print("decrease is ");
-			System.out.println(costDecrease);
-			System.out.print("costEmployable is ");
-			System.out.println(costEmployable);
-			System.out.print("costBase is ");
-			System.out.println(costBase);
-			System.out.print("costMin is ");
-			System.out.println(costMin);
-			System.out.print("costMax is ");
-			System.out.println(costMax);
-		}
+//		if (true) {
+//			System.out.print("Cg is ");
+//			System.out.println(costEngineered);
+//			System.out.print("ccf is ");
+//			System.out.println(costCarryingFactor);
+//			System.out.print("id 1 is ");
+//			System.out.println(((Center)source).getID());
+//			System.out.print("id2 is ");
+//			System.out.println(((Center)target).getID());
+//			System.out.print("costBase is ");
+//			System.out.println(costBase);
+//			System.out.print("costEmployable is ");
+//			System.out.println(costEmployable);
+//			System.out.print("trafficShort is ");
+//			System.out.println(trafficShort);
+//			System.out.print("trafficLong is ");
+//			System.out.println(trafficLong);
+//			System.out.print("trafficFinal is ");
+//			System.out.println(trafficFinal);
+//			System.out.print("costUtilFraction is ");
+//			System.out.println(costUtilFraction);
+//			System.out.print("trafficViaImprovement is ");
+//			System.out.println(trafficViaImprovement);
+//			System.out.print("costResFactor is ");
+//			System.out.println(costResFactor);
+//			System.out.print("decrease is ");
+//			System.out.println(costDecrease);
+//			System.out.print("costEmployable is ");
+//			System.out.println(costEmployable);
+//			System.out.print("costBase is ");
+//			System.out.println(costBase);
+//			System.out.print("costMin is ");
+//			System.out.println(costMin);
+//			System.out.print("costMax is ");
+//			System.out.println(costMax);
+//		}
 
 	}
 	
 	private void makeRiver(Parameters params) {
-		terrain = true;
-		this.weight = weight / 15;
-		costEmployable = weight/15;
-		costEngineered = weight/15;
-		costBase = weight/15;
-		costMin = costBase * (Double)params.getValue("costMinFactor");
-		costMax = costBase;
+		type = "river";
 	}
 	
 	public void makeUpland() {
-		terrain = true;
-		this.weight = weight*4;
-		costEmployable =  this.weight;
-		costEngineered =  this.weight;
-		costBase =  this.weight;
-		costMin =  this.weight/2;
-		costMax =  this.weight*2;
-		costDecRate = costDecRate / 2;
+		if (type != "river" & type != "mountain") {
+			type = "upland";
+		}
 	}
 	
 	public void makeMountain(Parameters params, double weight) {
-		terrain = true;
-		this.weight = weight * 1000;
-		costEmployable =  weight * 1000;
-		costEngineered =  weight * 1000;
-		costBase =  weight * 1000;
-		costMin =  weight * 1000;
-		costMax =  weight * 1000;
+		type = "mountain";
 	}
 	
 	public void makeBajo(double weight) {
-		this.weight = weight/5;
-		costEmployable =  this.weight;
-		costEngineered =  this.weight;
-		costBase =  this.weight;
-		costMin =  this.weight/2;
-		costMax =  this.weight*50;
+		if (type == "none") {
+			type = "bajo";
+		}
+	}
+	
+	public void initRiver() {
+		weight = weight / 10;
+		initStatic();
+		initBase();
+	}
+	public void initMountain() {
+		weight = weight * 1000;
+		initStatic();
+		initBase();
+	}
+	public void initUpland() {
+		weight = weight*2;
+		costMin =  weight/4;
+		costMax =  weight;
+		costDisturbance = 1;
+		costResil = costResil * 1.5;
+		initBase();
+	}
+	public void initBajo() {
+		weight = weight/5;
+		costMin =  weight/2;
+		costMax =  weight*50;
+		costResil = costResil / 1.5;
+		initBase();
+	}
+	public void initBase() {
+		costEmployable = weight;
+		costEngineered = weight;
+		costBase =  weight;
+		costRegen = costRegen * weight;
+		costDecRate = costDecRate * weight;
+		costIncRate = costIncRate * weight;
+	}
+	
+	public void initStatic() {
+		costMin =  weight;
+		costMax =  weight;
+		costDisturbance = 1;
+	}
+	
+	public String getType() {
+		return type;
 	}
 	
 	public double getWeightBajo() {
-		if (!terrain) {
+		if (type=="bajo") {
 			return weight;
 		} else {
 			return 0;
 		}
 	}
 	public double getCostEmployableBajo() {
-		if (!terrain) {
+		if (type=="bajo") {
 			return costEmployable;
 		} else {
 			return 0;
 		}
 	}
 	public double getCostEngineeredBajo() {
-		if (!terrain) {
+		if (type=="bajo") {
 			return costEngineered;
 		} else {
 			return 0;
 		}
 	}
 	public double getCostBaseBajo() {
-		if (!terrain) {
+		if (type=="bajo") {
 			return costBase;
 		} else {
 			return 0;
 		}
 	}
 	public double getTrafficShortBajo() {
-		if (!terrain) {
+		if (type=="bajo") {
 			return trafficShort/20;
 		} else {
 			return 0;
 		}
 	}
 	public double getTrafficLongBajo() {
-		if (!terrain) {
+		if (type=="bajo") {
 			return trafficLong/20;
 		} else {
 			return 0;
 		}
 	}
 	public double getTrafficFinalBajo() {
-		if (!terrain) {
+		if (type=="bajo") {
 			return trafficFinal/20;
 		} else {
 			return 0;
@@ -414,9 +434,5 @@ public class Route<T> extends RepastEdge<T> {
 
 	public Center getTargetCenter() {
 		return targetCenter;
-	}
-	
-	public boolean getTerrain() {
-		return terrain;
 	}
 }

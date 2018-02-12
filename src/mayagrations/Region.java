@@ -72,6 +72,10 @@ public class Region {
 	@ScheduledMethod(start = 1, interval = 5)
 	public void calculateTrafficLong() {
 		resetNetworkTraffic();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 		for (Center c : centers) {
 			c.reproduce();
 		}
