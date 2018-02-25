@@ -1,27 +1,43 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>imports</name>
+  <name>final</name>
   <type>NON_AGGREGATE</type>
-  <sourceType>mayagrations.Center</sourceType>
-  <inclTick>true</inclTick>
+  <sourceType>mayagrations.Region</sourceType>
+  <inclTick>false</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>1.0</start>
-    <interval>50.0</interval>
+    <start>16499.0</start>
+    <interval>0.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
-    <frequency>REPEAT</frequency>
-    <hashCode>-2122948504</hashCode>
+    <frequency>ONE_TIME</frequency>
+    <hashCode>-708693922</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>ImportsPopulated</string>
+      <string>countPop</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ImportsPopulated</id>
-        <className>mayagrations.Center</className>
-        <methodName>getImportsPopulated</methodName>
+        <id>countPop</id>
+        <className>mayagrations.Region</className>
+        <methodName>countPop</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>MaxPop</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>MaxPop</id>
+        <className>mayagrations.Region</className>
+        <methodName>getMaxPop</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>MinPop</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>MinPop</id>
+        <className>mayagrations.Region</className>
+        <methodName>getMinPop</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

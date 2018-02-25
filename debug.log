@@ -247,3 +247,243 @@ Caused by: java.util.NoSuchElementException
 	at mayagrations.Center.calculateStaples(Center.java:158)
 	at mayagrations.Region.calculateTrafficLong(Region.java:98)
 	... 10 more
+INFO  [AWT-EventQueue-0] 2018-02-21 18:08:56,451 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-21 18:08:56,528 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:09:03,883 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/akara_localhost8287660167018256526.zip to 
+/tmp/simphony_model_1519254541158 ...
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:09:03,998 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:09:04,142 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0482
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:09:04,145 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519254541158/akara_localhost8287660167018256526.zip
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:09:04,848 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2018-02-21 18:10:04,867 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:11:04,869 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:12:04,870 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:13:04,877 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:14:04,888 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:15:04,900 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:16:04,902 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:17:04,904 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:18:04,910 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:19:04,911 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:20:04,911 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:21:04,914 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:22:04,917 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:23:04,920 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:24:04,922 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:25:04,923 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:26:04,926 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:27:04,929 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:28:04,944 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:29:04,946 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:30:04,952 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:31:04,953 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:32:04,959 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:33:04,960 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:34:04,961 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:35:04,963 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:36:04,965 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:37:04,968 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:38:04,969 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:39:04,970 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:40:04,971 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:41:04,973 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:42:04,977 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:43:04,977 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:44:04,980 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:45:04,983 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:46:04,986 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:47:04,989 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:48:04,990 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:49:04,994 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:50:05,024 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:51:05,041 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 18:52:05,044 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519254541158 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:52:05,063 repast.simphony.batch.ssh.SessionsDriver - Run Time: 43.0152
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:52:05,220 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519254541158
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:52:05,396 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:52:05,396 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0055
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 18:52:05,397 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 43.0710
+INFO  [AWT-EventQueue-0] 2018-02-21 19:05:54,520 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-21 19:05:54,589 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:06:02,671 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/akara_localhost4064028452950157472.zip to 
+/tmp/simphony_model_1519257959916 ...
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:06:02,719 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:06:02,729 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0467
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:06:02,729 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519257959916/akara_localhost4064028452950157472.zip
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:06:03,160 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2018-02-21 19:07:03,166 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519257959916 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 19:08:03,169 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519257959916 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 19:09:03,171 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519257959916 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 19:10:03,174 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519257959916 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:10:03,176 repast.simphony.batch.ssh.SessionsDriver - Run Time: 4.0074
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:10:03,201 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519257959916
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:10:03,232 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:10:03,234 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0010
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 19:10:03,235 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 4.0556
+INFO  [AWT-EventQueue-0] 2018-02-21 19:44:15,756 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-21 19:44:15,767 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:44:23,420 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/akara_localhost2724191593375539619.zip to 
+/tmp/simphony_model_1519260261018 ...
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:44:23,442 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:44:23,442 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0404
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:44:23,443 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519260261018/akara_localhost2724191593375539619.zip
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:44:23,806 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2018-02-21 19:45:23,810 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519260261018 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-21 19:46:23,812 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519260261018 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-21 19:47:23,816 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519260261018 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-21 19:48:23,821 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519260261018 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:48:23,841 repast.simphony.batch.ssh.SessionsDriver - Run Time: 4.0064
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:48:24,026 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519260261018
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:48:24,085 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:48:24,091 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0042
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-21 19:48:24,092 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 4.0515
+INFO  [AWT-EventQueue-0] 2018-02-21 22:04:59,794 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-21 22:04:59,880 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:05:07,920 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/akara_localhost8858975425159559165.zip to 
+/tmp/simphony_model_1519268705428 ...
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:05:07,980 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:05:08,021 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0425
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:05:08,021 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519268705428/akara_localhost8858975425159559165.zip
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:05:08,443 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2018-02-21 22:06:08,562 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519268705428 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 22:07:08,583 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519268705428 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 22:08:08,586 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519268705428 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 22:09:08,588 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519268705428 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-21 22:10:08,591 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519268705428 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:10:08,610 repast.simphony.batch.ssh.SessionsDriver - Run Time: 5.0097
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:10:08,841 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519268705428
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:10:09,013 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:10:09,018 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0068
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-21 22:10:09,018 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 5.0601
+INFO  [AWT-EventQueue-0] 2018-02-24 17:22:56,032 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-24 17:22:56,098 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:23:03,963 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/akara_localhost855734246002858732.zip to 
+/tmp/simphony_model_1519510981424 ...
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:23:03,988 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:23:03,990 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0427
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:23:03,990 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519510981424/akara_localhost855734246002858732.zip
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:23:04,322 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2018-02-24 17:24:04,327 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519510981424 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-24 17:25:04,329 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519510981424 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-24 17:26:04,330 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519510981424 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-24 17:27:04,331 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519510981424 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:27:04,333 repast.simphony.batch.ssh.SessionsDriver - Run Time: 4.0057
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:27:04,347 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519510981424
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:27:04,365 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:27:04,366 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0005
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-24 17:27:04,367 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 4.0493
+INFO  [AWT-EventQueue-0] 2018-02-24 18:04:27,450 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-24 18:04:27,477 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:04:34,606 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/akara_localhost6200432761385912341.zip to 
+/tmp/simphony_model_1519513472176 ...
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:04:34,626 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:04:34,627 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0408
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:04:34,627 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519513472176/akara_localhost6200432761385912341.zip
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:04:34,935 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-3-thread-1] 2018-02-24 18:05:34,938 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519513472176 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-24 18:06:34,942 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519513472176 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-24 18:07:34,943 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519513472176 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-24 18:08:34,943 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519513472176 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-24 18:09:34,944 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519513472176 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-24 18:10:34,949 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519513472176 for DONE:  no
+INFO  [pool-3-thread-1] 2018-02-24 18:11:34,950 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519513472176 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:11:34,951 repast.simphony.batch.ssh.SessionsDriver - Run Time: 7.0054
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:11:34,959 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519513472176
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:11:34,962 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:11:34,965 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0002
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-24 18:11:34,965 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 7.0467
+INFO  [AWT-EventQueue-0] 2018-02-25 14:27:16,978 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-25 14:27:17,066 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-25 14:27:23,798 repast.simphony.batch.ssh.RemoteSession - 
+	Copying /tmp/ec2-user_ec2-52-14-174-22.us-east-2.compute.amazonaws.com8343309337854643069.zip to 
+	ec2-user@ec2-52-14-174-22.us-east-2.compute.amazonaws.com:~/simphony_model_1519586841436/ec2-user_ec2-52-14-174-22.us-east-2.compute.amazonaws.com8343309337854643069.zip ...
+ERROR [SwingWorker-pool-1-thread-1] 2018-02-25 14:27:23,804 repast.simphony.batch.ssh.SessionsDriver - Error while creating connection to ec2-user@ec2-52-14-174-22.us-east-2.compute.amazonaws.com
+com.jcraft.jsch.JSchException: java.io.FileNotFoundException: /home/akara/.ssh/home/akara/tesing.pem (No such file or directory)
+	at com.jcraft.jsch.IdentityFile.newInstance(IdentityFile.java:98)
+	at com.jcraft.jsch.JSch.addIdentity(JSch.java:355)
+	at com.jcraft.jsch.JSch.addIdentity(JSch.java:315)
+	at repast.simphony.batch.ssh.SSHSessionFactory.create(SSHSessionFactory.java:67)
+	at repast.simphony.batch.ssh.RemoteSession.copyFile(RemoteSession.java:141)
+	at repast.simphony.batch.ssh.RemoteSession.initModelArchive(RemoteSession.java:134)
+	at repast.simphony.batch.ssh.SessionsDriver.run(SessionsDriver.java:58)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:466)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:1)
+	at javax.swing.SwingWorker$1.call(SwingWorker.java:295)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javax.swing.SwingWorker.run(SwingWorker.java:334)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: /home/akara/.ssh/home/akara/tesing.pem (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	at com.jcraft.jsch.IdentityFile.newInstance(IdentityFile.java:83)
+	... 14 more
+INFO  [AWT-EventQueue-0] 2018-02-25 14:28:50,064 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-25 14:28:50,067 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-25 14:28:55,754 repast.simphony.batch.ssh.RemoteSession - 
+	Copying /tmp/ec2-user_ec2-52-14-174-22.us-east-2.compute.amazonaws.com3706400944987287690.zip to 
+	ec2-user@ec2-52-14-174-22.us-east-2.compute.amazonaws.com:~/simphony_model_1519586933417/ec2-user_ec2-52-14-174-22.us-east-2.compute.amazonaws.com3706400944987287690.zip ...
+WARN  [SwingWorker-pool-1-thread-2] 2018-02-25 14:29:00,259 repast.simphony.batch.ssh.SSHSessionFactory - Permanently added 'ec2-52-14-174-22.us-east-2.compute.amazonaws.com' (RSA) to the list of known hosts.
+WARN  [SwingWorker-pool-1-thread-2] 2018-02-25 14:29:00,259 repast.simphony.batch.ssh.SSHSessionFactory - Permanently added 'ec2-52-14-174-22.us-east-2.compute.amazonaws.com' (RSA) to the list of known hosts.
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-25 14:30:02,657 repast.simphony.batch.ssh.RemoteSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-25 14:30:02,661 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 1.1540
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-25 14:30:03,007 repast.simphony.batch.ssh.RemoteSession - Checking for java on ec2-user@ec2-52-14-174-22.us-east-2.compute.amazonaws.com
+INFO  [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:03,459 repast.simphony.batch.ssh.SSHSession - java version "1.7.0_161"
+OpenJDK Runtime Environment (amzn-2.6.12.0.75.amzn1-x86_64 u161-b00)
+OpenJDK 64-Bit Server VM (build 24.161-b00, mixed mode)
+
+INFO  [SwingWorker-pool-1-thread-2] 2018-02-25 14:30:04,118 repast.simphony.batch.ssh.RemoteSession - Unzipping model on ec2-user@ec2-52-14-174-22.us-east-2.compute.amazonaws.com
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,321 repast.simphony.batch.ssh.SSHSession - Exception 
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,322 repast.simphony.batch.ssh.SSHSession - in thread "main" 
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,325 repast.simphony.batch.ssh.SSHSession - java.lang.UnsupportedClassVersionError: repast/simphony/util/Unzipper : Unsupported major.minor version 52.0
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,326 repast.simphony.batch.ssh.SSHSession - 	at java.lang.ClassLoader.defineClass1(Native Method)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,326 repast.simphony.batch.ssh.SSHSession - 	at java.lang.ClassLoader.defineClass(ClassLoader.java:803)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,355 repast.simphony.batch.ssh.SSHSession - 	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,355 repast.simphony.batch.ssh.SSHSession - 	at java.net.URLClassLoader.defineClass(URLClassLoader.java:442)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,355 repast.simphony.batch.ssh.SSHSession - 	at java.net.URLClassLoader.access$100(URLClassLoader.java:64)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,356 repast.simphony.batch.ssh.SSHSession - 	at java.net.URLClassLoader$1.run(URLClassLoader.java:354)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,356 repast.simphony.batch.ssh.SSHSession - 	at java.net.URLClassLoader$1.run(URLClassLoader.java:348)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,356 repast.simphony.batch.ssh.SSHSession - 	at java.security.AccessController.doPrivileged(Native Method)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,356 repast.simphony.batch.ssh.SSHSession - 	at java.net.URLClassLoader.findClass(URLClassLoader.java:347)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,356 repast.simphony.batch.ssh.SSHSession - 	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,358 repast.simphony.batch.ssh.SSHSession - 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:312)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,358 repast.simphony.batch.ssh.SSHSession - 	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+ERROR [Connect thread ec2-52-14-174-22.us-east-2.compute.amazonaws.com session] 2018-02-25 14:30:04,358 repast.simphony.batch.ssh.SSHSession - 	at sun.launcher.LauncherHelper.checkAndLoadMain(LauncherHelper.java:482)
+ERROR [SwingWorker-pool-1-thread-2] 2018-02-25 14:30:05,155 repast.simphony.batch.ssh.SessionsDriver - Error executing 'cd simphony_model_1519586933417; java -jar ec2-user_ec2-52-14-174-22.us-east-2.compute.amazonaws.com3706400944987287690.zip ec2-user_ec2-52-14-174-22.us-east-2.compute.amazonaws.com3706400944987287690.zip' on remote ec2-user@ec2-52-14-174-22.us-east-2.compute.amazonaws.com. See log for details.
+repast.simphony.batch.ssh.SessionException: Error executing 'cd simphony_model_1519586933417; java -jar ec2-user_ec2-52-14-174-22.us-east-2.compute.amazonaws.com3706400944987287690.zip ec2-user_ec2-52-14-174-22.us-east-2.compute.amazonaws.com3706400944987287690.zip' on remote ec2-user@ec2-52-14-174-22.us-east-2.compute.amazonaws.com. See log for details.
+	at repast.simphony.batch.ssh.RemoteSession.unzipModel(RemoteSession.java:179)
+	at repast.simphony.batch.ssh.RemoteSession.runModel(RemoteSession.java:261)
+	at repast.simphony.batch.ssh.SessionsDriver.run(SessionsDriver.java:67)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:466)
+	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:1)
+	at javax.swing.SwingWorker$1.call(SwingWorker.java:295)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at javax.swing.SwingWorker.run(SwingWorker.java:334)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)

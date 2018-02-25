@@ -1,17 +1,17 @@
 library(rpart)
-setwd("/home/akara/workspace9/Mayagrations/r")
-params <- read.csv("params1.csv")
-out <- read.csv("out1.csv")
-
+setwd("/home/akara/workspace/Mayagrations/output/")
+params <- read.csv("params2.csv")
+out <- read.csv("out2.csv")
 data <- merge(params, out)
-data$collapse1 <- (data$min+1)/(data$max+1)
-data$collapse2 <- (data$final+1)/(data$max+1)
+data$collapse1 <- (data$MinPop+1)/(data$MaxPop+1)
+data$collapse2 <- (data$countPop+1)/(data$MaxPop+1)
 
-model1 <- rpart(collapse2 ~ weightRegen + foodUnsustainability + weightResil
-+ weightBloatRate + foodRegen + foodDecay + weightDrought + foodResil
-+ foodDrought, + foodDrought, data=data, method="anova")
-plot(model1, uniform=TRUE)
+data <- rbind(data,data)
+
+model1 <- rpart(collapse2~fecundityResil+costResil+fecundityDisturbance,data=data,method="anova")
+plot(margin=0, compress=)
 text(model1, all=TRUE)
+post(model1, 'test', 'test.ps')
 summary(model1)
 data <- params
 data$pop1 <- NA

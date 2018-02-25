@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>causes of deaths</name>
+  <name>population</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -16,47 +16,83 @@
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>born</string>
+      <string>Labor</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>born</id>
+        <id>Labor</id>
         <className>mayagrations.Center</className>
-        <methodName>getBorn</methodName>
+        <methodName>getPop</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>staples</string>
+      <string>Fp</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>staples</id>
+        <id>Fp</id>
         <className>mayagrations.Center</className>
-        <methodName>getStaplesDeaths</methodName>
+        <methodName>getFecundityEmployable</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>imports</string>
+      <string>Fg</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>imports</id>
+        <id>Fg</id>
         <className>mayagrations.Center</className>
-        <methodName>getImportsDeaths</methodName>
+        <methodName>getFecundityEngineered</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>move success</string>
+      <string>Staples</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>move success</id>
+        <id>Staples</id>
         <className>mayagrations.Center</className>
-        <methodName>getMoveLifes</methodName>
+        <methodName>getStaples</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>move failure</string>
+      <string>Traffic Long</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>move failure</id>
-        <className>mayagrations.Center</className>
-        <methodName>getMoveDeaths</methodName>
+        <id>Traffic Long</id>
+        <className>mayagrations.Route</className>
+        <methodName>getTrafficLongBajo</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Traffic Final</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Traffic Final</id>
+        <className>mayagrations.Route</className>
+        <methodName>getTrafficFinalBajo</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Traffic Short</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Traffic Short</id>
+        <className>mayagrations.Route</className>
+        <methodName>getTrafficShortBajo</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Weight</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Weight</id>
+        <className>mayagrations.Route</className>
+        <methodName>getWeightBajo</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cost Base</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cost Base</id>
+        <className>mayagrations.Route</className>
+        <methodName>getCostBaseBajo</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
