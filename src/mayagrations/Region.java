@@ -77,8 +77,10 @@ public class Region {
 		}
 		for (Center c : centers) {
 			if (spawns.contains(c)){
-				Group dude = new Group(c, true, "graph");
-				c.addGroup(dude);
+				if (c.getLabor()==0) {
+					Group dude = new Group(c, true, "graph");
+					c.addGroup(dude);
+				}
 			}
 			if (c.equals(mine)) {
 				c.setMineDistance(0.1);

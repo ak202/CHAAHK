@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Route Data</name>
-  <dataSet>population</dataSet>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
+  <name>causes of death</name>
+  <dataSet>causes of deaths</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel></yAxisLabel>
-  <chartTitle>Route Data</chartTitle>
+  <yAxisLabel>Number of Occurances</yAxisLabel>
+  <chartTitle>Demographic Statistics</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,23 +21,23 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>cost engineered</string>
+      <string>staples</string>
       <SeriesData>
-        <label>cost engineered</label>
+        <label>staples</label>
         <color>
           <red>0</red>
-          <green>153</green>
-          <blue>153</blue>
+          <green>0</green>
+          <blue>204</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
     </entry>
     <entry>
-      <string>traffic final</string>
+      <string>imports</string>
       <SeriesData>
-        <label>traffic final</label>
+        <label>imports</label>
         <color>
-          <red>204</red>
+          <red>255</red>
           <green>0</green>
           <blue>0</blue>
           <alpha>255</alpha>
@@ -45,11 +45,11 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>traffic long</string>
+      <string>move failure</string>
       <SeriesData>
-        <label>traffic long</label>
+        <label>move failure</label>
         <color>
-          <red>255</red>
+          <red>51</red>
           <green>51</green>
           <blue>51</blue>
           <alpha>255</alpha>
@@ -57,49 +57,25 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>traffic short</string>
+      <string>move success</string>
       <SeriesData>
-        <label>traffic short</label>
-        <color>
-          <red>255</red>
-          <green>153</green>
-          <blue>153</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>costbase</string>
-      <SeriesData>
-        <label>costbase</label>
+        <label>move success</label>
         <color>
           <red>0</red>
-          <green>0</green>
+          <green>255</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
     </entry>
     <entry>
-      <string>weight</string>
+      <string>born</string>
       <SeriesData>
-        <label>weight</label>
+        <label>born</label>
         <color>
-          <red>153</red>
+          <red>255</red>
           <green>255</green>
-          <blue>204</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>cost employable</string>
-      <SeriesData>
-        <label>cost employable</label>
-        <color>
-          <red>51</red>
-          <green>255</green>
-          <blue>204</blue>
+          <blue>0</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>

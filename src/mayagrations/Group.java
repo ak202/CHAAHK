@@ -100,20 +100,24 @@ public class Group {
 				chance -= pullFraction; 
 			}
 		} 
-		Context<Object> context = ContextUtils.getContext(homeCenter);
-		Network<Object> net = (Network<Object>) context.getProjection("market strength");
-		ShortestPath<Object> sp2 = new ShortestPath<Object>(net);
-		double distance = sp2.getPathLength(homeCenter, newHome);
+//		Context<Object> context = ContextUtils.getContext(homeCenter);
+//		Network<Object> net = (Network<Object>) context.getProjection("market strength");
+//		ShortestPath<Object> sp2 = new ShortestPath<Object>(net);
+//		double distance = sp2.getPathLength(homeCenter, newHome);
+//		homeCenter.emmigrate(this);
+//		if (distance > migrationDistanceThreshold) {
+//			homeCenter.incMoveDeaths();
+//			context.remove(this);
+//		} else {
+//			homeCenter.incMoveLifes();
+//			homeCenter = newHome;
+//			homeCenter.immigrate(this);
+//		}
+//		sp2.finalize();
+		homeCenter.incMoveLifes();
 		homeCenter.emmigrate(this);
-		if (distance > migrationDistanceThreshold) {
-			homeCenter.incMoveDeaths();
-			context.remove(this);
-		} else {
-			homeCenter.incMoveLifes();
-			homeCenter = newHome;
-			homeCenter.immigrate(this);
-		}
-		sp2.finalize();
+		homeCenter = newHome;
+		homeCenter.immigrate(this);
 	}
 	
 	public boolean getMigrant() {

@@ -1,5 +1,5 @@
-<repast.simphony.data2.engine.DataSetDescriptor>
-  <name>population</name>
+<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
+  <name>causes of deaths</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -16,83 +16,47 @@
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Labor</string>
+      <string>born</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Labor</id>
+        <id>born</id>
         <className>mayagrations.Center</className>
-        <methodName>getPop</methodName>
+        <methodName>getBorn</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Fp</string>
+      <string>staples</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Fp</id>
+        <id>staples</id>
         <className>mayagrations.Center</className>
-        <methodName>getFecundityEmployable</methodName>
+        <methodName>getStaplesDeaths</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Fg</string>
+      <string>imports</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Fg</id>
+        <id>imports</id>
         <className>mayagrations.Center</className>
-        <methodName>getFecundityEngineered</methodName>
+        <methodName>getImportsDeaths</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Staples</string>
+      <string>move success</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Staples</id>
+        <id>move success</id>
         <className>mayagrations.Center</className>
-        <methodName>getStaples</methodName>
+        <methodName>getMoveLifes</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Traffic Long</string>
+      <string>move failure</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Traffic Long</id>
-        <className>mayagrations.Route</className>
-        <methodName>getTrafficLongBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Traffic Final</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Traffic Final</id>
-        <className>mayagrations.Route</className>
-        <methodName>getTrafficFinalBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Traffic Short</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Traffic Short</id>
-        <className>mayagrations.Route</className>
-        <methodName>getTrafficShortBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Weight</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Weight</id>
-        <className>mayagrations.Route</className>
-        <methodName>getWeightBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cost Base</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cost Base</id>
-        <className>mayagrations.Route</className>
-        <methodName>getCostBaseBajo</methodName>
+        <id>move failure</id>
+        <className>mayagrations.Center</className>
+        <methodName>getMoveDeaths</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>

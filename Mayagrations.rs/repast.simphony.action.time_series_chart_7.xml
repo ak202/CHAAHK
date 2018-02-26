@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Population and Fecundities</name>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
+  <name>Centers</name>
   <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
   <yAxisLabel>Amount</yAxisLabel>
-  <chartTitle>Population and Fecundities</chartTitle>
+  <chartTitle>Centers</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,11 +21,35 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>Fep</string>
+      <string>Fg</string>
       <SeriesData>
-        <label>Fep</label>
+        <label>Fg</label>
         <color>
-          <red>204</red>
+          <red>153</red>
+          <green>153</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Staples</string>
+      <SeriesData>
+        <label>Staples</label>
+        <color>
+          <red>255</red>
+          <green>255</green>
+          <blue>153</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Fp</string>
+      <SeriesData>
+        <label>Fp</label>
+        <color>
+          <red>255</red>
           <green>204</green>
           <blue>0</blue>
           <alpha>255</alpha>
@@ -33,49 +57,13 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>pop</string>
+      <string>Labor</string>
       <SeriesData>
-        <label>pop</label>
+        <label>Labor</label>
         <color>
           <red>0</red>
-          <green>255</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>staples</string>
-      <SeriesData>
-        <label>staples</label>
-        <color>
-          <red>255</red>
-          <green>255</green>
-          <blue>102</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Feg</string>
-      <SeriesData>
-        <label>Feg</label>
-        <color>
-          <red>102</red>
-          <green>102</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>brahmin</string>
-      <SeriesData>
-        <label>brahmin</label>
-        <color>
-          <red>0</red>
-          <green>102</green>
-          <blue>0</blue>
+          <green>204</green>
+          <blue>51</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
