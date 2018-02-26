@@ -9,5 +9,6 @@
 <repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_6.xml" />
 <repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_7.xml" />
 <repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_8.xml" />
-<repast.simphony.action.display context="Mayagrations" file="repast.simphony.action.display_9.xml" />
+<repast.simphony.action.histogram_chart context="Mayagrations" file="repast.simphony.action.histogram_chart_9.xml" />
+<repast.simphony.action.display context="Mayagrations" file="repast.simphony.action.display_10.xml" />
 </Scenario>

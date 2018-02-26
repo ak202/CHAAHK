@@ -188,7 +188,7 @@ public class Center {
 	    		fecundityEmployable = fecundityMin;
 	    	}
 	    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-	    	if (tick > 10000+droughtMod & tick < 11000+droughtMod) {
+	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
 	    		staples = Math.round((float)(fecundityEmployable*fecundityDisturbance));
 	    	} else {
 	    		staples = Math.round((float)fecundityEmployable);

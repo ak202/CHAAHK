@@ -6,12 +6,12 @@
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
     <start>30.0</start>
-    <interval>50.0</interval>
+    <interval>5.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>1434699497</hashCode>
+    <hashCode>932876387</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">

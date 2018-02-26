@@ -548,3 +548,33 @@ INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 16:29:42,479 repast.simphony.batc
 INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 16:29:42,486 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /media/nvme/workspace2/Mayagrations/output
 INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 16:29:42,487 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0003
 INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 16:29:42,488 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 11.0391
+INFO  [AWT-EventQueue-0] 2018-02-26 18:00:06,649 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /media/nvme/workspace2/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-26 18:00:06,681 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/media/nvme/workspace2/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [AWT-EventQueue-0] 2018-02-26 18:04:21,819 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /media/nvme/workspace2/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-02-26 18:04:21,850 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+	/media/nvme/workspace2/Mayagrations/batch/batch_params.xml to
+	/tmp/unrolledParamFile.txt
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:04:29,576 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/akara_localhost3190129849978891200.zip to 
+/tmp/simphony_model_1519686267469 ...
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:04:29,591 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:04:29,592 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0354
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:04:29,592 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519686267469/akara_localhost3190129849978891200.zip
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:04:29,832 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2018-02-26 18:05:29,835 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519686267469 for DONE:  no
+INFO  [pool-2-thread-1] 2018-02-26 18:06:29,836 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519686267469 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,838 repast.simphony.batch.ssh.SessionsDriver - Run Time: 2.0041
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,848 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519686267469
+WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,853 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519686267469/instance_8
+WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,854 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519686267469/instance_7
+WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,854 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519686267469/instance_6
+WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,855 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519686267469/instance_5
+WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,855 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519686267469/instance_4
+WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,856 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519686267469/instance_3
+WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,856 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519686267469/instance_2
+WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,857 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519686267469/instance_1
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,857 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /media/nvme/workspace2/Mayagrations/output
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,858 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0003
+INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 18:06:29,858 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 2.0400

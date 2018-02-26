@@ -113,7 +113,7 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 		
 		Region graph = new Region(centers, context);
 		context.add(graph);
-		RunEnvironment.getInstance().endAt(16500);
+		RunEnvironment.getInstance().endAt(1650);
 		return context;
 	}
 	

@@ -17,11 +17,11 @@
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>ImportsPopulated</string>
+      <string>Pull</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>ImportsPopulated</id>
+        <id>Pull</id>
         <className>mayagrations.Center</className>
-        <methodName>getImportsPopulated</methodName>
+        <methodName>getPull</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

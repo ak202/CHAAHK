@@ -62,11 +62,9 @@ public class Region {
 		}
 		
 //		OUTPUT VARIABLES	
-		
 		minPop = 0;
 		maxPop = 0;
 		finalPop = 0;
-		
 	}
 	
 	@ScheduledMethod(start = 1, interval = 5)
@@ -112,10 +110,10 @@ public class Region {
 		pullFractions = new ArrayList<Double>();
 		double totalPull = 0;
 		for (Center center : centers) {
-			if (center.getResSize() > 0) {
-				center.setPull(Math.pow(Math.sqrt(center.getStaplesPerCap()) + Math.sqrt(center.getImportsPerCap()), 2));
+			if (center.getDistToExporter() < 1) {
+				center.setPull(0);
 			} else {
-				center.setPull(1/center.getDistToExporter());
+				center.setPull(center.getFecundityEmployable()/center.getDistToExporter());
 			}
 			totalPull += center.getPull();
 		}

@@ -198,7 +198,7 @@ public class Route<T> extends RepastEdge<T> {
     		}
     	}
     	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-    	if (tick > 10000+droughtMod & tick < 11000+droughtMod) {
+    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
     		weight = costEmployable*costDisturbance;
     	} else {
     		weight = costEmployable;
