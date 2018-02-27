@@ -6,6 +6,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="uplandAmount" displayName="Upland Amount" type="int" 
+						defaultValue="90" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="costMaxFactor" displayName="Cost Maximum (Factor)" type="double" 
 						defaultValue="10.0" 
 						isReadOnly="false" 
@@ -121,7 +127,7 @@
 									
 		/>
 				<parameter name="fecundityDecRate" displayName="Fecundity Decrease Rate" type="double" 
-						defaultValue="1" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
