@@ -1,4 +1,4 @@
-<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
+<repast.simphony.data2.engine.DataSetDescriptor>
   <name>imports</name>
   <type>NON_AGGREGATE</type>
   <sourceType>mayagrations.Center</sourceType>

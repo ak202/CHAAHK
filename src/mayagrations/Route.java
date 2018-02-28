@@ -281,13 +281,16 @@ public class Route<T> extends RepastEdge<T> {
 		costMax =  weight;
 		costDisturbance = 1;
 		costResil = costResil * 1.5;
+		if (costResil > 1) {
+			costResil = 1;
+		}
 		initBase();
 	}
 	public void initBajo() {
 		weight = weight/5;
 		costMin =  weight/2;
 		costMax =  weight*50;
-		costResil = costResil * .7;
+		costResil = costResil;
 		initBase();
 	}
 	public void initBase() {
