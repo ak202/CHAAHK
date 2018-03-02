@@ -32,6 +32,7 @@ public class Center {
 	private double fecundityDecrease; //Fd
 	
 	private double imports; //I				//imports
+	private double importsLast;
 	private double distToExporter; //D
 	
 	private List<Route<Object>> path;		//excluded
@@ -84,6 +85,7 @@ public class Center {
 		fecundityDecrease = 0;
 		
 		imports = 0.0;						//imports
+		importsLast = 0.0;
 		distToExporter = 0;
 		pull = 0;
 		pullFraction = 0;
@@ -391,7 +393,8 @@ public class Center {
 	}
 	
 	public void calculateImports() {
-		this.imports = (labor * 2 + 1) * Math.pow(distToExporter, -.2) + .51;
+		imports = importsLast;
+		importsLast = (labor * 2 + 1) * Math.pow(distToExporter, -.2) + .51;
 	}
 	
 	public void setMineDistance(double distanceToExporter) {
