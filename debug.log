@@ -1,619 +1,238 @@
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileReader.<init>(FileReader.java:58)
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at mayagrations.MayagrationsBuilder.build(MayagrationsBuilder.java:90)
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-INFO  [Thread-1] 2018-02-26 18:55:45,672 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:45,673 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:45,673 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-INFO  [Thread-1] 2018-02-26 18:55:45,673 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-INFO  [Thread-1] 2018-02-26 18:55:45,673 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-INFO  [Thread-1] 2018-02-26 18:55:45,673 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.run(OneRunBatchRunner.java:101)
-INFO  [Thread-1] 2018-02-26 18:55:45,673 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:45,673 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
-INFO  [Thread-1] 2018-02-26 18:55:45,830 repast.simphony.batch.ssh.LocalSession - java.io.FileNotFoundException: centers.txt (No such file or directory)
-INFO  [Thread-1] 2018-02-26 18:55:45,830 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open0(Native Method)
-INFO  [Thread-1] 2018-02-26 18:55:45,830 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open(FileInputStream.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:45,830 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-INFO  [Thread-1] 2018-02-26 18:55:45,836 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileReader.<init>(FileReader.java:58)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at mayagrations.MayagrationsBuilder.build(MayagrationsBuilder.java:90)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.run(OneRunBatchRunner.java:101)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:45,837 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
-INFO  [Thread-1] 2018-02-26 18:55:45,922 repast.simphony.batch.ssh.LocalSession - java.io.FileNotFoundException: centers.txt (No such file or directory)
-INFO  [Thread-1] 2018-02-26 18:55:45,922 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open0(Native Method)
-INFO  [Thread-1] 2018-02-26 18:55:45,922 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open(FileInputStream.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:45,922 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileReader.<init>(FileReader.java:58)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at mayagrations.MayagrationsBuilder.build(MayagrationsBuilder.java:90)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.run(OneRunBatchRunner.java:101)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:45,923 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
-INFO  [Thread-1] 2018-02-26 18:55:46,016 repast.simphony.batch.ssh.LocalSession - java.io.FileNotFoundException: centers.txt (No such file or directory)
-INFO  [Thread-1] 2018-02-26 18:55:46,016 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open0(Native Method)
-INFO  [Thread-1] 2018-02-26 18:55:46,016 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open(FileInputStream.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileReader.<init>(FileReader.java:58)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at mayagrations.MayagrationsBuilder.build(MayagrationsBuilder.java:90)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.run(OneRunBatchRunner.java:101)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:46,017 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
-INFO  [Thread-1] 2018-02-26 18:55:46,214 repast.simphony.batch.ssh.LocalSession - java.io.FileNotFoundException: centers.txt (No such file or directory)
-INFO  [Thread-1] 2018-02-26 18:55:46,218 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open0(Native Method)
-INFO  [Thread-1] 2018-02-26 18:55:46,218 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open(FileInputStream.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:46,218 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-INFO  [Thread-1] 2018-02-26 18:55:46,218 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-INFO  [Thread-1] 2018-02-26 18:55:46,219 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileReader.<init>(FileReader.java:58)
-INFO  [Thread-1] 2018-02-26 18:55:46,219 repast.simphony.batch.ssh.LocalSession - 	at mayagrations.MayagrationsBuilder.build(MayagrationsBuilder.java:90)
-INFO  [Thread-1] 2018-02-26 18:55:46,219 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-INFO  [Thread-1] 2018-02-26 18:55:46,219 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-INFO  [Thread-1] 2018-02-26 18:55:46,220 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-INFO  [Thread-1] 2018-02-26 18:55:46,220 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-INFO  [Thread-1] 2018-02-26 18:55:46,220 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-INFO  [Thread-1] 2018-02-26 18:55:46,220 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:46,220 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:46,220 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-INFO  [Thread-1] 2018-02-26 18:55:46,220 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-INFO  [Thread-1] 2018-02-26 18:55:46,221 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-INFO  [Thread-1] 2018-02-26 18:55:46,221 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.run(OneRunBatchRunner.java:101)
-INFO  [Thread-1] 2018-02-26 18:55:46,221 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:46,221 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
-INFO  [Thread-1] 2018-02-26 18:55:46,311 repast.simphony.batch.ssh.LocalSession - java.io.FileNotFoundException: centers.txt (No such file or directory)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open0(Native Method)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open(FileInputStream.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileReader.<init>(FileReader.java:58)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at mayagrations.MayagrationsBuilder.build(MayagrationsBuilder.java:90)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-INFO  [Thread-1] 2018-02-26 18:55:46,312 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-INFO  [Thread-1] 2018-02-26 18:55:46,313 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.run(OneRunBatchRunner.java:101)
-INFO  [Thread-1] 2018-02-26 18:55:46,313 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:46,313 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
-INFO  [Thread-1] 2018-02-26 18:55:47,581 repast.simphony.batch.ssh.LocalSession - java.io.FileNotFoundException: centers.txt (No such file or directory)
-INFO  [Thread-1] 2018-02-26 18:55:47,581 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open0(Native Method)
-INFO  [Thread-1] 2018-02-26 18:55:47,590 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open(FileInputStream.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:47,590 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-INFO  [Thread-1] 2018-02-26 18:55:47,590 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-INFO  [Thread-1] 2018-02-26 18:55:47,590 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileReader.<init>(FileReader.java:58)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at mayagrations.MayagrationsBuilder.build(MayagrationsBuilder.java:90)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.run(OneRunBatchRunner.java:101)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:47,591 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
-INFO  [Thread-1] 2018-02-26 18:55:47,675 repast.simphony.batch.ssh.LocalSession - java.io.FileNotFoundException: centers.txt (No such file or directory)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open0(Native Method)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.open(FileInputStream.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileInputStream.<init>(FileInputStream.java:93)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at java.io.FileReader.<init>(FileReader.java:58)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at mayagrations.MayagrationsBuilder.build(MayagrationsBuilder.java:90)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.ClassNameContextBuilder.build(ClassNameContextBuilder.java:41)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.dataLoader.engine.DataLoaderControllerAction.runInitialize(DataLoaderControllerAction.java:48)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:214)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController$2.visit(DefaultController.java:1)
-INFO  [Thread-1] 2018-02-26 18:55:47,676 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:292)
-INFO  [Thread-1] 2018-02-26 18:55:47,679 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:47,679 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraverals(NaryTree.java:295)
-INFO  [Thread-1] 2018-02-26 18:55:47,679 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.util.collections.NaryTree.preOrderTraversal(NaryTree.java:288)
-INFO  [Thread-1] 2018-02-26 18:55:47,679 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:212)
-INFO  [Thread-1] 2018-02-26 18:55:47,679 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.engine.controller.DefaultController.runInitialize(DefaultController.java:383)
-INFO  [Thread-1] 2018-02-26 18:55:47,679 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.OneRunBatchRunner.run(OneRunBatchRunner.java:101)
-INFO  [Thread-1] 2018-02-26 18:55:47,679 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.run(InstanceRunner.java:195)
-INFO  [Thread-1] 2018-02-26 18:55:47,679 repast.simphony.batch.ssh.LocalSession - 	at repast.simphony.batch.InstanceRunner.main(InstanceRunner.java:217)
-INFO  [AWT-EventQueue-0] 2018-02-26 19:01:36,493 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /media/nvme/workspace2/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-26 19:01:36,525 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
+INFO  [pool-3-thread-1] 2018-03-01 16:21:16,209 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:22:16,211 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:23:16,212 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:24:16,212 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:25:16,213 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:26:16,213 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:27:16,214 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:28:16,214 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:29:16,215 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:30:16,215 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:31:16,216 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:32:16,217 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:33:16,217 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:34:16,218 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:35:16,218 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:36:16,219 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:37:16,219 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:38:16,220 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [pool-3-thread-1] 2018-03-01 16:39:16,220 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519937653666 for DONE:  no
+INFO  [AWT-EventQueue-0] 2018-03-01 16:40:31,460 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /media/nvme/workspace2/Mayagrations/output/config.props
+INFO  [AWT-EventQueue-0] 2018-03-01 16:40:31,505 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
 	/media/nvme/workspace2/Mayagrations/batch/batch_params.xml to
 	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:01:44,411 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /tmp/akara_localhost2282441930786731253.zip to 
-/tmp/simphony_model_1519689702324 ...
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:01:44,427 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:01:44,428 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0351
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:01:44,428 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519689702324/akara_localhost2282441930786731253.zip
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:01:44,670 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-2-thread-1] 2018-02-26 19:02:44,673 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519689702324 for DONE:  no
-INFO  [pool-2-thread-1] 2018-02-26 19:03:44,674 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519689702324 for DONE:  no
-INFO  [pool-2-thread-1] 2018-02-26 19:04:44,676 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519689702324 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,678 repast.simphony.batch.ssh.SessionsDriver - Run Time: 3.0041
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,689 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519689702324
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,694 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519689702324/instance_8
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,694 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519689702324/instance_7
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,695 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519689702324/instance_6
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,695 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519689702324/instance_5
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,696 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519689702324/instance_4
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,696 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519689702324/instance_3
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,697 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519689702324/instance_2
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,697 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519689702324/instance_1
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,697 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /media/nvme/workspace2/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,698 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0003
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:04:44,698 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 3.0398
-INFO  [AWT-EventQueue-0] 2018-02-26 19:08:11,344 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /media/nvme/workspace2/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-26 19:08:11,345 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/media/nvme/workspace2/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:08:18,961 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /tmp/akara_localhost3640127587387998365.zip to 
-/tmp/simphony_model_1519690096867 ...
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:08:18,977 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:08:18,978 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0352
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:08:18,978 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519690096867/akara_localhost3640127587387998365.zip
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:08:19,208 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-3-thread-1] 2018-02-26 19:09:19,209 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690096867 for DONE:  no
-INFO  [pool-3-thread-1] 2018-02-26 19:10:19,218 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690096867 for DONE:  no
-INFO  [pool-3-thread-1] 2018-02-26 19:11:19,219 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690096867 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,220 repast.simphony.batch.ssh.SessionsDriver - Run Time: 3.0040
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,222 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519690096867
-WARN  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,223 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690096867/instance_8
-WARN  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,224 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690096867/instance_7
-WARN  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,225 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690096867/instance_6
-WARN  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,226 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690096867/instance_5
-WARN  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,227 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690096867/instance_4
-WARN  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,227 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690096867/instance_3
-WARN  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,228 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690096867/instance_2
-WARN  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,229 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690096867/instance_1
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,229 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /media/nvme/workspace2/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,231 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0002
-INFO  [SwingWorker-pool-1-thread-2] 2018-02-26 19:11:19,231 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 3.0395
-INFO  [AWT-EventQueue-0] 2018-02-26 19:14:28,661 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /media/nvme/workspace2/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-26 19:14:28,664 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/media/nvme/workspace2/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:14:36,180 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /tmp/akara_localhost5820749885577214566.zip to 
-/tmp/simphony_model_1519690474081 ...
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:14:36,198 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:14:36,198 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0353
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:14:36,198 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519690474081/akara_localhost5820749885577214566.zip
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:14:36,428 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-4-thread-1] 2018-02-26 19:14:54,429 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  no
-INFO  [pool-4-thread-1] 2018-02-26 19:15:12,430 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  no
-INFO  [pool-4-thread-1] 2018-02-26 19:15:30,430 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  no
-INFO  [pool-4-thread-1] 2018-02-26 19:15:48,431 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  no
-INFO  [pool-4-thread-1] 2018-02-26 19:16:06,443 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  no
-INFO  [pool-4-thread-1] 2018-02-26 19:16:24,449 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  no
-INFO  [pool-4-thread-1] 2018-02-26 19:16:42,452 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  no
-INFO  [pool-4-thread-1] 2018-02-26 19:17:00,453 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  no
-INFO  [pool-4-thread-1] 2018-02-26 19:17:18,454 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690474081 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,455 repast.simphony.batch.ssh.SessionsDriver - Run Time: 2.7043
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,461 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519690474081
-WARN  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,464 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690474081/instance_8
-WARN  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,465 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690474081/instance_7
-WARN  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,466 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690474081/instance_6
-WARN  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,466 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690474081/instance_5
-WARN  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,466 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690474081/instance_4
-WARN  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,467 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690474081/instance_3
-WARN  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,467 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690474081/instance_2
-WARN  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,468 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690474081/instance_1
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,468 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /media/nvme/workspace2/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,468 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0002
-INFO  [SwingWorker-pool-1-thread-3] 2018-02-26 19:17:18,468 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 2.7399
-INFO  [AWT-EventQueue-0] 2018-02-26 19:23:07,190 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /media/nvme/workspace2/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-26 19:23:07,228 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/media/nvme/workspace2/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:23:15,040 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /tmp/akara_localhost7521920223530187194.zip to 
-/tmp/simphony_model_1519690992977 ...
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:23:15,056 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:23:15,057 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0347
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:23:15,057 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519690992977/akara_localhost7521920223530187194.zip
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:23:15,299 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-2-thread-1] 2018-02-26 19:24:15,301 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519690992977 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:24:15,303 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0041
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:24:15,315 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519690992977
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:24:15,321 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690992977/instance_2
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:24:15,322 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519690992977/instance_1
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:24:15,322 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /media/nvme/workspace2/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:24:15,323 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0003
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:24:15,323 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.0392
-INFO  [AWT-EventQueue-0] 2018-02-26 19:33:26,462 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /media/nvme/workspace2/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-26 19:33:26,497 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/media/nvme/workspace2/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:33:34,346 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /tmp/akara_localhost7786991159093796890.zip to 
-/tmp/simphony_model_1519691612263 ...
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:33:34,364 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:33:34,365 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0350
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:33:34,365 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519691612263/akara_localhost7786991159093796890.zip
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:33:34,609 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-2-thread-1] 2018-02-26 19:34:34,612 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519691612263 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,614 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0041
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,626 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519691612263
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,634 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519691612263/instance_8
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,634 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519691612263/instance_7
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,635 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519691612263/instance_6
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,635 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519691612263/instance_5
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,636 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519691612263/instance_4
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,636 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519691612263/instance_3
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,637 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519691612263/instance_2
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,637 repast.simphony.batch.ssh.OutputFinder - No model output found matching glob:{**/,}ModelOutput*.batch_param_map.txt in /tmp/simphony_model_1519691612263/instance_1
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,637 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /media/nvme/workspace2/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,638 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0004
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-26 19:34:34,638 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.0397
-INFO  [AWT-EventQueue-0] 2018-02-27 16:39:02,234 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-27 16:39:02,299 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:39:09,167 repast.simphony.batch.ssh.LocalSession - 
-	Copying locally /tmp/akara_localhost8438081754620095307.zip to 
-/tmp/simphony_model_1519767546774 ...
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:39:09,190 repast.simphony.batch.ssh.LocalSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:39:09,193 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0403
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:39:09,193 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519767546774/akara_localhost8438081754620095307.zip
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:39:09,529 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
-INFO  [pool-2-thread-1] 2018-02-27 16:40:09,556 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519767546774 for DONE:  yes
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:40:09,559 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0061
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:40:09,586 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519767546774
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:40:09,626 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:40:09,627 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0011
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:40:09,628 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.0478
-INFO  [AWT-EventQueue-0] 2018-02-27 16:57:23,121 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-27 16:57:23,216 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 16:57:30,977 repast.simphony.batch.ssh.RemoteSession - 
-	Copying /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com5405688687961159970.zip to 
-	ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:~/simphony_model_1519768648235/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com5405688687961159970.zip ...
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-27 16:57:33,425 repast.simphony.batch.ssh.SSHSessionFactory - Permanently added 'ec2-18-220-81-250.us-east-2.compute.amazonaws.com' (RSA) to the list of known hosts.
-WARN  [SwingWorker-pool-1-thread-1] 2018-02-27 16:57:33,425 repast.simphony.batch.ssh.SSHSessionFactory - Permanently added 'ec2-18-220-81-250.us-east-2.compute.amazonaws.com' (RSA) to the list of known hosts.
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:00:22,549 repast.simphony.batch.ssh.RemoteSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:00:22,553 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 2.9053
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:00:22,861 repast.simphony.batch.ssh.RemoteSession - Checking for java on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 17:00:23,048 repast.simphony.batch.ssh.SSHSession - openjdk version "1.8.0_161"
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 17:00:23,049 repast.simphony.batch.ssh.SSHSession - OpenJDK Runtime Environment (build 1.8.0_161-b14)
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 17:00:23,049 repast.simphony.batch.ssh.SSHSession - OpenJDK 64-Bit Server VM (build 25.161-b14, mixed mode)
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:00:23,965 repast.simphony.batch.ssh.RemoteSession - Unzipping model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:00:26,030 repast.simphony.batch.ssh.RemoteSession - Running model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com ...
-INFO  [pool-2-thread-1] 2018-02-27 17:00:46,728 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:01:05,915 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:01:24,955 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:01:44,000 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:02:03,044 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:02:22,086 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:02:41,119 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:03:00,154 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:03:19,188 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:03:38,221 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:03:57,255 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:04:16,539 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:04:35,621 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:04:54,658 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:05:13,690 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:05:32,721 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:05:51,758 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:06:10,796 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:06:29,838 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:06:48,875 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:07:07,907 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:07:26,947 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:07:45,988 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:08:05,021 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:08:24,053 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:08:43,085 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:09:02,122 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:09:21,158 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:09:40,196 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:09:59,229 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:10:18,266 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:10:37,298 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:10:56,329 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:11:15,383 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:11:34,423 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:11:53,476 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:12:12,581 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:12:31,616 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:12:50,649 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:13:09,684 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:13:28,744 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:13:47,800 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:14:06,848 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:14:25,900 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:14:44,937 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:15:03,969 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:15:23,001 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:15:42,034 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:16:01,066 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:16:20,100 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:16:39,141 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:16:58,188 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:17:17,233 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:17:36,271 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:17:55,306 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:18:14,339 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:18:33,373 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:18:52,422 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:19:11,465 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:19:30,499 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:19:49,534 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:20:08,566 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:20:27,598 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:20:46,637 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:21:05,669 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:21:24,707 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:21:43,741 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:22:02,773 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:22:21,850 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:22:40,885 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:22:59,917 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:23:18,954 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:23:37,988 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:23:57,024 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:24:16,058 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:24:35,093 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:24:58,196 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:25:17,233 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:25:36,268 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:25:55,303 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:26:14,337 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:26:33,374 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:26:52,409 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:27:11,447 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:27:30,482 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:27:49,518 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:28:08,552 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:28:27,837 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:28:46,873 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:29:05,909 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:29:24,951 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:29:43,986 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:30:03,022 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:30:22,058 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:30:41,093 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:31:00,129 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:31:19,165 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:31:38,200 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:31:57,233 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:32:16,268 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:32:35,301 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:32:54,338 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:33:13,373 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:33:32,408 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:33:51,443 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:34:10,477 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:34:29,512 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:34:48,557 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:35:07,592 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:35:26,632 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:35:45,676 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:36:04,710 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:36:23,745 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:36:42,783 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:37:01,818 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:37:20,853 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:37:39,888 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:37:58,929 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:38:17,963 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:38:37,004 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:38:56,039 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:39:15,077 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:39:34,127 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:39:53,169 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:40:12,204 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:40:31,240 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:40:50,274 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:41:09,309 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:41:28,343 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:41:47,377 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:42:06,412 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:42:25,447 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:42:44,489 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 17:43:03,525 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519768648235 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: yes
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:43:03,539 repast.simphony.batch.ssh.SessionsDriver - Run Time: 42.6830
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:43:04,924 repast.simphony.batch.ssh.RemoteSession - Finding and copying remote output from ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:simphony_model_1519768648235 to /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:43:08,517 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:43:08,536 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0833
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 17:43:08,537 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 45.6728
-INFO  [AWT-EventQueue-0] 2018-02-27 18:57:09,730 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-27 18:57:09,897 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 18:57:17,003 repast.simphony.batch.ssh.RemoteSession - 
-	Copying /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com4531454695039038668.zip to 
-	ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:~/simphony_model_1519775834577/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com4531454695039038668.zip ...
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 18:57:33,898 repast.simphony.batch.ssh.RemoteSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 18:57:33,901 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.3220
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 18:57:34,228 repast.simphony.batch.ssh.RemoteSession - Checking for java on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 18:57:34,412 repast.simphony.batch.ssh.SSHSession - openjdk version "1.8.0_161"
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 18:57:34,413 repast.simphony.batch.ssh.SSHSession - OpenJDK Runtime Environment (build 1.8.0_161-b14
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 18:57:34,414 repast.simphony.batch.ssh.SSHSession - )
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 18:57:34,414 repast.simphony.batch.ssh.SSHSession - OpenJDK 64-Bit Server VM (build 25.161-b14, mixed mode)
-
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 18:57:35,328 repast.simphony.batch.ssh.RemoteSession - Unzipping model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 18:57:37,392 repast.simphony.batch.ssh.RemoteSession - Running model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com ...
-INFO  [pool-2-thread-1] 2018-02-27 18:58:39,825 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519775834577 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 18:59:40,861 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519775834577 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 19:00:41,910 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519775834577 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-2-thread-1] 2018-02-27 19:01:42,946 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519775834577 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: yes
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 19:01:42,948 repast.simphony.batch.ssh.SessionsDriver - Run Time: 4.1508
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 19:01:44,147 repast.simphony.batch.ssh.RemoteSession - Finding and copying remote output from ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:simphony_model_1519775834577 to /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 19:01:47,661 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 19:01:47,664 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0786
-INFO  [SwingWorker-pool-1-thread-1] 2018-02-27 19:01:47,665 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 4.5519
-INFO  [AWT-EventQueue-0] 2018-02-27 19:17:43,050 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-27 19:17:43,078 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-ERROR [SwingWorker-pool-1-thread-2] 2018-02-27 19:17:51,254 repast.simphony.batch.ssh.SessionsDriver - Error while preparing zip file for distributions
-java.io.IOException: No space left on device
-	at java.io.FileOutputStream.writeBytes(Native Method)
-	at java.io.FileOutputStream.write(FileOutputStream.java:326)
-	at java.util.zip.DeflaterOutputStream.deflate(DeflaterOutputStream.java:253)
-	at java.util.zip.DeflaterOutputStream.write(DeflaterOutputStream.java:211)
-	at java.util.zip.ZipOutputStream.write(ZipOutputStream.java:331)
-	at repast.simphony.batch.ssh.ModelArchiveConfigurator.copy(ModelArchiveConfigurator.java:94)
-	at repast.simphony.batch.ssh.ModelArchiveConfigurator.configure(ModelArchiveConfigurator.java:56)
-	at repast.simphony.batch.ssh.RemoteSession.initModelArchive(RemoteSession.java:130)
-	at repast.simphony.batch.ssh.SessionsDriver.run(SessionsDriver.java:58)
-	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:466)
-	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:1)
-	at javax.swing.SwingWorker$1.call(SwingWorker.java:295)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at javax.swing.SwingWorker.run(SwingWorker.java:334)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-INFO  [AWT-EventQueue-0] 2018-02-27 19:39:59,503 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-27 19:39:59,604 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-ERROR [SwingWorker-pool-1-thread-3] 2018-02-27 19:40:07,762 repast.simphony.batch.ssh.SessionsDriver - Error while processing batch parameters for distribution
-java.io.IOException: No space left on device
-	at java.io.FileOutputStream.writeBytes(Native Method)
-	at java.io.FileOutputStream.write(FileOutputStream.java:326)
-	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:221)
-	at sun.nio.cs.StreamEncoder.implWrite(StreamEncoder.java:282)
-	at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:125)
-	at java.io.OutputStreamWriter.write(OutputStreamWriter.java:207)
-	at java.io.BufferedWriter.flushBuffer(BufferedWriter.java:129)
-	at java.io.BufferedWriter.write(BufferedWriter.java:230)
-	at java.io.Writer.write(Writer.java:157)
-	at java.io.Writer.append(Writer.java:227)
-	at repast.simphony.batch.ssh.BatchParameterChunker.createInstanceInput(BatchParameterChunker.java:138)
-	at repast.simphony.batch.ssh.BatchParameterChunker.run(BatchParameterChunker.java:70)
-	at repast.simphony.batch.ssh.SessionsDriver.run(SessionsDriver.java:52)
-	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:466)
-	at repast.simphony.batch.gui.BatchConfigMediator$AntSessionRunner.doInBackground(BatchConfigMediator.java:1)
-	at javax.swing.SwingWorker$1.call(SwingWorker.java:295)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at javax.swing.SwingWorker.run(SwingWorker.java:334)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:748)
-	Suppressed: java.io.IOException: No space left on device
-		at java.io.FileOutputStream.writeBytes(Native Method)
-		at java.io.FileOutputStream.write(FileOutputStream.java:326)
-		at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:221)
-		at sun.nio.cs.StreamEncoder.implClose(StreamEncoder.java:316)
-		at sun.nio.cs.StreamEncoder.close(StreamEncoder.java:149)
-		at java.io.OutputStreamWriter.close(OutputStreamWriter.java:233)
-		at java.io.BufferedWriter.close(BufferedWriter.java:266)
-		at repast.simphony.batch.ssh.BatchParameterChunker.createInstanceInput(BatchParameterChunker.java:141)
-		... 10 more
-INFO  [AWT-EventQueue-0] 2018-02-27 19:40:51,100 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-27 19:40:51,191 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:41:07,391 repast.simphony.batch.ssh.RemoteSession - 
-	Copying /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com7567906639898026770.zip to 
-	ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:~/simphony_model_1519778462349/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com7567906639898026770.zip ...
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:41:22,339 repast.simphony.batch.ssh.RemoteSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:41:22,407 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.3337
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:41:22,978 repast.simphony.batch.ssh.RemoteSession - Checking for java on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 19:41:23,093 repast.simphony.batch.ssh.SSHSession - openjdk version "1.8.0_161"
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 19:41:23,163 repast.simphony.batch.ssh.SSHSession - OpenJDK Runtime Environment (build 1.8.0_161-b14)
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 19:41:23,272 repast.simphony.batch.ssh.SSHSession - OpenJDK 64-Bit Server VM (build 25.161-b14, mixed mode)
-
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:41:24,009 repast.simphony.batch.ssh.RemoteSession - Unzipping model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:41:26,076 repast.simphony.batch.ssh.RemoteSession - Running model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com ...
-INFO  [pool-3-thread-1] 2018-02-27 19:42:28,547 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519778462349 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-3-thread-1] 2018-02-27 19:43:29,644 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519778462349 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-3-thread-1] 2018-02-27 19:44:30,759 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519778462349 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-3-thread-1] 2018-02-27 19:45:31,928 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519778462349 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: yes
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:45:31,959 repast.simphony.batch.ssh.SessionsDriver - Run Time: 4.1591
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:45:33,670 repast.simphony.batch.ssh.RemoteSession - Finding and copying remote output from ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:simphony_model_1519778462349 to /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:45:37,048 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:45:37,055 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0849
-INFO  [SwingWorker-pool-1-thread-4] 2018-02-27 19:45:37,055 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 4.5794
-INFO  [AWT-EventQueue-0] 2018-02-27 19:53:01,692 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-27 19:53:01,809 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:53:11,767 repast.simphony.batch.ssh.RemoteSession - 
-	Copying /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com7764049026337957409.zip to 
-	ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:~/simphony_model_1519779188250/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com7764049026337957409.zip ...
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:53:26,766 repast.simphony.batch.ssh.RemoteSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:53:26,782 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.3088
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:53:27,123 repast.simphony.batch.ssh.RemoteSession - Checking for java on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 19:53:27,320 repast.simphony.batch.ssh.SSHSession - openjdk version "1.8.0_161"
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 19:53:27,321 repast.simphony.batch.ssh.SSHSession - 
-OpenJDK Runtime Environment (build 1.8.0_161-b14
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 19:53:27,321 repast.simphony.batch.ssh.SSHSession - )
-
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 19:53:27,322 repast.simphony.batch.ssh.SSHSession - OpenJDK 64-Bit Server VM (build 25.161-b14, mixed mode)
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:53:28,236 repast.simphony.batch.ssh.RemoteSession - Unzipping model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:53:30,301 repast.simphony.batch.ssh.RemoteSession - Running model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com ...
-INFO  [pool-4-thread-1] 2018-02-27 19:54:33,196 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519779188250 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-4-thread-1] 2018-02-27 19:55:34,640 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519779188250 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: no
-INFO  [pool-4-thread-1] 2018-02-27 19:56:35,716 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519779188250 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: yes
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:56:35,768 repast.simphony.batch.ssh.SessionsDriver - Run Time: 3.1496
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:56:37,194 repast.simphony.batch.ssh.RemoteSession - Finding and copying remote output from ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:simphony_model_1519779188250 to /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:56:40,565 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:56:40,574 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0801
-INFO  [SwingWorker-pool-1-thread-5] 2018-02-27 19:56:40,575 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 3.5399
-INFO  [AWT-EventQueue-0] 2018-02-27 20:16:50,752 repast.simphony.batch.gui.BatchConfigMediator - Writing batch run config file to: /home/akara/workspace/Mayagrations/output/config.props
-INFO  [AWT-EventQueue-0] 2018-02-27 20:16:50,832 repast.simphony.batch.gui.BatchConfigMediator - Unrolling batch parameter file:
-	/home/akara/workspace/Mayagrations/batch/batch_params.xml to
-	/tmp/unrolledParamFile.txt
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:17:01,055 repast.simphony.batch.ssh.RemoteSession - 
-	Copying /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com3845087050804778023.zip to 
-	ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:~/simphony_model_1519780618328/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com3845087050804778023.zip ...
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:17:16,520 repast.simphony.batch.ssh.RemoteSession - Copying Finished.
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:17:16,531 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.3032
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:17:16,838 repast.simphony.batch.ssh.RemoteSession - Checking for java on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 20:17:17,026 repast.simphony.batch.ssh.SSHSession - openjdk version "1.8.0_161"
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 20:17:17,027 repast.simphony.batch.ssh.SSHSession - OpenJDK Runtime Environment (build 1.8.0_161-b14)
-INFO  [Connect thread ec2-18-220-81-250.us-east-2.compute.amazonaws.com session] 2018-02-27 20:17:17,029 repast.simphony.batch.ssh.SSHSession - OpenJDK 64-Bit Server VM (build 25.161-b14, mixed mode)
-
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:17:17,943 repast.simphony.batch.ssh.RemoteSession - Unzipping model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:17:20,010 repast.simphony.batch.ssh.RemoteSession - Running model on ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com ...
-INFO  [pool-5-thread-1] 2018-02-27 20:18:22,440 repast.simphony.batch.ssh.RemoteDonePoller - Polled simphony_model_1519780618328 on ec2-18-220-81-250.us-east-2.compute.amazonaws.com for DONE: yes
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:18:22,445 repast.simphony.batch.ssh.SessionsDriver - Run Time: 1.0986
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:18:23,687 repast.simphony.batch.ssh.RemoteSession - Finding and copying remote output from ec2-user@ec2-18-220-81-250.us-east-2.compute.amazonaws.com:simphony_model_1519780618328 to /tmp/ec2-user_ec2-18-220-81-250.us-east-2.compute.amazonaws.com
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:18:27,041 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /home/akara/workspace/Mayagrations/output
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:18:27,046 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0767
-INFO  [SwingWorker-pool-1-thread-6] 2018-02-27 20:18:27,046 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 1.4790
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 16:40:43,189 repast.simphony.batch.ssh.LocalSession - 
+	Copying locally /tmp/akara_localhost1860896634516287322.zip to 
+/tmp/simphony_model_1519940440319 ...
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 16:40:43,213 repast.simphony.batch.ssh.LocalSession - Copying Finished.
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 16:40:43,214 repast.simphony.batch.ssh.SessionsDriver - Initialization Time: 0.0482
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 16:40:43,214 repast.simphony.batch.ssh.LocalSession - Unzipping model /tmp/simphony_model_1519940440319/akara_localhost1860896634516287322.zip
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 16:40:43,523 repast.simphony.batch.ssh.LocalSession - Running model on localhost ...
+INFO  [pool-2-thread-1] 2018-03-01 16:41:43,526 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:42:43,532 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:43:43,533 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:44:43,553 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:45:43,558 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:46:43,564 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:47:43,564 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:48:43,565 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:49:43,566 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:50:43,569 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:51:43,571 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:52:43,571 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:53:43,572 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:54:43,581 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:55:43,588 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:56:43,589 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:57:43,589 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:58:43,590 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 16:59:43,591 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:00:43,592 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:01:43,593 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:02:43,594 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:03:43,594 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:04:43,595 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:05:43,596 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:06:43,596 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:07:43,614 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:08:43,615 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:09:43,616 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:10:43,617 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:11:43,618 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:12:43,619 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:13:43,621 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:14:43,622 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:15:43,623 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:16:43,624 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:17:43,633 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:18:43,648 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:19:43,649 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:20:43,650 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:21:43,651 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:22:43,652 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:23:43,653 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:24:43,654 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:25:43,659 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:26:43,663 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:27:43,664 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:28:43,673 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:29:43,679 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:30:43,680 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:31:43,680 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:32:43,681 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:33:43,692 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:34:43,699 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:35:43,699 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:36:43,710 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:37:43,710 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:38:43,718 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:39:43,737 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:40:43,738 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:41:43,739 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:42:43,739 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:43:43,740 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:44:43,741 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:45:43,742 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:46:43,744 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:47:43,746 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:48:43,746 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:49:43,747 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:50:43,751 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:51:43,753 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:52:43,765 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:53:43,766 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:54:43,766 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:55:43,767 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:56:43,768 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:57:43,769 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:58:43,769 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 17:59:43,771 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:00:43,776 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:01:43,783 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:02:43,784 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:03:43,789 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:04:43,791 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:05:43,795 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:06:43,797 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:07:43,806 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:08:43,809 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:09:43,810 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:10:43,810 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:11:43,814 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:12:43,815 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:13:43,821 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:14:43,835 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:15:43,836 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:16:43,837 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:17:43,838 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:18:43,839 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:19:43,840 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:20:43,841 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:21:43,843 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:22:43,851 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:23:43,861 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:24:43,862 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:25:43,878 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:26:43,879 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:27:43,880 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:28:43,881 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:29:43,881 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:30:43,882 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:31:43,883 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:32:43,883 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:33:43,886 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:34:43,887 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:35:43,888 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:36:43,893 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:37:43,894 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:38:43,895 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:39:43,896 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:40:43,898 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:41:43,899 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:42:43,900 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:43:43,901 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:44:43,910 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:45:43,911 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:46:43,911 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:47:43,912 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:48:43,913 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:49:43,916 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:50:43,917 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:51:43,921 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:52:43,926 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:53:43,927 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:54:43,928 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:55:43,928 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:56:43,929 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:57:43,930 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:58:43,933 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 18:59:43,934 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:00:43,935 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:01:43,939 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:02:43,939 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:03:43,944 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:04:43,952 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:05:43,956 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:06:43,957 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:07:43,958 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:08:43,958 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:09:43,967 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:10:43,980 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:11:43,992 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:12:43,993 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:13:43,994 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:14:43,994 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:15:43,995 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:16:43,996 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:17:43,998 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:18:43,999 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:19:43,999 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:20:44,005 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:21:44,008 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:22:44,016 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:23:44,020 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:24:44,021 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:25:44,023 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:26:44,023 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:27:44,028 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:28:44,029 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:29:44,029 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:30:44,033 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:31:44,042 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:32:44,046 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:33:44,047 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:34:44,048 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:35:44,048 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:36:44,050 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:37:44,056 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:38:44,081 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:39:44,087 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:40:44,092 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:41:44,096 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:42:44,097 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:43:44,100 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:44:44,106 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:45:44,118 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:46:44,125 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:47:44,126 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:48:44,127 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:49:44,127 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:50:44,128 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:51:44,129 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:52:44,130 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:53:44,130 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:54:44,131 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:55:44,132 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:56:44,133 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:57:44,134 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:58:44,135 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 19:59:44,136 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 20:00:44,137 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 20:01:44,148 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 20:02:44,149 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  no
+INFO  [pool-2-thread-1] 2018-03-01 20:03:44,149 repast.simphony.batch.ssh.LocalDonePoller - Polled /tmp/simphony_model_1519940440319 for DONE:  yes
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 20:03:44,150 repast.simphony.batch.ssh.SessionsDriver - Run Time: 203.0156
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 20:03:44,318 repast.simphony.batch.ssh.LocalSession - Finding output on localhost in /tmp/simphony_model_1519940440319
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 20:03:44,378 repast.simphony.batch.ssh.SessionsDriver - Aggregating output into /media/nvme/workspace2/Mayagrations/output
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 20:03:44,453 repast.simphony.batch.ssh.SessionsDriver - Get Output Time: 0.0051
+INFO  [SwingWorker-pool-1-thread-1] 2018-03-01 20:03:44,453 repast.simphony.batch.ssh.SessionsDriver - Finished. Elapsed Time: 203.0732
