@@ -34,17 +34,17 @@ public class Group {
 	@ScheduledMethod(start = 3, interval = 5)
 	public void consumeEndemic() {
 		if (!migrantStatus) {
-			if (homeCenter.getStaples() >= 1) {
-				homeCenter.modStaples(-1);
-			} else {
-				homeCenter.incStaplesDeaths();;
-				trouble();
-				return;
-			} 
 			if (homeCenter.getImports() >= 1) {
 				homeCenter.modImports(-1);
 			} else {
 				homeCenter.incImportsDeaths();;
+				trouble();
+				return;
+			} 
+			if (homeCenter.getStaples() >= 1) {
+				homeCenter.modStaples(-1);
+			} else {
+				homeCenter.incStaplesDeaths();;
 				trouble();
 				return;
 			} 

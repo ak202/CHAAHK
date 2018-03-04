@@ -6,6 +6,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="uplandAmount" displayName="Upland Amount" type="int" 
+						defaultValue="140" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="costMaxFactor" displayName="Cost Maximum (Factor)" type="double" 
 						defaultValue="10.0" 
 						isReadOnly="false" 
@@ -22,12 +28,6 @@
 						defaultValue="5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
-				<parameter name="fecundityDisturbance" displayName="Fecundity Disturbance" type="double" 
-						defaultValue="0.5" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="gravityConstant" displayName="Gravity Constant" type="double" 
@@ -49,19 +49,13 @@
 									
 		/>
 				<parameter name="costIncRate" displayName="Cost Increase Rate" type="double" 
-						defaultValue="0.05" 
+						defaultValue="0.5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="importsConstant" displayName="Imports Constant" type="double" 
 						defaultValue="0.5" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="costDisturbance" displayName="Cost Disturbance" type="double" 
-						defaultValue="2.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -121,7 +115,7 @@
 									
 		/>
 				<parameter name="fecundityDecRate" displayName="Fecundity Decrease Rate" type="double" 
-						defaultValue="1" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

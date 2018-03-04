@@ -54,7 +54,7 @@ public class Center {
 	private double fecundityRegen; //Frg
 	private double fecundityResil; //Frs
 	private int fecundityReck; //Frk
-	private double fecundityDisturbance; //Fd
+	private double disturbance; //Fd
 	private int droughtMod;
 	
 //	METRICS
@@ -108,7 +108,7 @@ public class Center {
 		fecundityRegen = (Double)params.getValue("fecundityRegen");
 		fecundityResil = (Double)params.getValue("fecundityResil");
 		fecundityReck = (Integer)params.getValue("fecundityReck");
-		fecundityDisturbance = (Double)params.getValue("fecundityDisturbance");
+		disturbance = (Double)params.getValue("disturbance");
 		
 		for (int i = 0; i < fecundityReck; i++) {
 			fecundityDamageQueue.add(fecundityBase);
@@ -191,7 +191,7 @@ public class Center {
 	    	}
 	    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
 	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-	    		staples = Math.round((float)(fecundityEmployable*fecundityDisturbance));
+	    		staples = Math.round((float)(fecundityEmployable/disturbance));
 	    	} else {
 	    		staples = Math.round((float)fecundityEmployable);
 	    	}

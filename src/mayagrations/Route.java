@@ -31,7 +31,7 @@ public class Route<T> extends RepastEdge<T> {
 	private double costDecRate;
 	private double costRegen;
 	private double costResil;
-	private double costDisturbance;
+	private double disturbance;
 	private double trafficShortCoefficient;
 	private double trafficLongCoefficient;
 	
@@ -76,7 +76,7 @@ public class Route<T> extends RepastEdge<T> {
 		costDecRate = (Double)params.getValue("costDecRate");
 		costResil = (Double)params.getValue("costResil");
 		costRegen = (Double)params.getValue("costRegen");
-		costDisturbance = (Double)params.getValue("costDisturbance");
+		disturbance = (Double)params.getValue("disturbance");
 		trafficShortCoefficient = (Double)params.getValue("trafficShortCoefficient");
 		trafficLongCoefficient = (Double)params.getValue("trafficLongCoefficient");
 		droughtMod = (Integer)params.getValue("disturbanceDelay");
@@ -199,7 +199,7 @@ public class Route<T> extends RepastEdge<T> {
     	}
     	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
     	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-    		weight = costEmployable*costDisturbance;
+    		weight = costEmployable*disturbance;
     	} else {
     		weight = costEmployable;
     	}	
@@ -279,7 +279,7 @@ public class Route<T> extends RepastEdge<T> {
 		weight = weight*2;
 		costMin =  weight/4;
 		costMax =  weight;
-		costDisturbance = 1;
+		disturbance = 1;
 		costResil = costResil * 1.5;
 		if (costResil > 1) {
 			costResil = 1;
@@ -290,7 +290,6 @@ public class Route<T> extends RepastEdge<T> {
 		weight = weight/5;
 		costMin =  weight/2;
 		costMax =  weight*50;
-		costResil = costResil;
 		initBase();
 	}
 	public void initBase() {
@@ -305,7 +304,7 @@ public class Route<T> extends RepastEdge<T> {
 	public void initStatic() {
 		costMin =  weight;
 		costMax =  weight;
-		costDisturbance = 1;
+		disturbance = 1;
 	}
 	
 	public String getType() {
