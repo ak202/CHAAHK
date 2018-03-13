@@ -1,5 +1,6 @@
 library(ggplot2)
 setwd("/home/akara/workspace/Mayagrations/output/")
+setwd("/media/nvme/workspace2/Mayagrations/output/")
 
 Frs.params <- read.csv("FrsParams.csv")
 Frs.out <- read.csv("Frs.csv")
@@ -37,8 +38,8 @@ qplot(fecundityReck, collapse2, data=data)
 
 Crs.params <- read.csv("CrsParams.csv")
 Crs.out <- read.csv("Crs.csv")
-Crs.out$collapse1 <- Crs.out$MaxPop/Crs.out$MinPop
-Crs.out$collapse2 <- Crs.out$MaxPop/Crs.out$countPop
+Crs.out$collapse1 <- log(Crs.out$MaxPop/Crs.out$MinPop)
+Crs.out$collapse2 <- log(Crs.out$MaxPop/Crs.out$countPop)
 data <- data.frame(Crs.params, Crs.out)
 qplot(costResil, collapse1, data=data)
 qplot(costResil, collapse2, data=data)

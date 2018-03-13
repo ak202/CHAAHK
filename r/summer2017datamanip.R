@@ -1,28 +1,30 @@
 library(rpart)
 setwd("/home/akara/workspace/Mayagrations/output/")
-params <- read.csv("params2.csv")
-out <- read.csv("out2.csv")
-data <- merge(params, out)
+setwd("/media/nvme/workspace2/Mayagrations/output/")
+
+params1 <- read.csv("params1.csv")
+out1 <- read.csv("out1.csv")
+data1 <- merge(params1, out1)
+params3 <- read.csv("params3.csv")
+out3 <- read.csv("out3.csv")
+data3 <- merge(params3, out3)
+params4 <- read.csv("params4.csv")
+out4 <- read.csv("out4.csv")
+data4 <- merge(params4, out4)
+params5 <- read.csv("params5.csv")
+out5 <- read.csv("out5.csv")
+data5 <- merge(params5, out5)
+params6 <- read.csv("params6.csv")
+out6 <- read.csv("out6.csv")
+data6 <- merge(params6, out6)
+params7 <- read.csv("params7.csv")
+out7 <- read.csv("out7.csv")
+data7 <- merge(params7, out7)
+data <- rbind(data1, data3, data4, data5, data6, data7)
 data$collapse1 <- (data$MinPop+1)/(data$MaxPop+1)
 data$collapse2 <- (data$countPop+1)/(data$MaxPop+1)
 
-data <- rbind(data,data)
-
-model1 <- rpart(collapse2~fecundityResil+costResil+fecundityDisturbance,data=data,method="anova")
-plot(margin=0, compress=)
-text(model1, all=TRUE)
-post(model1, 'test', 'test.ps')
+model1 <- rpart(collapse2~fecundityResil+costResil+disturbance+fecundityRegen+costRegen+uplandAmount,data=data,method="anova")
+post(model1, 'test', 'test3.ps')
 summary(model1)
-data <- params
-data$pop1 <- NA
-data$pop2 <- NA
-for (run in 1:nrow(params)) {
-  data$pop1[run] <- out[out$run==run&out$tick==9999,3]
-  data$pop2[run] <- out[out$run==run&out$tick==16499,3]
-}
-  
-summary(data)
-out[out$run==7&out$tick==9999,3]
 
-
-data$pop2[7]
