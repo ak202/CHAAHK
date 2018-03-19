@@ -54,6 +54,7 @@ public class Center {
 	private double fecundityRegen; //Frg
 	private double fecundityResil; //Frs
 	private int fecundityReck; //Frk
+	private int fecundityReckFraction;
 	private double disturbance; //Fd
 	private int droughtMod;
 	
@@ -108,9 +109,10 @@ public class Center {
 		fecundityRegen = (Double)params.getValue("fecundityRegen");
 		fecundityResil = (Double)params.getValue("fecundityResil");
 		fecundityReck = (Integer)params.getValue("fecundityReck");
+		fecundityReckFraction = fecundityReck%1;
 		disturbance = (Double)params.getValue("disturbance");
 		
-		for (int i = 0; i < fecundityReck; i++) {
+		for (int i = 0; i < (int)Math.ceil(fecundityReck); i++) {
 			fecundityDamageQueue.add(fecundityBase);
 		}
 
@@ -185,7 +187,16 @@ public class Center {
 	    	}
 	    	    
 	    	fecundityEmployable = newfecundity;
-	    	fecundityDamageQueue.addLast(fecundityEngineered);
+	    	
+	    	
+	    	if (fecundityReckFraction == 0) {
+	    		fecundityDamageQueue.addLast(fecundityEngineered);
+	    	} else {
+	    		fecundityDamageQueue.addLast(
+	    				(1-fecundityReckFraction)*fecundityDamageQueue.peekLast() +
+	    				fecundityReckFraction*fecundityEngineered);
+	    	}
+	    	
 	    	if (fecundityEmployable < fecundityMin) {
 	    		fecundityEmployable = fecundityMin;
 	    	}
@@ -439,7 +450,7 @@ public class Center {
 		importsDeaths = 0;
 	}
 	public double getMoveLifes() {
-		return moveLifes/7;
+		return moveLifes;
 	}
 	public int getMoveDeaths() {
 		return moveDeaths;

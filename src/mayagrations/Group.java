@@ -34,40 +34,42 @@ public class Group {
 	@ScheduledMethod(start = 3, interval = 5)
 	public void consumeEndemic() {
 		if (!migrantStatus) {
-			if (homeCenter.getImports() >= 1) {
-				homeCenter.modImports(-1);
-			} else {
-				homeCenter.incImportsDeaths();;
-				trouble();
-				return;
-			} 
-			if (homeCenter.getStaples() >= 1) {
-				homeCenter.modStaples(-1);
-			} else {
-				homeCenter.incStaplesDeaths();;
-				trouble();
-				return;
-			} 
+			consumeImports();
+			consumeStaples();
 		}
 	}
 	
 	@ScheduledMethod(start = 4, interval = 5)
 	public void consumeMigrant() {
 		if (migrantStatus) {
-			if (homeCenter.getStaples() >= 1) {
-				homeCenter.modStaples(-1);
-			} else {
-				trouble();
-				return;
-			}
-			if (homeCenter.getImports() >= 1) {
-				homeCenter.modImports(-1);
-			} else {
-				trouble();
-				return;
-			}
+			consumeStaples();
+			consumeImports();
 			setMigrant();
 		}
+	}
+	
+	private void consumeStaples() {
+		if (homeCenter.getStaples() >= 1) {
+			homeCenter.modStaples(-1);
+		} else {
+			if (!migrantStatus) {
+				homeCenter.incStaplesDeaths();;
+			}
+			trouble();
+			return;
+		} 
+	}
+	
+	private void consumeImports() {
+		if (homeCenter.getImports() >= 1) {
+			homeCenter.modImports(-1);
+		} else {
+			if (!migrantStatus) {
+				homeCenter.incImportsDeaths();;
+			}
+			trouble();
+			return;
+		} 
 	}
 	
 	
