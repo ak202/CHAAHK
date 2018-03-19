@@ -31,6 +31,7 @@ public class Route<T> extends RepastEdge<T> {
 	private double costDecRate;
 	private double costRegen;
 	private double costResil;
+	private double costDisturbance;
 	private double disturbance;
 	private double trafficShortCoefficient;
 	private double trafficLongCoefficient;
@@ -76,46 +77,47 @@ public class Route<T> extends RepastEdge<T> {
 		costDecRate = (Double)params.getValue("costDecRate");
 		costResil = (Double)params.getValue("costResil");
 		costRegen = (Double)params.getValue("costRegen");
+		costDisturbance = (Double)params.getValue("costDisturbance");
 		disturbance = (Double)params.getValue("disturbance");
 		trafficShortCoefficient = (Double)params.getValue("trafficShortCoefficient");
 		trafficLongCoefficient = (Double)params.getValue("trafficLongCoefficient");
 		droughtMod = (Integer)params.getValue("disturbanceDelay");
-		
-		int sourceID = sourceCenter.getID();
-		int targetID = targetCenter.getID();
-		
+//		
+//		int sourceID = sourceCenter.getID();
+//		int targetID = targetCenter.getID();
+//		
 
-		for (int i = 0; i < 17; i++) {
-			if (sourceID == i | targetID == i) {
-				makeMountain(params, weight);
-			}
-		}
-		if ((sourceID-16)%17==0 & (targetID-16)%17==0) {
-			this.weight = weight;
-			makeRiver(params);
-		}
-		if ((sourceID-0)%17==0 & (targetID-0)%17==0) {
-			this.weight = weight;
-			makeRiver(params);
-		}
-		for (int i = 0; i < 16; i++) {
-			if (sourceID == i & targetID == i + 1) {
-				this.weight = weight;
-				makeRiver(params);
-			}
-		}
-		for (int i = 102; i < 106; i++) {
-			if (sourceID == i & targetID == i + 1) {
-				this.weight = weight;
-				makeRiver(params);
-			}
-		}
-		for (int i = 215; i < 220; i++) {
-			if (sourceID == i & targetID == i + 1) {
-				this.weight = weight;
-				makeRiver(params);
-			}
-		}
+//		for (int i = 0; i < 17; i++) {
+//			if (sourceID == i | targetID == i) {
+//				makeMountain(params, weight);
+//			}
+//		}
+//		if ((sourceID-16)%17==0 & (targetID-16)%17==0) {
+//			this.weight = weight;
+//			makeRiver(params);
+//		}
+//		if ((sourceID-0)%17==0 & (targetID-0)%17==0) {
+//			this.weight = weight;
+//			makeRiver(params);
+//		}
+//		for (int i = 0; i < 16; i++) {
+//			if (sourceID == i & targetID == i + 1) {
+//				this.weight = weight;
+//				makeRiver(params);
+//			}
+//		}
+//		for (int i = 102; i < 106; i++) {
+//			if (sourceID == i & targetID == i + 1) {
+//				this.weight = weight;
+//				makeRiver(params);
+//			}
+//		}
+//		for (int i = 215; i < 220; i++) {
+//			if (sourceID == i & targetID == i + 1) {
+//				this.weight = weight;
+//				makeRiver(params);
+//			}
+//		}
 		if (type == "none") {
 			makeBajo(weight);
 		}
@@ -199,7 +201,7 @@ public class Route<T> extends RepastEdge<T> {
     	}
     	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
     	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-    		weight = costEmployable*disturbance;
+    		weight = costEmployable*(disturbance*costDisturbance);
     	} else {
     		weight = costEmployable;
     	}	

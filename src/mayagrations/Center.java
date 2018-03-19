@@ -55,6 +55,7 @@ public class Center {
 	private double fecundityResil; //Frs
 	private int fecundityReck; //Frk
 	private int fecundityReckFraction;
+	private double fecundityDisturbance;
 	private double disturbance; //Fd
 	private int droughtMod;
 	
@@ -67,7 +68,7 @@ public class Center {
 	private int born;
 	private int settled;
 	
-	public Center(int labor, int id, Context<Object> context) {
+	public Center(int id, Context<Object> context) {
 		
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		
@@ -110,6 +111,7 @@ public class Center {
 		fecundityResil = (Double)params.getValue("fecundityResil");
 		fecundityReck = (Integer)params.getValue("fecundityReck");
 		fecundityReckFraction = fecundityReck%1;
+		fecundityDisturbance = (Double)params.getValue("fecundityDisturbance");
 		disturbance = (Double)params.getValue("disturbance");
 		
 		for (int i = 0; i < (int)Math.ceil(fecundityReck); i++) {
@@ -154,8 +156,8 @@ public class Center {
 	    	if (fecundityOvershoot > 0) {
 	    		int fecundityDamageDiff = (int)fecundityOvershoot;
 	    		for (int i = 0; i < fecundityDamageDiff; i++) {
-	    			fecundityDamageQueue.removeFirst();
 	    			fecundityDamageQueue.addLast(fecundityEmployable);
+	    			fecundityDamageQueue.removeFirst();
 	    		}
 	    	}
 	
@@ -202,7 +204,7 @@ public class Center {
 	    	}
 	    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
 	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-	    		staples = Math.round((float)(fecundityEmployable/disturbance));
+	    		staples = Math.round((float)(fecundityEmployable/(disturbance*fecundityDisturbance)));
 	    	} else {
 	    		staples = Math.round((float)fecundityEmployable);
 	    	}
@@ -404,6 +406,7 @@ public class Center {
 	}
 	
 	public void calculateImports() {
+		System.out.println(distToExporter);
 		imports = importsLast;
 		importsLast = (labor * 2 + 1) * Math.pow(distToExporter, -.2) + .51;
 	}

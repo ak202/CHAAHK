@@ -27,8 +27,7 @@ public class Region {
 //	STATIC VARIABLES
 	
 	private List<Center> spawns;	 //excluded
-	private Center exporter;
-	private Center mine;
+	private Object exporter;
 	
 //	OUTPUT VARIABLES	
 	
@@ -36,7 +35,7 @@ public class Region {
 	int maxPop;
 	int finalPop;
 	
-	public Region(List<Center> centers, Context<Object> context) {
+	public Region(List<Center> centers, Context<Object> context, Center exporter) {
 		
 //		DYNAMIC VARIABLES
 		
@@ -51,15 +50,14 @@ public class Region {
 
 //		STATIC VARIABLES
 		
-		int mineLocation = 8;													//excluded
-		this.mine = centers.get(mineLocation);
 		this.spawns = new ArrayList();
 		for (Center c : this.centers) {
 			int id = c.getID();
-			if (id == 0 | id == 16 | id == 288 | id ==272 | id == mineLocation) {
+			if (id == 0 | id == 16 | id == 288 | id ==272) {
 				spawns.add(c);
 			}
 		}
+		this.exporter = exporter;
 		
 //		OUTPUT VARIABLES	
 		minPop = 0;
@@ -72,33 +70,31 @@ public class Region {
 		resetNetworkTraffic();
 		for (Center c : centers) {
 			c.reproduce();
-		}
-		for (Center c : centers) {
 			if (spawns.contains(c)){
 				if (c.getLabor()==0) {
 					Group dude = new Group(c, true, "graph");
 					c.addGroup(dude);
 				}
 			}
-			if (c.equals(mine)) {
-				c.setMineDistance(0.1);
-			} else {
-				List<RepastEdge<Object>> path;
-				path = sp.getPath(c,mine);
-				double distToMine = 0;
-				for (RepastEdge<Object> e : path) {
-					distToMine += e.getWeight();
-				}
-				c.setMineDistance(distToMine);
-				for (RepastEdge<Object> e : path) {
-					Route<Object> m = (Route<Object>) e;
-					m.setTrafficLong(m.getTrafficLong() + c.getEndemic());
-				}
+			List<RepastEdge<Object>> path;
+			path = sp.getPath(c,exporter);
+			double distToMine = 0;
+//			System.out.println("");
+//			System.out.println("new city");
+			for (RepastEdge<Object> e : path) {
+				distToMine += e.getWeight();
+//				System.out.println(e.getWeight());
 			}
-			c.calculateStaples();
+			c.setMineDistance(distToMine);
+			for (RepastEdge<Object> e : path) {
+				Route<Object> m = (Route<Object>) e;
+				m.setTrafficLong(m.getTrafficLong() + c.getEndemic());
+			}
 		}
 		for (Center c : centers) {
 			c.calculateStaples();
+//			System.out.println("");
+//			System.out.println("path totals");
 			c.calculateImports();
 		}
 		sp.finalize();

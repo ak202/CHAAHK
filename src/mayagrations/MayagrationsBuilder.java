@@ -57,7 +57,7 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 				double y_off = RandomHelper.nextDoubleFromTo(-3.0, 3.0);
 				x_temp += x_off;
 				double y_temp2 = y_off + y_temp;
-				Center newCenter = new Center(0, i*17 + j - 18, context);
+				Center newCenter = new Center(i*17 + j - 18, context);
 				context.add(newCenter);
 				space.moveTo(newCenter, x_temp, y_temp2);
 				centers.add(newCenter);
@@ -403,7 +403,16 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 			}
 		}
 		
-		Region graph = new Region(centers, context);
+		Center exporter = new Center(1337, context);
+		context.add(exporter);
+		for (Center c : centers) {
+			int id = c.getID();
+			if (id == 0 | id == 16 | id == 288 | id ==272) {
+				net.addEdge(c, exporter, 0);
+			}
+		}
+		
+		Region graph = new Region(centers, context, exporter);
 		context.add(graph);
 		RunEnvironment.getInstance().endAt(1650);
 		return context;

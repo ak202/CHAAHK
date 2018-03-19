@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
-					<parameter name="fecundityMin" displayName="Fecundity Minimum" type="double" 
+					<parameter name="disturbance" displayName="Disturbance" type="double" 
+						defaultValue="2.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="fecundityMin" displayName="Fecundity Minimum" type="double" 
 						defaultValue="0.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
@@ -28,6 +34,12 @@
 						defaultValue="5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="fecundityDisturbance" displayName="Fecundity Disturbance" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="gravityConstant" displayName="Gravity Constant" type="double" 
