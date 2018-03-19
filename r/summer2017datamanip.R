@@ -1,4 +1,5 @@
 library(rpart)
+library(rpart.plot)
 setwd("/home/akara/workspace/Mayagrations/output/")
 setwd("/media/nvme/workspace2/Mayagrations/output/")
 
@@ -25,6 +26,8 @@ data$collapse1 <- (data$MinPop+1)/(data$MaxPop+1)
 data$collapse2 <- (data$countPop+1)/(data$MaxPop+1)
 
 model1 <- rpart(collapse2~fecundityResil+costResil+disturbance+fecundityRegen+costRegen+uplandAmount,data=data,method="anova")
-post(model1, 'test', 'test3.ps')
-summary(model1)
-
+rpart.plot(model1, box.palette="RdYlGn")
+model2 <- rpart(collapse1~fecundityResil+costResil+disturbance+fecundityRegen+costRegen+uplandAmount,data=data,method="anova")
+rpart.plot(model2, box.palette="RdYlGn")
+model3 <- rpart(MaxPop~fecundityResil+costResil+disturbance+fecundityRegen+costRegen+uplandAmount,data=data,method="anova")
+rpart.plot(model3, box.palette="RdYlGn")

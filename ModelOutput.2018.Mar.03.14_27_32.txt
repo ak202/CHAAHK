@@ -1,2 +1,0 @@
-"MaxPop","MinPop","countPop"
-1988,1936,1976

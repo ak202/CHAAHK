@@ -1,0 +1,9 @@
+model.archive = /media/nvme/workspace2/Mayagrations/output/complete_model.jar
+batch.params.file = scenario.rs/batch_params.xml
+ssh.key_dir = /home/akara/.ssh
+poll.frequency = 60.0
+model.output = /media/nvme/workspace2/Mayagrations/output
+
+vm.arguments = -Xmx512M
+local.0.instances = 8
+local.0.working_directory = /tmp
