@@ -8,7 +8,7 @@ public class RouteCreator<T> implements EdgeCreator<Route<T>, T> {
 		if (weight > 0) {
 			return new Route<T>(source, target, isDirected, weight);
 		} else {
-			return new EntryRoute<T>(source, target, isDirected, weight);
+			return new EntryRoute<T>(source, target, isDirected, 10);
 		}
 	}
 	

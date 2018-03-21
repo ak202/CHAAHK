@@ -69,7 +69,7 @@ public class Region {
 	public void calculateTrafficLong() {
 		resetNetworkTraffic();
 		for (Center c : centers) {
-			c.reproduce();
+			
 			if (spawns.contains(c)){
 				if (c.getLabor()==0) {
 					Group dude = new Group(c, true, "graph");
@@ -120,6 +120,7 @@ public class Region {
 			pullFractions.add(pullFraction);
 		}
 		Collections.sort(pullFractions); 
+		System.out.println("reproducing");
 		for (Center center : centers) {
 			center.setDestinations(destinations);
 			center.setPullFractions(pullFractions);
@@ -127,6 +128,7 @@ public class Region {
 				maya.setDestinations(destinations);
 				maya.setPullFractions(pullFractions);
 			}
+			center.reproduce();
 		}
 	}
 	

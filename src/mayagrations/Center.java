@@ -128,24 +128,21 @@ public class Center {
 		born = 0;
 		settled = 0;		
 		
-		if ((id-16)%17==0 | (id)%17==0) {
-			setWater(true);
-			terrain = true;
-		}
-		for (int i=0;i<17;i++){
-			if(i == id) {
-				setWater(true);
-				terrain = true;
-			}	
-		}
+//		if ((id-16)%17==0 | (id)%17==0) {
+//			setWater(true);
+//			terrain = true;
+//		}
+//		for (int i=0;i<17;i++){
+//			if(i == id) {
+//				setWater(true);
+//				terrain = true;
+//			}	
+//		}
 	}
 	
     public void calculateStaples() {
 
-    	/*the values of Faq are equal to Fg - Fb, which is calculated later in the method. 
-    	 * Frk determines the length of Faq, and therefore the delay between the calculation 
-    	 * of Fa and its utilization by the following statement. */
-    	
+    	    	
     	if (!water) {
 			double fecundityDamage = fecundityDamageQueue.removeFirst(); //Fa
 			
@@ -212,10 +209,13 @@ public class Center {
     }
     
     public void reproduce() {
+    	System.out.println(this.getLabor());
+		
 		if (labor > 0 & staples > 0) {
 
 			int newGroups = 0;
 			double odds = getStaplesPerCap() / infertility;
+//			System.out.println(getStaplesPerCap());
 			if (odds >= 1) {
 				odds = .999;
 			}
@@ -267,9 +267,9 @@ public class Center {
     	return id;
     }
 
-	public void setLabor(int flux) {
-		this.labor += flux;
-	}
+//	public void setLabor(int flux) {
+//		this.labor += flux;
+//	}
 	public int getLabor() {
 		return this.labor;
 	}
@@ -390,6 +390,10 @@ public class Center {
 	}
 	
 	public double getImports() {
+		if (imports > 100)	{
+			System.out.println("imports");
+			System.out.println(imports);
+		}
 		return(imports);
 	}
 	
@@ -406,9 +410,10 @@ public class Center {
 	}
 	
 	public void calculateImports() {
-		System.out.println(distToExporter);
+//		System.out.println(distToExporter);
 		imports = importsLast;
 		importsLast = (labor * 2 + 1) * Math.pow(distToExporter, -.2) + .51;
+//		imports = (labor * 2 + 1) * Math.pow(distToExporter, -.2) + .51;
 	}
 	
 	public void setMineDistance(double distanceToExporter) {

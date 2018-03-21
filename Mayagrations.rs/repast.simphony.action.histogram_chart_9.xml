@@ -20,7 +20,7 @@
   <showGrid>true</showGrid>
   <showLegend>true</showLegend>
   <histType>DYNAMIC</histType>
-  <binCount>18</binCount>
+  <binCount>100</binCount>
   <sourceId>Pull</sourceId>
   <outOfRange>IGNORE</outOfRange>
   <min>0.0</min>

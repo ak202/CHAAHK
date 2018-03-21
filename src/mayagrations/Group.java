@@ -16,6 +16,7 @@ public class Group {
 	private int stay;
 	private String source;
 	private double migrationDistanceThreshold;
+	private boolean needsStaples;
 
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
@@ -24,6 +25,7 @@ public class Group {
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		this.homeCenter = homeCenter;
 		this.migrantStatus = migrant;
+		needsStaples = true;
 		stay = 0;
 		this.source = source;
 		migrationDistanceThreshold = (Double)params.getValue("migrationDistanceThreshold");
@@ -34,41 +36,57 @@ public class Group {
 	@ScheduledMethod(start = 3, interval = 5)
 	public void consumeEndemic() {
 		if (!migrantStatus) {
-			consumeImports();
-			consumeStaples();
+			if (needsImports()) {
+				if (consumeImports()) {
+					return;
+				} consumeStaples();
+			} else {
+				if (consumeStaples()) {
+					return;
+				} consumeImports();
+			}
 		}
 	}
 	
 	@ScheduledMethod(start = 4, interval = 5)
 	public void consumeMigrant() {
 		if (migrantStatus) {
-			consumeStaples();
-			consumeImports();
+			if (needsImports()) {
+				if (consumeImports()) {
+					return;
+				} consumeStaples();
+			} else {
+				if (consumeStaples()) {
+					return;
+				} consumeImports();
+			}
 			setMigrant();
 		}
 	}
 	
-	private void consumeStaples() {
+	private boolean consumeStaples() {
 		if (homeCenter.getStaples() >= 1) {
 			homeCenter.modStaples(-1);
+			return(false);
 		} else {
 			if (!migrantStatus) {
 				homeCenter.incStaplesDeaths();;
 			}
 			trouble();
-			return;
+			return(true);
 		} 
 	}
 	
-	private void consumeImports() {
+	private boolean consumeImports() {
 		if (homeCenter.getImports() >= 1) {
 			homeCenter.modImports(-1);
+			return(false);
 		} else {
 			if (!migrantStatus) {
 				homeCenter.incImportsDeaths();;
 			}
 			trouble();
-			return;
+			return(true);
 		} 
 	}
 	
@@ -100,6 +118,14 @@ public class Group {
 		homeCenter = newHome;
 		homeCenter.immigrate(this);
 	}
+	
+	private boolean needsImports() {
+		if (needsStaples) {
+			needsStaples  = false;
+		} needsStaples = true;
+		return(needsStaples);
+	}
+	
 	
 	public boolean getMigrant() {
 		return migrantStatus; 

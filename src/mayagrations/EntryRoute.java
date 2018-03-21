@@ -23,6 +23,6 @@ public class EntryRoute<T> extends Route<T> {
 	
 	public double getWeight() {
 //		System.out.println("getting weight");
-		return weight;
+		return 10;
 	}
 }
