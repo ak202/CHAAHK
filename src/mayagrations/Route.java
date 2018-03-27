@@ -25,6 +25,8 @@ public class Route<T> extends RepastEdge<T> {
 	private double costMax;
 	private double costMin;
 	private String type;
+	private int obSourceID;
+	private int obTargetID;
 	
 //	STATIC GLOBAL VARIABLES
 	private double costIncRate;
@@ -65,6 +67,8 @@ public class Route<T> extends RepastEdge<T> {
 		this.target = target;
 		sourceCenter = (Center) source;
 		targetCenter = (Center) target;
+		obSourceID = (Integer)params.getValue("obSourceID");
+		obTargetID = (Integer)params.getValue("obTargetID");
 	
 		this.directed = directed;
 		costMax = (Double)params.getValue("costMaxFactor");
@@ -73,10 +77,10 @@ public class Route<T> extends RepastEdge<T> {
 		type = "none";
 		
 //		STATIC GLOBAL VARIABLES
-		costIncRate = (Double)params.getValue("costIncRate");
-		costDecRate = (Double)params.getValue("costDecRate");
+		costIncRate = (Double)params.getValue("costIncRate") * weight;
+		costDecRate = (Double)params.getValue("costDecRate") * weight;
 		costResil = (Double)params.getValue("costResil");
-		costRegen = (Double)params.getValue("costRegen");
+		costRegen = (Double)params.getValue("costRegen") * weight;
 		costDisturbance = (Double)params.getValue("costDisturbance");
 		disturbance = (Double)params.getValue("disturbance");
 		trafficShortCoefficient = (Double)params.getValue("trafficShortCoefficient");
@@ -139,8 +143,9 @@ public class Route<T> extends RepastEdge<T> {
 		Center center2 = (Center) target;
 		double pop1 = center1.getEndemic();
 		double pop2 = center2.getEndemic();
-		trafficShort = (pop1 + pop2) / weight;
-		trafficFinal = trafficLongCoefficient * trafficLong + trafficShortCoefficient * trafficShort;
+		trafficShort = trafficShortCoefficient * ((pop1 + pop2) / weight);
+		trafficLong = trafficLongCoefficient * trafficLong;
+		trafficFinal = trafficLong + trafficShort;
 		
 		double costCarryingFactor = 1 - 
 				Math.pow((costMin/costEngineered), 2);
@@ -152,13 +157,8 @@ public class Route<T> extends RepastEdge<T> {
 		double costUtilFraction = 0;
 		double trafficViaImprovement = 0;
 		
-		trafficViaImprovement = trafficFinal - costBase;
-		if (trafficViaImprovement < 0) {
-			trafficViaImprovement = 0;
-		}		
-		
 		double costEngineeredImprovement = costBase - costEngineered;
-		if (trafficViaImprovement < costEngineeredImprovement) {
+		if (trafficFinal < costEngineeredImprovement) {
 			costUtilFraction = trafficViaImprovement/costEngineeredImprovement;
 		} else {
 			costUtilFraction = 1;
@@ -427,6 +427,71 @@ public class Route<T> extends RepastEdge<T> {
 	public double getCostMax() {
 		return costMax;
 	}
+	
+	public double get76cp(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return costEmployable;
+		} else return 0;
+	}
+	
+	public double get76mx(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return costMax;
+		} else return 0;
+	}
+	
+	public double get76mn(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return costMin;
+		} else return 0;
+	}
+	
+	public double get76base(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return costBase;
+		} else return 0;
+	}
+	
+	public double get76ceg(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return costEngineered;
+		} else return 0;
+	}
+	
+	public double get76trafl(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return trafficLong;
+		} else return 0;
+	}
+	
+	public double get76trafs(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return trafficShort;
+		} else return 0;
+	}
+	
+	public double get76traff(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return trafficFinal;
+		} else return 0;
+	}
+	
 
 	public void setTrafficLong(double tl){
 		trafficLong = tl;

@@ -53,8 +53,8 @@ public class Center {
 	private double fecundityDecRate; //Fdr
 	private double fecundityRegen; //Frg
 	private double fecundityResil; //Frs
-	private int fecundityReck; //Frk
-	private int fecundityReckFraction;
+	private double fecundityReck; //Frk
+	private double fecundityReckFraction;
 	private double fecundityDisturbance;
 	private double disturbance; //Fd
 	private int droughtMod;
@@ -74,7 +74,7 @@ public class Center {
 		
 //		DYNAMIC ENTITY VARIABLES
 		residents = new ArrayList<Group>();	//people
-		this.labor = labor;
+		labor = 0;
 		groupsEndemic = 0;
 		destinations = null;
 		pullFractions = null;
@@ -109,7 +109,7 @@ public class Center {
 		fecundityDecRate = (Double)params.getValue("fecundityDecRate");
 		fecundityRegen = (Double)params.getValue("fecundityRegen");
 		fecundityResil = (Double)params.getValue("fecundityResil");
-		fecundityReck = (Integer)params.getValue("fecundityReck");
+		fecundityReck = (Double)params.getValue("fecundityReck");
 		fecundityReckFraction = fecundityReck%1;
 		fecundityDisturbance = (Double)params.getValue("fecundityDisturbance");
 		disturbance = (Double)params.getValue("disturbance");
@@ -209,7 +209,7 @@ public class Center {
     }
     
     public void reproduce() {
-    	System.out.println(this.getLabor());
+//    	System.out.println(this.getLabor());
 		
 		if (labor > 0 & staples > 0) {
 
@@ -390,10 +390,10 @@ public class Center {
 	}
 	
 	public double getImports() {
-		if (imports > 100)	{
-			System.out.println("imports");
-			System.out.println(imports);
-		}
+//		if (imports > 100)	{
+//			System.out.println("imports");
+//			System.out.println(imports);
+//		}
 		return(imports);
 	}
 	

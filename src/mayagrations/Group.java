@@ -2,10 +2,7 @@ package mayagrations;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-
-import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
-import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
 
 
@@ -15,22 +12,21 @@ public class Group {
 	private boolean migrantStatus;
 	private int stay;
 	private String source;
-	private double migrationDistanceThreshold;
 	private boolean needsStaples;
+	private int troubleCount;
 
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
 
 	public Group (Center homeCenter, boolean migrant, String source) {
-		Parameters params = RunEnvironment.getInstance().getParameters();
 		this.homeCenter = homeCenter;
 		this.migrantStatus = migrant;
 		needsStaples = true;
 		stay = 0;
 		this.source = source;
-		migrationDistanceThreshold = (Double)params.getValue("migrationDistanceThreshold");
 		destinations = null;
 		pullFractions = null;
+		troubleCount = 0;
 	}
 	
 	@ScheduledMethod(start = 3, interval = 5)
@@ -67,6 +63,7 @@ public class Group {
 	private boolean consumeStaples() {
 		if (homeCenter.getStaples() >= 1) {
 			homeCenter.modStaples(-1);
+			troubleCount = 0;
 			return(false);
 		} else {
 			if (!migrantStatus) {
@@ -80,6 +77,7 @@ public class Group {
 	private boolean consumeImports() {
 		if (homeCenter.getImports() >= 1) {
 			homeCenter.modImports(-1);
+			troubleCount = 0;
 			return(false);
 		} else {
 			if (!migrantStatus) {
@@ -90,14 +88,13 @@ public class Group {
 		} 
 	}
 	
-	
 	public void trouble() {
 		double chance = RandomHelper.nextDoubleFromTo(0, 1);
-		if (chance < .33) {
+		if (chance < .33 | troubleCount == 2) {
 			homeCenter.killGroup(this);
 		} else if (chance < .66) {
 			migrate();
-		}
+		} troubleCount ++;
 	}
 
 
@@ -125,7 +122,6 @@ public class Group {
 		} needsStaples = true;
 		return(needsStaples);
 	}
-	
 	
 	public boolean getMigrant() {
 		return migrantStatus; 

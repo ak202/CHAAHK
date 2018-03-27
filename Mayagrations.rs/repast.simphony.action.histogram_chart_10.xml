@@ -1,4 +1,4 @@
-<repast.simphony.chart2.engine.HistogramChartDescriptor>
+<repast.simphony.chart2.engine.HistogramChartDescriptor simphonyVersion="2.5.0">
   <name>Imports Histogram</name>
   <dataSet>imports</dataSet>
   <xAxisLabel>Centers</xAxisLabel>

@@ -31,13 +31,13 @@
 									
 		/>
 				<parameter name="infert" displayName="Infertility" type="int" 
-						defaultValue="5" 
+						defaultValue="15" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="fecundityDisturbance" displayName="Fecundity Disturbance" type="double" 
-						defaultValue="0.5" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -49,25 +49,31 @@
 									
 		/>
 				<parameter name="obTargetID" displayName="Observed Route's Target ID" type="int" 
-						defaultValue="41" 
+						defaultValue="271" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="obSourceID" displayName="Observed Route's Source ID" type="int" 
-						defaultValue="25" 
+						defaultValue="288" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
 				<parameter name="costIncRate" displayName="Cost Increase Rate" type="double" 
-						defaultValue="0.5" 
+						defaultValue="0.0667" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="importsConstant" displayName="Imports Constant" type="double" 
 						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="costDisturbance" displayName="Cost Disturbance" type="double" 
+						defaultValue="5.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -79,7 +85,7 @@
 									
 		/>
 				<parameter name="costRegen" displayName="Cost Regeneration" type="double" 
-						defaultValue="0.001" 
+						defaultValue="5.0E-4" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -91,7 +97,7 @@
 									
 		/>
 				<parameter name="costDecRate" displayName="Cost Decrease Rate" type="double" 
-						defaultValue="0.05" 
+						defaultValue="3.33E-4" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -109,13 +115,13 @@
 									
 		/>
 				<parameter name="fecundityIncRate" displayName="Fecundity Increase Rate" type="double" 
-						defaultValue="0.2" 
+						defaultValue="0.1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="fecundityResil" displayName="Fecundity Resilience" type="double" 
-						defaultValue="0.5" 
+						defaultValue="0.7" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -126,14 +132,14 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="fecundityDecRate" displayName="Fecundity Decrease Rate" type="double" 
-						defaultValue="1.0" 
+				<parameter name="trafficLongCoefficient" displayName="Cost Traffic Long Coefficient" type="double" 
+						defaultValue="0.03" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="trafficLongCoefficient" displayName="Cost Traffic Long Coefficient" type="double" 
-						defaultValue="0.5" 
+				<parameter name="fecundityDecRate" displayName="Fecundity Decrease Rate" type="double" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -145,25 +151,19 @@
 									
 		/>
 				<parameter name="fecundityRegen" displayName="Fecundity Regeneration" type="double" 
-						defaultValue="0.02" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="fecundityReck" displayName="Fecundity Recklessness" type="int" 
-						defaultValue="1" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
-				<parameter name="migrationDistanceThreshold" displayName="Migration Distance Threshold" type="double" 
-						defaultValue="100.0" 
+						defaultValue="0.05" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="trafficShortCoefficient" displayName="Cost Traffic Short Coefficient" type="double" 
-						defaultValue="1.5" 
+						defaultValue="0.05" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="migrationDistanceThreshold" displayName="Migration Distance Threshold" type="double" 
+						defaultValue="100.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

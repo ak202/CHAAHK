@@ -1,4 +1,4 @@
-<repast.simphony.data2.engine.DataSetDescriptor>
+<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
   <name>population</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
@@ -111,6 +111,78 @@
         <id>Cg</id>
         <className>mayagrations.Route</className>
         <methodName>getCostEngineeredBajo</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cb76</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cb76</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76base</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cmn76</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cmn76</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76mn</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cmx76</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cmx76</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76mx</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cg76</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cg76</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76ceg</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cp76</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cp76</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76cp</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Tf76</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Tf76</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76traff</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Tl76</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Tl76</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76trafl</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Ts76</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Ts76</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76trafs</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>

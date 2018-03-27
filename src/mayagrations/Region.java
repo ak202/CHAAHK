@@ -120,7 +120,7 @@ public class Region {
 			pullFractions.add(pullFraction);
 		}
 		Collections.sort(pullFractions); 
-		System.out.println("reproducing");
+//		System.out.println("reproducing");
 		for (Center center : centers) {
 			center.setDestinations(destinations);
 			center.setPullFractions(pullFractions);
