@@ -109,7 +109,7 @@ public class Region {
 			if (center.getDistToExporter() < 1) {
 				center.setPull(0);
 			} else {
-				center.setPull(center.getFecundityEmployable()/center.getDistToExporter());
+				center.setPull(center.getFecundityEmployable()/center.getDistToExporter()+1);
 			}
 			totalPull += center.getPull();
 		}

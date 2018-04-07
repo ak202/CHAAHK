@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
-  <name>Centers</name>
+  <name>Routes</name>
   <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
   <yAxisLabel>Amount</yAxisLabel>
-  <chartTitle>Centers</chartTitle>
+  <chartTitle>Routes</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,23 +21,11 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>Fg</string>
+      <string>Traffic Short</string>
       <SeriesData>
-        <label>Fg</label>
+        <label>Traffic Short</label>
         <color>
           <red>153</red>
-          <green>153</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Staples</string>
-      <SeriesData>
-        <label>Staples</label>
-        <color>
-          <red>255</red>
           <green>255</green>
           <blue>153</blue>
           <alpha>255</alpha>
@@ -45,11 +33,47 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>Fp</string>
+      <string>Cg</string>
       <SeriesData>
-        <label>Fp</label>
+        <label>Cg</label>
         <color>
-          <red>255</red>
+          <red>153</red>
+          <green>0</green>
+          <blue>51</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Traffic Final</string>
+      <SeriesData>
+        <label>Traffic Final</label>
+        <color>
+          <red>0</red>
+          <green>153</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Cost Base</string>
+      <SeriesData>
+        <label>Cost Base</label>
+        <color>
+          <red>153</red>
+          <green>153</green>
+          <blue>153</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Traffic Long</string>
+      <SeriesData>
+        <label>Traffic Long</label>
+        <color>
+          <red>0</red>
           <green>204</green>
           <blue>0</blue>
           <alpha>255</alpha>
@@ -57,13 +81,25 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>Labor</string>
+      <string>Cp</string>
       <SeriesData>
-        <label>Labor</label>
+        <label>Cp</label>
         <color>
-          <red>0</red>
-          <green>204</green>
+          <red>255</red>
+          <green>51</green>
           <blue>51</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Weight</string>
+      <SeriesData>
+        <label>Weight</label>
+        <color>
+          <red>255</red>
+          <green>153</green>
+          <blue>153</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>

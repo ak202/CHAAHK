@@ -394,12 +394,8 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 			Route<Object> m = (Route<Object>) e;
 			if (m.getType() == "bajo") {
 				m.initBajo();
-			} else if (m.getType() == "upland") {
+			} else {
 				m.initUpland();
-			} else if (m.getType() == "river") {
-				m.initRiver();
-			} else if (m.getType() == "mountain") {
-				m.initMountain();
 			}
 		}
 		

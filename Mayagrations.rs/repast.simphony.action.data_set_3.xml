@@ -1,35 +1,43 @@
 <repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
-  <name>imports</name>
+  <name>final</name>
   <type>NON_AGGREGATE</type>
-  <sourceType>mayagrations.Center</sourceType>
-  <inclTick>true</inclTick>
+  <sourceType>mayagrations.Region</sourceType>
+  <inclTick>false</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>1.0</start>
-    <interval>50.0</interval>
+    <start>1649.0</start>
+    <interval>0.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
-    <frequency>REPEAT</frequency>
-    <hashCode>-2122948504</hashCode>
+    <frequency>ONE_TIME</frequency>
+    <hashCode>-1061669185</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Pull</string>
+      <string>countPop</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Pull</id>
-        <className>mayagrations.Center</className>
-        <methodName>getPull</methodName>
+        <id>countPop</id>
+        <className>mayagrations.Region</className>
+        <methodName>countPop</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Imports</string>
+      <string>MaxPop</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Imports</id>
-        <className>mayagrations.Center</className>
-        <methodName>getImports</methodName>
+        <id>MaxPop</id>
+        <className>mayagrations.Region</className>
+        <methodName>getMaxPop</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>MinPop</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>MinPop</id>
+        <className>mayagrations.Region</className>
+        <methodName>getMinPop</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

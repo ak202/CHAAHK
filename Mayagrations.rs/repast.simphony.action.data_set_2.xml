@@ -1,189 +1,35 @@
 <repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
-  <name>population</name>
-  <type>AGGREGATE</type>
+  <name>imports</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>mayagrations.Center</sourceType>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>30.0</start>
-    <interval>5.0</interval>
+    <start>1.0</start>
+    <interval>50.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>932876387</hashCode>
+    <hashCode>-2122948504</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Labor</string>
+      <string>Pull</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Labor</id>
+        <id>Pull</id>
         <className>mayagrations.Center</className>
-        <methodName>getPop</methodName>
-        <aggType>SUM</aggType>
+        <methodName>getPull</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Fp</string>
+      <string>Imports</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Fp</id>
+        <id>Imports</id>
         <className>mayagrations.Center</className>
-        <methodName>getFecundityEmployable</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Fg</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Fg</id>
-        <className>mayagrations.Center</className>
-        <methodName>getFecundityEngineered</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Staples</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Staples</id>
-        <className>mayagrations.Center</className>
-        <methodName>getStaples</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Traffic Long</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Traffic Long</id>
-        <className>mayagrations.Route</className>
-        <methodName>getTrafficLongBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Traffic Final</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Traffic Final</id>
-        <className>mayagrations.Route</className>
-        <methodName>getTrafficFinalBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Traffic Short</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Traffic Short</id>
-        <className>mayagrations.Route</className>
-        <methodName>getTrafficShortBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Weight</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Weight</id>
-        <className>mayagrations.Route</className>
-        <methodName>getWeightBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cost Base</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cost Base</id>
-        <className>mayagrations.Route</className>
-        <methodName>getCostBaseBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cp</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cp</id>
-        <className>mayagrations.Route</className>
-        <methodName>getCostEmployableBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cg</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cg</id>
-        <className>mayagrations.Route</className>
-        <methodName>getCostEngineeredBajo</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cb76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cb76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76base</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cmn76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cmn76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76mn</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cmx76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cmx76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76mx</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cg76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cg76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76ceg</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cp76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cp76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76cp</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Tf76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Tf76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76traff</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Tl76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Tl76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76trafl</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Ts76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Ts76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76trafs</methodName>
-        <aggType>SUM</aggType>
+        <methodName>getImports</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

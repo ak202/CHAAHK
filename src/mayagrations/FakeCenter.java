@@ -1,8 +1,5 @@
 package mayagrations;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
 import repast.simphony.context.Context;
 
 public class FakeCenter extends Center {

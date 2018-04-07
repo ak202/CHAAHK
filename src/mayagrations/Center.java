@@ -47,17 +47,30 @@ public class Center {
 //	STATIC GLOBAL VARIABLES
 	private double infertility;
 	private double fecundityBase; //Fb
-	private double fecundityMax; //Fmx
-	private double fecundityMin; //Fmn
-	private double fecundityIncRate; //Fir
-	private double fecundityDecRate; //Fdr
-	private double fecundityRegen; //Frg
-	private double fecundityResil; //Frs
-	private double fecundityReck; //Frk
-	private double fecundityReckFraction;
-	private double fecundityDisturbance;
-	private double disturbance; //Fd
+
+	private double fecundityPromotiveLevel;
+	private double fecundityPromotiveRes;
+	private double fecundityPromotiveIncRate;
+	private double fecundityPromotiveDecRate;
+	private double fecundityPromotiveMax;
+	
+	private double fecundityDemotiveLevel;
+	private double fecundityDemotiveRes;
+	private double fecundityDemotiveIncRate;
+	private double fecundityDemotiveDecRate;
+	private double fecundityDemotiveMax;
+	
+	private double disturbance;
 	private int droughtMod;
+	
+	
+	
+	
+//
+//	private double fecundityReck; //Frk
+//	private double fecundityReckFraction;
+//
+
 	
 //	METRICS
 	private int moveDeaths;
@@ -80,11 +93,6 @@ public class Center {
 		pullFractions = null;
 		
 		staples = 3;						//staples
-		fecundityEngineered = 3;
-		fecundityEmployable = 3;
-		fecundityDamageQueue = new LinkedList<Double>();
-		fecundityIncrease = 0;
-		fecundityDecrease = 0;
 		
 		imports = 0.0;						//imports
 		importsLast = 0.0;
@@ -103,20 +111,24 @@ public class Center {
 //		STATIC GLOBAL VARIABLES
 		infertility = (Integer)params.getValue("infert");
 		fecundityBase = 3;
-		fecundityMax = (Double)params.getValue("fecundityMax");
-		fecundityMin = (Double)params.getValue("fecundityMin");
-		fecundityIncRate = (Double)params.getValue("fecundityIncRate");
-		fecundityDecRate = (Double)params.getValue("fecundityDecRate");
-		fecundityRegen = (Double)params.getValue("fecundityRegen");
-		fecundityResil = (Double)params.getValue("fecundityResil");
-		fecundityReck = (Double)params.getValue("fecundityReck");
-		fecundityReckFraction = fecundityReck%1;
-		fecundityDisturbance = (Double)params.getValue("fecundityDisturbance");
+		
+		fecundityPromotiveLevel   = 0;
+		fecundityPromotiveRes     = (Double)params.getValue("fecundityPromotiveRes");
+		fecundityPromotiveIncRate = (Double)params.getValue("fecundityPromotiveIncRate");
+		fecundityPromotiveDecRate = (Double)params.getValue("fecundityPromotiveDecRate");
+		fecundityPromotiveMax     = (Double)params.getValue("fecundityPromotiveMax");
+		
+		fecundityDemotiveLevel    = 0;
+		fecundityDemotiveRes      = (Double)params.getValue("fecundityDemotiveRes");
+		fecundityDemotiveIncRate  = (Double)params.getValue("fecundityDemotiveIncRate");
+		fecundityDemotiveDecRate  = (Double)params.getValue("fecundityDemotiveDecRate");
+		fecundityDemotiveMax      = (Double)params.getValue("fecundityDemotiveMax");
+		
 		disturbance = (Double)params.getValue("disturbance");
 		
-		for (int i = 0; i < (int)Math.ceil(fecundityReck); i++) {
-			fecundityDamageQueue.add(fecundityBase);
-		}
+//		for (int i = 0; i < (int)Math.ceil(fecundityReck); i++) {
+//			fecundityDamageQueue.add(fecundityBase);
+//		}
 
 		droughtMod = (Integer)params.getValue("disturbanceDelay");
 		
@@ -141,72 +153,109 @@ public class Center {
 	}
 	
     public void calculateStaples() {
-
     	    	
     	if (!water) {
-			double fecundityDamage = fecundityDamageQueue.removeFirst(); //Fa
+    		double fecundityPromotiveCarryingFactor = 1 - Math.pow(fecundityPromotiveLevel/fecundityPromotiveMax, 2);
+	    	fecundityPromotiveLevel += fecundityPromotiveCarryingFactor * labor * fecundityPromotiveIncRate;
 			
-	    	double fecundityCarryingFactor = 1 - Math.pow(fecundityDamage/fecundityMax, 2);
-	    	fecundityIncrease = fecundityCarryingFactor * labor * fecundityIncRate;
-	    	
-	    	double fecundityOvershoot = fecundityEmployable - fecundityMax;
-	    	if (fecundityOvershoot > 0) {
-	    		int fecundityDamageDiff = (int)fecundityOvershoot;
-	    		for (int i = 0; i < fecundityDamageDiff; i++) {
-	    			fecundityDamageQueue.addLast(fecundityEmployable);
-	    			fecundityDamageQueue.removeFirst();
-	    		}
-	    	}
-	
-			double fecundityUtilFraction;
-			double laborViaFecundityGrowth = labor - fecundityBase;
-			if (laborViaFecundityGrowth < 0) {
-				laborViaFecundityGrowth = 0;
-			}
-			double fecundityEngineeredGrowth = fecundityEngineered - fecundityBase;
-			if (laborViaFecundityGrowth < (int)fecundityEngineeredGrowth) {
-				fecundityUtilFraction = laborViaFecundityGrowth/fecundityEngineeredGrowth;
+	    	double fecundityPromotiveUtilFraction;
+			if (labor < (int)fecundityPromotiveLevel) {
+				fecundityPromotiveUtilFraction = labor/fecundityPromotiveLevel;
 			} else {
-				fecundityUtilFraction = 1;
+				fecundityPromotiveUtilFraction = 1;
 			}
-	    	double fecundityResFactor = 1 - (fecundityUtilFraction + (1 - fecundityUtilFraction ) * fecundityResil);
-	    	fecundityDecrease = fecundityResFactor * fecundityDecRate;
-	
-	    	double newfecundity = fecundityEmployable + fecundityIncrease - fecundityDecrease;
-	
-	    	if (newfecundity > fecundityEngineered) {
-	    		fecundityEngineered = newfecundity; 
-	    	} else {
-	    		if (fecundityEngineered > fecundityBase) {
-	    			fecundityEngineered -= fecundityRegen;
-	    		} else {
-	    			newfecundity += fecundityRegen;
-	    			fecundityEngineered = fecundityBase;
-	    		}
-	    	}
-	    	    
-	    	fecundityEmployable = newfecundity;
+	    	double fecundityPromotiveResFactor = 1 - (fecundityPromotiveUtilFraction + (1 - fecundityPromotiveUtilFraction ) * fecundityPromotiveRes);
+
+	    	fecundityPromotiveLevel -= fecundityPromotiveResFactor * fecundityPromotiveDecRate;
 	    	
-	    	
-	    	if (fecundityReckFraction == 0) {
-	    		fecundityDamageQueue.addLast(fecundityEngineered);
-	    	} else {
-	    		fecundityDamageQueue.addLast(
-	    				(1-fecundityReckFraction)*fecundityDamageQueue.peekLast() +
-	    				fecundityReckFraction*fecundityEngineered);
+	    	if (fecundityPromotiveLevel < 0) {
+	    		fecundityPromotiveLevel = 0;
 	    	}
 	    	
-	    	if (fecundityEmployable < fecundityMin) {
-	    		fecundityEmployable = fecundityMin;
+    		double fecundityDemotiveCarryingFactor = 1 - Math.pow(fecundityDemotiveLevel/fecundityDemotiveMax, 2);
+	    	fecundityDemotiveLevel += fecundityDemotiveCarryingFactor * labor * fecundityDemotiveIncRate;
+    		
+			double fecundityDemotiveUtilFraction;
+			if (labor < (int)fecundityDemotiveLevel) {
+				fecundityDemotiveUtilFraction = labor/fecundityDemotiveLevel;
+			} else {
+				fecundityDemotiveUtilFraction = 1;
+			}
+	    	double fecundityDemotiveResFactor = 1 - (fecundityDemotiveUtilFraction + (1 - fecundityDemotiveUtilFraction ) * fecundityDemotiveRes);
+	    	fecundityDemotiveLevel -= fecundityDemotiveResFactor * fecundityDemotiveDecRate;
+	    	if (fecundityDemotiveLevel < 0) {
+	    		fecundityDemotiveLevel = 0;
 	    	}
-	    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+    		
+    		staples = (int)(fecundityBase+fecundityPromotiveLevel-fecundityDemotiveLevel);
+        	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
 	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-	    		staples = Math.round((float)(fecundityEmployable/(disturbance*fecundityDisturbance)));
-	    	} else {
-	    		staples = Math.round((float)fecundityEmployable);
-	    	}
+	    		staples = Math.round((float)(staples/disturbance));
+	    	} 
     	}
     }
+    		
+    		
+//    		
+//    		
+//    		
+//    		
+//    		
+//    		
+//			double fecundityDamage = fecundityDamageQueue.removeFirst(); //Fa
+//			
+//	    	double fecundityCarryingFactor = 1 - Math.pow(fecundityDamage/fecundityMax, 2);
+//	    	fecundityIncrease = fecundityCarryingFactor * labor * fecundityIncRate;
+//	    	
+//
+//			double fecundityUtilFraction;
+//			double laborViaFecundityGrowth = labor - fecundityBase;
+//			if (laborViaFecundityGrowth < 0) {
+//				laborViaFecundityGrowth = 0;
+//			}
+//			double fecundityEngineeredGrowth = fecundityEngineered - fecundityBase;
+//			if (laborViaFecundityGrowth < (int)fecundityEngineeredGrowth) {
+//				fecundityUtilFraction = laborViaFecundityGrowth/fecundityEngineeredGrowth;
+//			} else {
+//				fecundityUtilFraction = 1;
+//			}
+//	    	double fecundityResFactor = 1 - (fecundityUtilFraction + (1 - fecundityUtilFraction ) * fecundityResil);
+//	    	fecundityDecrease = fecundityResFactor * fecundityDecRate;
+//	
+//	    	double newfecundity = fecundityEmployable + fecundityIncrease - fecundityDecrease;
+//	
+//	    	if (newfecundity > fecundityEngineered) {
+//	    		fecundityEngineered = newfecundity; 
+//	    	} else {
+//	    		if (fecundityEngineered > fecundityBase) {
+//	    			fecundityEngineered -= fecundityRegen;
+//	    		} else {
+//	    			newfecundity += fecundityRegen;
+//	    			fecundityEngineered = fecundityBase;
+//	    		}
+//	    	}
+//	    	    
+//	    	fecundityEmployable = newfecundity;
+//	    	
+//	    	
+//	    	if (fecundityReckFraction == 0) {
+//	    		fecundityDamageQueue.addLast(fecundityEngineered);
+//	    	} else {
+//	    		fecundityDamageQueue.addLast(
+//	    				(1-fecundityReckFraction)*fecundityDamageQueue.peekLast() +
+//	    				fecundityReckFraction*fecundityEngineered);
+//	    	}
+//	    	
+//	    	if (fecundityEmployable < fecundityMin) {
+//	    		fecundityEmployable = fecundityMin;
+//	    	}
+//	    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+//	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
+//	    		staples = Math.round((float)(fecundityEmployable/(disturbance*fecundityDisturbance)));
+//	    	} else {
+//	    		staples = Math.round((float)fecundityEmployable);
+//	    	}
+//    	}
     
     public void reproduce() {
 //    	System.out.println(this.getLabor());
@@ -240,8 +289,8 @@ public class Center {
         	this.water = water;
         	if (water) {
             	fecundityBase = 0;
-            	fecundityMax = 0;
-            	fecundityMin = 0;
+            	fecundityPromotiveMax = 0;
+            	fecundityDemotiveMax = 0;
             	staples = 0;
         	}
     	}
@@ -516,4 +565,11 @@ public class Center {
 		this.pullFractions = (ArrayList<Double>) pullfras;
 	}
 	
+	public double getFPL() {
+		return fecundityPromotiveLevel;
+	}
+	
+	public double getFDL() {
+		return fecundityDemotiveLevel;
+	}
 }
