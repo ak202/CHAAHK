@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
-  <name>Centers</name>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
+  <name>routes</name>
   <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>Value</yAxisLabel>
-  <chartTitle>Center Statistics</chartTitle>
+  <yAxisLabel></yAxisLabel>
+  <chartTitle>Routes</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,49 +21,49 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>Staples</string>
+      <string>Cost Base</string>
       <SeriesData>
-        <label>Staples</label>
-        <color>
-          <red>204</red>
-          <green>255</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>F Demotive</string>
-      <SeriesData>
-        <label>F Demotive</label>
+        <label>Cost Base</label>
         <color>
           <red>102</red>
           <green>102</green>
-          <blue>255</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Labor</string>
-      <SeriesData>
-        <label>Labor</label>
-        <color>
-          <red>102</red>
-          <green>255</green>
           <blue>102</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
     </entry>
     <entry>
-      <string>F Promotive</string>
+      <string>Cost Promotive Level</string>
       <SeriesData>
-        <label>F Promotive</label>
+        <label>Cost Promotive Level</label>
+        <color>
+          <red>0</red>
+          <green>204</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Cost Demotive Level</string>
+      <SeriesData>
+        <label>Cost Demotive Level</label>
         <color>
           <red>255</red>
-          <green>51</green>
-          <blue>51</blue>
+          <green>0</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Weight</string>
+      <SeriesData>
+        <label>Weight</label>
+        <color>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>

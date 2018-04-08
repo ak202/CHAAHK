@@ -1,0 +1,2 @@
+"MaxPop","MinPop","countPop"
+3282,3248,3230

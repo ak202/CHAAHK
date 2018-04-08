@@ -18,7 +18,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="costDemotiveResilience" displayName="Cost Demotive Resilience" type="double" 
+				<parameter name="costDemotiveRes" displayName="Cost Demotive Resilience" type="double" 
 						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"

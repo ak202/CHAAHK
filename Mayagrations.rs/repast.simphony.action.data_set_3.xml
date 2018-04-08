@@ -1,43 +1,35 @@
-<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
-  <name>final</name>
+<repast.simphony.data2.engine.DataSetDescriptor>
+  <name>imports</name>
   <type>NON_AGGREGATE</type>
-  <sourceType>mayagrations.Region</sourceType>
-  <inclTick>false</inclTick>
+  <sourceType>mayagrations.Center</sourceType>
+  <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>1649.0</start>
-    <interval>0.0</interval>
+    <start>1.0</start>
+    <interval>50.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
-    <frequency>ONE_TIME</frequency>
-    <hashCode>-1061669185</hashCode>
+    <frequency>REPEAT</frequency>
+    <hashCode>-2122948504</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>countPop</string>
+      <string>Pull</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>countPop</id>
-        <className>mayagrations.Region</className>
-        <methodName>countPop</methodName>
+        <id>Pull</id>
+        <className>mayagrations.Center</className>
+        <methodName>getPull</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>MaxPop</string>
+      <string>Imports</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>MaxPop</id>
-        <className>mayagrations.Region</className>
-        <methodName>getMaxPop</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>MinPop</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>MinPop</id>
-        <className>mayagrations.Region</className>
-        <methodName>getMinPop</methodName>
+        <id>Imports</id>
+        <className>mayagrations.Center</className>
+        <methodName>getImports</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

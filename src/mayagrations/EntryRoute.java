@@ -22,7 +22,31 @@ public class EntryRoute<T> extends Route<T> {
 	}
 	
 	public double getWeight() {
-//		System.out.println("getting weight");
 		return 10;
 	}
+	
+	public double getWeightShow() {
+		return 0;
+	}
+	
+	public double getCostBase() {
+		return 0;
+	}
+	
+	public double getCostPromotiveLevel() {
+		return 0;
+	}
+	
+	public double getCostDemotiveLevel() {
+		return 0;
+	}
+	
+	public double getCostPromotiveLevelShow() {
+		return 0;
+	}
+	
+	public double getCostDemotiveLevelShow() {
+		return 0;
+	}
+	
 }
