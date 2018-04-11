@@ -91,42 +91,7 @@ public class Route<T> extends RepastEdge<T> {
 		trafficShortCoefficient = (Double)params.getValue("trafficShortCoefficient");
 		trafficLongCoefficient = (Double)params.getValue("trafficLongCoefficient");
 		droughtMod = (Integer)params.getValue("disturbanceDelay");
-//		
-//		int sourceID = sourceCenter.getID();
-//		int targetID = targetCenter.getID();
-//		
 
-//		for (int i = 0; i < 17; i++) {
-//			if (sourceID == i | targetID == i) {
-//				makeMountain(params, weight);
-//			}
-//		}
-//		if ((sourceID-16)%17==0 & (targetID-16)%17==0) {
-//			this.weight = weight;
-//			makeRiver(params);
-//		}
-//		if ((sourceID-0)%17==0 & (targetID-0)%17==0) {
-//			this.weight = weight;
-//			makeRiver(params);
-//		}
-//		for (int i = 0; i < 16; i++) {
-//			if (sourceID == i & targetID == i + 1) {
-//				this.weight = weight;
-//				makeRiver(params);
-//			}
-//		}
-//		for (int i = 102; i < 106; i++) {
-//			if (sourceID == i & targetID == i + 1) {
-//				this.weight = weight;
-//				makeRiver(params);
-//			}
-//		}
-//		for (int i = 215; i < 220; i++) {
-//			if (sourceID == i & targetID == i + 1) {
-//				this.weight = weight;
-//				makeRiver(params);
-//			}
-//		}
 		if (type == "none") {
 			makeBajo(weight);
 		}
@@ -140,9 +105,8 @@ public class Route<T> extends RepastEdge<T> {
 		Center center2 = (Center) target;
 		double pop1 = center1.getEndemic();
 		double pop2 = center2.getEndemic();
-		trafficShort = trafficShortCoefficient * ((pop1 + pop2) / weight);
-		trafficLong = trafficLongCoefficient * trafficLong;
-		trafficFinal = trafficLong + trafficShort;
+		trafficShort = (pop1 + pop2) / weight;
+		trafficFinal = trafficLongCoefficient *trafficLong + trafficShortCoefficient * trafficShort;
 		
 		double costPromotiveCarryingFactor;
 		if (costPromotiveLevel < costPromotiveMax){
@@ -193,114 +157,61 @@ public class Route<T> extends RepastEdge<T> {
     	} else if (costDemotiveLevel > costDemotiveMax) {
     		costDemotiveLevel = costDemotiveMax;
     	}
+//    	System.out.println();
     	
     	
-		weight = (int)(costBase-costPromotiveLevel+costDemotiveLevel);
-    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-    		weight = Math.round((float)(weight/disturbance));
-    	} 
+//    	print("costPromotiveLevel", costPromotiveLevel, type=="bajo");
+//    	print("costDemotiveLevel", costDemotiveLevel, type=="bajo");
+    	double costPromotiveFraction;
+    	double costDemotiveFraction;
     	
-    	System.out.println(costDemotiveLevel);
-
-//		double costCarryingFactor = 1 - 
-//				Math.pow((costMin/costEngineered), 2);
-//		double costDecrease = costCarryingFactor * trafficFinal * costDecRate;
-//
-//		
-//		double costIncrease = 0;
-//		double costResFactor = 0;
-//		double costUtilFraction = 0;
-//		double trafficViaImprovement = 0;
-//		
-//		double costEngineeredImprovement = costBase - costEngineered;
-//		if (trafficFinal < costEngineeredImprovement) {
-//			costUtilFraction = trafficViaImprovement/costEngineeredImprovement;
-//		} else {
-//			costUtilFraction = 1;
-//		}
-//		costResFactor = 1 - (costUtilFraction + (1 - costUtilFraction ) * costResil);
-//		costIncrease = costResFactor * costIncRate;	
-//		
-//		costEmployable = costEmployable - costDecrease + costIncrease; 
-//		
-////		if (!terrain) {
-////			System.out.print("trafficViaImprovement is ");
-////			System.out.println(trafficViaImprovement);
-////			System.out.print("costEngineeredImprovement is ");
-////			System.out.println(costEngineeredImprovement);
-////			System.out.print("costUtilFraction is ");
-////			System.out.println(costUtilFraction);
-////			System.out.print("costResFactor is ");
-////			System.out.println(costResFactor);
-////			System.out.print("increase is");
-////			System.out.println(costIncrease);
-////			System.out.print("Cp is ");
-////			System.out.println(costEmployable);
-////		}
-//
-//		
-//    	if (costEmployable  < costMin) {
-//    		costEmployable  = costMin;
-//    	} else if (costEmployable > costMax) {
-//    		costEmployable = costMax;
+    	if (costPromotiveMax == 0) {
+    		costPromotiveFraction = 0;
+    	} else {
+    		costPromotiveFraction = costPromotiveLevel/costPromotiveMax;
+    	}
+    	
+    	if (costDemotiveMax == 0) {
+    		costDemotiveFraction = 0;
+    	} else {
+    		costDemotiveFraction = costDemotiveLevel/costDemotiveMax;
+    	}
+    	
+//    	if (type == "bajo") {
+//    		System.out.println();
 //    	}
-//    	if (costEmployable < costEngineered) {
-//    		costEngineered = costEmployable;
-//    	} else {
-//    		if (costEngineered < costBase) {
-//    			costEngineered += costRegen;
-//    		} else {
-//    			costEmployable -= costRegen;
-//    			costEngineered = costBase;
-//    		}
-//    	}
-//    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-//    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-//    		weight = costEmployable*(disturbance*costDisturbance);
-//    	} else {
-//    		weight = costEmployable;
-//    	}	
 //    	
     	
+//    	print("weight", weight, type=="bajo");
+//      	print("costPromotiveFraction", costPromotiveFraction, type=="bajo");
+//    	print("costDemotiveFraction", costDemotiveFraction, type=="bajo");
+//    	print("costBase", costBase, type=="bajo");
+//    	
     	
-//		if (true) {
-//			System.out.print("Cg is ");
-//			System.out.println(costEngineered);
-//			System.out.print("ccf is ");
-//			System.out.println(costCarryingFactor);
-//			System.out.print("id 1 is ");
-//			System.out.println(((Center)source).getID());
-//			System.out.print("id2 is ");
-//			System.out.println(((Center)target).getID());
-//			System.out.print("costBase is ");
-//			System.out.println(costBase);
-//			System.out.print("costEmployable is ");
-//			System.out.println(costEmployable);
-//			System.out.print("trafficShort is ");
-//			System.out.println(trafficShort);
-//			System.out.print("trafficLong is ");
-//			System.out.println(trafficLong);
-//			System.out.print("trafficFinal is ");
-//			System.out.println(trafficFinal);
-//			System.out.print("costUtilFraction is ");
-//			System.out.println(costUtilFraction);
-//			System.out.print("trafficViaImprovement is ");
-//			System.out.println(trafficViaImprovement);
-//			System.out.print("costResFactor is ");
-//			System.out.println(costResFactor);
-//			System.out.print("decrease is ");
-//			System.out.println(costDecrease);
-//			System.out.print("costEmployable is ");
-//			System.out.println(costEmployable);
-//			System.out.print("costBase is ");
-//			System.out.println(costBase);
-//			System.out.print("costMin is ");
-//			System.out.println(costMin);
-//			System.out.print("costMax is ");
-//			System.out.println(costMax);
-//		}
+    	if (costPromotiveFraction > costDemotiveFraction) {
+    		costPromotiveFraction = costPromotiveFraction - costDemotiveFraction;
+    		weight = costBase - costPromotiveFraction * costPromotiveMax;
+//    		print("costPromotiveFraction", costPromotiveFraction, type=="bajo");
+//    		print("costPromotiveMax", costPromotiveMax, type=="bajo");
+    	} else {
+    		costDemotiveFraction = costDemotiveFraction - costPromotiveFraction;
+//    		print("costDemotiveFraction", costDemotiveFraction, type=="bajo");
+//    		print("costDemotiveMax", costDemotiveMax, type=="bajo");
+    		weight = costBase + costDemotiveFraction * costDemotiveMax;
+    	} 
+//    	print("weight", weight, type=="bajo");
+    	
+    	
+//		weight = (int)(costBase-costPromotiveLevel+costDemotiveLevel);
 
+    	
+    	//    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+//    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
+//    		weight = Math.round((float)(weight*disturbance));
+//    	} 
+//    	if (weight < 2) {
+//    		weight = 2;
+//    	}
 	}
 	
 	
@@ -317,21 +228,26 @@ public class Route<T> extends RepastEdge<T> {
 	}
 	
 	public void initUpland() {
-//		weight = weight*2;
-//		costDemotiveMax =  weight/4;
-//		costPromotiveMax =  weight;
-//		disturbance = 1;
-//		costPromotiveRes = costPromotiveRes * 1.5;
-//		if (costPromotiveRes > 1) {
-//			costPromotiveRes = 1;
-//		}
-//		initBase();
+		weight = weight*2;
+		costDemotiveMax =  0;
+		costPromotiveMax =  .5 * weight;
+		costPromotiveRes = .4;
+		disturbance = 1;
+		initBase();
 	}
 	public void initBajo() {
-//		weight = weight/5;
-//		costPromotiveMax =  weight/2;
-//		costDemotiveMax =  weight*50;
-//		initBase();
+		
+		weight = weight /5;
+		Parameters params = RunEnvironment.getInstance().getParameters();
+		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate")* weight;
+		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate") * weight;
+		costPromotiveMax     = (Double)params.getValue("costPromotiveMax") * weight;
+		
+		costDemotiveRes      = (Double)params.getValue("costDemotiveRes");
+		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * weight;
+		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * weight;
+		costDemotiveMax      = (Double)params.getValue("costDemotiveMax") * weight;
+		initBase();
 	}
 	public void initBase() {
 		costBase =  weight;
@@ -371,21 +287,21 @@ public class Route<T> extends RepastEdge<T> {
 	}
 	public double getTrafficShortBajo() {
 		if (type=="bajo") {
-			return trafficShort/20;
+			return trafficShort * trafficShortCoefficient;
 		} else {
 			return 0;
 		}
 	}
 	public double getTrafficLongBajo() {
 		if (type=="bajo") {
-			return trafficLong/20;
+			return trafficLong * trafficLongCoefficient;
 		} else {
 			return 0;
 		}
 	}
 	public double getTrafficFinalBajo() {
 		if (type=="bajo") {
-			return trafficFinal/20;
+			return trafficFinal;
 		} else {
 			return 0;
 		}
@@ -396,8 +312,16 @@ public class Route<T> extends RepastEdge<T> {
 		return trafficLong;
 	}
 	
+	public double getTrafficLongShow() {
+		return trafficLong * trafficLongCoefficient;
+	}
+	
 	public double getTrafficShort() {
 		return trafficShort;
+	}
+	
+	public double getTrafficShortShow() {
+		return trafficShort * trafficShortCoefficient;
 	}
 	
 	public double getTrafficScaled() {
@@ -509,6 +433,14 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
+	public double get76traflShow(){
+		Center center1 = (Center) source;
+		Center center2 = (Center) target;
+		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			return trafficLong * trafficLongCoefficient;
+		} else return 0;
+	}
+	
 	public double get76trafs(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
@@ -543,6 +475,19 @@ public class Route<T> extends RepastEdge<T> {
 		Center center2 = (Center) target;
 
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+			System.out.print(phrase);
+			System.out.print(" is ");
+			System.out.println(number);
+		}
+	}	
+	private void print(String phrase, double number) {
+		System.out.print(phrase);
+		System.out.print(" is ");
+		System.out.println(number);
+	}
+	
+	private void print(String phrase, double number, boolean bool) {
+		if (bool) {
 			System.out.print(phrase);
 			System.out.print(" is ");
 			System.out.println(number);

@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.HistogramChartDescriptor>
-  <name>Imports Histogram</name>
+<repast.simphony.chart2.engine.HistogramChartDescriptor simphonyVersion="2.5.0">
+  <name>labor historgram</name>
   <dataSet>imports</dataSet>
-  <xAxisLabel>Centers</xAxisLabel>
-  <yAxisLabel>Imports</yAxisLabel>
-  <chartTitle>Imports</chartTitle>
+  <xAxisLabel>Labor</xAxisLabel>
+  <yAxisLabel>Cities</yAxisLabel>
+  <chartTitle>Labor Distribution</chartTitle>
   <type>HISTOGRAM</type>
   <background>
     <red>192</red>
@@ -21,7 +21,7 @@
   <showLegend>true</showLegend>
   <histType>DYNAMIC</histType>
   <binCount>10</binCount>
-  <sourceId>Imports</sourceId>
+  <sourceId>Labor</sourceId>
   <outOfRange>IGNORE</outOfRange>
   <min>0.0</min>
   <max>0.0</max>

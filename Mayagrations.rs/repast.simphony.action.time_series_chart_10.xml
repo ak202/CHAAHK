@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor>
-  <name>Centers</name>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
+  <name>Center Data</name>
   <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>Value</yAxisLabel>
-  <chartTitle>Center Statistics</chartTitle>
+  <yAxisLabel></yAxisLabel>
+  <chartTitle>Center Data</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,11 +21,11 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>Staples</string>
+      <string>Fecundity Promotive Level</string>
       <SeriesData>
-        <label>Staples</label>
+        <label>Fecundity Promotive Level</label>
         <color>
-          <red>204</red>
+          <red>0</red>
           <green>255</green>
           <blue>0</blue>
           <alpha>255</alpha>
@@ -33,13 +33,25 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>F Demotive</string>
+      <string>Staples</string>
       <SeriesData>
-        <label>F Demotive</label>
+        <label>Staples</label>
         <color>
-          <red>102</red>
-          <green>102</green>
-          <blue>255</blue>
+          <red>255</red>
+          <green>153</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Fecundity Demotive Level</string>
+      <SeriesData>
+        <label>Fecundity Demotive Level</label>
+        <color>
+          <red>255</red>
+          <green>0</green>
+          <blue>51</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
@@ -49,21 +61,21 @@
       <SeriesData>
         <label>Labor</label>
         <color>
-          <red>102</red>
+          <red>255</red>
           <green>255</green>
-          <blue>102</blue>
+          <blue>0</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
     </entry>
     <entry>
-      <string>F Promotive</string>
+      <string>Fecundity Base</string>
       <SeriesData>
-        <label>F Promotive</label>
+        <label>Fecundity Base</label>
         <color>
-          <red>255</red>
-          <green>51</green>
-          <blue>51</blue>
+          <red>102</red>
+          <green>102</green>
+          <blue>102</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>

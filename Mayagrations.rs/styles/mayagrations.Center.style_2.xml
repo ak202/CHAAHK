@@ -6,7 +6,6 @@
   <sizeScale>10.0</sizeScale>
   <sizeMethodName>getLabor</sizeMethodName>
   <label></label>
-  <labelMethod>getID</labelMethod>
   <labelPosition>bottom</labelPosition>
   <labelPrecision>3</labelPrecision>
   <labelOffset>5.0</labelOffset>

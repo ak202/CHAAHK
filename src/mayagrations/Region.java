@@ -69,7 +69,6 @@ public class Region {
 	public void calculateTrafficLong() {
 		resetNetworkTraffic();
 		for (Center c : centers) {
-			
 			if (spawns.contains(c)){
 				if (c.getLabor()==0) {
 					Group dude = new Group(c, true, "graph");
@@ -79,11 +78,8 @@ public class Region {
 			List<RepastEdge<Object>> path;
 			path = sp.getPath(c,exporter);
 			double distToMine = 0;
-//			System.out.println("");
-//			System.out.println("new city");
 			for (RepastEdge<Object> e : path) {
 				distToMine += e.getWeight();
-//				System.out.println(e.getWeight());
 			}
 			c.setMineDistance(distToMine);
 			for (RepastEdge<Object> e : path) {
@@ -93,8 +89,6 @@ public class Region {
 		}
 		for (Center c : centers) {
 			c.calculateStaples();
-//			System.out.println("");
-//			System.out.println("path totals");
 			c.calculateImports();
 		}
 		sp.finalize();
@@ -109,7 +103,7 @@ public class Region {
 			if (center.getDistToExporter() < 1) {
 				center.setPull(0);
 			} else {
-				center.setPull(center.getFecundityEmployable()/center.getDistToExporter()+1);
+				center.setPull(1);
 			}
 			totalPull += center.getPull();
 		}
@@ -120,7 +114,6 @@ public class Region {
 			pullFractions.add(pullFraction);
 		}
 		Collections.sort(pullFractions); 
-//		System.out.println("reproducing");
 		for (Center center : centers) {
 			center.setDestinations(destinations);
 			center.setPullFractions(pullFractions);

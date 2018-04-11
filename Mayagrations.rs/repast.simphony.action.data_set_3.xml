@@ -1,4 +1,4 @@
-<repast.simphony.data2.engine.DataSetDescriptor>
+<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
   <name>imports</name>
   <type>NON_AGGREGATE</type>
   <sourceType>mayagrations.Center</sourceType>
@@ -30,6 +30,22 @@
         <id>Imports</id>
         <className>mayagrations.Center</className>
         <methodName>getImports</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Labor</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Labor</id>
+        <className>mayagrations.Center</className>
+        <methodName>getLabor</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>DistToExporter</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>DistToExporter</id>
+        <className>mayagrations.Center</className>
+        <methodName>getDistToExporter</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

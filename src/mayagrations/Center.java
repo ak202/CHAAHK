@@ -42,7 +42,6 @@ public class Center {
 	private Context<Object> context;
 	private boolean upland;
 	private boolean water;
-	private boolean terrain;
 	
 //	STATIC GLOBAL VARIABLES
 	private double infertility;
@@ -62,7 +61,7 @@ public class Center {
 	
 	private double disturbance;
 	private int droughtMod;
-	
+
 	
 	
 	
@@ -106,7 +105,6 @@ public class Center {
 		this.context = context;
 		upland = false;
 		water = true;
-		terrain = false;
 		
 //		STATIC GLOBAL VARIABLES
 		infertility = (Integer)params.getValue("infert");
@@ -128,7 +126,7 @@ public class Center {
 		
 //		for (int i = 0; i < (int)Math.ceil(fecundityReck); i++) {
 //			fecundityDamageQueue.add(fecundityBase);
-//		}
+//	
 
 		droughtMod = (Integer)params.getValue("disturbanceDelay");
 		
@@ -140,21 +138,12 @@ public class Center {
 		born = 0;
 		settled = 0;		
 		
-//		if ((id-16)%17==0 | (id)%17==0) {
-//			setWater(true);
-//			terrain = true;
-//		}
-//		for (int i=0;i<17;i++){
-//			if(i == id) {
-//				setWater(true);
-//				terrain = true;
-//			}	
-//		}
 	}
 	
     public void calculateStaples() {
     	    	
     	if (!water) {
+ 
     		double fecundityPromotiveCarryingFactor = 1 - Math.pow(fecundityPromotiveLevel/fecundityPromotiveMax, 2);
 	    	fecundityPromotiveLevel += fecundityPromotiveCarryingFactor * labor * fecundityPromotiveIncRate;
 			
@@ -192,79 +181,17 @@ public class Center {
 	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
 	    		staples = Math.round((float)(staples*disturbance));
 	    	} 
+
     	}
     }
-    		
-    		
-//    		
-//    		
-//    		
-//    		
-//    		
-//    		
-//			double fecundityDamage = fecundityDamageQueue.removeFirst(); //Fa
-//			
-//	    	double fecundityCarryingFactor = 1 - Math.pow(fecundityDamage/fecundityMax, 2);
-//	    	fecundityIncrease = fecundityCarryingFactor * labor * fecundityIncRate;
-//	    	
-//
-//			double fecundityUtilFraction;
-//			double laborViaFecundityGrowth = labor - fecundityBase;
-//			if (laborViaFecundityGrowth < 0) {
-//				laborViaFecundityGrowth = 0;
-//			}
-//			double fecundityEngineeredGrowth = fecundityEngineered - fecundityBase;
-//			if (laborViaFecundityGrowth < (int)fecundityEngineeredGrowth) {
-//				fecundityUtilFraction = laborViaFecundityGrowth/fecundityEngineeredGrowth;
-//			} else {
-//				fecundityUtilFraction = 1;
-//			}
-//	    	double fecundityResFactor = 1 - (fecundityUtilFraction + (1 - fecundityUtilFraction ) * fecundityResil);
-//	    	fecundityDecrease = fecundityResFactor * fecundityDecRate;
-//	
-//	    	double newfecundity = fecundityEmployable + fecundityIncrease - fecundityDecrease;
-//	
-//	    	if (newfecundity > fecundityEngineered) {
-//	    		fecundityEngineered = newfecundity; 
-//	    	} else {
-//	    		if (fecundityEngineered > fecundityBase) {
-//	    			fecundityEngineered -= fecundityRegen;
-//	    		} else {
-//	    			newfecundity += fecundityRegen;
-//	    			fecundityEngineered = fecundityBase;
-//	    		}
-//	    	}
-//	    	    
-//	    	fecundityEmployable = newfecundity;
-//	    	
-//	    	
-//	    	if (fecundityReckFraction == 0) {
-//	    		fecundityDamageQueue.addLast(fecundityEngineered);
-//	    	} else {
-//	    		fecundityDamageQueue.addLast(
-//	    				(1-fecundityReckFraction)*fecundityDamageQueue.peekLast() +
-//	    				fecundityReckFraction*fecundityEngineered);
-//	    	}
-//	    	
-//	    	if (fecundityEmployable < fecundityMin) {
-//	    		fecundityEmployable = fecundityMin;
-//	    	}
-//	    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-//	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-//	    		staples = Math.round((float)(fecundityEmployable/(disturbance*fecundityDisturbance)));
-//	    	} else {
-//	    		staples = Math.round((float)fecundityEmployable);
-//	    	}
-//    	}
-    
+
     public void reproduce() {
-//    	System.out.println(this.getLabor());
-		
+
 		if (labor > 0 & staples > 0) {
 
 			int newGroups = 0;
 			double odds = getStaplesPerCap() / infertility;
-//			System.out.println(getStaplesPerCap());
+
 			if (odds >= 1) {
 				odds = .999;
 			}
@@ -284,18 +211,7 @@ public class Center {
 		}
     }
     
-    public void setWater(boolean water) {
-    	if (!terrain) {
-        	this.water = water;
-        	if (water) {
-            	fecundityBase = 0;
-            	fecundityPromotiveMax = 0;
-            	fecundityDemotiveMax = 0;
-            	staples = 0;
-        	}
-    	}
-    }
-    
+
     public void setPull(double pull) {
     	this.pull = pull;
     }
@@ -316,9 +232,6 @@ public class Center {
     	return id;
     }
 
-//	public void setLabor(int flux) {
-//		this.labor += flux;
-//	}
 	public int getLabor() {
 		return this.labor;
 	}
@@ -439,10 +352,6 @@ public class Center {
 	}
 	
 	public double getImports() {
-//		if (imports > 100)	{
-//			System.out.println("imports");
-//			System.out.println(imports);
-//		}
 		return(imports);
 	}
 	
@@ -459,12 +368,26 @@ public class Center {
 	}
 	
 	public void calculateImports() {
-//		System.out.println(distToExporter);
 		imports = importsLast;
-		importsLast = (labor * 2 + 1) * Math.pow(distToExporter, -.2) + .51;
-//		imports = (labor * 2 + 1) * Math.pow(distToExporter, -.2) + .51;
+//		System.out.println();
+//		print("labor", labor);
+//		print("dist", distToExporter);
+		importsLast = (labor * 2 + 1) * Math.pow(distToExporter, -.25) + .7;
+//		print("importds",imports);
+	}
+	private void print(String phrase, double number) {
+		System.out.print(phrase);
+		System.out.print(" is ");
+		System.out.println(number);
 	}
 	
+	private void print(String phrase, double number, boolean bool) {
+		if (bool) {
+			System.out.print(phrase);
+			System.out.print(" is ");
+			System.out.println(number);
+		}
+	}
 	public void setMineDistance(double distanceToExporter) {
 		distToExporter = distanceToExporter;
 	}
@@ -484,10 +407,19 @@ public class Center {
 	}
 	
 	public void makeUpland() {
-		if (!terrain) {
-			upland = true;
-		}
+		upland = true;
 	}
+	
+    public void setWater(boolean water) {
+    	this.water = water;
+    	if (water) {
+        	fecundityBase = 0;
+        	fecundityPromotiveMax = 0;
+        	fecundityDemotiveMax = 0;
+        	staples = 0;
+    	}
+    }
+    
 	
 	public boolean getUpland() {
 		return upland;
@@ -572,4 +504,13 @@ public class Center {
 	public double getFDL() {
 		return fecundityDemotiveLevel;
 	}
+	
+	public double getFPLshow() {
+		return fecundityBase + fecundityPromotiveLevel;
+	}
+	
+	public double getFDLshow() {
+		return fecundityBase -fecundityDemotiveLevel;
+	}
+	
 }

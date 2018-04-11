@@ -1,26 +1,89 @@
-<repast.simphony.data2.engine.DataSetDescriptor>
+<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
   <name>population</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>30.0</start>
+    <start>31.0</start>
     <interval>5.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>932876387</hashCode>
+    <hashCode>-139703617</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>Traffic Final</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Traffic Final</id>
+        <className>mayagrations.Route</className>
+        <methodName>getTrafficFinalBajo</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Born</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Born</id>
+        <className>mayagrations.Center</className>
+        <methodName>getBorn</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Fecundity Demotive Level</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Fecundity Demotive Level</id>
+        <className>mayagrations.Center</className>
+        <methodName>getFDLshow</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Fecundity Promotive Level</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Fecundity Promotive Level</id>
+        <className>mayagrations.Center</className>
+        <methodName>getFPLshow</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Fecundity Base</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Fecundity Base</id>
+        <className>mayagrations.Center</className>
+        <methodName>getFecundityBase</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Deaths via Imports</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Deaths via Imports</id>
+        <className>mayagrations.Center</className>
+        <methodName>getImportsDeaths</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
     <entry>
       <string>Labor</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
         <id>Labor</id>
         <className>mayagrations.Center</className>
-        <methodName>getPop</methodName>
+        <methodName>getLabor</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Migrations</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Migrations</id>
+        <className>mayagrations.Center</className>
+        <methodName>getMoveLifes</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
@@ -34,20 +97,74 @@
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Traffic Long</string>
+      <string>Cost Base (ob)</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Traffic Long</id>
+        <id>Cost Base (ob)</id>
         <className>mayagrations.Route</className>
-        <methodName>getTrafficLongBajo</methodName>
+        <methodName>get76base</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Traffic Final</string>
+      <string>Cost Demotive Level  (ob)</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Traffic Final</id>
+        <id>Cost Demotive Level  (ob)</id>
         <className>mayagrations.Route</className>
-        <methodName>getTrafficFinalBajo</methodName>
+        <methodName>get76cdl</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cost Promotive Level  (ob)</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cost Promotive Level  (ob)</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76cpl</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Traffic Final (ob)</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Traffic Final (ob)</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76traff</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Traffic Long (ob)</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Traffic Long (ob)</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76traflShow</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Traffic Short (ob)</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Traffic Short (ob)</id>
+        <className>mayagrations.Route</className>
+        <methodName>get76trafs</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cost Base</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cost Base</id>
+        <className>mayagrations.Route</className>
+        <methodName>getCostBaseBajo</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Weight</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Weight</id>
+        <className>mayagrations.Route</className>
+        <methodName>getWeightBajo</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
@@ -61,93 +178,12 @@
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Cb76</string>
+      <string>Traffic Long</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cb76</id>
+        <id>Traffic Long</id>
         <className>mayagrations.Route</className>
-        <methodName>get76base</methodName>
+        <methodName>getTrafficLongBajo</methodName>
         <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Tf76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Tf76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76traff</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Tl76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Tl76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76trafl</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Ts76</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Ts76</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76trafs</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>F Demotive</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>F Demotive</id>
-        <className>mayagrations.Center</className>
-        <methodName>getFDL</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>F Promotive</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>F Promotive</id>
-        <className>mayagrations.Center</className>
-        <methodName>getFPL</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>cpl</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>cpl</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76cpl</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>max</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>max</id>
-        <className>mayagrations.Route</className>
-        <methodName>get76pmx</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cost Base</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cost Base</id>
-        <className>mayagrations.Route</className>
-        <methodName>getCostBase</methodName>
-        <aggType>MEAN</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cost Demotive Level</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cost Demotive Level</id>
-        <className>mayagrations.Route</className>
-        <methodName>getCostDemotiveLevelShow</methodName>
-        <aggType>MEAN</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
@@ -155,17 +191,17 @@
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
         <id>Cost Promotive Level</id>
         <className>mayagrations.Route</className>
-        <methodName>getCostPromotiveLevelShow</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>getCostPromotiveLevelBajo</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Weight</string>
+      <string>Cost Demotive Level</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Weight</id>
+        <id>Cost Demotive Level</id>
         <className>mayagrations.Route</className>
-        <methodName>getWeightShow</methodName>
-        <aggType>MEAN</aggType>
+        <methodName>getCostDemotiveLevelBajo</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

@@ -60,6 +60,8 @@ data <- data.frame(Crg.params, Crg.out)
 qplot(costRegen, collapse1, data=data)
 qplot(costRegen, collapse2, data=data)
 
+
+
 UA.params <- read.csv("UaParams.csv")
 UA.out <- read.csv("Ua.csv")
 UA.out$collapse1 <- UA.out$MinPop/UA.out$MaxPop
@@ -72,14 +74,39 @@ qplot(uplandAmount, collapse1, data=data)
 qplot(uplandAmount, collapse2, data=data)
 
 
+Cpr.params <- read.csv("CprParams.csv")
+Cpr.out <- read.csv("Cpr.csv")
+Cpr.out$collapse1 <- Cpr.out$MinPop/Cpr.out$MaxPop
+Cpr.out$collapse2 <- Cpr.out$countPop/Cpr.out$MaxPop
+data <- data.frame(Cpr.params, Cpr.out)
+qplot(costPromotiveRes, MaxPop, data=data)
+qplot(costPromotiveRes, MinPop, data=data)
+qplot(costPromotiveRes, countPop, data=data)
+qplot(costPromotiveRes, collapse1, data=data)
+qplot(costPromotiveRes, collapse2, data=data)
+
+Cpmx.params <- read.csv("CpmxParams.csv")
+Cpmx.out <- read.csv("Cpmx.csv")
+Cpmx.out$collapse1 <- Cpmx.out$MinPop/Cpmx.out$MaxPop
+Cpmx.out$collapse2 <- Cpmx.out$countPop/Cpmx.out$MaxPop
+data <- data.frame(Cpmx.params, Cpmx.out)
+qplot(costPromotiveMax, MaxPop, data=data)
+qplot(costPromotiveMax, MinPop, data=data)
+qplot(costPromotiveMax, countPop, data=data)
+qplot(costPromotiveMax, collapse1, data=data)
+qplot(costPromotiveMax, collapse2, data=data)
+
+d.params <- read.csv("dParams.csv")
+d.out <- read.csv("d.csv")
+d.out$collapse1 <- d.out$MinPop/d.out$MaxPop
+d.out$collapse2 <- d.out$countPop/d.out$MaxPop
+data <- data.frame(d.params, d.out)
+qplot(disturbance, MaxPop, data=data)
+qplot(disturbance, MinPop, data=data)
+qplot(disturbance, countPop, data=data)
+qplot(disturbance, collapse1, data=data)
+qplot(disturbance, collapse2, data=data)
 
 
 
-
-
-
-
-
-
-
-asumma
+data
