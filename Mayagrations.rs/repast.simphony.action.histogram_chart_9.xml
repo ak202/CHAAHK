@@ -1,4 +1,4 @@
-<repast.simphony.chart2.engine.HistogramChartDescriptor simphonyVersion="2.5.0">
+<repast.simphony.chart2.engine.HistogramChartDescriptor>
   <name>Distance Histogram</name>
   <dataSet>imports</dataSet>
   <xAxisLabel>Distance</xAxisLabel>
@@ -20,7 +20,7 @@
   <showGrid>true</showGrid>
   <showLegend>true</showLegend>
   <histType>DYNAMIC</histType>
-  <binCount>15</binCount>
+  <binCount>5</binCount>
   <sourceId>DistToExporter</sourceId>
   <outOfRange>IGNORE</outOfRange>
   <min>0.0</min>

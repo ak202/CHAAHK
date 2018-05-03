@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Scenario simphonyVersion="2.5.0">
+<Scenario>
 <repast.simphony.dataLoader.engine.ClassNameDataLoaderAction context="Mayagrations" file="repast.simphony.dataLoader.engine.ClassNameDataLoaderAction_0.xml" />
 <repast.simphony.action.data_set context="Mayagrations" file="repast.simphony.action.data_set_1.xml" />
 <repast.simphony.action.data_set context="Mayagrations" file="repast.simphony.action.data_set_2.xml" />
@@ -12,5 +12,6 @@
 <repast.simphony.action.histogram_chart context="Mayagrations" file="repast.simphony.action.histogram_chart_9.xml" />
 <repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_10.xml" />
 <repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_11.xml" />
-<repast.simphony.action.display context="Mayagrations" file="repast.simphony.action.display_12.xml" />
+<repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_12.xml" />
+<repast.simphony.action.display context="Mayagrations" file="repast.simphony.action.display_13.xml" />
 </Scenario>

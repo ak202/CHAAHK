@@ -1,6 +1,5 @@
 package mayagrations;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
@@ -66,15 +65,24 @@ public class Region {
 	}
 	
 	@ScheduledMethod(start = 1, interval = 5)
-	public void calculateTrafficLong() {
-		resetNetworkTraffic();
+	public void calculateCenterResources() {
+		calculateTrafficLong();
+		sp.finalize();
 		for (Center c : centers) {
-			if (spawns.contains(c)){
-				if (c.getLabor()==0) {
-					Group dude = new Group(c, true, "graph");
-					c.addGroup(dude);
-				}
-			}
+			c.reproduce();
+			c.calculateStaples();
+			c.calculateImports();
+		}
+		immigrate();
+		rankCenters();
+	}
+	
+	private void calculateTrafficLong() {
+		for (RepastEdge<Object> e : net.getEdges()) {
+			Route<Object> m = (Route<Object>) e;
+			m.setTrafficLong(0);
+		}
+		for (Center c : centers) {
 			List<RepastEdge<Object>> path;
 			path = sp.getPath(c,exporter);
 			double distToMine = 0;
@@ -87,12 +95,6 @@ public class Region {
 				m.setTrafficLong(m.getTrafficLong() + c.getEndemic());
 			}
 		}
-		for (Center c : centers) {
-			c.calculateStaples();
-			c.calculateImports();
-		}
-		sp.finalize();
-		rankCenters();
 	}
 	
 	public void rankCenters() {
@@ -121,16 +123,25 @@ public class Region {
 				maya.setDestinations(destinations);
 				maya.setPullFractions(pullFractions);
 			}
-			center.reproduce();
 		}
 	}
 	
-	public void resetNetworkTraffic() {
-		for (RepastEdge<Object> e : net.getEdges()) {
-			Route<Object> m = (Route<Object>) e;
-			m.setTrafficLong(0);
+	private void reproduce() {
+		for (Center c : centers) {
+			c.reproduce();
 		}
-	}											
+	}
+	
+	private void immigrate() {
+		for (Center c : centers) {
+			if (spawns.contains(c)){
+				if (c.getLabor()==0) {
+					Group dude = new Group(c, true, "graph");
+					c.addGroup(dude);
+				}
+			}
+		}
+	}
 	
 	@ScheduledMethod(start = 5, interval = 5)
 	public void recordPop() {

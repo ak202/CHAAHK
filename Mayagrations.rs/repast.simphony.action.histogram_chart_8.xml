@@ -1,4 +1,4 @@
-<repast.simphony.chart2.engine.HistogramChartDescriptor simphonyVersion="2.5.0">
+<repast.simphony.chart2.engine.HistogramChartDescriptor>
   <name>labor historgram</name>
   <dataSet>imports</dataSet>
   <xAxisLabel>Labor</xAxisLabel>

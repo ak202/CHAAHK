@@ -212,6 +212,7 @@ public class Route<T> extends RepastEdge<T> {
 //    	if (weight < 2) {
 //    		weight = 2;
 //    	}
+//    	weight = 1;
 	}
 	
 	

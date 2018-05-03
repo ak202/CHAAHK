@@ -25,11 +25,6 @@ public class Center {
 	private ArrayList<Double> pullFractions;
 	
 	private int staples;					//staples
-	private double fecundityEmployable; //Fp
-	private double fecundityEngineered; //Fg
-	private LinkedList<Double> fecundityDamageQueue; //Faq 
-	private double fecundityIncrease; //Fi
-	private double fecundityDecrease; //Fd
 	
 	private double imports; //I				//imports
 	private double importsLast;
@@ -61,15 +56,6 @@ public class Center {
 	
 	private double disturbance;
 	private int droughtMod;
-
-	
-	
-	
-//
-//	private double fecundityReck; //Frk
-//	private double fecundityReckFraction;
-//
-
 	
 //	METRICS
 	private int moveDeaths;
@@ -123,11 +109,6 @@ public class Center {
 		fecundityDemotiveMax      = (Double)params.getValue("fecundityDemotiveMax");
 		
 		disturbance = (Double)params.getValue("disturbance");
-		
-//		for (int i = 0; i < (int)Math.ceil(fecundityReck); i++) {
-//			fecundityDamageQueue.add(fecundityBase);
-//	
-
 		droughtMod = (Integer)params.getValue("disturbanceDelay");
 		
 //		METRICS
@@ -321,28 +302,7 @@ public class Center {
 	public void setFecundityBase(double fecundityBase) {
 		this.fecundityBase = fecundityBase;
 	}
-
-	public double getFecundityEmployable() {
-		return fecundityEmployable;
-	}
-
-	public void setFecundityEmployable(double fecundityEmployable) {
-		this.fecundityEmployable = fecundityEmployable;
-	}
 	
-	public double getFecundityEngineered() {
-		return fecundityEngineered;
-	}
-
-	
-	public double getFecundityIncrease() {
-		return fecundityIncrease;
-	}
-
-	public double getFecundityDecrease() {
-		return fecundityDecrease;
-	}
-
 	public double getImportsPerCap() {
 		return ((double)imports + 1)/((double)residents.size() + 1);
 	}
