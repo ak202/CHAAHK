@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
 					<parameter name="disturbance" displayName="Disturbance" type="double" 
-						defaultValue="0" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="deathChance" displayName="Disturbance Death Chance" type="double" 
+						defaultValue="0.2" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -37,7 +43,7 @@
 									
 		/>
 				<parameter name="costDemotiveDecRate" displayName="Cost Demotive Decrease Rate" type="double" 
-						defaultValue="1" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -73,7 +79,7 @@
 									
 		/>
 				<parameter name="fecundityPromotiveRes" displayName="Fecundity Promotive Resilience" type="double" 
-						defaultValue="1" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -85,7 +91,7 @@
 									
 		/>
 				<parameter name="costDemotiveMax" displayName="Cost Demotive Maximum" type="double" 
-						defaultValue="20" 
+						defaultValue="20.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -109,7 +115,7 @@
 									
 		/>
 				<parameter name="costPromotiveRes" displayName="Cost Promotive Resilience" type="double" 
-						defaultValue="0" 
+						defaultValue="0.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -133,7 +139,7 @@
 									
 		/>
 				<parameter name="costPromotiveMax" displayName="Cost Promotive Max" type="double" 
-						defaultValue=".9999" 
+						defaultValue="0.9999" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -151,7 +157,7 @@
 									
 		/>
 				<parameter name="fecundityPromotiveDecRate" displayName="Fecundity Promotive Decrease Rate" type="double" 
-						defaultValue="1" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -169,7 +175,7 @@
 									
 		/>
 				<parameter name="trafficShortCoefficient" displayName="Cost Traffic Short Coefficient" type="double" 
-						defaultValue=".2" 
+						defaultValue="0.2" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

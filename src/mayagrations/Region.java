@@ -6,7 +6,9 @@ import java.util.Hashtable;
 import java.util.List;
 
 import repast.simphony.context.Context;
+import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
+import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.graph.Network;
 import repast.simphony.space.graph.RepastEdge;
@@ -27,12 +29,14 @@ public class Region {
 	
 	private List<Center> spawns;	 //excluded
 	private Object exporter;
+	private int droughtMod;
+	private double deathChance;
 	
 //	OUTPUT VARIABLES	
 	
-	int minPop;
-	int maxPop;
-	int finalPop;
+	private int minPop;
+	private int maxPop;
+	private int finalPop;
 	
 	public Region(List<Center> centers, Context<Object> context, Center exporter) {
 		
@@ -57,6 +61,9 @@ public class Region {
 			}
 		}
 		this.exporter = exporter;
+		Parameters params = RunEnvironment.getInstance().getParameters();
+		droughtMod = (Integer)params.getValue("disturbanceDelay");
+		deathChance = (Double)params.getValue("deathChance");
 		
 //		OUTPUT VARIABLES	
 		minPop = 0;
@@ -68,6 +75,7 @@ public class Region {
 	public void calculateCenterResources() {
 		calculateTrafficLong();
 		sp.finalize();
+		disturbance();
 		for (Center c : centers) {
 			c.reproduce();
 			c.calculateStaples();
@@ -153,6 +161,24 @@ public class Region {
 			minPop = pop;
 		}
 	}
+	
+	private void disturbance() {
+		double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
+    		List<Group> deathList = new ArrayList<Group>();
+    		for (Center c : centers) {
+    			for (Group group : c.getResidents()) {
+    				if (RandomHelper.nextDoubleFromTo(0, 1) < deathChance) {
+    					deathList.add(group);
+    				}
+    			}
+    		}
+    		for (Group group : deathList) {
+    			group.getHomeCenter().killGroup(group);
+    		}
+    	}
+	}
+
 	
 	public int countPop() {
 		int totalPop = 0;

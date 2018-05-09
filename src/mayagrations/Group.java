@@ -149,5 +149,9 @@ public class Group {
 		Object pullfras = pullFractions.clone();
 		this.pullFractions = (ArrayList<Double>) pullfras;
 	}
+	
+	public Center getHomeCenter() {
+		return homeCenter;
+	}
 }
 

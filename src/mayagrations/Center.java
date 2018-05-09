@@ -158,11 +158,10 @@ public class Center {
 	    	}
     		
     		staples = (int)(fecundityBase+fecundityPromotiveLevel-fecundityDemotiveLevel);
-        	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-	    		staples = Math.round((float)(staples*disturbance));
-	    	} 
-
+//        	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+//	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
+//	    		staples = Math.round((float)(staples*disturbance));
+//	    	} 
     	}
     }
 
