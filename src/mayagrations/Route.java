@@ -6,25 +6,19 @@ import repast.simphony.parameter.Parameters;
 import repast.simphony.space.graph.RepastEdge;
 
 public class Route<T> extends RepastEdge<T> {
-
-//	DYNAMIC ENTITY VARIABLES
-	private double weight;
-	private double trafficFinal;
-	private double trafficLong;
-	private double trafficShort;
-
 	
-//	STATIC ENTITY VARIABLES
+//	MISC VARIABLES
+	private int obSourceID;
 	private Center sourceCenter;
+	private int obTargetID;
 	private Center targetCenter;
 	protected boolean directed;
-	private double costBase;
-
 	private String type;
-	private int obSourceID;
-	private int obTargetID;
 	
-//	STATIC GLOBAL VARIABLES
+//	WEIGHT-RELATED
+	private double weight;
+	private double costBase;
+	
 	private double costPromotiveLevel;
 	private double costPromotiveRes;
 	private double costPromotiveIncRate;
@@ -36,11 +30,12 @@ public class Route<T> extends RepastEdge<T> {
 	private double costDemotiveIncRate;
 	private double costDemotiveDecRate;
 	private double costDemotiveMax;
-	private double disturbance;
+
+	private double trafficShort;
 	private double trafficShortCoefficient;
+	private double trafficLong;
 	private double trafficLongCoefficient;
-	
-	private int droughtMod;
+	private double trafficFinal;
 
 	protected Route(){
 	}
@@ -53,28 +48,21 @@ public class Route<T> extends RepastEdge<T> {
 
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		
-//		DYNAMIC ENTITY VARIABLES
+//		MISC VARIABLES
+		this.source = source;
+		obSourceID = (Integer)params.getValue("obSourceID");
+		sourceCenter = (Center) source;
+		this.target = target;
+		obTargetID = (Integer)params.getValue("obTargetID");
+		targetCenter = (Center) target;
+		this.directed = directed;
+		type = "none";
+
+//		WEIGHT-RELATED
 		
 		this.weight = weight;
-		trafficFinal = 0;
-		trafficLong = 0;
-		trafficShort = 0;
-
-//		STATIC ENTITY VARIABLES
-		this.source = source;
-		this.target = target;
-		sourceCenter = (Center) source;
-		targetCenter = (Center) target;
-		obSourceID = (Integer)params.getValue("obSourceID");
-		obTargetID = (Integer)params.getValue("obTargetID");
-	
-		this.directed = directed;
-
-		
-		type = "none";
-		
-//		STATIC GLOBAL VARIABLES
 		costBase = weight;
+		
 		costPromotiveLevel   = 0;
 		costPromotiveRes     = (Double)params.getValue("costPromotiveRes");
 		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate")* weight;
@@ -86,16 +74,16 @@ public class Route<T> extends RepastEdge<T> {
 		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * weight;
 		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * weight;
 		costDemotiveMax      = (Double)params.getValue("costDemotiveMax") * weight;
-
-		disturbance = (Double)params.getValue("disturbance");
+		
+		trafficShort = 0;
 		trafficShortCoefficient = (Double)params.getValue("trafficShortCoefficient");
+		trafficLong = 0;
 		trafficLongCoefficient = (Double)params.getValue("trafficLongCoefficient");
-		droughtMod = (Integer)params.getValue("disturbanceDelay");
+		trafficFinal = 0;
 
 		if (type == "none") {
 			makeBajo(weight);
 		}
-
 	}
 	
 	@ScheduledMethod(start = 2, interval = 5)
@@ -157,11 +145,7 @@ public class Route<T> extends RepastEdge<T> {
     	} else if (costDemotiveLevel > costDemotiveMax) {
     		costDemotiveLevel = costDemotiveMax;
     	}
-//    	System.out.println();
-    	
-    	
-//    	print("costPromotiveLevel", costPromotiveLevel, type=="bajo");
-//    	print("costDemotiveLevel", costDemotiveLevel, type=="bajo");
+
     	double costPromotiveFraction;
     	double costDemotiveFraction;
     	
@@ -177,44 +161,14 @@ public class Route<T> extends RepastEdge<T> {
     		costDemotiveFraction = costDemotiveLevel/costDemotiveMax;
     	}
     	
-//    	if (type == "bajo") {
-//    		System.out.println();
-//    	}
-//    	
-    	
-//    	print("weight", weight, type=="bajo");
-//      	print("costPromotiveFraction", costPromotiveFraction, type=="bajo");
-//    	print("costDemotiveFraction", costDemotiveFraction, type=="bajo");
-//    	print("costBase", costBase, type=="bajo");
-//    	
-    	
     	if (costPromotiveFraction > costDemotiveFraction) {
     		costPromotiveFraction = costPromotiveFraction - costDemotiveFraction;
     		weight = costBase - costPromotiveFraction * costPromotiveMax;
-//    		print("costPromotiveFraction", costPromotiveFraction, type=="bajo");
-//    		print("costPromotiveMax", costPromotiveMax, type=="bajo");
     	} else {
     		costDemotiveFraction = costDemotiveFraction - costPromotiveFraction;
-//    		print("costDemotiveFraction", costDemotiveFraction, type=="bajo");
-//    		print("costDemotiveMax", costDemotiveMax, type=="bajo");
     		weight = costBase + costDemotiveFraction * costDemotiveMax;
     	} 
-//    	print("weight", weight, type=="bajo");
-    	
-    	
-//		weight = (int)(costBase-costPromotiveLevel+costDemotiveLevel);
-
-    	
-    	//    	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-//    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-//    		weight = Math.round((float)(weight*disturbance));
-//    	} 
-//    	if (weight < 2) {
-//    		weight = 2;
-//    	}
-//    	weight = 1;
 	}
-	
 	
 	public void makeUpland() {
 		if (type != "river" & type != "mountain") {
@@ -233,7 +187,6 @@ public class Route<T> extends RepastEdge<T> {
 		costDemotiveMax =  0;
 		costPromotiveMax =  .5 * weight;
 		costPromotiveRes = .4;
-		disturbance = 1;
 		initBase();
 	}
 	public void initBajo() {
@@ -308,7 +261,6 @@ public class Route<T> extends RepastEdge<T> {
 		}
 	}
 	
-	
 	public double getTrafficLong() {
 		return trafficLong;
 	}
@@ -382,7 +334,7 @@ public class Route<T> extends RepastEdge<T> {
 		return costDemotiveMax;
 	}
 	
-	public double get76cpl(){
+	public double getObCpl(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
@@ -390,7 +342,7 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
-	public double get76dmx(){
+	public double getObDmx(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
@@ -398,7 +350,7 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
-	public double get76pmx(){
+	public double getObPmx(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
@@ -406,7 +358,7 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
-	public double get76base(){
+	public double getObBase(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
@@ -418,7 +370,7 @@ public class Route<T> extends RepastEdge<T> {
 		return weight;
 	}
 	
-	public double get76cdl(){
+	public double getObCdl(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
@@ -426,7 +378,7 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
-	public double get76trafl(){
+	public double getObTrafL(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
@@ -434,7 +386,7 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
-	public double get76traflShow(){
+	public double getObTrafLShow(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
@@ -442,7 +394,7 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
-	public double get76trafs(){
+	public double getObTrafS(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
@@ -450,14 +402,13 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
-	public double get76traff(){
+	public double getObTrafF(){
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
 			return trafficFinal;
 		} else return 0;
 	}
-	
 
 	public void setTrafficLong(double tl){
 		trafficLong = tl;
@@ -471,7 +422,7 @@ public class Route<T> extends RepastEdge<T> {
 		return targetCenter;
 	}
 	
-	private void print76(String phrase, double number) {
+	private void printOb(String phrase, double number) {
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 

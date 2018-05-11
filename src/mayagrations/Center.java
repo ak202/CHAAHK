@@ -15,33 +15,30 @@ import java.lang.Math;
 
 public class Center {
 	
-//	DYNAMIC ENTITY VARIABLES
-	private List<Group> residents; 			//people
-	private int labor; //L
-	private int groupsEndemic; //B
-	private double pull;				
-	private double pullFraction;
-	private Hashtable<Double, Center> destinations;
-	private ArrayList<Double> pullFractions;
+//	MISC VARIABLES
 	
-	private int staples;					//staples
-	
-	private double imports; //I				//imports
-	private double importsLast;
-	private double distToExporter; //D
-	
-	private List<Route<Object>> path;		//excluded
-	
-//	STATIC ENTITY VARIABLES	
 	private int id;							//excluded
 	private Context<Object> context;
 	private boolean upland;
 	private boolean water;
 	
-//	STATIC GLOBAL VARIABLES
+	
+//	PEOPLE-RELATED
+	
+	private int labor; //L
+	private List<Group> residents; 			
+	private int groupsEndemic; //B
+	private double pull;				
+	private double pullFraction;
+	private Hashtable<Double, Center> destinations;
+	private ArrayList<Double> pullFractions;
 	private double infertility;
-	private double fecundityBase; //Fb
-
+	
+//	STAPLES-RELATED
+	
+	private int staples;
+	private double fecundityBase; 
+	
 	private double fecundityPromotiveLevel;
 	private double fecundityPromotiveRes;
 	private double fecundityPromotiveIncRate;
@@ -54,10 +51,14 @@ public class Center {
 	private double fecundityDemotiveDecRate;
 	private double fecundityDemotiveMax;
 	
-	private double disturbance;
-	private int droughtMod;
+//	IMPORTS-RELATED
 	
-//	METRICS
+	private double imports; //I				
+	private double importsLast;
+	private double distToExporter; //D
+	private List<Route<Object>> path;		//excluded
+	
+//	ANALYTICAL METRICS
 	private int moveDeaths;
 	private int moveLifes;
 	private int stayed;
@@ -70,30 +71,27 @@ public class Center {
 		
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		
-//		DYNAMIC ENTITY VARIABLES
-		residents = new ArrayList<Group>();	//people
-		labor = 0;
-		groupsEndemic = 0;
-		destinations = null;
-		pullFractions = null;
-		
-		staples = 3;						//staples
-		
-		imports = 0.0;						//imports
-		importsLast = 0.0;
-		distToExporter = 0;
-		pull = 0;
-		pullFraction = 0;
-		
-//		STATIC ENTITY VARIABLES		
+//		MISC VARIABLES		
 		
 		this.id = id;						//excluded
 		this.context = context;
 		upland = false;
 		water = true;
 		
-//		STATIC GLOBAL VARIABLES
+//		PEOPLE-RELATED
+		
+		labor = 0;
+		residents = new ArrayList<Group>();	
+		groupsEndemic = 0;
+		pull = 0;
+		pullFraction = 0;
+		destinations = null;
+		pullFractions = null;
 		infertility = (Integer)params.getValue("infert");
+
+//		STAPLES-RELATED
+		
+		staples = 3;	
 		fecundityBase = 3;
 		
 		fecundityPromotiveLevel   = 0;
@@ -108,10 +106,15 @@ public class Center {
 		fecundityDemotiveDecRate  = (Double)params.getValue("fecundityDemotiveDecRate");
 		fecundityDemotiveMax      = (Double)params.getValue("fecundityDemotiveMax");
 		
-		disturbance = (Double)params.getValue("disturbance");
-		droughtMod = (Integer)params.getValue("disturbanceDelay");
+//		IMPORTS-RELATED	
 		
-//		METRICS
+		imports = 0.0;						
+		importsLast = 0.0;
+		distToExporter = 0;
+		path = null;
+
+//		ANALYTICAL METRICS
+		
 		moveLifes = 0;
 		moveDeaths = 0;
 		staplesDeaths = 0;
@@ -158,10 +161,6 @@ public class Center {
 	    	}
     		
     		staples = (int)(fecundityBase+fecundityPromotiveLevel-fecundityDemotiveLevel);
-//        	double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-//	    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
-//	    		staples = Math.round((float)(staples*disturbance));
-//	    	} 
     	}
     }
 
@@ -328,11 +327,7 @@ public class Center {
 	
 	public void calculateImports() {
 		imports = importsLast;
-//		System.out.println();
-//		print("labor", labor);
-//		print("dist", distToExporter);
 		importsLast = (labor * 2 + 1) * Math.pow(distToExporter, -.25) + .7;
-//		print("importds",imports);
 	}
 	private void print(String phrase, double number) {
 		System.out.print(phrase);
@@ -378,7 +373,6 @@ public class Center {
         	staples = 0;
     	}
     }
-    
 	
 	public boolean getUpland() {
 		return upland;

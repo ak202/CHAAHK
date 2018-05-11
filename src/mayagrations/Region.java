@@ -16,17 +16,13 @@ import repast.simphony.space.graph.ShortestPath;
 
 public class Region {
 	
-//	DYNAMIC VARIABLES
+
 
 	private List<Center> centers;
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
-	
 	private Network<Object> net;	//excluded
 	private ShortestPath<Object> sp;
-	
-//	STATIC VARIABLES
-	
 	private List<Center> spawns;	 //excluded
 	private Object exporter;
 	private int droughtMod;
@@ -105,6 +101,10 @@ public class Region {
 		}
 	}
 	
+	//at the moment this method sets the pull of all centers to equal 1, which basically
+	//renders the entire method pointless. A more interesting equation will eventually 
+	//be added to give centers different pull values based on their various attributes.
+	
 	public void rankCenters() {
 		destinations = new Hashtable<Double, Center>(17);
 		pullFractions = new ArrayList<Double>();
@@ -113,7 +113,7 @@ public class Region {
 			if (center.getDistToExporter() < 1) {
 				center.setPull(0);
 			} else {
-				center.setPull(1);
+				center.setPull(1); 
 			}
 			totalPull += center.getPull();
 		}
