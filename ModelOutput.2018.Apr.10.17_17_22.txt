@@ -1,2 +1,0 @@
-"MaxPop","MinPop","countPop"
-1440,537,1224

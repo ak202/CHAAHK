@@ -2,14 +2,19 @@ library(ggplot2)
 setwd("/home/akara/workspace/Mayagrations/output/")
 setwd("/media/nvme/workspace2/Mayagrations/output/")
 
+#read output
 Frs.params <- read.csv("FrsParams.csv")
 Frs.out <- read.csv("Frs.csv")
+#calculate secondary indices
 Frs.out$collapse1 <- Frs.out$MinPop/Frs.out$MaxPop
 Frs.out$collapse2 <- Frs.out$countPop/Frs.out$MaxPop
+#merge to single data frame
 data <- data.frame(Frs.params, Frs.out)
+#view dot plot
 qplot(fecundityResil, collapse1, data=data)
 qplot(fecundityResil, collapse2, data=data)
 
+#same idea for different dependant variable
 Fu.params <- read.csv("FuParams.csv")
 Fu.out <- read.csv("Fu.csv")
 Fu.out$collapse1 <- Fu.out$MinPop/Fu.out$MaxPop
@@ -18,6 +23,7 @@ data <- data.frame(Fu.params, Fu.out)
 qplot(fecundityDisturbance, collapse1, data=data)
 qplot(fecundityDisturbance, collapse2, data=data)
 
+#etc
 Frg.params <- read.csv("FrgParams.csv")
 Frg.out <- read.csv("Frg.csv")
 Frg.out$collapse1 <- Frg.out$MinPop/Frg.out$MaxPop
@@ -26,6 +32,7 @@ data <- data.frame(Frg.params, Frg.out)
 qplot(fecundityRegen, collapse1, data=data)
 qplot(fecundityRegen, collapse2, data=data)
 
+#etc
 Frk.params <- read.csv("FrkParams.csv")
 Frk.out <- read.csv("Frk.csv")
 Frk.out$collapse1 <- Frk.out$MinPop/Frk.out$MaxPop
@@ -106,7 +113,3 @@ qplot(disturbance, MinPop, data=data)
 qplot(disturbance, countPop, data=data)
 qplot(disturbance, collapse1, data=data)
 qplot(disturbance, collapse2, data=data)
-
-
-
-data

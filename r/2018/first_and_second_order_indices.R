@@ -12,7 +12,6 @@ si1 <- function(i.input, i.output, df) {
 	return(num/dem)
 }
 
-#r1 <- sapply(params, si1, df=data, i.output=5)
 r1 <- sapply(params, si1, df=data, i.output=6)
 r2 <- sapply(params, si1, df=data, i.output=7)
 r1
@@ -73,7 +72,6 @@ si2.3 <- function(inn, out) {
 	lapply(params, si2.2, inn, out, data)
 }
 
-#a <- lapply(params, si2.3, 5)
 a <- lapply(params, si2.3, 6)
 a <- lapply(params, si2.3, 7)
 

@@ -3,6 +3,7 @@ library(rpart.plot)
 setwd("/home/akara/workspace/Mayagrations/output/")
 setwd("/media/nvme/workspace2/Mayagrations/output/")
 
+#merge data into one data frame
 params1 <- read.csv("params1.csv")
 out1 <- read.csv("out1.csv")
 data1 <- merge(params1, out1)
@@ -22,9 +23,12 @@ params7 <- read.csv("params7.csv")
 out7 <- read.csv("out7.csv")
 data7 <- merge(params7, out7)
 data <- rbind(data1, data3, data4, data5, data6, data7)
+
+#calculate secondary indices
 data$collapse1 <- (data$MinPop+1)/(data$MaxPop+1)
 data$collapse2 <- (data$countPop+1)/(data$MaxPop+1)
 
+#calculate and plot regression tree models
 model1 <- rpart(collapse2~fecundityResil+costResil+disturbance+fecundityRegen+costRegen+uplandAmount,data=data,method="anova")
 rpart.plot(model1, box.palette="RdYlGn")
 model2 <- rpart(collapse1~fecundityResil+costResil+disturbance+fecundityRegen+costRegen+uplandAmount,data=data,method="anova")
