@@ -16,8 +16,6 @@ import repast.simphony.space.graph.ShortestPath;
 
 public class Region {
 	
-
-
 	private List<Center> centers;
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
@@ -32,7 +30,6 @@ public class Region {
 	
 	private int minPop;
 	private int maxPop;
-	private int finalPop;
 	
 	public Region(List<Center> centers, Context<Object> context, Center exporter) {
 		
@@ -64,7 +61,6 @@ public class Region {
 //		OUTPUT VARIABLES	
 		minPop = 0;
 		maxPop = 0;
-		finalPop = 0;
 	}
 	
 	@ScheduledMethod(start = 1, interval = 5)
@@ -113,7 +109,7 @@ public class Region {
 			if (center.getDistToExporter() < 1) {
 				center.setPull(0);
 			} else {
-				center.setPull(1); 
+				center.setPull(Math.pow(1/center.getDistToExporter(),2)); 
 			}
 			totalPull += center.getPull();
 		}
@@ -134,19 +130,13 @@ public class Region {
 		}
 	}
 	
-	private void reproduce() {
-		for (Center c : centers) {
-			c.reproduce();
-		}
-	}
-	
 	private void immigrate() {
 		for (Center c : centers) {
 			if (spawns.contains(c)){
-				if (c.getLabor()==0) {
+//				if (c.getLabor()==0) {
 					Group dude = new Group(c, true, "graph");
 					c.addGroup(dude);
-				}
+//				}
 			}
 		}
 	}
@@ -195,4 +185,5 @@ public class Region {
 	public int getMaxPop() {
 		return maxPop;
 	}	
+	
 }

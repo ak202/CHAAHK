@@ -7,5 +7,6 @@
 	<classpathentry kind="con" path="REPAST_SIMPHONY_SUPPORT"/>
 	<classpathentry kind="lib" path="/opt/eclipse/plugins/com.google.guava_15.0.0.v201403281430.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="/home/akara/R/x86_64-pc-linux-gnu-library/3.4/rrepast/java/rrepast-engine.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

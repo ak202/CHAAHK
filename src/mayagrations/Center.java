@@ -91,20 +91,25 @@ public class Center {
 
 //		STAPLES-RELATED
 		
-		staples = 3;	
 		fecundityBase = 3;
 		
+		
 		fecundityPromotiveLevel   = 0;
+		fecundityPromotiveMax     = (Double)params.getValue("fecundityPromotiveMax");
 		fecundityPromotiveRes     = (Double)params.getValue("fecundityPromotiveRes");
 		fecundityPromotiveIncRate = (Double)params.getValue("fecundityPromotiveIncRate");
-		fecundityPromotiveDecRate = (Double)params.getValue("fecundityPromotiveDecRate");
-		fecundityPromotiveMax     = (Double)params.getValue("fecundityPromotiveMax");
+		fecundityPromotiveDecRate = (Double)params.getValue("fecundityPromotiveDecRate")
+				* fecundityPromotiveMax;
+		
+		
 		
 		fecundityDemotiveLevel    = 0;
+		fecundityDemotiveMax      = (Double)params.getValue("fecundityDemotiveMax");
 		fecundityDemotiveRes      = (Double)params.getValue("fecundityDemotiveRes");
 		fecundityDemotiveIncRate  = (Double)params.getValue("fecundityDemotiveIncRate");
-		fecundityDemotiveDecRate  = (Double)params.getValue("fecundityDemotiveDecRate");
-		fecundityDemotiveMax      = (Double)params.getValue("fecundityDemotiveMax");
+		fecundityDemotiveDecRate  = (Double)params.getValue("fecundityDemotiveDecRate")
+				* fecundityDemotiveMax;
+		
 		
 //		IMPORTS-RELATED	
 		
@@ -327,7 +332,10 @@ public class Center {
 	
 	public void calculateImports() {
 		imports = importsLast;
-		importsLast = (labor * 2 + 1) * Math.pow(distToExporter, -.25) + .7;
+		importsLast = -0.06666667*distToExporter + 13.33333;
+		if (imports < 0) {
+			imports = 0;
+		}
 	}
 	private void print(String phrase, double number) {
 		System.out.print(phrase);

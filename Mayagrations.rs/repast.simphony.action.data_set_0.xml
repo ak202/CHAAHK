@@ -1,4 +1,4 @@
-<repast.simphony.data2.engine.DataSetDescriptor>
+<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
   <name>final</name>
   <type>NON_AGGREGATE</type>
   <sourceType>mayagrations.Region</sourceType>
@@ -17,27 +17,27 @@
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>countPop</string>
+      <string>MaxL</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>countPop</id>
-        <className>mayagrations.Region</className>
-        <methodName>countPop</methodName>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>MaxPop</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>MaxPop</id>
+        <id>MaxL</id>
         <className>mayagrations.Region</className>
         <methodName>getMaxPop</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>MinPop</string>
+      <string>MinL</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>MinPop</id>
+        <id>MinL</id>
         <className>mayagrations.Region</className>
         <methodName>getMinPop</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>FinalL</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>FinalL</id>
+        <className>mayagrations.Region</className>
+        <methodName>countPop</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

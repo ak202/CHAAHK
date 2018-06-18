@@ -13,7 +13,7 @@
 									
 		/>
 				<parameter name="uplandAmount" displayName="Upland Amount" type="int" 
-						defaultValue="140" 
+						defaultValue="130" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -79,7 +79,7 @@
 									
 		/>
 				<parameter name="fecundityPromotiveRes" displayName="Fecundity Promotive Resilience" type="double" 
-						defaultValue="1.0" 
+						defaultValue=".5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -121,7 +121,7 @@
 									
 		/>
 				<parameter name="fecundityDemotiveDecRate" displayName="Fecundity Demotive Decrease Rate" type="double" 
-						defaultValue="0.05" 
+						defaultValue=".1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -133,7 +133,7 @@
 									
 		/>
 				<parameter name="fecundityDemotiveRes" displayName="Fecundity Demotive Resilience" type="double" 
-						defaultValue="1.0" 
+						defaultValue=".5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -157,7 +157,7 @@
 									
 		/>
 				<parameter name="fecundityPromotiveDecRate" displayName="Fecundity Promotive Decrease Rate" type="double" 
-						defaultValue="1.0" 
+						defaultValue=".1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

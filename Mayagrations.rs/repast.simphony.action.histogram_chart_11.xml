@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.HistogramChartDescriptor>
-  <name>Pull Histogram</name>
+<repast.simphony.chart2.engine.HistogramChartDescriptor simphonyVersion="2.5.0">
+  <name>Imports Histogram</name>
   <dataSet>imports</dataSet>
-  <xAxisLabel>Amount of Pull</xAxisLabel>
-  <yAxisLabel>Number of Centers</yAxisLabel>
-  <chartTitle>Center Pulls</chartTitle>
+  <xAxisLabel>Centers</xAxisLabel>
+  <yAxisLabel>Imports</yAxisLabel>
+  <chartTitle>Imports</chartTitle>
   <type>HISTOGRAM</type>
   <background>
     <red>192</red>
@@ -20,8 +20,8 @@
   <showGrid>true</showGrid>
   <showLegend>true</showLegend>
   <histType>DYNAMIC</histType>
-  <binCount>100</binCount>
-  <sourceId>Pull</sourceId>
+  <binCount>10</binCount>
+  <sourceId>Imports</sourceId>
   <outOfRange>IGNORE</outOfRange>
   <min>0.0</min>
   <max>0.0</max>
