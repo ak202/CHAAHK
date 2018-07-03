@@ -1,5 +1,7 @@
 package mayagrations;
 
+import java.awt.Color;
+
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
@@ -8,9 +10,9 @@ import repast.simphony.space.graph.RepastEdge;
 public class Route<T> extends RepastEdge<T> {
 	
 //	MISC VARIABLES
-	private int obSourceID;
+	
+	private boolean observed;
 	private Center sourceCenter;
-	private int obTargetID;
 	private Center targetCenter;
 	protected boolean directed;
 	private String type;
@@ -18,6 +20,8 @@ public class Route<T> extends RepastEdge<T> {
 //	WEIGHT-RELATED
 	private double weight;
 	private double costBase;
+	private double trafficLong;
+	private double trafficShort;
 	
 	private double costPromotiveLevel;
 	private double costPromotiveRes;
@@ -53,12 +57,20 @@ public class Route<T> extends RepastEdge<T> {
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		
 //		MISC VARIABLES
+		int obSourceID = (Integer)params.getValue("obSourceID"); 
+		int obTargetID = (Integer)params.getValue("obTargetID"); 
 		this.source = source;
-		obSourceID = (Integer)params.getValue("obSourceID");
 		sourceCenter = (Center) source;
 		this.target = target;
-		obTargetID = (Integer)params.getValue("obTargetID");
 		targetCenter = (Center) target;
+		print("id 1", sourceCenter.getID());
+		print("id 2", targetCenter.getID());
+		if ((sourceCenter.getID()==obSourceID & targetCenter.getID()==obTargetID) |
+				(sourceCenter.getID()==obTargetID & targetCenter.getID()==obSourceID)) {
+			observed = true;
+		} else {
+			observed = false;
+		}
 		this.directed = directed;
 		type = "none";
 
@@ -66,6 +78,8 @@ public class Route<T> extends RepastEdge<T> {
 		
 		this.weight = weight;
 		costBase = weight;
+		trafficLong = 0;
+		trafficShort = 0;
 		
 		costPromotiveLevel   = 0;
 		costPromotiveMax     = (Double)params.getValue("costPromotiveMax") * weight;
@@ -103,9 +117,12 @@ public class Route<T> extends RepastEdge<T> {
 		Center center2 = (Center) target;
 		double pop1 = center1.getEndemic();
 		double pop2 = center2.getEndemic();
+		trafficShort = (pop1 + pop2) / weight;
 		
-		trafficPromotiveShort = (pop1 + pop2) / weight;
-		trafficPromotiveFinal = trafficPromotiveLongCoefficient *trafficPromotiveLong + trafficPromotiveShortCoefficient * trafficPromotiveShort;
+		
+		trafficPromotiveLong = trafficLong * trafficPromotiveLongCoefficient;
+		trafficPromotiveShort = trafficShort * trafficPromotiveShortCoefficient;
+		trafficPromotiveFinal = trafficPromotiveLong + trafficPromotiveShort;
 		
 		double costPromotiveCarryingFactor;
 		if (costPromotiveLevel < costPromotiveMax){
@@ -132,9 +149,11 @@ public class Route<T> extends RepastEdge<T> {
     		costPromotiveLevel = costPromotiveMax;
     	}
     	
-    	trafficDemotiveShort = (pop1 + pop2) / weight;
-		trafficDemotiveFinal = trafficDemotiveLongCoefficient *trafficDemotiveLong + trafficDemotiveShortCoefficient * trafficDemotiveShort;
-    	
+    	trafficDemotiveLong = trafficLong * trafficDemotiveLongCoefficient;
+		trafficDemotiveShort = trafficShort * trafficDemotiveShortCoefficient;
+		trafficDemotiveFinal = trafficDemotiveLong 	+ trafficDemotiveShort;
+		
+
     	double costDemotiveCarryingFactor;
 		if (costDemotiveLevel < costDemotiveMax){
 			costDemotiveCarryingFactor = 1 - costDemotiveLevel/costDemotiveMax;
@@ -184,6 +203,32 @@ public class Route<T> extends RepastEdge<T> {
     	} 
 	}
 	
+    public Color getColorBajo() {
+    	double  r = 255;
+    	double  g = 255;
+    	double b = 0;
+    	if (weight > costBase) {
+    		double actualDif = weight - costBase;
+    		double colorFraction = 1 - (actualDif/costDemotiveMax);
+    		g = g * colorFraction;
+    	} else if (weight < costBase) {
+    		double actualDif = costBase - weight;
+    		double colorFraction = 1-(actualDif/costPromotiveMax);
+    		r = r * colorFraction;
+    	}
+    	Color color = new Color((int)r,(int)g,(int)b);
+    	return color;
+    }
+    
+    public Color getColorUpland() {
+    	double  r = 0;
+    	double  g = 0;
+    	double b = 0;
+    	Color color = new Color((int)r,(int)g,(int)b);
+    	return color;
+    }
+    
+	
 	public void makeUpland() {
 		if (type != "river" & type != "mountain") {
 			type = "upland";
@@ -228,84 +273,241 @@ public class Route<T> extends RepastEdge<T> {
 	public String getType() {
 		return type;
 	}
-	
-	public double getWeightBajo() {
-		if (type=="bajo") {
-			return weight;
-		} else {
-			return 0;
-		}
-	}
-	public double getCostPromotiveLevelBajo() {
-		if (type=="bajo") {
-			return costBase - costPromotiveLevel;
-		} else {
-			return 0;
-		}
-	}
-	public double getCostDemotiveLevelBajo() {
-		if (type=="bajo") {
-			return costBase + costDemotiveLevel;
-		} else {
-			return 0;
-		}
-	}
-	public double getCostBaseBajo() {
-		if (type=="bajo") {
-			return costBase;
-		} else {
-			return 0;
-		}
-	}
-	public double getTrafficShortBajo() {
-		if (type=="bajo") {
-			return trafficShort * trafficShortCoefficient;
-		} else {
-			return 0;
-		}
-	}
-	public double getTrafficLongBajo() {
-		if (type=="bajo") {
-			return trafficLong * trafficLongCoefficient;
-		} else {
-			return 0;
-		}
-	}
-	public double getTrafficFinalBajo() {
-		if (type=="bajo") {
-			return trafficFinal;
-		} else {
-			return 0;
-		}
-	}
-	
+
 	public double getTrafficLong() {
 		return trafficLong;
 	}
 	
-	public double getTrafficLongShow() {
-		return trafficLong * trafficLongCoefficient;
-	}
-	
-	public double getTrafficShort() {
-		return trafficShort;
-	}
-	
-	public double getTrafficShortShow() {
-		return trafficShort * trafficShortCoefficient;
-	}
-	
-	public double getTrafficScaled() {
-		return trafficFinal;
-	}
-
 	public double getWeight() {
 		return weight;
 	}
+
+	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+	//-----------------    Aggregate Data Getter Methods for...    --------------------------
+	//'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 	
-	protected void setDirected(boolean directed) {
-		this.directed = directed;
+	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+	//----------------    All Routes:         --------------------------
+	//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+	
+	//---------   General Cost:    ------------
+	public double getAllW() {
+		return weight;
 	}
+	public double getAllCb() {
+		return costBase;
+	}
+	//---------   Cost Promotive:    ------------
+	public double getAllCpl() {
+		return costPromotiveLevel;
+	}
+	public double getAllCplShow() {
+		return costBase - costPromotiveLevel;
+	}
+	public double getAllCpm() {
+		return costPromotiveMax;
+	}
+	//---------   Cost Demotive:    ------------
+	public double getAllCdl() {
+		return costDemotiveLevel;
+	}
+	public double getAllCdlShow() {
+		return (costBase + costDemotiveLevel);
+	}
+	public double getAllCdm() {
+		return costDemotiveMax;
+	}
+	//---------   General Traffic:    ------------
+	public double getAllTl() {
+		return trafficLong;
+	}
+	public double getAllTs() {
+		return trafficShort;
+	}
+	//---------  Traffic Promotive:    ------------
+	public double getAllTpl() {
+		return trafficLong * trafficPromotiveLong;
+	}
+	public double getAllTps() {
+		return trafficLong * trafficPromotiveLong;
+	}
+	public double getAllTpf() {
+		return trafficPromotiveFinal;
+	}
+	//---------  Traffic Demotive:    ------------
+	public double getAllTdl() {
+		return trafficLong * trafficDemotiveLong;
+	}
+	public double getAllTds() {
+		return trafficLong * trafficDemotiveLong;
+	}
+	public double getAllTdf() {
+		return trafficDemotiveFinal;
+	}
+	
+	
+	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+	//----------------    *Type* Routes:         -----------------------
+	//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+	
+	private double typeGetter(double variable) {
+		Parameters params = RunEnvironment.getInstance().getParameters();
+		String observedType = (String)params.getValue("observedType");
+
+		if (type.equals(observedType)) {
+			return variable;
+		} else {
+			return 0;
+		}
+	}
+	
+	//---------   General Cost:    ------------
+	public double getTypeW() {
+		return typeGetter(weight);
+	}
+	public double getTypeCb() {
+		return typeGetter(costBase);
+	}
+	//---------   Cost Promotive:    ------------
+	public double getTypeCpl() {
+		return typeGetter(costPromotiveLevel);
+	}
+	public double getTypeCplShow() {
+		return typeGetter(costBase - costPromotiveLevel);
+	}
+	public double getTypeCpm() {
+		return typeGetter(costPromotiveMax);
+	}
+	//---------   Cost Demotive:    ------------
+	public double getTypeCdl() {
+		return typeGetter(costDemotiveLevel);
+	}
+	public double getTypeCdlShow() {
+		return typeGetter(costBase + costDemotiveLevel);
+	}
+	public double getTypeCdm() {
+		return typeGetter(costDemotiveMax);
+	}
+	//---------   General Traffic:    ------------
+	public double getTypeTs() {
+		return typeGetter(trafficShort);
+	}
+	public double getTypeTl() {
+		return typeGetter(trafficLong);
+	}
+	//---------  Traffic Promotive:    ------------
+	public double getTypeTpl(){
+		return typeGetter(trafficPromotiveLong);
+	}
+	public double getTypeTps(){
+		return typeGetter(trafficPromotiveShort);
+	}
+	public double getTypeTpf(){
+		return typeGetter(trafficPromotiveFinal);
+	}
+	//---------  Traffic Demotive:    ------------
+	public double getTypeTdl(){
+		return typeGetter(trafficDemotiveLong);
+	}
+	public double getTypeTds(){
+		return typeGetter(trafficDemotiveShort);
+	}
+	public double getTypeTdf(){
+		return typeGetter(trafficDemotiveFinal);
+	}
+	
+	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+	//----------------    Observed Route:         ----------------------
+	//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+	
+	//---------   General Cost:    ------------
+	public double getObW(){
+		if (observed) {
+			return weight;
+		} else return 0;
+	}
+	public double getObCb(){
+		if (observed) {
+			return costBase;
+		} else return 0;
+	}
+	//---------   Cost Promotive:    ------------
+	public double getObCpl(){
+		if (observed) {
+			return costPromotiveLevel;
+		} else return 0;
+	}
+	public double getObCplShow(){
+		if (observed) {
+			return costBase - costPromotiveLevel;
+		} else return 0;
+	}
+	public double getObCpm(){
+		if (observed) {
+			return costPromotiveMax;
+		} else return 0;
+	}
+	//---------   Cost Demotive:    ------------
+	public double getObCdl(){
+		if (observed) {
+			return costDemotiveLevel;
+		} else return 0;
+	}
+	public double getObCdlShow(){
+		if (observed) {
+			return costBase + costDemotiveLevel;
+		} else return 0;
+	}
+	public double getObCdm(){
+		if (observed) {
+			return costDemotiveMax;
+		} else return 0;
+	}
+	//---------   General Traffic:    ------------
+	public double getObTl(){
+		if (observed) {
+			return trafficLong;
+		} else return 0;
+	}
+	public double getObTs(){
+		if (observed) {
+			return trafficShort;
+		} else return 0;
+	}
+	//---------  Traffic Promotive:    ------------
+	public double getObTpl(){
+		if (observed) {
+			return trafficPromotiveLong;
+		} else return 0;
+	}
+	public double getObTps(){
+		if (observed) {
+			return trafficPromotiveShort;
+		} else return 0;
+	}
+	public double getObTpf(){
+		if (observed) {
+			return trafficPromotiveFinal;
+		} else return 0;
+	}
+	//---------  Traffic Demotive:    ------------
+	public double getObTdl(){
+		if (observed) {
+			return trafficDemotiveLong;
+		} else return 0;
+	}
+	public double getObTds(){
+		if (observed) {
+			return trafficDemotiveShort;
+		} else return 0;
+	}
+	public double getObTdf(){
+		if (observed) {
+			return trafficDemotiveFinal;
+		} else return 0;
+	}
+	
+	
 
 	public T getSource() {
 		return source;
@@ -318,115 +520,28 @@ public class Route<T> extends RepastEdge<T> {
 	public boolean isDirected() {
 		return directed;
 	}
-	
+	protected void setDirected(boolean directed) {
+		this.directed = directed;
+	}
+
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
 	
-	public double getCostDemotiveLevel() {
-		return costDemotiveLevel;
-	}
+
 	
-	public double getCostPromotiveLevel() {
-		return costPromotiveLevel;
-	}
+
+
+
 	
-	public double getCostDemotiveLevelShow() {
-		return (costBase + costDemotiveLevel);
-	}
+
 	
-	public double getCostPromotiveLevelShow() {
-		return costBase - costPromotiveLevel;
-	}
+
+
 	
+
 	
-	public double getCostBase() {
-		return costBase;
-	}
-	
-	public double getCostPromotiveMax() {
-		return costPromotiveMax;
-	}
-	
-	public double getCostDemotiveMax() {
-		return costDemotiveMax;
-	}
-	
-	public double getObCpl(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return costPromotiveLevel;
-		} else return 0;
-	}
-	
-	public double getObDmx(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return costDemotiveMax;
-		} else return 0;
-	}
-	
-	public double getObPmx(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return costPromotiveMax;
-		} else return 0;
-	}
-	
-	public double getObBase(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return costBase;
-		} else return 0;
-	}
-	
-	public double getWeightShow() {
-		return weight;
-	}
-	
-	public double getObCdl(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return costDemotiveLevel;
-		} else return 0;
-	}
-	
-	public double getObTrafL(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return trafficLong;
-		} else return 0;
-	}
-	
-	public double getObTrafLShow(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return trafficLong * trafficLongCoefficient;
-		} else return 0;
-	}
-	
-	public double getObTrafS(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return trafficShort;
-		} else return 0;
-	}
-	
-	public double getObTrafF(){
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			return trafficFinal;
-		} else return 0;
-	}
+
 
 	public void setTrafficLong(double tl){
 		trafficLong = tl;
@@ -440,20 +555,27 @@ public class Route<T> extends RepastEdge<T> {
 		return targetCenter;
 	}
 	
-	private void printOb(String phrase, double number) {
-		Center center1 = (Center) source;
-		Center center2 = (Center) target;
-
-		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-			System.out.print(phrase);
-			System.out.print(" is ");
-			System.out.println(number);
-		}
-	}	
+//	private void printOb(String phrase, double number) {
+//		Center center1 = (Center) source;
+//		Center center2 = (Center) target;
+//
+//		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
+//			System.out.print(phrase);
+//			System.out.print(" is ");
+//			System.out.println(number);
+//		}
+//	}	
+	
 	private void print(String phrase, double number) {
 		System.out.print(phrase);
 		System.out.print(" is ");
 		System.out.println(number);
+	}
+	
+	private void print(String phrase, String string) {
+		System.out.print(phrase);
+		System.out.print(" is ");
+		System.out.println(string);
 	}
 	
 	private void print(String phrase, double number, boolean bool) {
@@ -462,6 +584,10 @@ public class Route<T> extends RepastEdge<T> {
 			System.out.print(" is ");
 			System.out.println(number);
 		}
+	}
+	
+	private void print() {
+		System.out.println();
 	}
 	
 

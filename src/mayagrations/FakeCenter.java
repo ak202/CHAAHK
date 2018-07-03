@@ -18,7 +18,10 @@ public class FakeCenter extends Center {
 	
 	public void reproduce() {
 		System.out.println(this.getLabor());
-		
+	}
+	
+	public int getID() {
+		return 1337;
 	}
 
 }

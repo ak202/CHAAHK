@@ -186,4 +186,11 @@ public class Region {
 		return maxPop;
 	}	
 	
+	private void print(String phrase, double number) {
+		System.out.print(phrase);
+		System.out.print(" is ");
+		System.out.println(number);
+	}
+	
+	
 }

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
 					<parameter name="disturbance" displayName="Disturbance" type="double" 
-						defaultValue="0" 
+						defaultValue="0.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="deathChance" displayName="Disturbance Death Chance" type="double" 
+						defaultValue="0.2" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="uplandAmount" displayName="Upland Amount" type="int" 
-						defaultValue="140" 
+						defaultValue="130" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -37,7 +43,7 @@
 									
 		/>
 				<parameter name="costDemotiveDecRate" displayName="Cost Demotive Decrease Rate" type="double" 
-						defaultValue="1" 
+						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -50,12 +56,6 @@
 		/>
 				<parameter name="fecundityPromotiveIncRate" displayName="Fecundity Promotive Increase Rate" type="double" 
 						defaultValue="0.5" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="gravityConstant" displayName="Gravity Constant" type="double" 
-						defaultValue="1.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -73,19 +73,26 @@
 									
 		/>
 				<parameter name="fecundityPromotiveRes" displayName="Fecundity Promotive Resilience" type="double" 
-						defaultValue="1" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="importsConstant" displayName="Imports Constant" type="double" 
 						defaultValue="0.5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="trafficPromotiveLongCoefficient" displayName="Traffic Promotive Long Coefficient" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="observedType" displayName="Route Type Observed" type="java.lang.String" 
+						defaultValue="bajo" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									values="bajo upland "
+						
+		/>
 				<parameter name="costDemotiveMax" displayName="Cost Demotive Maximum" type="double" 
-						defaultValue="20" 
+						defaultValue="20.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -97,7 +104,19 @@
 									
 		/>
 				<parameter name="importsCoefficient" displayName="Imports Coefficient" type="double" 
-						defaultValue="2.0" 
+						defaultValue="-0.06666667" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="trafficPromotiveShortCoefficient" displayName="Traffic Promotive Short Coefficient" type="double" 
+						defaultValue="1.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+				<parameter name="trafficDemotiveLongCoefficient" displayName="Traffic Demotive Long Coefficient" type="double" 
+						defaultValue="0.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -109,13 +128,13 @@
 									
 		/>
 				<parameter name="costPromotiveRes" displayName="Cost Promotive Resilience" type="double" 
-						defaultValue="0" 
+						defaultValue="0.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="fecundityDemotiveDecRate" displayName="Fecundity Demotive Decrease Rate" type="double" 
-						defaultValue="0.05" 
+						defaultValue="0.1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -127,13 +146,13 @@
 									
 		/>
 				<parameter name="fecundityDemotiveRes" displayName="Fecundity Demotive Resilience" type="double" 
-						defaultValue="1.0" 
+						defaultValue="0.5" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="costPromotiveMax" displayName="Cost Promotive Max" type="double" 
-						defaultValue=".9999" 
+						defaultValue="0.9999" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -144,38 +163,20 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="importsDistanceDecayTerm" displayName="Imports Distance Decay Term" type="double" 
-						defaultValue="2.0" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
 				<parameter name="fecundityPromotiveDecRate" displayName="Fecundity Promotive Decrease Rate" type="double" 
-						defaultValue="1" 
+						defaultValue="0.1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="trafficLongCoefficient" displayName="Cost Traffic Long Coefficient" type="double" 
-						defaultValue="0.03" 
+				<parameter name="trafficDemotiveShortCoefficient" displayName="Traffic Demotive Short Coefficient" type="double" 
+						defaultValue="2.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="costDemotiveIncRate" displayName="Cost Demotive Increase Rate" type="double" 
 						defaultValue="0.05" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="trafficShortCoefficient" displayName="Cost Traffic Short Coefficient" type="double" 
-						defaultValue=".2" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="migrationDistanceThreshold" displayName="Migration Distance Threshold" type="double" 
-						defaultValue="100.0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
-  <name>Route Data</name>
+  <name>Route Demotive Traffic (Type)</name>
   <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel></yAxisLabel>
-  <chartTitle>Route Data</chartTitle>
+  <yAxisLabel>Value</yAxisLabel>
+  <chartTitle>Route Traffic Demotive (Type)</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,45 +21,21 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>Traffic Final</string>
+      <string>Traffic Demotive Long</string>
       <SeriesData>
-        <label>Traffic Final</label>
+        <label>Traffic Demotive Long</label>
         <color>
-          <red>102</red>
-          <green>0</green>
-          <blue>204</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Cost Base</string>
-      <SeriesData>
-        <label>Cost Base</label>
-        <color>
-          <red>102</red>
-          <green>102</green>
-          <blue>102</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Cost Promotive Level</string>
-      <SeriesData>
-        <label>Cost Promotive Level</label>
-        <color>
-          <red>0</red>
-          <green>204</green>
+          <red>255</red>
+          <green>255</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>
     </entry>
     <entry>
-      <string>Cost Demotive Level</string>
+      <string>Traffic Demotive Short</string>
       <SeriesData>
-        <label>Cost Demotive Level</label>
+        <label>Traffic Demotive Short</label>
         <color>
           <red>204</red>
           <green>0</green>
@@ -69,12 +45,36 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>Weight</string>
+      <string>Traffic Short</string>
       <SeriesData>
-        <label>Weight</label>
+        <label>Traffic Short</label>
         <color>
-          <red>0</red>
-          <green>0</green>
+          <red>255</red>
+          <green>153</green>
+          <blue>153</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Traffic Long</string>
+      <SeriesData>
+        <label>Traffic Long</label>
+        <color>
+          <red>255</red>
+          <green>255</green>
+          <blue>153</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Traffic Demotive Final</string>
+      <SeriesData>
+        <label>Traffic Demotive Final</label>
+        <color>
+          <red>255</red>
+          <green>102</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>

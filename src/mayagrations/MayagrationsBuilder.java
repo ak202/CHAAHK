@@ -37,7 +37,7 @@ public class MayagrationsBuilder implements ContextBuilder<Object> {
 		double y = 17.32;
 		
 		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("market strength", context, false); 
-		netBuilder.setEdgeCreator(new DefaultEdgeCreator<Object>());
+//		netBuilder.setEdgeCreator(new DefaultEdgeCreator<Object>());
 		netBuilder.setEdgeCreator(new RouteCreator<Object>());
 		netBuilder.buildNetwork();
 		Network<Object> net = (Network<Object>)context.getProjection("market strength");

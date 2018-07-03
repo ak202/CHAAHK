@@ -11,6 +11,8 @@ import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
+
+import java.awt.Color;
 import java.lang.Math;
 
 public class Center {
@@ -55,6 +57,8 @@ public class Center {
 	
 	private double imports; //I				
 	private double importsLast;
+	private double importsCoefficient;
+	private double importsYIntercept;
 	private double distToExporter; //D
 	private List<Route<Object>> path;		//excluded
 	
@@ -115,6 +119,8 @@ public class Center {
 		
 		imports = 0.0;						
 		importsLast = 0.0;
+		importsCoefficient = (Double)params.getValue("importsCoefficient");
+		importsYIntercept = (Double)params.getValue("importsYIntercept");
 		distToExporter = 0;
 		path = null;
 
@@ -168,6 +174,14 @@ public class Center {
     		staples = (int)(fecundityBase+fecundityPromotiveLevel-fecundityDemotiveLevel);
     	}
     }
+    
+	public void calculateImports() {
+		imports = importsLast;
+		importsLast = importsCoefficient * distToExporter + importsYIntercept;
+		if (imports < 0) {
+			imports = 0;
+		}
+	}
 
     public void reproduce() {
 
@@ -195,6 +209,7 @@ public class Center {
 		}
     }
     
+
 
     public void setPull(double pull) {
     	this.pull = pull;
@@ -330,13 +345,7 @@ public class Center {
 		this.imports += imports;
 	}
 	
-	public void calculateImports() {
-		imports = importsLast;
-		importsLast = -0.06666667*distToExporter + 13.33333;
-		if (imports < 0) {
-			imports = 0;
-		}
-	}
+
 	private void print(String phrase, double number) {
 		System.out.print(phrase);
 		System.out.print(" is ");

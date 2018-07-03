@@ -1,28 +1,28 @@
 <repast.simphony.visualization.engine.CartesianDisplayDescriptor simphonyVersion="2.5.0">
-  <name>route costs</name>
+  <name>Map: Route Weight and Center Distance to Exporter</name>
   <type>2D</type>
   <styles>
     <entry>
       <string>mayagrations.Center</string>
-      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+      <string>mayagrations.CenterDistanceStyle</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
       <string>mayagrations.Center</string>
-      <string>mayagrations.Center.style_2.xml</string>
+      <null/>
     </entry>
   </editedStyles>
   <netStyles>
     <entry>
       <string>market strength</string>
-      <string>repast.simphony.visualization.editedStyle.EditedEdgeStyle2D</string>
+      <string>mayagrations.RouteEdgeStyle</string>
     </entry>
   </netStyles>
   <editedNetStyles>
     <entry>
       <string>market strength</string>
-      <string>marketstrength.style_6.xml</string>
+      <null/>
     </entry>
   </editedNetStyles>
   <frequency>ON_MOVE</frequency>
@@ -33,7 +33,7 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-914432407</hashCode>
+    <hashCode>965521832</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>space</layoutProjection>
@@ -57,7 +57,7 @@
     </repast.simphony.scenario.data.ProjectionData>
   </projections>
   <visualizationProperties class="repast.simphony.visualization.UnitSizeLayoutProperties">
-    <unitSize>1.0</unitSize>
+    <unitSize>3.0</unitSize>
   </visualizationProperties>
   <projectionDescriptors>
     <entry>
@@ -81,7 +81,7 @@
               </entry>
               <entry>
                 <string>UNIT_SIZE</string>
-                <float>1.0</float>
+                <float>3.0</float>
               </entry>
               <entry>
                 <string>SHOW</string>
