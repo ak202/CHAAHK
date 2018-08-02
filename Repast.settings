@@ -12,6 +12,6 @@
     <string>SettingsRegistryId</string>
     <string>Repast.registry</string>
     <string>LastLoadedScenario</string>
-    <string>/media/nvme/workspace2/Mayagrations/Mayagrations.rs</string>
+    <string>/home/akara/workspace/Mayagrations/Mayagrations.rs</string>
   </hashtable>
 </simphony.settings.SettingsRegistry>

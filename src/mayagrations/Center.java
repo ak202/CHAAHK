@@ -39,6 +39,7 @@ public class Center {
 //	STAPLES-RELATED
 	
 	private int staples;
+	private int staplesShow;
 	private double fecundityBase; 
 	
 	private double fecundityPromotiveLevel;
@@ -94,23 +95,21 @@ public class Center {
 		infertility = (Integer)params.getValue("infert");
 
 //		STAPLES-RELATED
-		
 		fecundityBase = 3;
-		
 		
 		fecundityPromotiveLevel   = 0;
 		fecundityPromotiveMax     = (Double)params.getValue("fecundityPromotiveMax");
 		fecundityPromotiveRes     = (Double)params.getValue("fecundityPromotiveRes");
-		fecundityPromotiveIncRate = (Double)params.getValue("fecundityPromotiveIncRate");
+		fecundityPromotiveIncRate = (Double)params.getValue("fecundityPromotiveIncRate")
+				* fecundityPromotiveMax;
 		fecundityPromotiveDecRate = (Double)params.getValue("fecundityPromotiveDecRate")
 				* fecundityPromotiveMax;
-		
-		
 		
 		fecundityDemotiveLevel    = 0;
 		fecundityDemotiveMax      = (Double)params.getValue("fecundityDemotiveMax");
 		fecundityDemotiveRes      = (Double)params.getValue("fecundityDemotiveRes");
-		fecundityDemotiveIncRate  = (Double)params.getValue("fecundityDemotiveIncRate");
+		fecundityDemotiveIncRate  = (Double)params.getValue("fecundityDemotiveIncRate")
+				* fecundityDemotiveMax;
 		fecundityDemotiveDecRate  = (Double)params.getValue("fecundityDemotiveDecRate")
 				* fecundityDemotiveMax;
 		
@@ -138,6 +137,8 @@ public class Center {
     public void calculateStaples() {
     	    	
     	if (!water) {
+    		
+    		// part 1
  
     		double fecundityPromotiveCarryingFactor = 1 - Math.pow(fecundityPromotiveLevel/fecundityPromotiveMax, 2);
 	    	fecundityPromotiveLevel += fecundityPromotiveCarryingFactor * labor * fecundityPromotiveIncRate;
@@ -156,6 +157,8 @@ public class Center {
 	    		fecundityPromotiveLevel = 0;
 	    	}
 	    	
+	    	//part 2
+	    	
     		double fecundityDemotiveCarryingFactor = 1 - Math.pow(fecundityDemotiveLevel/fecundityDemotiveMax, 2);
 	    	fecundityDemotiveLevel += fecundityDemotiveCarryingFactor * labor * fecundityDemotiveIncRate;
     		
@@ -167,17 +170,40 @@ public class Center {
 			}
 	    	double fecundityDemotiveResFactor = 1 - (fecundityDemotiveUtilFraction + (1 - fecundityDemotiveUtilFraction ) * fecundityDemotiveRes);
 	    	fecundityDemotiveLevel -= fecundityDemotiveResFactor * fecundityDemotiveDecRate;
+	    
 	    	if (fecundityDemotiveLevel < 0) {
 	    		fecundityDemotiveLevel = 0;
 	    	}
-    		
-    		staples = (int)(fecundityBase+fecundityPromotiveLevel-fecundityDemotiveLevel);
+	    	// part 3
+
+        	double fecundityPromotiveFraction;
+        	double fecundityDemotiveFraction;
+        	
+        	if (fecundityPromotiveMax == 0) {
+        		fecundityPromotiveFraction = 0;
+        	} else {
+        		fecundityPromotiveFraction = fecundityPromotiveLevel/fecundityPromotiveMax;
+        	}
+        	
+        	if (fecundityDemotiveMax == 0) {
+        		fecundityDemotiveFraction = 0;
+        	} else {
+        		fecundityDemotiveFraction = fecundityDemotiveLevel/fecundityDemotiveMax;
+        	}
+        	
+        	if (fecundityPromotiveFraction > fecundityDemotiveFraction) {
+        		fecundityPromotiveFraction = fecundityPromotiveFraction - fecundityDemotiveFraction;
+        		staples = (int) (fecundityBase + fecundityPromotiveFraction * fecundityPromotiveMax);
+        	} else {
+        		fecundityDemotiveFraction = fecundityDemotiveFraction - fecundityPromotiveFraction;
+        		staples = (int)(fecundityBase - fecundityDemotiveFraction * fecundityDemotiveMax);
+        	} 
+        	staplesShow = staples;
     	}
     }
     
 	public void calculateImports() {
-		imports = importsLast;
-		importsLast = importsCoefficient * distToExporter + importsYIntercept;
+		imports = importsCoefficient * distToExporter + importsYIntercept;
 		if (imports < 0) {
 			imports = 0;
 		}
@@ -481,6 +507,10 @@ public class Center {
 	
 	public double getFDLshow() {
 		return fecundityBase -fecundityDemotiveLevel;
+	}
+	
+	public int getStaplesShow() {
+		return staplesShow;
 	}
 	
 }

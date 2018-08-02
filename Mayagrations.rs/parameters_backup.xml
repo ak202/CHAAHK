@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <parameters>
-					<parameter name="disturbance" displayName="Disturbance" type="double" 
-						defaultValue="0.0" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="deathChance" displayName="Disturbance Death Chance" type="double" 
-						defaultValue="0.2" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
-									
-		/>
-				<parameter name="uplandAmount" displayName="Upland Amount" type="int" 
+					<parameter name="uplandAmount" displayName="Upland Amount" type="int" 
 						defaultValue="130" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
@@ -55,7 +43,7 @@
 									
 		/>
 				<parameter name="fecundityPromotiveIncRate" displayName="Fecundity Promotive Increase Rate" type="double" 
-						defaultValue="0.5" 
+						defaultValue="0.005" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -115,6 +103,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="importsYIntercept" displayName="Imports Y Intercept" type="double" 
+						defaultValue="13.33333" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
 				<parameter name="trafficDemotiveLongCoefficient" displayName="Traffic Demotive Long Coefficient" type="double" 
 						defaultValue="0.0" 
 						isReadOnly="false" 
@@ -122,7 +116,7 @@
 									
 		/>
 				<parameter name="fecundityDemotiveIncRate" displayName="Fecundity Demotive Increase Rate" type="double" 
-						defaultValue="0.25" 
+						defaultValue="3.0E-4" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -176,7 +170,7 @@
 									
 		/>
 				<parameter name="costDemotiveIncRate" displayName="Cost Demotive Increase Rate" type="double" 
-						defaultValue="0.05" 
+						defaultValue="3.0E-4" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									

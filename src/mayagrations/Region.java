@@ -23,8 +23,8 @@ public class Region {
 	private ShortestPath<Object> sp;
 	private List<Center> spawns;	 //excluded
 	private Object exporter;
-	private int droughtMod;
-	private double deathChance;
+	private int disturbanceDelay;
+	private double disturbanceRemovalChance;
 	
 //	OUTPUT VARIABLES	
 	
@@ -55,8 +55,8 @@ public class Region {
 		}
 		this.exporter = exporter;
 		Parameters params = RunEnvironment.getInstance().getParameters();
-		droughtMod = (Integer)params.getValue("disturbanceDelay");
-		deathChance = (Double)params.getValue("deathChance");
+		disturbanceDelay = (Integer)params.getValue("disturbanceDelay");
+		disturbanceRemovalChance = (Double)params.getValue("disturbanceRemovalChance");
 		
 //		OUTPUT VARIABLES	
 		minPop = 0;
@@ -154,11 +154,11 @@ public class Region {
 	
 	private void disturbance() {
 		double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-    	if (tick > 1000+droughtMod & tick < 1100+droughtMod) {
+    	if (tick > 1000+disturbanceDelay & tick < 1100+disturbanceDelay) {
     		List<Group> deathList = new ArrayList<Group>();
     		for (Center c : centers) {
     			for (Group group : c.getResidents()) {
-    				if (RandomHelper.nextDoubleFromTo(0, 1) < deathChance) {
+    				if (RandomHelper.nextDoubleFromTo(0, 1) < disturbanceRemovalChance) {
     					deathList.add(group);
     				}
     			}

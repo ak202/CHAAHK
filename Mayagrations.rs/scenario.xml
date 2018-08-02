@@ -15,6 +15,9 @@
 <repast.simphony.action.histogram_chart context="Mayagrations" file="repast.simphony.action.histogram_chart_12.xml" />
 <repast.simphony.action.histogram_chart context="Mayagrations" file="repast.simphony.action.histogram_chart_13.xml" />
 <repast.simphony.action.histogram_chart context="Mayagrations" file="repast.simphony.action.histogram_chart_14.xml" />
-<repast.simphony.action.display context="Mayagrations" file="repast.simphony.action.display_15.xml" />
-<repast.simphony.action.display context="Mayagrations" file="repast.simphony.action.display_16.xml" />
+<repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_15.xml" />
+<repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_16.xml" />
+<repast.simphony.action.time_series_chart context="Mayagrations" file="repast.simphony.action.time_series_chart_17.xml" />
+<repast.simphony.action.display context="Mayagrations" file="repast.simphony.action.display_18.xml" />
+<repast.simphony.action.display context="Mayagrations" file="repast.simphony.action.display_19.xml" />
 </Scenario>

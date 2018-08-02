@@ -160,15 +160,6 @@
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Staples</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Staples</id>
-        <className>mayagrations.Center</className>
-        <methodName>getStaples</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
       <string>Fecundity Demotive Level</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
         <id>Fecundity Demotive Level</id>
@@ -210,6 +201,60 @@
         <id>Traffic Demotive Long</id>
         <className>mayagrations.Route</className>
         <methodName>getTypeTdl</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Staples</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Staples</id>
+        <className>mayagrations.Center</className>
+        <methodName>getStaplesShow</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Distance to Exporter</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Distance to Exporter</id>
+        <className>mayagrations.Center</className>
+        <methodName>getDistToExporter</methodName>
+        <aggType>MEAN</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cost Promotive Level (Ob)</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cost Promotive Level (Ob)</id>
+        <className>mayagrations.Route</className>
+        <methodName>getObCpl</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Cost Demotive Level (Ob)</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Cost Demotive Level (Ob)</id>
+        <className>mayagrations.Route</className>
+        <methodName>getObCdl</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Weight (Ob)</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Weight (Ob)</id>
+        <className>mayagrations.Route</className>
+        <methodName>getObW</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Traffic Long (Ob)</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Traffic Long (Ob)</id>
+        <className>mayagrations.Route</className>
+        <methodName>getObTl</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
