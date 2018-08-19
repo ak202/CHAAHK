@@ -21,7 +21,6 @@ public class Region {
 	private ArrayList<Double> pullFractions;
 	private Network<Object> net;	//excluded
 	private ShortestPath<Object> sp;
-	private List<Center> spawns;	 //excluded
 	private Object exporter;
 	private int disturbanceDelay;
 	private double disturbanceRemovalChance;
@@ -44,13 +43,12 @@ public class Region {
 			context.add(m);
 		}
 
-//		STATIC VARIABLES
+//		FIXED VARIABLES
 		
-		this.spawns = new ArrayList();
 		for (Center c : this.centers) {
 			int id = c.getID();
 			if (id == 0 | id == 16 | id == 288 | id ==272) {
-				spawns.add(c);
+				c.makeGateway();
 			}
 		}
 		this.exporter = exporter;
@@ -97,10 +95,6 @@ public class Region {
 		}
 	}
 	
-	//at the moment this method sets the pull of all centers to equal 1, which basically
-	//renders the entire method pointless. A more interesting equation will eventually 
-	//be added to give centers different pull values based on their various attributes.
-	
 	public void rankCenters() {
 		destinations = new Hashtable<Double, Center>(17);
 		pullFractions = new ArrayList<Double>();
@@ -132,15 +126,30 @@ public class Region {
 	
 	private void immigrate() {
 		for (Center c : centers) {
-			if (spawns.contains(c)){
-//				if (c.getLabor()==0) {
-					Group dude = new Group(c, true, "graph");
-					c.addGroup(dude);
-//				}
+			if (c.getGateway()){
+				Group dude = new Group(c, true);
+				c.addGroup(dude);
 			}
 		}
 	}
 	
+	private void disturbance() {
+		double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
+    	if (tick > 1000+disturbanceDelay & tick < 1100+disturbanceDelay) {
+    		List<Group> removalList = new ArrayList<Group>();
+    		for (Center c : centers) {
+    			for (Group group : c.getResidents()) {
+    				if (RandomHelper.nextDoubleFromTo(0, 1) < disturbanceRemovalChance) {
+    					removalList.add(group);
+    				}
+    			}
+    		}
+    		for (Group group : removalList) {
+    			group.getHomeCenter().killGroup(group);
+    		}
+    	}
+	}
+
 	@ScheduledMethod(start = 5, interval = 5)
 	public void recordPop() {
 		int pop = countPop();
@@ -151,24 +160,6 @@ public class Region {
 			minPop = pop;
 		}
 	}
-	
-	private void disturbance() {
-		double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-    	if (tick > 1000+disturbanceDelay & tick < 1100+disturbanceDelay) {
-    		List<Group> deathList = new ArrayList<Group>();
-    		for (Center c : centers) {
-    			for (Group group : c.getResidents()) {
-    				if (RandomHelper.nextDoubleFromTo(0, 1) < disturbanceRemovalChance) {
-    					deathList.add(group);
-    				}
-    			}
-    		}
-    		for (Group group : deathList) {
-    			group.getHomeCenter().killGroup(group);
-    		}
-    	}
-	}
-
 	
 	public int countPop() {
 		int totalPop = 0;

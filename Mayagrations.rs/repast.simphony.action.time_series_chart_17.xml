@@ -57,6 +57,18 @@
       </SeriesData>
     </entry>
     <entry>
+      <string>Traffic Demotive Final (Observed)</string>
+      <SeriesData>
+        <label>Traffic Demotive Final (Observed)</label>
+        <color>
+          <red>51</red>
+          <green>255</green>
+          <blue>204</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
       <string>Cost Demotive Level (Ob)</string>
       <SeriesData>
         <label>Cost Demotive Level (Ob)</label>

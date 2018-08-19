@@ -11,19 +11,17 @@ public class Group {
 	private Center homeCenter;
 	private boolean migrantStatus;
 	private int stay;
-	private String source;
 	private boolean needsStaples;
 	private int troubleCount;
 
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
 
-	public Group (Center homeCenter, boolean migrant, String source) {
+	public Group (Center homeCenter, boolean migrant) {
 		this.homeCenter = homeCenter;
 		this.migrantStatus = migrant;
 		needsStaples = true;
 		stay = 0;
-		this.source = source;
 		destinations = null;
 		pullFractions = null;
 		troubleCount = 0;
@@ -134,10 +132,6 @@ public class Group {
 		} else if (stay < 5){
 			stay ++;
 		}
-	}
-	
-	public String getSource() {
-		return source;
 	}
 	
 	public void setDestinations(Hashtable<Double, Center> destinations) {

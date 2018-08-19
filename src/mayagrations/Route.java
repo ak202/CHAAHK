@@ -119,7 +119,8 @@ public class Route<T> extends RepastEdge<T> {
 		Center center2 = (Center) target;
 		double pop1 = center1.getLabor();
 		double pop2 = center2.getLabor();
-		trafficShort = (pop1 + pop2) / costBase;
+		trafficShort = (pop1 + pop2) / ((weight+costBase)/2);
+		
 		
 		//part 2
 		
@@ -153,12 +154,10 @@ public class Route<T> extends RepastEdge<T> {
     	}
     	
     	//part 3
-    	
+    	print(observed);
     	trafficDemotiveLong = trafficLong * trafficDemotiveLongCoefficient;
 		trafficDemotiveShort = trafficShort * trafficDemotiveShortCoefficient;
 		trafficDemotiveFinal = trafficDemotiveLong + trafficDemotiveShort;
-
-
     	double costDemotiveCarryingFactor;
 		if (costDemotiveLevel < costDemotiveMax){
 			costDemotiveCarryingFactor = 1 - costDemotiveLevel/costDemotiveMax;
@@ -167,6 +166,7 @@ public class Route<T> extends RepastEdge<T> {
 		} 
     	double cdlIncrease = costDemotiveCarryingFactor * trafficDemotiveFinal * costDemotiveIncRate;
     	costDemotiveLevel += cdlIncrease;
+    	
     	double costDemotiveUtilFraction;
 		if (trafficDemotiveFinal < costDemotiveLevel) {
 			costDemotiveUtilFraction = trafficDemotiveFinal/costDemotiveLevel;
@@ -176,6 +176,7 @@ public class Route<T> extends RepastEdge<T> {
     	double costDemotiveResFactor = 1 - (costDemotiveUtilFraction + (1 - costDemotiveUtilFraction ) * costDemotiveRes);
     	double cdlDecrease = costDemotiveResFactor * costDemotiveDecRate;
     	costDemotiveLevel -= cdlDecrease;
+    	
     	
     	if (costDemotiveLevel < 0) {
     		costDemotiveLevel = 0;
@@ -224,7 +225,7 @@ public class Route<T> extends RepastEdge<T> {
     		g = g * colorFraction;
     	} else if (weight < costBase) {
     		double actualDif = costBase - weight;
-    		double colorFraction = 1-(actualDif/costBase);
+    		double colorFraction = 1-(actualDif/(costBase*.5));
     		r = r * colorFraction;
     	}
     	Color color = new Color((int)r,(int)g,(int)b);
@@ -270,16 +271,14 @@ public class Route<T> extends RepastEdge<T> {
 		weight = weight /5;
 		costBase =  weight;
 		Parameters params = RunEnvironment.getInstance().getParameters();
+		
 		costPromotiveMax     = (Double)params.getValue("costPromotiveMax") * weight;
-		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate")* weight
-				* costPromotiveMax;
-		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate") * weight
-				* costPromotiveMax;
+		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate") * costPromotiveMax;
+		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate") * costPromotiveMax;
+		
 		costDemotiveMax      = (Double)params.getValue("costDemotiveMax") * weight;
-		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * weight
-				* costDemotiveMax;
-		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * weight 
-				* costDemotiveMax;
+		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * costDemotiveMax;
+		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * costDemotiveMax;
 	}
 	
 	public String getType() {
@@ -602,5 +601,10 @@ public class Route<T> extends RepastEdge<T> {
 		System.out.println();
 	}
 	
+	private void print(boolean observed) {
+		if (observed) {
+			System.out.println();
+		}
+	}
 
 }

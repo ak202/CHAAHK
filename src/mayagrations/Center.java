@@ -23,6 +23,7 @@ public class Center {
 	private Context<Object> context;
 	private boolean upland;
 	private boolean water;
+	private boolean gateway;
 	
 	
 //	PEOPLE-RELATED
@@ -82,6 +83,7 @@ public class Center {
 		this.context = context;
 		upland = false;
 		water = true;
+		gateway = false;
 		
 //		PEOPLE-RELATED
 		
@@ -226,7 +228,7 @@ public class Center {
 				newGroups = 0;
 			}
 		    for (int i = 0; i < newGroups; i++) {
-		    	Group newGroup = new Group(this, false, "Center");
+		    	Group newGroup = new Group(this, false);
 		    	newGroup.setDestinations(destinations);
 		    	newGroup.setPullFractions(pullFractions);
 		    	addGroup(newGroup);
@@ -511,6 +513,14 @@ public class Center {
 	
 	public int getStaplesShow() {
 		return staplesShow;
+	}
+	
+	public boolean getGateway() {
+		return gateway;
+	}
+	
+	public void makeGateway() {
+		gateway = true;
 	}
 	
 }
