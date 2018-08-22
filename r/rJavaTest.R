@@ -3,33 +3,77 @@ library(rrepast)
 Easy.Setup("/media/nvme/Mayagrations/")
 dir <- "/media/nvme/Mayagrations/"
 final <- "final"
-obj <- Model(modeldir=install.dir, dataset="final",1650, TRUE)
+obj <- Model(modeldir=dir, dataset="final",1650, TRUE)
 Run(obj)
 output <- GetResults()
 output
-class(output)
 
-GetSimulationParameters(obj)
+params <- GetSimulationParameters(obj)
 
-cal <- function(p, r) {
+params2 <- data.frame(params)
+params2 <- t(params2)
+params2 <- params2[ order(row.names(params2)), ]
+
+objective <- function(p, r) {
   criteria <- c()
-  score <- r$MinL/r$MaxL
+  score <- r$MinL/r$MaxL + r$FinalL/r$MaxL
   criteria <- cbind(score)
   return(score)
 }
 
-f <- AddFactor(name="deathChance", min=0, max=.3)
-f <- AddFactor(f, name="costDemotiveMax",min=0, max=20)
-f <- AddFactor(f, name="costPromotiveRes", min=1, max=1)
+f <- AddFactor (name = "disturbanceRemovalChance", min = 0, max = .3)
+f <- AddFactor (factors = f, name = "costPromotiveRes", min = 0, max = .3)
+f <- AddFactor (factors = f, name = "fecundityPromotiveRes", min = 0, max = .3)
 
-v <- Easy.Stability("/media/nvme/Mayagrations/", "final", 1650, f, FUN=cal)
-v <- Easy.Morris()
-v <- Easy.Sobol(dir, final, 1650, f, exp.n=100, exp.r=1, FUN=cal)
+lhc <- AoE.LatinHypercube(100, f)
+lhc2 <- BuildParameterSet(lhc, params)
 
-class(v)
+test <- RunExperiment(obj, 1, lhc2, objective)
+
+summary(test$output)
+modelresult <- test$output[,2]
+
+a <- data.frame(modelresult,lhc)
+plot(a$modelresult, a$fecundityPromotiveRes)
+
+library(rpart)
+library(rpart.plot)
+
+result <- rpart(modelresult ~ disturbanceRemovalChance + costPromotiveRes + fecundityPromotiveRes, data=a)
+rpart.plot(result)
+
+library(ggplot2)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 
+
+# 
+# f <- AddFactor(name="deathChance", min=0, max=.3)
+# f <- AddFactor(f, name="costDemotiveMax",min=0, max=20)
+# f <- AddFactor(f, name="costPromotiveRes", min=1, max=1)
+# 
+# v <- Easy.Stability("/media/nvme/Mayagrations/", "final", 1650, f, FUN=cal)
+# v <- Easy.Morris()
+# v <- Easy.Sobol(dir, final, 1650, f, exp.n=100, exp.r=1, FUN=cal)
+# 
+# class(v)
+# 
+# 
+# 
 
 # library(ggplot2)
 # 
