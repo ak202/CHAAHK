@@ -82,27 +82,32 @@ public class Route<T> extends RepastEdge<T> {
 		costPromotiveLevel   = 0;
 		costPromotiveMax     = (Double)params.getValue("costPromotiveMax") * weight;
 		costPromotiveRes     = (Double)params.getValue("costPromotiveRes");
-		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate")* weight
+		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate")
 				* costPromotiveMax;
-		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate") * weight
+		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate")
 				* costPromotiveMax;
 		trafficPromotiveShort             = 0;                                                            
-		trafficPromotiveShortCoefficient  = (Double)params.getValue("trafficPromotiveShortCoefficient");  
+		trafficPromotiveShortCoefficient  = (Double)params.getValue("trafficPromotiveShortCoefficient")
+				* costPromotiveMax;  
 		trafficPromotiveLong              = 0;                                                            
-		trafficPromotiveLongCoefficient   = (Double)params.getValue("trafficPromotiveLongCoefficient");   
+		trafficPromotiveLongCoefficient   = (Double)params.getValue("trafficPromotiveLongCoefficient")
+				* costPromotiveMax;   
 		trafficPromotiveFinal             = 0;                                                            
         
 		
 		costDemotiveLevel    = 0;
+		costPromotiveMax     = (Double)params.getValue("costDemotiveMax") * weight;
 		costDemotiveRes      = (Double)params.getValue("costDemotiveRes");
-		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * weight
-				* costPromotiveMax;
-		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * weight
+		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate")
+				* costDemotiveMax;
+		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate")
 				* costDemotiveMax;
 		trafficDemotiveShort             = 0;
-		trafficDemotiveShortCoefficient  = (Double)params.getValue("trafficDemotiveShortCoefficient");
+		trafficDemotiveShortCoefficient  = (Double)params.getValue("trafficDemotiveShortCoefficient")
+				* costDemotiveMax;
 		trafficDemotiveLong              = 0;
-		trafficDemotiveLongCoefficient   = (Double)params.getValue("trafficDemotiveLongCoefficient");
+		trafficDemotiveLongCoefficient   = (Double)params.getValue("trafficDemotiveLongCoefficient")
+				* costDemotiveMax;
 		trafficDemotiveFinal             = 0;
 
 		if (type == "none") {
@@ -119,7 +124,7 @@ public class Route<T> extends RepastEdge<T> {
 		Center center2 = (Center) target;
 		double pop1 = center1.getLabor();
 		double pop2 = center2.getLabor();
-		trafficShort = (pop1 + pop2) / ((weight+costBase)/2);
+		trafficShort = (pop1 + pop2) / costBase;
 		
 		
 		//part 2
@@ -136,14 +141,15 @@ public class Route<T> extends RepastEdge<T> {
 		} 
     	double cplIncrease = costPromotiveCarryingFactor * trafficPromotiveFinal * costPromotiveIncRate;
     	costPromotiveLevel += cplIncrease;
+    	
+    	double trafficPromotiveDecFinal = trafficPromotiveFinal*costPromotiveMax;
     	double costPromotiveUtilFraction;
-		if (trafficPromotiveFinal < costPromotiveLevel) {
-			costPromotiveUtilFraction = trafficPromotiveFinal/costPromotiveLevel;
+		if (trafficPromotiveDecFinal < costPromotiveLevel) {
+			costPromotiveUtilFraction = trafficPromotiveDecFinal/costPromotiveLevel;
 		} else {
 			costPromotiveUtilFraction = 1;
 		}
     	double costPromotiveResFactor = 1 - (costPromotiveUtilFraction + (1 - costPromotiveUtilFraction ) * costPromotiveRes);
-
     	double cplDecrease = costPromotiveResFactor * costPromotiveDecRate;
     	costPromotiveLevel -= cplDecrease;
     	
@@ -154,10 +160,12 @@ public class Route<T> extends RepastEdge<T> {
     	}
     	
     	//part 3
-    	print(observed);
+
     	trafficDemotiveLong = trafficLong * trafficDemotiveLongCoefficient;
 		trafficDemotiveShort = trafficShort * trafficDemotiveShortCoefficient;
 		trafficDemotiveFinal = trafficDemotiveLong + trafficDemotiveShort;
+		
+		
     	double costDemotiveCarryingFactor;
 		if (costDemotiveLevel < costDemotiveMax){
 			costDemotiveCarryingFactor = 1 - costDemotiveLevel/costDemotiveMax;
@@ -167,9 +175,11 @@ public class Route<T> extends RepastEdge<T> {
     	double cdlIncrease = costDemotiveCarryingFactor * trafficDemotiveFinal * costDemotiveIncRate;
     	costDemotiveLevel += cdlIncrease;
     	
+    	
+    	double trafficDemotiveDecFinal = trafficDemotiveFinal*costDemotiveMax;
     	double costDemotiveUtilFraction;
-		if (trafficDemotiveFinal < costDemotiveLevel) {
-			costDemotiveUtilFraction = trafficDemotiveFinal/costDemotiveLevel;
+		if (trafficDemotiveDecFinal < costDemotiveLevel) {
+			costDemotiveUtilFraction = trafficDemotiveDecFinal/costDemotiveLevel;
 		} else {
 			costDemotiveUtilFraction = 1;
 		}
@@ -275,10 +285,18 @@ public class Route<T> extends RepastEdge<T> {
 		costPromotiveMax     = (Double)params.getValue("costPromotiveMax") * weight;
 		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate") * costPromotiveMax;
 		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate") * costPromotiveMax;
+		trafficPromotiveShortCoefficient  = (Double)params.getValue("trafficPromotiveShortCoefficient");
+//				* costPromotiveMax;                                                              
+		trafficPromotiveLongCoefficient   = (Double)params.getValue("trafficPromotiveLongCoefficient");
+//				* costPromotiveMax;   
 		
 		costDemotiveMax      = (Double)params.getValue("costDemotiveMax") * weight;
 		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * costDemotiveMax;
 		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * costDemotiveMax;
+		trafficDemotiveShortCoefficient  = (Double)params.getValue("trafficDemotiveShortCoefficient");
+//				* costDemotiveMax;
+		trafficDemotiveLongCoefficient   = (Double)params.getValue("trafficDemotiveLongCoefficient");
+//				* costDemotiveMax;
 	}
 	
 	public String getType() {

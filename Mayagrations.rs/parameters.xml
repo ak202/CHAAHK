@@ -37,7 +37,7 @@
 									
 		/>
 				<parameter name="costPromotiveIncRate" displayName="Cost Promotive Increase Rate" type="double" 
-						defaultValue="0.1" 
+						defaultValue="0.02" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -98,7 +98,7 @@
 									
 		/>
 				<parameter name="trafficPromotiveShortCoefficient" displayName="Traffic Promotive Short Coefficient" type="double" 
-						defaultValue="1.0" 
+						defaultValue=".2" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
@@ -164,13 +164,13 @@
 									
 		/>
 				<parameter name="trafficDemotiveShortCoefficient" displayName="Traffic Demotive Short Coefficient" type="double" 
-						defaultValue="2.0" 
+						defaultValue="1" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 				<parameter name="costDemotiveIncRate" displayName="Cost Demotive Increase Rate" type="double" 
-						defaultValue=".1" 
+						defaultValue=".01" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
