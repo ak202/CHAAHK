@@ -141,9 +141,8 @@ public class Center {
     	if (!water) {
     		
     		// part 1
-    		labor = 10;
  
-    		double fecundityPromotiveCarryingFactor = 1 - Math.pow((fecundityPromotiveLevel/fecundityPromotiveMax), 2);
+    		double fecundityPromotiveCarryingFactor = 1 - Math.pow(fecundityPromotiveLevel/fecundityPromotiveMax, 2);
 	    	fecundityPromotiveLevel += fecundityPromotiveCarryingFactor * labor * fecundityPromotiveIncRate;
 			
 	    	double fecundityPromotiveUtilFraction;
@@ -162,7 +161,7 @@ public class Center {
 	    	
 	    	//part 2
 	    	
-    		double fecundityDemotiveCarryingFactor = 1 - Math.pow(fecundityDemotiveLevel/fecundityDemotiveMax, -2);
+    		double fecundityDemotiveCarryingFactor = 1 - Math.pow(fecundityDemotiveLevel/fecundityDemotiveMax, 2);
 	    	fecundityDemotiveLevel += fecundityDemotiveCarryingFactor * labor * fecundityDemotiveIncRate;
     		
 			double fecundityDemotiveUtilFraction;
