@@ -1,15 +1,19 @@
 library(rpart)
 library(rpart.plot)
+library(ggplot2)
 
+setwd("/media/nvme/workspace2/Mayagrations/rrepast")
 data <- readRDS("data.RDS")
 
-mayasim <- result$output[,2]
-output <- result$dataset
-parameters <- result$paramset
-data <- data.frame(mayasim, output, parameters)
+
 
 ctrl <- rpart.control(cp = .0025)
-result2 <- rpart(mayasim ~ disturbanceRemovalChance + 
+ctrl <- rpart.control()
+
+transition <- data$MinL/data$MaxL
+regeneration
+
+result2 <- rpart(MaxL ~ disturbanceRemovalChance + 
                    costPromotiveRes              +                 
                    costPromotiveIncRate          +                 
                    costDemotiveRes               +    
@@ -21,6 +25,33 @@ result2 <- rpart(mayasim ~ disturbanceRemovalChance +
 rpart.plot(result2, cex = .75)
 summary(result2)
 
+result2 <- rpart(MinL ~ disturbanceRemovalChance + 
+                   costPromotiveRes              +                 
+                   costPromotiveIncRate          +                 
+                   costDemotiveRes               +    
+                   costDemotiveIncRate           +      
+                   fecundityPromotiveRes         +       
+                   fecundityPromotiveIncRate     +           
+                   fecundityDemotiveRes          +          
+                   fecundityDemotiveIncRate, data = data, control = ctrl)   
+rpart.plot(result2, cex = .75)
+summary(result2)
+
+result2 <- rpart(FinalL ~ disturbanceRemovalChance + 
+                   costPromotiveRes              +                 
+                   costPromotiveIncRate          +                 
+                   costDemotiveRes               +    
+                   costDemotiveIncRate           +      
+                   fecundityPromotiveRes         +       
+                   fecundityPromotiveIncRate     +           
+                   fecundityDemotiveRes          +          
+                   fecundityDemotiveIncRate, data = data, control = ctrl)   
+rpart.plot(result2, cex = .75)
+summary(result2)
+
+
+summary(result2)
+
 data8 <- data.frame(data, data$costPromotiveIncRate/data$costDemotiveIncRate, data$fecundityPromotiveIncRate/data$fecundityDemotiveIncRate)
 
 
@@ -30,6 +61,7 @@ plot(log(data8[,38]),data8[,1])
 colnames(data8)[38] <- "costratio"
 colnames(data8)[39] <- "fecundityratio"
 summary(data8)
+
 
 
 awesome <- ggplot() + geom_point(aes(x=costratio, y = MaxL, color=fecundityratio), data=data8, shape=1) +

@@ -183,5 +183,18 @@ public class Region {
 		System.out.println(number);
 	}
 	
+	public double bajoFrac() {
+		double routes = 0;
+		double bajos = 0;
+		for (RepastEdge<Object> e : net.getEdges()) {
+			Route<Object> m = (Route<Object>) e;
+			if (m.getType().equals("bajo")) {
+				bajos++;
+			} routes ++;
+		}
+		double frac = bajos/routes;
+		return frac;
+	}
+	
 	
 }
