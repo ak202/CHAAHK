@@ -54,6 +54,8 @@ public class Center {
 	private double fecundityDemotiveIncRate;
 	private double fecundityDemotiveDecRate;
 	private double fecundityDemotiveMax;
+	private double fecundityDemotiveThreshold;
+	private double fecundityDemotiveExponent;
 	
 //	IMPORTS-RELATED
 	
@@ -114,6 +116,8 @@ public class Center {
 				* fecundityDemotiveMax;
 		fecundityDemotiveDecRate  = (Double)params.getValue("fecundityDemotiveDecRate")
 				* fecundityDemotiveMax;
+		fecundityDemotiveThreshold =(Double)params.getValue("fecundityDemotiveThreshold");
+		fecundityDemotiveExponent  =(Double)params.getValue("fecundityDemotiveExponent");
 		
 		
 //		IMPORTS-RELATED	
@@ -162,7 +166,7 @@ public class Center {
 	    	//part 2
 	    	
     		double fecundityDemotiveCarryingFactor = 1 - Math.pow(fecundityDemotiveLevel/fecundityDemotiveMax, 2);
-	    	fecundityDemotiveLevel += fecundityDemotiveCarryingFactor * labor * fecundityDemotiveIncRate;
+	    	fecundityDemotiveLevel += fecundityDemotiveCarryingFactor * Math.pow(labor/fecundityDemotiveThreshold, fecundityDemotiveExponent) * fecundityDemotiveIncRate;
     		
 			double fecundityDemotiveUtilFraction;
 			if (labor < (int)fecundityDemotiveLevel) {
