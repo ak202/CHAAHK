@@ -1,4 +1,4 @@
-setwd("/media/sdd/workspace2/Mayagrations/output/")
+setwd("/media/sdd/workspace2/Chaahk/output/")
 params <- read.csv("params1.csv")
 out <- read.csv("out1.csv")
 data <- params

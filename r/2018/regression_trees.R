@@ -1,7 +1,7 @@
 library(rpart)
 library(rpart.plot)
-setwd("/home/akara/workspace/Mayagrations/output/")
-setwd("/media/nvme/workspace2/Mayagrations/output/")
+setwd("/home/akara/workspace/Chaahk/output/")
+setwd("/media/nvme/workspace2/Chaahk/output/")
 
 #merge data into one data frame
 params1 <- read.csv("params1.csv")

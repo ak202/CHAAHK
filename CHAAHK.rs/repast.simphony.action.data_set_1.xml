@@ -1,0 +1,55 @@
+<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
+  <name>imports</name>
+  <type>NON_AGGREGATE</type>
+  <sourceType>chaahk.Center</sourceType>
+  <inclTick>true</inclTick>
+  <inclBatchRun>false</inclBatchRun>
+  <inclRandomSeed>false</inclRandomSeed>
+  <scheduleParams>
+    <start>Infinity</start>
+    <interval>0.0</interval>
+    <priority>-Infinity</priority>
+    <pType>LAST</pType>
+    <duration>-1.0</duration>
+    <frequency>ONE_TIME</frequency>
+    <hashCode>-702509970</hashCode>
+  </scheduleParams>
+  <atEnd>false</atEnd>
+  <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>Pull</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Pull</id>
+        <className>chaahk.Center</className>
+        <methodName>getPull</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Imports</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Imports</id>
+        <className>chaahk.Center</className>
+        <methodName>getImports</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Labor</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Labor</id>
+        <className>chaahk.Center</className>
+        <methodName>getLabor</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>DistToExporter</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>DistToExporter</id>
+        <className>chaahk.Center</className>
+        <methodName>getDistToExporter</methodName>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+  </methodDataSources>
+  <countSources class="linked-hash-map"/>
+  <customNADataSources class="linked-hash-map"/>
+  <customAggDataSources class="linked-hash-map"/>
+</repast.simphony.data2.engine.DataSetDescriptor>

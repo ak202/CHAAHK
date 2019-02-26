@@ -1,7 +1,7 @@
 library(rpart)
 library(rpart.plot)
-setwd("/home/akara/workspace/Mayagrations/output/")
-setwd("/media/nvme/workspace2/Mayagrations/output/")
+setwd("/home/akara/workspace/Chaahk/output/")
+setwd("/media/nvme/workspace2/Chaahk/output/")
 
 params1 <- read.csv("params1.csv")
 out1 <- read.csv("out1.csv")

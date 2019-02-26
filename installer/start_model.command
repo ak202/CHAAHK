@@ -25,7 +25,7 @@ CP=$CP:$REPAST_SIMPHONY_LIB/commons-cli-1.3.1.jar
 CP=$CP:$PWD/groovylib/$Groovy_All_Jar
 
 # Change to the Default Repast Simphony Directory
-cd Mayagrations
+cd CHAAHK
 
 # Start the Model
-java -Xss10M -Xmx400M -cp $CP repast.simphony.runtime.RepastMain  ./Mayagrations.rs
+java -XX:+IgnoreUnrecognizedVMOptions --add-modules=ALL-SYSTEM --add-exports=java.base/jdk.internal.ref=ALL-UNNAMED -cp $CP repast.simphony.runtime.RepastMain  ./CHAAHK.rs

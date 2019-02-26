@@ -1,5 +1,5 @@
 library(rrepast) 
-dir <- "/media/nvme/Mayagrations/"
+dir <- "/media/nvme/Chaahk/"
 chaahk <- Model(modeldir=dir, dataset="final",1650, TRUE)
 params <- GetSimulationParameters(chaahk)
 
@@ -28,7 +28,7 @@ lhc2 <- BuildParameterSet(lhc, params)
 
 result <- RunExperiment(chaahk, 1, lhc2, objective)
 
-setwd("/media/nvme/workspace2/Mayagrations/rrepast")
+setwd("/media/nvme/workspace2/Chaahk/rrepast")
 saveRDS(result, "result.RDS")
 Sys.time()
 
@@ -128,7 +128,7 @@ params2
 # f <- AddFactor(f, name="costDemotiveMax",min=0, max=20)
 # f <- AddFactor(f, name="costPromotiveRes", min=1, max=1)
 # 
-# v <- Easy.Stability("/media/nvme/Mayagrations/", "final", 1650, f, FUN=cal)
+# v <- Easy.Stability("/media/nvme/Chaahk/", "final", 1650, f, FUN=cal)
 # v <- Easy.Morris()
 # v <- Easy.Sobol(dir, final, 1650, f, exp.n=100, exp.r=1, FUN=cal)
 # 

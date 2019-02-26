@@ -1,6 +1,6 @@
 library(rrepast) 
 library(ggplot2)
-dir <- "/media/nvme/Mayagrations/"
+dir <- "/media/nvme/Chaahk/"
 Easy.Setup(dir)
 chaahk <- Model(modeldir=dir, dataset="final",1650, TRUE)
 params <- GetSimulationParameters(chaahk)

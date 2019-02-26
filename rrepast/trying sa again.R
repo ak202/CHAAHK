@@ -1,4 +1,4 @@
-setwd("/media/nvme/workspace2/Mayagrations/rrepast")
+setwd("/media/nvme/workspace2/Chaahk/rrepast")
 data <- readRDS("data.RDS")
 data <- read.csv('data3.csv', row.names=1)
 params <- c(1,2,3,4)

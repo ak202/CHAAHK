@@ -1,7 +1,7 @@
 library(ggplot2)
 library(rrepast)
 library(plyr)
-dir <- "/media/nvme/Mayagrations/"
+dir <- "/media/nvme/Chaahk/"
 Easy.Setup(dir)
 chaahk <- Model(modeldir=dir, dataset="final",1650, TRUE)
 params <- GetSimulationParameters(chaahk)
@@ -36,11 +36,11 @@ runsims <- function(n) {
 }
 
 results <- lapply(seq(5,250,5), runsims)
-setwd("/media/nvme/workspace2/Mayagrations/rrepast")
+setwd("/media/nvme/workspace2/Chaahk/rrepast")
 saveRDS(results,"stabilityresults.RDS")
 
 
-setwd("/media/nvme/workspace2/Mayagrations/rrepast")
+setwd("/media/nvme/workspace2/Chaahk/rrepast")
 results <- readRDS("stabilityresults.RDS")
 
 stability3 <- function(df) {

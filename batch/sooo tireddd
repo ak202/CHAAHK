@@ -2,11 +2,11 @@
 #Thu Apr 30 05:58:55 EDT 2015
 output.directory=C\:\\Users\\Alex\\Documents\\abm
 host.0.type=LOCAL
-batch.param.file=C\:\\Users\\Alex\\workspace\\Mayagrations\\batch\\batch_params.xml
+batch.param.file=C\:\\Users\\Alex\\workspace\\Chaahk\\batch\\batch_params.xml
 key.directory=C\:\\Users\\Alex/.ssh
-model.directory=C\:\\Users\\Alex\\workspace\\Mayagrations
+model.directory=C\:\\Users\\Alex\\workspace\\Chaahk
 vm.arguments=-Xmx512M
-param.file=C\:\\Users\\Alex\\workspace\\Mayagrations\\Mayagrations.rs\\parameters.xml
+param.file=C\:\\Users\\Alex\\workspace\\Chaahk\\Chaahk.rs\\parameters.xml
 host.0.instances=8
 poll.frequency=1.0
-scenario.directory=C\:\\Users\\Alex\\workspace\\Mayagrations\\Mayagrations.rs
+scenario.directory=C\:\\Users\\Alex\\workspace\\Chaahk\\Chaahk.rs

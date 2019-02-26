@@ -2,7 +2,7 @@ library(rpart)
 library(rpart.plot)
 library(ggplot2)
 
-setwd("/media/nvme/workspace2/Mayagrations/rrepast")
+setwd("/media/nvme/workspace2/Chaahk/rrepast")
 data <- readRDS("data.RDS")
 
 

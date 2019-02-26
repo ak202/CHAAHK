@@ -1,6 +1,6 @@
 library(rrepast) 
 
-dir <- "/media/nvme/Mayagrations/"
+dir <- "/media/nvme/Chaahk/"
 Easy.Setup(dir)
 chaahk <- Model(modeldir=dir, dataset="final",1650, TRUE)
 params <- GetSimulationParameters(chaahk)
@@ -35,7 +35,7 @@ output <- result$dataset
 parameters <- result$paramset
 data <- data.frame(mayasim, output, parameters)
 
-setwd("/media/nvme/workspace2/Mayagrations/rrepast")
+setwd("/media/nvme/workspace2/Chaahk/rrepast")
 saveRDS(data, "data.RDS")
 
 

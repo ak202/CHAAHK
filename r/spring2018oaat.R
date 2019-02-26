@@ -1,6 +1,6 @@
 library(ggplot2)
-setwd("/home/akara/workspace/Mayagrations/output/")
-setwd("/media/nvme/workspace2/Mayagrations/output/")
+setwd("/home/akara/workspace/Chaahk/output/")
+setwd("/media/nvme/workspace2/Chaahk/output/")
 
 Frs.params <- read.csv("FrsParams.csv")
 Frs.out <- read.csv("Frs.csv")
