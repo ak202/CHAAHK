@@ -1,2 +1,0 @@
-"MaxL","MinL","FinalL"
-36,31,28

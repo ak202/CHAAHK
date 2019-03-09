@@ -1,51 +1,51 @@
-<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.5.0">
-  <name>imports</name>
+<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.6.0">
+  <name>final</name>
   <type>NON_AGGREGATE</type>
-  <sourceType>chaahk.Center</sourceType>
-  <inclTick>true</inclTick>
+  <sourceType>chaahk.Region</sourceType>
+  <inclTick>false</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>Infinity</start>
+    <start>1649.0</start>
     <interval>0.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>ONE_TIME</frequency>
-    <hashCode>-702509970</hashCode>
+    <hashCode>-1061669185</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Pull</string>
+      <string>MaxL</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Pull</id>
-        <className>chaahk.Center</className>
-        <methodName>getPull</methodName>
+        <id>MaxL</id>
+        <className>chaahk.Region</className>
+        <methodName>getMaxPop</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Imports</string>
+      <string>MinL</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Imports</id>
-        <className>chaahk.Center</className>
-        <methodName>getImports</methodName>
+        <id>MinL</id>
+        <className>chaahk.Region</className>
+        <methodName>getMinPop</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Labor</string>
+      <string>FinalL</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Labor</id>
-        <className>chaahk.Center</className>
-        <methodName>getLabor</methodName>
+        <id>FinalL</id>
+        <className>chaahk.Region</className>
+        <methodName>countPop</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>DistToExporter</string>
+      <string>bajoFrac</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>DistToExporter</id>
-        <className>chaahk.Center</className>
-        <methodName>getDistToExporter</methodName>
+        <id>bajoFrac</id>
+        <className>chaahk.Region</className>
+        <methodName>bajoFrac</methodName>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>

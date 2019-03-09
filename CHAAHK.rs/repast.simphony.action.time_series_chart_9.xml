@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
-  <name>Route Promotive Traffic (Type)</name>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.6.0">
+  <name>Center Data</name>
   <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
   <yAxisLabel>Value</yAxisLabel>
-  <chartTitle>Route Traffic Promotive (Filtered by Type)</chartTitle>
+  <chartTitle>Center Data</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,23 +21,11 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>Traffic Short</string>
+      <string>Fecundity Promotive Level</string>
       <SeriesData>
-        <label>Traffic Short</label>
+        <label>Fecundity Promotive Level</label>
         <color>
-          <red>255</red>
-          <green>153</green>
-          <blue>153</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Traffic Promotive Long</string>
-      <SeriesData>
-        <label>Traffic Promotive Long</label>
-        <color>
-          <red>255</red>
+          <red>51</red>
           <green>255</green>
           <blue>0</blue>
           <alpha>255</alpha>
@@ -45,37 +33,49 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>Traffic Long</string>
+      <string>Staples</string>
       <SeriesData>
-        <label>Traffic Long</label>
-        <color>
-          <red>255</red>
-          <green>255</green>
-          <blue>153</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Traffic Promotive Final</string>
-      <SeriesData>
-        <label>Traffic Promotive Final</label>
-        <color>
-          <red>204</red>
-          <green>102</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Traffic Promotive Short</string>
-      <SeriesData>
-        <label>Traffic Promotive Short</label>
+        <label>Staples</label>
         <color>
           <red>255</red>
           <green>0</green>
-          <blue>51</blue>
+          <blue>255</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Fecundity Demotive Level</string>
+      <SeriesData>
+        <label>Fecundity Demotive Level</label>
+        <color>
+          <red>255</red>
+          <green>0</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Labor</string>
+      <SeriesData>
+        <label>Labor</label>
+        <color>
+          <red>255</red>
+          <green>255</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Fecundity Base</string>
+      <SeriesData>
+        <label>Fecundity Base</label>
+        <color>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
           <alpha>255</alpha>
         </color>
       </SeriesData>

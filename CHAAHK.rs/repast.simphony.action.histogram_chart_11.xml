@@ -1,9 +1,9 @@
 <repast.simphony.chart2.engine.HistogramChartDescriptor simphonyVersion="2.6.0">
-  <name>Available Imports Histogram</name>
+  <name>Distance to Exporter Histogram</name>
   <dataSet>imports</dataSet>
-  <xAxisLabel>Amount of Imports</xAxisLabel>
-  <yAxisLabel>Number of Centers</yAxisLabel>
-  <chartTitle>Imports Available to Centers</chartTitle>
+  <xAxisLabel>Distance</xAxisLabel>
+  <yAxisLabel>Centers</yAxisLabel>
+  <chartTitle>Distance from Centers to Nearest Exporter</chartTitle>
   <type>HISTOGRAM</type>
   <background>
     <red>192</red>
@@ -21,7 +21,7 @@
   <showLegend>true</showLegend>
   <histType>DYNAMIC</histType>
   <binCount>10</binCount>
-  <sourceId>Imports</sourceId>
+  <sourceId>DistToExporter</sourceId>
   <outOfRange>IGNORE</outOfRange>
   <min>0.0</min>
   <max>0.0</max>

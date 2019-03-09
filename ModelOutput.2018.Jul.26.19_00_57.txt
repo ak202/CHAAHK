@@ -1,2 +1,0 @@
-"MaxL","MinL","FinalL"
-212,11,71

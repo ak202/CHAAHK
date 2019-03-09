@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.5.0">
-  <name>Route Demotive Traffic (Type)</name>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.6.0">
+  <name>Route Demotive Traffic (All)</name>
   <dataSet>population</dataSet>
   <xAxisLabel>Tick Count</xAxisLabel>
   <yAxisLabel>Value</yAxisLabel>
-  <chartTitle>Route Traffic Demotive (Type)</chartTitle>
+  <chartTitle>Route Demotive Traffic (All)</chartTitle>
   <type>TIME_SERIES</type>
   <background>
     <red>192</red>
@@ -21,21 +21,9 @@
   <showLegend>true</showLegend>
   <seriesIds>
     <entry>
-      <string>Traffic Demotive Long</string>
+      <string>Traffic Demotive Short (All)</string>
       <SeriesData>
-        <label>Traffic Demotive Long</label>
-        <color>
-          <red>255</red>
-          <green>255</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Traffic Demotive Short</string>
-      <SeriesData>
-        <label>Traffic Demotive Short</label>
+        <label>Traffic Demotive Short (All)</label>
         <color>
           <red>204</red>
           <green>0</green>
@@ -45,9 +33,9 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>Traffic Short</string>
+      <string>Traffic Short (All)</string>
       <SeriesData>
-        <label>Traffic Short</label>
+        <label>Traffic Short (All)</label>
         <color>
           <red>255</red>
           <green>153</green>
@@ -57,9 +45,9 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>Traffic Long</string>
+      <string>Traffic Long (All)</string>
       <SeriesData>
-        <label>Traffic Long</label>
+        <label>Traffic Long (All)</label>
         <color>
           <red>255</red>
           <green>255</green>
@@ -69,12 +57,24 @@
       </SeriesData>
     </entry>
     <entry>
-      <string>Traffic Demotive Final</string>
+      <string>Traffic Demotive Final  (All)</string>
       <SeriesData>
-        <label>Traffic Demotive Final</label>
+        <label>Traffic Demotive Final  (All)</label>
         <color>
           <red>255</red>
-          <green>102</green>
+          <green>153</green>
+          <blue>0</blue>
+          <alpha>255</alpha>
+        </color>
+      </SeriesData>
+    </entry>
+    <entry>
+      <string>Traffic Demotive Long (All)</string>
+      <SeriesData>
+        <label>Traffic Demotive Long (All)</label>
+        <color>
+          <red>255</red>
+          <green>255</green>
           <blue>0</blue>
           <alpha>255</alpha>
         </color>

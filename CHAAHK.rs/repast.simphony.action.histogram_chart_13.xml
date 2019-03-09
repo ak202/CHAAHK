@@ -1,9 +1,9 @@
-<repast.simphony.chart2.engine.HistogramChartDescriptor simphonyVersion="2.5.0">
-  <name>Available Imports Histogram</name>
+<repast.simphony.chart2.engine.HistogramChartDescriptor simphonyVersion="2.6.0">
+  <name>Center Pull Histogram</name>
   <dataSet>imports</dataSet>
-  <xAxisLabel>Amount of Imports</xAxisLabel>
+  <xAxisLabel>Amount of Pull</xAxisLabel>
   <yAxisLabel>Number of Centers</yAxisLabel>
-  <chartTitle>Imports Available to Centers</chartTitle>
+  <chartTitle>Value of Center Immigration Pulls</chartTitle>
   <type>HISTOGRAM</type>
   <background>
     <red>192</red>
@@ -21,7 +21,7 @@
   <showLegend>true</showLegend>
   <histType>DYNAMIC</histType>
   <binCount>10</binCount>
-  <sourceId>Imports</sourceId>
+  <sourceId>Pull</sourceId>
   <outOfRange>IGNORE</outOfRange>
   <min>0.0</min>
   <max>0.0</max>

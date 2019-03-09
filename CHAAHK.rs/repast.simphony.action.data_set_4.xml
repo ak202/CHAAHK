@@ -1,51 +1,63 @@
 <repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.6.0">
-  <name>imports</name>
-  <type>NON_AGGREGATE</type>
-  <sourceType>chaahk.Center</sourceType>
+  <name>causes of deaths</name>
+  <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>Infinity</start>
-    <interval>0.0</interval>
+    <start>30.0</start>
+    <interval>5.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
-    <frequency>ONE_TIME</frequency>
-    <hashCode>-702509970</hashCode>
+    <frequency>REPEAT</frequency>
+    <hashCode>932876387</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Pull</string>
+      <string>born</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Pull</id>
+        <id>born</id>
         <className>chaahk.Center</className>
-        <methodName>getPull</methodName>
+        <methodName>getBorn</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Imports</string>
+      <string>staples</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Imports</id>
+        <id>staples</id>
         <className>chaahk.Center</className>
-        <methodName>getImports</methodName>
+        <methodName>getStaplesDeaths</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Labor</string>
+      <string>imports</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Labor</id>
+        <id>imports</id>
         <className>chaahk.Center</className>
-        <methodName>getLabor</methodName>
+        <methodName>getImportsDeaths</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>DistToExporter</string>
+      <string>move success</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>DistToExporter</id>
+        <id>move success</id>
         <className>chaahk.Center</className>
-        <methodName>getDistToExporter</methodName>
+        <methodName>getMoveLifes</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>move failure</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>move failure</id>
+        <className>chaahk.Center</className>
+        <methodName>getMoveDeaths</methodName>
+        <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
   </methodDataSources>
