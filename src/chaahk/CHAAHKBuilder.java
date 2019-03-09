@@ -18,7 +18,7 @@ import repast.simphony.space.graph.DefaultEdgeCreator;
 import repast.simphony.space.graph.Network;
 import repast.simphony.space.graph.RepastEdge;
 
-public class ChaahkBuilder implements ContextBuilder<Object> {
+public class CHAAHKBuilder implements ContextBuilder<Object> {
 
 	@Override
 	public Context build(Context<Object> context) {
