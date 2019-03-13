@@ -5,6 +5,8 @@ import java.awt.Color;
 import repast.simphony.space.graph.RepastEdge;
 import repast.simphony.visualizationOGL2D.EdgeStyleOGL2D;
 
+// this sets the width and color of Routes to show their type and, if bajo, weight
+
 public class RouteEdgeStyle implements EdgeStyleOGL2D {
 
 	@Override

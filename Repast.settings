@@ -12,6 +12,6 @@
     <string>SettingsRegistryId</string>
     <string>Repast.registry</string>
     <string>LastLoadedScenario</string>
-    <string>/home/akara/workspace/CHAAHK/CHAAHK.rs</string>
+    <string>/home/akara/workspace/CHAAHK/./CHAAHK.rs</string>
   </hashtable>
 </simphony.settings.SettingsRegistry>

@@ -1,7 +1,6 @@
 package chaahk;
 
 import java.awt.Color;
-
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
@@ -18,6 +17,7 @@ public class Route<T> extends RepastEdge<T> {
 	private String type;
 	
 //	WEIGHT-RELATED
+
 	private double weight;
 	private double costBase;
 	private double trafficLong;
@@ -63,8 +63,9 @@ public class Route<T> extends RepastEdge<T> {
 		sourceCenter = (Center) source;
 		this.target = target;
 		targetCenter = (Center) target;
-		if ((sourceCenter.getID()==obSourceID & targetCenter.getID()==obTargetID) |
-				(sourceCenter.getID()==obTargetID & targetCenter.getID()==obSourceID)) {
+		boolean obSame = (sourceCenter.getID()==obSourceID & targetCenter.getID()==obTargetID);
+		boolean obReverse = (sourceCenter.getID()==obTargetID & targetCenter.getID()==obSourceID);
+		if ( obSame | obReverse ) {
 			observed = true;
 		} else {
 			observed = false;
@@ -80,45 +81,34 @@ public class Route<T> extends RepastEdge<T> {
 		trafficShort = 0;
 		
 		costPromotiveLevel   = 0;
-		costPromotiveMax     = (Double)params.getValue("costPromotiveMax") * weight;
 		costPromotiveRes     = (Double)params.getValue("costPromotiveRes");
-		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate")
-				* costPromotiveMax;
-		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate")
-				* costPromotiveMax;
 		trafficPromotiveShort             = 0;                                                            
-		trafficPromotiveShortCoefficient  = (Double)params.getValue("trafficPromotiveShortCoefficient")
-				* costPromotiveMax;  
+		trafficPromotiveShortCoefficient  = (Double)params.getValue("trafficPromotiveShortCoefficient") * costPromotiveMax;  
 		trafficPromotiveLong              = 0;                                                            
-		trafficPromotiveLongCoefficient   = (Double)params.getValue("trafficPromotiveLongCoefficient")
-				* costPromotiveMax;   
+		trafficPromotiveLongCoefficient   = (Double)params.getValue("trafficPromotiveLongCoefficient") * costPromotiveMax;   
 		trafficPromotiveFinal             = 0;                                                            
         
 		
 		costDemotiveLevel    = 0;
 		costPromotiveMax     = (Double)params.getValue("costDemotiveMax") * weight;
 		costDemotiveRes      = (Double)params.getValue("costDemotiveRes");
-		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate")
-				* costDemotiveMax;
-		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate")
-				* costDemotiveMax;
+		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * costDemotiveMax;
+		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * costDemotiveMax;
 		trafficDemotiveShort             = 0;
-		trafficDemotiveShortCoefficient  = (Double)params.getValue("trafficDemotiveShortCoefficient")
-				* costDemotiveMax;
+		trafficDemotiveShortCoefficient  = (Double)params.getValue("trafficDemotiveShortCoefficient") * costDemotiveMax;
 		trafficDemotiveLong              = 0;
-		trafficDemotiveLongCoefficient   = (Double)params.getValue("trafficDemotiveLongCoefficient")
-				* costDemotiveMax;
+		trafficDemotiveLongCoefficient   = (Double)params.getValue("trafficDemotiveLongCoefficient") * costDemotiveMax;
 		trafficDemotiveFinal             = 0;
 
 		if (type == "none") {
-			makeBajo(weight);
+			makeBajo();
 		}
 	}
 	
 	@ScheduledMethod(start = 2, interval = 5)
-	public void calcWeight() {
-	
-		// part 1 
+	public void calculateWeight() {
+
+		// part 1 - calulation of trafficShort. very simple gravity model using the labor of 2 adjacent Centers.
 		
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
@@ -127,176 +117,177 @@ public class Route<T> extends RepastEdge<T> {
 		trafficShort = (pop1 + pop2) / costBase;
 		
 		
-		//part 2
-		
+		//part 2 - costPromotiveLevel is modified 
+
+				// calculate tpf
 		trafficPromotiveLong = trafficLong * trafficPromotiveLongCoefficient;
 		trafficPromotiveShort = trafficShort * trafficPromotiveShortCoefficient;
 		trafficPromotiveFinal = trafficPromotiveLong + trafficPromotiveShort;
-		
+
+				// increase
 		double costPromotiveCarryingFactor;
-		if (costPromotiveLevel < costPromotiveMax){
+		if (costPromotiveLevel < costPromotiveMax) {
 			costPromotiveCarryingFactor = 1 - costPromotiveLevel/costPromotiveMax;
-		} else{
+		} else {
 			costPromotiveCarryingFactor = 0;
 		} 
-    	double cplIncrease = costPromotiveCarryingFactor * trafficPromotiveFinal * costPromotiveIncRate;
-    	costPromotiveLevel += cplIncrease;
-    	
-    	double trafficPromotiveDecFinal = trafficPromotiveFinal*costPromotiveMax;
-    	double costPromotiveUtilFraction;
+		double cplIncrease = costPromotiveCarryingFactor * trafficPromotiveFinal * costPromotiveIncRate;
+		costPromotiveLevel += cplIncrease;
+
+				// decrease	
+		double trafficPromotiveDecFinal = trafficPromotiveFinal*costPromotiveMax;
+		double costPromotiveUtilFraction;
 		if (trafficPromotiveDecFinal < costPromotiveLevel) {
 			costPromotiveUtilFraction = trafficPromotiveDecFinal/costPromotiveLevel;
 		} else {
 			costPromotiveUtilFraction = 1;
 		}
-    	double costPromotiveResFactor = 1 - (costPromotiveUtilFraction + (1 - costPromotiveUtilFraction ) * costPromotiveRes);
-    	double cplDecrease = costPromotiveResFactor * costPromotiveDecRate;
-    	costPromotiveLevel -= cplDecrease;
-    	
-    	if (costPromotiveLevel < 0) {
-    		costPromotiveLevel = 0;
-    	} else if (costPromotiveLevel > costPromotiveMax) {
-    		costPromotiveLevel = costPromotiveMax;
-    	}
-    	
-    	//part 3
+		double costPromotiveResFactor = 1 - (costPromotiveUtilFraction + (1 - costPromotiveUtilFraction ) * costPromotiveRes);
+		double cplDecrease = costPromotiveResFactor * costPromotiveDecRate;
+		costPromotiveLevel -= cplDecrease;
 
-    	trafficDemotiveLong = trafficLong * trafficDemotiveLongCoefficient;
+				// readjust	
+		if (costPromotiveLevel < 0) {
+			costPromotiveLevel = 0;
+		} else if (costPromotiveLevel > costPromotiveMax) {
+			costPromotiveLevel = costPromotiveMax;
+		}
+		
+		// part 3 - costDemotiveLevel is modified
+
+				// calculate tdf
+		trafficDemotiveLong = trafficLong * trafficDemotiveLongCoefficient;
 		trafficDemotiveShort = trafficShort * trafficDemotiveShortCoefficient;
 		trafficDemotiveFinal = trafficDemotiveLong + trafficDemotiveShort;
-		
-		
-    	double costDemotiveCarryingFactor;
-		if (costDemotiveLevel < costDemotiveMax){
+		 
+				//increase
+		double costDemotiveCarryingFactor;
+		if (costDemotiveLevel < costDemotiveMax)
+		{
 			costDemotiveCarryingFactor = 1 - costDemotiveLevel/costDemotiveMax;
-		} else{
+		} else {
 			costDemotiveCarryingFactor = 0;
 		} 
-    	double cdlIncrease = costDemotiveCarryingFactor * trafficDemotiveFinal * costDemotiveIncRate;
-    	costDemotiveLevel += cdlIncrease;
-    	
-    	
-    	double trafficDemotiveDecFinal = trafficDemotiveFinal*costDemotiveMax;
-    	double costDemotiveUtilFraction;
+		double cdlIncrease = costDemotiveCarryingFactor * trafficDemotiveFinal * costDemotiveIncRate;
+		costDemotiveLevel += cdlIncrease;
+
+				//decrease	
+		double trafficDemotiveDecFinal = trafficDemotiveFinal*costDemotiveMax;
+		double costDemotiveUtilFraction;
 		if (trafficDemotiveDecFinal < costDemotiveLevel) {
 			costDemotiveUtilFraction = trafficDemotiveDecFinal/costDemotiveLevel;
 		} else {
 			costDemotiveUtilFraction = 1;
 		}
-    	double costDemotiveResFactor = 1 - (costDemotiveUtilFraction + (1 - costDemotiveUtilFraction ) * costDemotiveRes);
-    	double cdlDecrease = costDemotiveResFactor * costDemotiveDecRate;
-    	costDemotiveLevel -= cdlDecrease;
-    	
-    	
-    	if (costDemotiveLevel < 0) {
-    		costDemotiveLevel = 0;
-    	} else if (costDemotiveLevel > costDemotiveMax) {
-    		costDemotiveLevel = costDemotiveMax;
-    	}
-    	
-    	//part 4
+		double costDemotiveResFactor = 1 - (costDemotiveUtilFraction + (1 - costDemotiveUtilFraction ) * costDemotiveRes);
+		double cdlDecrease = costDemotiveResFactor * costDemotiveDecRate;
+		costDemotiveLevel -= cdlDecrease;
 
-    	double costPromotiveFraction;
-    	double costDemotiveFraction;
-    	
-    	if (costPromotiveMax == 0) {
-    		costPromotiveFraction = 0;
-    	} else {
-    		costPromotiveFraction = costPromotiveLevel/costPromotiveMax;
-    	}
-    	
-    	if (costDemotiveMax == 0) {
-    		costDemotiveFraction = 0;
-    	} else {
-    		costDemotiveFraction = costDemotiveLevel/costDemotiveMax;
-    	}
-    	
-    	if (costPromotiveFraction > costDemotiveFraction) {
-    		costPromotiveFraction = costPromotiveFraction - costDemotiveFraction;
-    		weight = costBase - costPromotiveFraction * costPromotiveMax;
-    	} else {
-    		costDemotiveFraction = costDemotiveFraction - costPromotiveFraction;
-    		weight = costBase + costDemotiveFraction * costDemotiveMax;
-    	} 
+				//readjust
+		if (costDemotiveLevel < 0) {
+			costDemotiveLevel = 0;
+		} else if (costDemotiveLevel > costDemotiveMax) {
+			costDemotiveLevel = costDemotiveMax;
+		}
+		
+		// part 4 - weight is drawn away from costBase depending on whether cpl or cdl is closer to their max (cpm, cdm)
+
+		double costPromotiveFraction;
+		double costDemotiveFraction;
+		
+				// calculate both relative levels
+		if (costPromotiveMax == 0) {
+			costPromotiveFraction = 0;
+		} else {
+			costPromotiveFraction = costPromotiveLevel/costPromotiveMax;
+		}
+		if (costDemotiveMax == 0) {
+			costDemotiveFraction = 0;
+		} else {
+			costDemotiveFraction = costDemotiveLevel/costDemotiveMax;
+		}
+		
+				// update weight
+		if (costPromotiveFraction > costDemotiveFraction) {
+			costPromotiveFraction = costPromotiveFraction - costDemotiveFraction;
+			weight = costBase - costPromotiveFraction * costPromotiveMax;
+		} else {
+			costDemotiveFraction = costDemotiveFraction - costPromotiveFraction;
+			weight = costBase + costDemotiveFraction * costDemotiveMax;
+		} 
+	
 	}
 	
-    public Color getColorBajo() {
-    	double  r = 255;
-    	double  g = 255;
-    	double b = 0;
-    	if (weight > costBase) {
-    		double actualDif = weight - costBase;
-    		double colorFraction = 1 - (actualDif/(costBase*5));
-    		if (colorFraction > 1) {
-    			colorFraction = 1;
-    		} else if (colorFraction < 0) {
-    			colorFraction = 0;
-    		}
-    		g = g * colorFraction;
-    	} else if (weight < costBase) {
-    		double actualDif = costBase - weight;
-    		double colorFraction = 1-(actualDif/(costBase*.5));
-    		r = r * colorFraction;
-    	}
-    	Color color = new Color((int)r,(int)g,(int)b);
-    	return color;
-    }
+	// displays a bajo Route lower than its costBase as more red, more green if higher.
+	public Color getColorBajo() {
+		double  r = 255;
+		double  g = 255;
+		double b = 0;
+		if (weight > costBase) {
+			double actualDif = weight - costBase;
+			double colorFraction = 1 - (actualDif/(costBase*5));
+			if (colorFraction > 1) {
+				colorFraction = 1;
+			} else if (colorFraction < 0) {
+				colorFraction = 0;
+			}
+			g = g * colorFraction;
+		} else if (weight < costBase) {
+			double actualDif = costBase - weight;
+			double colorFraction = 1-(actualDif/(costBase*.5));
+			r = r * colorFraction;
+		}
+		Color color = new Color((int)r,(int)g,(int)b);
+		return color;
+	}
     
-    public Color getColorUpland() {
-    	double  r = 0;
-    	double  g = 0;
-    	double b = 0;
-    	Color color = new Color((int)r,(int)g,(int)b);
-    	return color;
-    }
+	// upland routes are black
+	public Color getColorUpland() {
+		double  r = 0;
+		double  g = 0;
+		double b = 0;
+		Color color = new Color((int)r,(int)g,(int)b);
+		return color;
+	}
     
-	
+	// makes route a nominal upland	
 	public void makeUpland() {
 		if (type != "river" & type != "mountain") {
 			type = "upland";
 		}
 	}
-
-	public void makeBajo(double weight) {
-		if (type == "none") {
-			type = "bajo";
-		}
-	}
-	
+	// give route upland behavior
 	public void initUpland() {
-
 		costBase =  weight;
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate") * weight;
 		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate") * weight;
 		costPromotiveMax     = 0;
-
-		
 		costDemotiveIncRate  = 0;
 		costDemotiveDecRate  = 0;
 		costDemotiveMax      = 0;
 	}
+	// makes route a nominal bajo
+	public void makeBajo() {
+		if (type == "none") {
+			type = "bajo";
+		}
+	}
+	// give route bajo behavior
 	public void initBajo() {
-		
 		weight = weight /5;
 		costBase =  weight;
 		Parameters params = RunEnvironment.getInstance().getParameters();
-		
 		costPromotiveMax     = (Double)params.getValue("costPromotiveMax") * weight;
 		costPromotiveIncRate = (Double)params.getValue("costPromotiveIncRate") * costPromotiveMax;
 		costPromotiveDecRate = (Double)params.getValue("costPromotiveDecRate") * costPromotiveMax;
-		trafficPromotiveShortCoefficient  = (Double)params.getValue("trafficPromotiveShortCoefficient");
-//				* costPromotiveMax;                                                              
+		trafficPromotiveShortCoefficient  = (Double)params.getValue("trafficPromotiveShortCoefficient");                                                        
 		trafficPromotiveLongCoefficient   = (Double)params.getValue("trafficPromotiveLongCoefficient");
-//				* costPromotiveMax;   
-		
 		costDemotiveMax      = (Double)params.getValue("costDemotiveMax") * weight;
 		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * costDemotiveMax;
 		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * costDemotiveMax;
 		trafficDemotiveShortCoefficient  = (Double)params.getValue("trafficDemotiveShortCoefficient");
-//				* costDemotiveMax;
 		trafficDemotiveLongCoefficient   = (Double)params.getValue("trafficDemotiveLongCoefficient");
-//				* costDemotiveMax;
 	}
 	
 	public String getType() {
@@ -556,21 +547,6 @@ public class Route<T> extends RepastEdge<T> {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-	
-
-	
-
-
-
-	
-
-	
-
-
-	
-
-	
-
 
 	public void setTrafficLong(double tl){
 		trafficLong = tl;
@@ -582,47 +558,6 @@ public class Route<T> extends RepastEdge<T> {
 
 	public Center getTargetCenter() {
 		return targetCenter;
-	}
-	
-//	private void printOb(String phrase, double number) {
-//		Center center1 = (Center) source;
-//		Center center2 = (Center) target;
-//
-//		if (center1.getID()==obSourceID & center2.getID()==obTargetID) {
-//			System.out.print(phrase);
-//			System.out.print(" is ");
-//			System.out.println(number);
-//		}
-//	}	
-	
-	private void print(String phrase, double number) {
-		System.out.print(phrase);
-		System.out.print(" is ");
-		System.out.println(number);
-	}
-	
-	private void print(String phrase, String string) {
-		System.out.print(phrase);
-		System.out.print(" is ");
-		System.out.println(string);
-	}
-	
-	private void print(String phrase, double number, boolean bool) {
-		if (bool) {
-			System.out.print(phrase);
-			System.out.print(" is ");
-			System.out.println(number);
-		}
-	}
-	
-	private void print() {
-		System.out.println();
-	}
-	
-	private void print(boolean observed) {
-		if (observed) {
-			System.out.println();
-		}
 	}
 
 }

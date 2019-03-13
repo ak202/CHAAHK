@@ -60,12 +60,12 @@ public class Group {
 	
 	private boolean consumeStaples() {
 		if (homeCenter.getStaples() >= 1) {
-			homeCenter.modStaples(-1);
+			homeCenter.decreaseStaples();
 			troubleCount = 0;
 			return(false);
 		} else {
 			if (!migrantStatus) {
-				homeCenter.incStaplesDeaths();;
+				homeCenter.incStapleRemovals();;
 			}
 			trouble();
 			return(true);
@@ -74,12 +74,12 @@ public class Group {
 	
 	private boolean consumeImports() {
 		if (homeCenter.getImports() >= 1) {
-			homeCenter.modImports(-1);
+			homeCenter.decreaseImports();
 			troubleCount = 0;
 			return(false);
 		} else {
 			if (!migrantStatus) {
-				homeCenter.incImportsDeaths();;
+				homeCenter.incImportRemovals();;
 			}
 			trouble();
 			return(true);
@@ -89,7 +89,7 @@ public class Group {
 	public void trouble() {
 		double chance = RandomHelper.nextDoubleFromTo(0, 1);
 		if (chance < .33 | troubleCount == 2) {
-			homeCenter.killGroup(this);
+			homeCenter.removeGroup(this);
 		} else if (chance < .66) {
 			migrate();
 		} troubleCount ++;
@@ -108,7 +108,7 @@ public class Group {
 				chance -= pullFraction; 
 			}
 		} 
-		homeCenter.incMoveLifes();
+		homeCenter.incEmigrations();
 		homeCenter.emmigrate(this);
 		homeCenter = newHome;
 		homeCenter.immigrate(this);

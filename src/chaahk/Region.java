@@ -17,6 +17,7 @@ import repast.simphony.space.graph.ShortestPath;
 public class Region {
 	
 	private List<Center> centers;
+	private List<Center> gateways;
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
 	private Network<Object> net;	//excluded
@@ -35,6 +36,12 @@ public class Region {
 //		DYNAMIC VARIABLES
 		
 		this.centers = centers;
+		gateways = new ArrayList();
+		for (Center c : centers) {
+			if (c.getGateway()){
+				gateways.add(c);
+			}
+		}
 		
 		net = (Network<Object>) context.getProjection("market strength");		//excluded
 		sp = new ShortestPath<Object>(net);
@@ -125,11 +132,13 @@ public class Region {
 	}
 	
 	private void immigrate() {
-		for (Center c : centers) {
-			if (c.getGateway()){
-				Group dude = new Group(c, true);
-				c.addGroup(dude);
-			}
+		int count = 0;
+		for (Center g : gateways) {
+				System.out.println("immigrating ");
+				count ++;
+				System.out.println(count);
+				Group dude = new Group(g, true);
+				g.addGroup(dude);
 		}
 	}
 	
@@ -145,7 +154,7 @@ public class Region {
     			}
     		}
     		for (Group group : removalList) {
-    			group.getHomeCenter().killGroup(group);
+    			group.getHomeCenter().removeGroup(group);
     		}
     	}
 	}
@@ -164,7 +173,7 @@ public class Region {
 	public int countPop() {
 		int totalPop = 0;
 		for (Center c : centers) {
-			totalPop += c.getPop();
+			totalPop += c.getLabor();
 		}
 		return totalPop;
 	}
@@ -176,12 +185,6 @@ public class Region {
 	public int getMaxPop() {
 		return maxPop;
 	}	
-	
-	private void print(String phrase, double number) {
-		System.out.print(phrase);
-		System.out.print(" is ");
-		System.out.println(number);
-	}
 	
 	public double bajoFrac() {
 		double routes = 0;
@@ -195,6 +198,5 @@ public class Region {
 		double frac = bajos/routes;
 		return frac;
 	}
-	
 	
 }
