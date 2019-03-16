@@ -1,16 +1,16 @@
 <repast.simphony.visualization.engine.CartesianDisplayDescriptor simphonyVersion="2.6.0">
-  <name>Map: Route Weight and Center Distance to Exporter</name>
+  <name>Map: Route Weight and Center Labor</name>
   <type>2D</type>
   <styles>
     <entry>
       <string>chaahk.Center</string>
-      <string>chaahk.CenterDistanceStyle</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
       <string>chaahk.Center</string>
-      <null/>
+      <string>chaahk.Center.style_2.xml</string>
     </entry>
   </editedStyles>
   <netStyles>
@@ -33,7 +33,7 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>965521832</hashCode>
+    <hashCode>65006162</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>space</layoutProjection>

@@ -527,8 +527,6 @@ public class Route<T> extends RepastEdge<T> {
 		} else return 0;
 	}
 	
-	
-
 	public T getSource() {
 		return source;
 	}

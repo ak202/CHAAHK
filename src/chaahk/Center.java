@@ -18,7 +18,6 @@ public class Center {
 	private Context<Object> context;
 	private boolean upland;
 	private boolean water;
-	private boolean gateway;
 	
 //	PEOPLE-RELATED
 	
@@ -34,7 +33,6 @@ public class Center {
 //	STAPLES-RELATED
 	
 	private int staples;
-	private int staplesShow;
 	private double fecundityBase; 
 	
 	private double fecundityPromotiveLevel;
@@ -75,7 +73,6 @@ public class Center {
 		this.context = context;
 		upland = false;
 		water = true;
-		gateway = false;
 		
 //		PEOPLE-RELATED
 		
@@ -188,10 +185,9 @@ public class Center {
 			fecundityDemotiveFraction = fecundityDemotiveFraction - fecundityPromotiveFraction;
 			staples = (int)(fecundityBase - fecundityDemotiveFraction * fecundityDemotiveMax);
 		} 
-		staplesShow = staples;
 	}
     
-	// culmination of the more elaborate Region.calculateTrafficLong() and Route.calculateWeight()
+	// culmination of the much more involved Region.calculateTrafficLong() and Route.calculateWeight()
 	public void calculateImports() {
 		imports = importsCoefficient * distToExporter + importsYIntercept;
 		if (imports < 0) {
@@ -219,8 +215,6 @@ public class Center {
 		}
 		for (int i = 0; i < newGroups; i++) {
 			Group newGroup = new Group(this, false);
-			newGroup.setDestinations(destinations);
-			newGroup.setPullFractions(pullFractions);
 			addGroup(newGroup);
 			created ++;
 		}
@@ -252,14 +246,6 @@ public class Center {
 		return this.labor;
 	}
 
-//	public int getSpawnLabor() {
-//		if (id ==8) {
-//			return labor;
-//		} else {
-//			return 0;
-//		}
-//	}
-	
 	public int getResSize() {
 		return residents.size();
 	}
@@ -321,25 +307,10 @@ public class Center {
 		staples--;
 	}
 	
-//	public void modStaples(int flux) {
-//		staples += flux;
-//		if (staples < 0) {
-//			staples = 0;
-//		}
-//	}
-
-//	public void setStaples(int staples) {
-//		this.staples = staples;
-//	}
-	
 	public double getFecundityBase() {
 		return fecundityBase;
 	}
 
-//	public void setFecundityBase(double fecundityBase) {
-//		this.fecundityBase = fecundityBase;
-//	}
-	
 	// imports-related methods
 
 	public void decreaseImports() {
@@ -354,10 +325,6 @@ public class Center {
 		return ((double)imports + 1)/((double)residents.size() + 1);
 	}
 	
-//	public void setImports(double imports) {
-//		this.imports = imports;
-//	}
-	
 	public double getImportsPopulated() {
 		if (labor > 0 ) {
 			return(imports);
@@ -366,14 +333,6 @@ public class Center {
 		}
 	}
 	
-//	public void modImports(double imports) {
-//		this.imports += imports;
-//	}
-	
-	public void setMineDistance(double distanceToExporter) {
-		distToExporter = distanceToExporter;
-	}
-
 	public void setPath(List<Route<Object>> path) {
 		this.path = path;
 	}
@@ -384,6 +343,10 @@ public class Center {
 	
 	public double getDistToExporter() {
 		return distToExporter;
+	}
+
+	public void setDistanceToExporter(double distance) {
+		distToExporter = distance;
 	}
 	
 	// terrain-related methods
@@ -469,18 +432,18 @@ public class Center {
 		this.destinations = (Hashtable<Double, Center>) dests;
 	}
 
+	public Hashtable<Double, Center> getDestinations() {
+		return destinations;
+	}
+
 	public void setPullFractions(ArrayList<Double> pullFractions) {
 		Object pullfras = pullFractions.clone();
 		this.pullFractions = (ArrayList<Double>) pullfras;
 	}
-	
-//	public double getFPL() {
-//		return fecundityPromotiveLevel;
-//	}
-//	
-//	public double getFDL() {
-//		return fecundityDemotiveLevel;
-//	}
+
+	public ArrayList<Double> getPullFractions() {
+		return pullFractions;
+	}
 	
 	public double getFPLshow() {
 		return fecundityBase + fecundityPromotiveLevel;
@@ -489,17 +452,4 @@ public class Center {
 	public double getFDLshow() {
 		return fecundityBase -fecundityDemotiveLevel;
 	}
-	
-	public int getStaplesShow() {
-		return staplesShow;
-	}
-	
-	public boolean getGateway() {
-		return gateway;
-	}
-	
-	public void makeGateway() {
-		gateway = true;
-	}
-	
 }

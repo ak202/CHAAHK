@@ -10,94 +10,105 @@ public class Group {
 	
 	private Center homeCenter;
 	private boolean migrantStatus;
-	private int stay;
-	private boolean needsStaples;
-	private int troubleCount;
-
-	private Hashtable<Double, Center> destinations;
-	private ArrayList<Double> pullFractions;
+	private boolean prioritizesImports;
+	private int acclimation;
+	private int resourceLackCount;
 
 	public Group (Center homeCenter, boolean migrant) {
 		this.homeCenter = homeCenter;
 		this.migrantStatus = migrant;
-		needsStaples = true;
-		stay = 0;
-		destinations = null;
-		pullFractions = null;
-		troubleCount = 0;
+		prioritizesImports = true;
+		acclimation = 0;
+		resourceLackCount = 0;
 	}
 	
+	// endemic citizens recieve priority access to both resources
 	@ScheduledMethod(start = 3, interval = 5)
-	public void consumeEndemic() {
+	public void endemicsConsume() {
 		if (!migrantStatus) {
-			if (needsImports()) {
-				if (consumeImports()) {
-					return;
-				} consumeStaples();
-			} else {
-				if (consumeStaples()) {
-					return;
-				} consumeImports();
-			}
+			consumeResources();
 		}
 	}
 	
 	@ScheduledMethod(start = 4, interval = 5)
-	public void consumeMigrant() {
+	public void migrantsConsume() {
 		if (migrantStatus) {
-			if (needsImports()) {
-				if (consumeImports()) {
-					return;
-				} consumeStaples();
-			} else {
-				if (consumeStaples()) {
-					return;
-				} consumeImports();
-			}
-			setMigrant();
+			acclimate();
+			consumeResources();
 		}
 	}
-	
+
+	// the Group will ultimately attept to consume both resources, but the order 
+	// in which they do is swapped each turn. if statements prevent Groups that are
+	// removed fron their first attempt from consuming further resources, which can cause
+	// an error (in addition to being simply onfair to the other Groups!).
+	private void consumeResources() {
+		swapPrioritizedResource();
+		if (prioritizesImports) {
+			if (consumeImports()) {
+				consumeStaples();
+				return;
+			} 
+		} else {
+			if (consumeStaples()) {
+				consumeImports();
+				return;
+			} 
+		}
+	}
+		
 	private boolean consumeStaples() {
 		if (homeCenter.getStaples() >= 1) {
 			homeCenter.decreaseStaples();
-			troubleCount = 0;
-			return(false);
+			resourceLackCount = 0;
+			return(true);
 		} else {
 			if (!migrantStatus) {
 				homeCenter.incStapleRemovals();;
 			}
-			trouble();
-			return(true);
+			resourceLack();
+			return(false);
 		} 
 	}
 	
 	private boolean consumeImports() {
 		if (homeCenter.getImports() >= 1) {
 			homeCenter.decreaseImports();
-			troubleCount = 0;
-			return(false);
+			resourceLackCount = 0;
+			return(true);
 		} else {
 			if (!migrantStatus) {
 				homeCenter.incImportRemovals();;
 			}
-			trouble();
-			return(true);
+			resourceLack();
+			return(false);
 		} 
 	}
 	
-	public void trouble() {
+	// Groups that lack resources have equal odds to migrate, be removed, or be unaffected.
+	// However, if the Group fails to consume the relavent resouce two times in a row,
+	// they are automatically removed. The randomness ensures that Centers
+	// have a vaguely stable population, while resourceLackCount ensures
+	// that truelly exhausted Centers do indeed lose population. This is
+	// very much a "top down" solution to these problems, but it is both very 
+	// simple and effective towards allowing the simulation's other elements 
+	// to preform as intended.
+	private void resourceLack() {
 		double chance = RandomHelper.nextDoubleFromTo(0, 1);
-		if (chance < .33 | troubleCount == 2) {
+		if (chance < .33 | resourceLackCount == 2) {
 			homeCenter.removeGroup(this);
 		} else if (chance < .66) {
 			migrate();
-		} troubleCount ++;
+		} resourceLackCount ++;
 	}
 
 
-	public void migrate() {
+	// Centers with higher pullFractions are more likely to become the Groups new
+	// homeCenter
+	private void migrate() {
 		double chance = RandomHelper.nextDoubleFromTo(0,1);
+		ArrayList<Double> pullFractions = homeCenter.getPullFractions();
+		Hashtable<Double, Center> destinations = homeCenter.getDestinations();
 		Center newHome = homeCenter;
 		for (int i = 288; i >= 0; i--) {
 			double pullFraction = pullFractions.get(i);
@@ -114,34 +125,27 @@ public class Group {
 		homeCenter.immigrate(this);
 	}
 	
-	private boolean needsImports() {
-		if (needsStaples) {
-			needsStaples  = false;
-		} needsStaples = true;
-		return(needsStaples);
+	// the swapping of the prioritized resource ensures there is not disproportionate
+	// demand for either of the resources.
+	private void swapPrioritizedResource() {
+		if (prioritizesImports) {
+			prioritizesImports = false;
+		} else {
+			prioritizesImports = true;
+		}
 	}
 	
 	public boolean getMigrant() {
 		return migrantStatus; 
 	}
 	
-	public void setMigrant() {
-		if (stay == 5) {
+	private void acclimate() {
+		if (acclimation == 5) {
 			this.migrantStatus = false;
 			homeCenter.settle();
-		} else if (stay < 5){
-			stay ++;
+		} else if (acclimation < 5){
+			acclimation ++;
 		}
-	}
-	
-	public void setDestinations(Hashtable<Double, Center> destinations) {
-		Object dests = destinations.clone();
-		this.destinations = (Hashtable<Double, Center>) dests;
-	}
-
-	public void setPullFractions(ArrayList<Double> pullFractions) {
-		Object pullfras = pullFractions.clone();
-		this.pullFractions = (ArrayList<Double>) pullfras;
 	}
 	
 	public Center getHomeCenter() {

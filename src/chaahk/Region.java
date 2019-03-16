@@ -84,11 +84,11 @@ public class Region {
 		for (Center c : centers) {
 			List<RepastEdge<Object>> path;
 			path = sp.getPath(c,exporter);
-			double distToMine = 0;
+			double distToExporter = 0;
 			for (RepastEdge<Object> e : path) {
-				distToMine += e.getWeight();
+				distToExporter += e.getWeight();
 			}
-			c.setMineDistance(distToMine);
+			c.setDistanceToExporter(distToExporter);
 			for (RepastEdge<Object> e : path) {
 				Route<Object> m = (Route<Object>) e;
 				m.setTrafficLong(m.getTrafficLong() + c.getEndemic());
@@ -118,10 +118,6 @@ public class Region {
 		for (Center center : centers) {
 			center.setDestinations(destinations);
 			center.setPullFractions(pullFractions);
-			for (Group maya : center.getResidents()) {
-				maya.setDestinations(destinations);
-				maya.setPullFractions(pullFractions);
-			}
 		}
 	}
 	
@@ -188,5 +184,4 @@ public class Region {
 		double frac = bajos/routes;
 		return frac;
 	}
-	
 }
