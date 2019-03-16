@@ -35,14 +35,6 @@ public class Region {
 		
 //		DYNAMIC VARIABLES
 		
-		this.centers = centers;
-		gateways = new ArrayList();
-		for (Center c : centers) {
-			if (c.getGateway()){
-				gateways.add(c);
-			}
-		}
-		
 		net = (Network<Object>) context.getProjection("market strength");		//excluded
 		sp = new ShortestPath<Object>(net);
 		for (RepastEdge<Object> e : net.getEdges()) {
@@ -52,10 +44,12 @@ public class Region {
 
 //		FIXED VARIABLES
 		
+		this.centers = centers;
+		gateways = new ArrayList();
 		for (Center c : this.centers) {
 			int id = c.getID();
 			if (id == 0 | id == 16 | id == 288 | id ==272) {
-				c.makeGateway();
+				gateways.add(c);
 			}
 		}
 		this.exporter = exporter;
@@ -132,11 +126,7 @@ public class Region {
 	}
 	
 	private void immigrate() {
-		int count = 0;
 		for (Center g : gateways) {
-				System.out.println("immigrating ");
-				count ++;
-				System.out.println(count);
 				Group dude = new Group(g, true);
 				g.addGroup(dude);
 		}
@@ -144,12 +134,12 @@ public class Region {
 	
 	private void disturbance() {
 		double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
-    	if (tick > 1000+disturbanceDelay & tick < 1100+disturbanceDelay) {
-    		List<Group> removalList = new ArrayList<Group>();
-    		for (Center c : centers) {
-    			for (Group group : c.getResidents()) {
-    				if (RandomHelper.nextDoubleFromTo(0, 1) < disturbanceRemovalChance) {
-    					removalList.add(group);
+    		if (tick > 1000+disturbanceDelay & tick < 1100+disturbanceDelay) {
+    			List<Group> removalList = new ArrayList<Group>();
+    			for (Center c : centers) {
+    				for (Group group : c.getResidents()) {
+    					if (RandomHelper.nextDoubleFromTo(0, 1) < disturbanceRemovalChance) {
+    						removalList.add(group);
     				}
     			}
     		}
