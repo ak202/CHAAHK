@@ -10,6 +10,8 @@ import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
 import java.lang.Math;
 
+// test 
+
 public class Center {
 	
 //	MISC VARIABLES
