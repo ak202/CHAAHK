@@ -139,7 +139,7 @@ public class CHAAHKBuilder implements ContextBuilder<Object> {
 		}
 		for (RepastEdge<Object> e : net.getEdges()) {
 			Route<Object> m = (Route<Object>) e;
-			if (m.getType() == "bajo") {
+			if (m.getType() == "Bajo") {
 				m.initBajo();
 			} else {
 				m.initUpland();
@@ -158,6 +158,11 @@ public class CHAAHKBuilder implements ContextBuilder<Object> {
 		
 		Region region = new Region(centers, context, exporter);
 		context.add(region);
+		
+		OutputAggregator outputAgg = new OutputAggregator(centers, net);
+		context.add(outputAgg);
+
+
 		RunEnvironment.getInstance().endAt(1650);
 		return context;
 	}

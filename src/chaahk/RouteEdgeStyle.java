@@ -13,7 +13,7 @@ public class RouteEdgeStyle implements EdgeStyleOGL2D {
 	public int getLineWidth(RepastEdge<?> edge) {
 		Route route = (Route) edge;
 		String type = route.getType();
-		if (type.equals("bajo")) {
+		if (type.equals("Bajo")) {
 			return 6;
 		} else {
 			return 3;
@@ -25,7 +25,7 @@ public class RouteEdgeStyle implements EdgeStyleOGL2D {
 		
 		Route route = (Route) edge;
 		String type = route.getType();
-		if (type.equals("bajo")) {
+		if (type.equals("Bajo")) {
 			return route.getColorBajo();
 		} else {
 			return route.getColorUpland();

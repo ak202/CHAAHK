@@ -18,6 +18,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="observedRouteSourceID" displayName="Obserbed Route Source ID" type="int" 
+						defaultValue="0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="disturbanceDelay" displayName="Disturbance Delay" type="int" 
 						defaultValue="0" 
 						isReadOnly="false" 
@@ -48,17 +54,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="obTargetID" displayName="Observed Route's Target ID" type="int" 
-						defaultValue="271" 
+				<parameter name="observeSpecificCenter" displayName="Observe Specific Center?" type="boolean" 
+						defaultValue="false" 
 						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
-		/>
-				<parameter name="obSourceID" displayName="Observed Route's Source ID" type="int" 
-						defaultValue="288" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
-									
+						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
+									values="true false "
+						
 		/>
 				<parameter name="fecundityPromotiveRes" displayName="Fecundity Promotive Resilience" type="double" 
 						defaultValue="0.5" 
@@ -72,13 +73,6 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="observedType" displayName="Route Type Observed" type="java.lang.String" 
-						defaultValue="bajo" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
-									values="bajo upland "
-						
-		/>
 				<parameter name="costDemotiveMax" displayName="Cost Demotive Maximum" type="double" 
 						defaultValue="20.0" 
 						isReadOnly="false" 
@@ -90,6 +84,13 @@
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
+		/>
+				<parameter name="observedRouteType" displayName="Observed Route Filter Type" type="java.lang.String" 
+						defaultValue="Bajo" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									values="All Bajo Upland ID "
+						
 		/>
 				<parameter name="fecundityDemotiveThreshold" displayName="Fecundity Demotive Threshold" type="double" 
 						defaultValue="1.0" 
@@ -151,6 +152,12 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="observedRouteTargetID" displayName="Observed Route Target ID" type="int" 
+						defaultValue="1" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 				<parameter name="costPromotiveMax" displayName="Cost Promotive Max" type="double" 
 						defaultValue="0.5" 
 						isReadOnly="false" 
@@ -159,6 +166,12 @@
 		/>
 				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
 						defaultValue="__NULL__"
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="observeWhatCenter" displayName="Observe What Center?" type="int" 
+						defaultValue="0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

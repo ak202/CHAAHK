@@ -26,13 +26,14 @@ public class Region {
 	private int disturbanceDelay;
 	private double disturbanceRemovalChance;
 	
-//	OUTPUT VARIABLES	
-	
+//	OUTPUT VARIABLES - do not affect model operation	
 	private int minPop;
 	private int maxPop;
-	
+
 	public Region(List<Center> centers, Context<Object> context, Center exporter) {
 		
+		Parameters params = RunEnvironment.getInstance().getParameters();
+
 //		DYNAMIC VARIABLES
 		
 		net = (Network<Object>) context.getProjection("market strength");		//excluded
@@ -53,14 +54,15 @@ public class Region {
 			}
 		}
 		this.exporter = exporter;
-		Parameters params = RunEnvironment.getInstance().getParameters();
 		disturbanceDelay = (Integer)params.getValue("disturbanceDelay");
 		disturbanceRemovalChance = (Double)params.getValue("disturbanceRemovalChance");
 		
-//		OUTPUT VARIABLES	
+//		OUTPUT VARIABLES
+
 		minPop = 0;
 		maxPop = 0;
 	}
+
 	
 	@ScheduledMethod(start = 1, interval = 5)
 	public void calculateCenterResources() {
@@ -164,13 +166,6 @@ public class Region {
 		return totalPop;
 	}
 	
-	public int getMinPop() {
-		return minPop;
-	}
-	
-	public int getMaxPop() {
-		return maxPop;
-	}	
 	
 	public double bajoFrac() {
 		double routes = 0;
@@ -184,4 +179,13 @@ public class Region {
 		double frac = bajos/routes;
 		return frac;
 	}
+
+	public int getMinPop() {
+		return minPop;
+	}
+	
+	public int getMaxPop() {
+		return maxPop;
+	}	
+
 }

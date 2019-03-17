@@ -10,7 +10,6 @@ public class Route<T> extends RepastEdge<T> {
 	
 //	MISC VARIABLES
 	
-	private boolean observed;
 	private Center sourceCenter;
 	private Center targetCenter;
 	protected boolean directed;
@@ -57,19 +56,10 @@ public class Route<T> extends RepastEdge<T> {
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		
 //		MISC VARIABLES
-		int obSourceID = (Integer)params.getValue("obSourceID"); 
-		int obTargetID = (Integer)params.getValue("obTargetID"); 
 		this.source = source;
 		sourceCenter = (Center) source;
 		this.target = target;
 		targetCenter = (Center) target;
-		boolean obSame = (sourceCenter.getID()==obSourceID & targetCenter.getID()==obTargetID);
-		boolean obReverse = (sourceCenter.getID()==obTargetID & targetCenter.getID()==obSourceID);
-		if ( obSame | obReverse ) {
-			observed = true;
-		} else {
-			observed = false;
-		}
 		this.directed = directed;
 		type = "none";
 
@@ -253,7 +243,7 @@ public class Route<T> extends RepastEdge<T> {
 	// makes route a nominal upland	
 	public void makeUpland() {
 		if (type != "river" & type != "mountain") {
-			type = "upland";
+			type = "Upland";
 		}
 	}
 	// give route upland behavior
@@ -270,7 +260,7 @@ public class Route<T> extends RepastEdge<T> {
 	// makes route a nominal bajo
 	public void makeBajo() {
 		if (type == "none") {
-			type = "bajo";
+			type = "Bajo";
 		}
 	}
 	// give route bajo behavior
@@ -301,7 +291,15 @@ public class Route<T> extends RepastEdge<T> {
 	public double getWeight() {
 		return weight;
 	}
+	
+	public double getCdl() {
+		return costDemotiveLevel;
+	}
 
+	public double getCb() {
+		return costBase;
+	}
+	
 	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 	//-----------------    Aggregate Data Getter Methods for...    --------------------------
 	//'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
