@@ -284,245 +284,53 @@ public class Route<T> extends RepastEdge<T> {
 		return type;
 	}
 
-	public double getTrafficLong() {
-		return trafficLong;
-	}
-	
+	//---------   General Cost:    ------------
 	public double getWeight() {
 		return weight;
 	}
-	
-	public double getCdl() {
-		return costDemotiveLevel;
-	}
-
-	public double getCb() {
-		return costBase;
-	}
-	
-	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-	//-----------------    Aggregate Data Getter Methods for...    --------------------------
-	//'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-	
-	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-	//----------------    All Routes:         --------------------------
-	//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-	
-	//---------   General Cost:    ------------
-	public double getAllW() {
-		return weight;
-	}
-	public double getAllCb() {
+	public double getCostBase() {
 		return costBase;
 	}
 	//---------   Cost Promotive:    ------------
-	public double getAllCpl() {
+	public double getCostPromotiveLevel() {
 		return costPromotiveLevel;
 	}
-	public double getAllCplShow() {
-		return costBase - costPromotiveLevel;
-	}
-	public double getAllCpm() {
+	public double getCostPromotiveMax() {
 		return costPromotiveMax;
 	}
 	//---------   Cost Demotive:    ------------
-	public double getAllCdl() {
+	public double getCostDemotiveLevel() {
 		return costDemotiveLevel;
 	}
-	public double getAllCdlShow() {
-		return (costBase + costDemotiveLevel);
-	}
-	public double getAllCdm() {
+	public double getCostDemotiveMax() {
 		return costDemotiveMax;
 	}
 	//---------   General Traffic:    ------------
-	public double getAllTl() {
+	public double getTrafficLong() {
 		return trafficLong;
 	}
-	public double getAllTs() {
+	public double getTrafficShort() {
 		return trafficShort;
 	}
 	//---------  Traffic Promotive:    ------------
-	public double getAllTpl() {
+	public double getTrafficPromotiveLong() {
 		return trafficLong * trafficPromotiveLong;
 	}
-	public double getAllTps() {
-		return trafficLong * trafficPromotiveLong;
+	public double getTrafficPromotiveShort() {
+		return trafficShort * trafficPromotiveShort;
 	}
-	public double getAllTpf() {
+	public double getTrafficPromtiveFinal() {
 		return trafficPromotiveFinal;
 	}
 	//---------  Traffic Demotive:    ------------
-	public double getAllTdl() {
+	public double getTrafficDemotiveLong() {
 		return trafficLong * trafficDemotiveLong;
 	}
-	public double getAllTds() {
-		return trafficLong * trafficDemotiveLong;
+	public double getTrafficDemotiveShort() {
+		return trafficShort * trafficDemotiveLong;
 	}
-	public double getAllTdf() {
+	public double getTrafficDemotiveFinal() {
 		return trafficDemotiveFinal;
-	}
-	
-	
-	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-	//----------------    *Type* Routes:         -----------------------
-	//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-	
-	private double typeGetter(double variable) {
-		Parameters params = RunEnvironment.getInstance().getParameters();
-		String observedType = (String)params.getValue("observedType");
-
-		if (type.equals(observedType)) {
-			return variable;
-		} else {
-			return 0;
-		}
-	}
-	
-	//---------   General Cost:    ------------
-	public double getTypeW() {
-		return typeGetter(weight);
-	}
-	public double getTypeCb() {
-		return typeGetter(costBase);
-	}
-	//---------   Cost Promotive:    ------------
-	public double getTypeCpl() {
-		return typeGetter(costPromotiveLevel);
-	}
-	public double getTypeCplShow() {
-		return typeGetter(costBase - costPromotiveLevel);
-	}
-	public double getTypeCpm() {
-		return typeGetter(costPromotiveMax);
-	}
-	//---------   Cost Demotive:    ------------
-	public double getTypeCdl() {
-		return typeGetter(costDemotiveLevel);
-	}
-	public double getTypeCdlShow() {
-		return typeGetter(costBase + costDemotiveLevel);
-	}
-	public double getTypeCdm() {
-		return typeGetter(costDemotiveMax);
-	}
-	//---------   General Traffic:    ------------
-	public double getTypeTs() {
-		return typeGetter(trafficShort);
-	}
-	public double getTypeTl() {
-		return typeGetter(trafficLong);
-	}
-	//---------  Traffic Promotive:    ------------
-	public double getTypeTpl(){
-		return typeGetter(trafficPromotiveLong);
-	}
-	public double getTypeTps(){
-		return typeGetter(trafficPromotiveShort);
-	}
-	public double getTypeTpf(){
-		return typeGetter(trafficPromotiveFinal);
-	}
-	//---------  Traffic Demotive:    ------------
-	public double getTypeTdl(){
-		return typeGetter(trafficDemotiveLong);
-	}
-	public double getTypeTds(){
-		return typeGetter(trafficDemotiveShort);
-	}
-	public double getTypeTdf(){
-		return typeGetter(trafficDemotiveFinal);
-	}
-	
-	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-	//----------------    Observed Route:         ----------------------
-	//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-	
-	//---------   General Cost:    ------------
-	public double getObW(){
-		if (observed) {
-			return weight;
-		} else return 0;
-	}
-	public double getObCb(){
-		if (observed) {
-			return costBase;
-		} else return 0;
-	}
-	//---------   Cost Promotive:    ------------
-	public double getObCpl(){
-		if (observed) {
-			return costPromotiveLevel;
-		} else return 0;
-	}
-	public double getObCplShow(){
-		if (observed) {
-			return costBase - costPromotiveLevel;
-		} else return 0;
-	}
-	public double getObCpm(){
-		if (observed) {
-			return costPromotiveMax;
-		} else return 0;
-	}
-	//---------   Cost Demotive:    ------------
-	public double getObCdl(){
-		if (observed) {
-			return costDemotiveLevel;
-		} else return 0;
-	}
-	public double getObCdlShow(){
-		if (observed) {
-			return costBase + costDemotiveLevel;
-		} else return 0;
-	}
-	public double getObCdm(){
-		if (observed) {
-			return costDemotiveMax;
-		} else return 0;
-	}
-	//---------   General Traffic:    ------------
-	public double getObTl(){
-		if (observed) {
-			return trafficLong;
-		} else return 0;
-	}
-	public double getObTs(){
-		if (observed) {
-			return trafficShort;
-		} else return 0;
-	}
-	//---------  Traffic Promotive:    ------------
-	public double getObTpl(){
-		if (observed) {
-			return trafficPromotiveLong;
-		} else return 0;
-	}
-	public double getObTps(){
-		if (observed) {
-			return trafficPromotiveShort;
-		} else return 0;
-	}
-	public double getObTpf(){
-		if (observed) {
-			return trafficPromotiveFinal;
-		} else return 0;
-	}
-	//---------  Traffic Demotive:    ------------
-	public double getObTdl(){
-		if (observed) {
-			return trafficDemotiveLong;
-		} else return 0;
-	}
-	public double getObTds(){
-		if (observed) {
-			return trafficDemotiveShort;
-		} else return 0;
-	}
-	public double getObTdf(){
-		if (observed) {
-			return trafficDemotiveFinal;
-		} else return 0;
 	}
 	
 	public T getSource() {

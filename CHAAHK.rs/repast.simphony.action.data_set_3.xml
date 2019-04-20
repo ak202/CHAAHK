@@ -1,53 +1,53 @@
 <repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.6.0">
-  <name>Cost Data of Observed Routes</name>
+  <name>Fecundity Data of Observed Centers</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
   <inclRandomSeed>false</inclRandomSeed>
   <scheduleParams>
-    <start>20.0</start>
-    <interval>30.0</interval>
+    <start>31.0</start>
+    <interval>20.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-845898433</hashCode>
+    <hashCode>-344064542</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Cb + Cost Promotive Level</string>
+      <string>Fecundity Base (Fb)</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cb + Cost Promotive Level</id>
+        <id>Fecundity Base (Fb)</id>
         <className>chaahk.OutputAggregator</className>
-        <methodName>getCbMinusCpl</methodName>
+        <methodName>getFecundityBase</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Cb + Cost Demotive Level</string>
+      <string>Fb - Fecundity Demotive Level</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cb + Cost Demotive Level</id>
+        <id>Fb - Fecundity Demotive Level</id>
         <className>chaahk.OutputAggregator</className>
-        <methodName>getCbPlusCdl</methodName>
+        <methodName>getFbMinusFdl</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Weight</string>
+      <string>Fb + Fecundity Promotive Level</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Weight</id>
+        <id>Fb + Fecundity Promotive Level</id>
         <className>chaahk.OutputAggregator</className>
-        <methodName>getWeight</methodName>
+        <methodName>getFbPlusFpl</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>
     <entry>
-      <string>Cost Base (Cb)</string>
+      <string>Staples</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cost Base (Cb)</id>
+        <id>Staples</id>
         <className>chaahk.OutputAggregator</className>
-        <methodName>getCostBase</methodName>
+        <methodName>getStaples</methodName>
         <aggType>SUM</aggType>
       </repast.simphony.data2.engine.MethodDataSourceDefinition>
     </entry>

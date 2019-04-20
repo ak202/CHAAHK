@@ -2,7 +2,7 @@ package chaahk;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.swing.JOptionPane;
 import repast.simphony.context.Context;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactory;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder;
@@ -23,6 +23,7 @@ public class CHAAHKBuilder implements ContextBuilder<Object> {
 	public Context build(Context<Object> context) {
 		
 		context.setId("CHAAHK");
+		Parameters params = RunEnvironment.getInstance().getParameters();
 
 		// builds the two contexts: continuous space and network
 		ContinuousSpaceFactory spFa = ContinuousSpaceFactoryFinder.
@@ -31,7 +32,6 @@ public class CHAAHKBuilder implements ContextBuilder<Object> {
 				context, new SimpleCartesianAdder<Object>(), 
 				new repast.simphony.space.continuous.StrictBorders(),
 				314, 314);
-		Parameters params = RunEnvironment.getInstance().getParameters();
 		double x = 17.32;
 		double y = 17.32;
 		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("market strength", context, false); 
@@ -162,9 +162,12 @@ public class CHAAHKBuilder implements ContextBuilder<Object> {
 		OutputAggregator outputAgg = new OutputAggregator(centers, net);
 		context.add(outputAgg);
 
-
 		RunEnvironment.getInstance().endAt(1650);
-		return context;
+		if (ParameterCheck.check(params, net)) {
+			return null;
+		} else {
+			return context;
+		}
 	}
 	
 	public void addMayaEdge(Network<Object> net, ContinuousSpace<Object> space, Center source, Center target) {

@@ -2,7 +2,6 @@ package chaahk;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
-import cern.jet.random.Binomial;
 import repast.simphony.context.Context;
 import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
@@ -28,7 +27,7 @@ public class Center {
 	private double pullFraction;
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
-	private double infertility;
+	private double fertility;
 	
 //	STAPLES-RELATED
 	
@@ -83,7 +82,7 @@ public class Center {
 		pullFraction = 0;
 		destinations = null;
 		pullFractions = null;
-		infertility = (Integer)params.getValue("infert");
+		fertility = (Double)params.getValue("fertility");
 
 //		STAPLES-RELATED
 		fecundityBase = 3;
@@ -202,21 +201,16 @@ public class Center {
 		}
 
 		// each existing group has and *odds* chance to generate a new group
-		int newGroups = 0;
-		double odds = getStaplesPerCap() / infertility;
-		if (odds >= 1) {
-			odds = .999;
+		double odds = getStaplesPerCap() * fertility;
+		if (odds > 1) {
+			odds = 1;
 		}
-		try {
-			Binomial dist = RandomHelper.createBinomial(labor, odds);
-			newGroups = dist.nextInt();
-		} catch (IllegalArgumentException e) {
-			newGroups = 0;
-		}
-		for (int i = 0; i < newGroups; i++) {
-			Group newGroup = new Group(this, false);
-			addGroup(newGroup);
-			created ++;
+		for (int i = 0; i < residents.size(); i++) {
+			if (RandomHelper.nextDoubleFromTo(0, 1) <= odds) {
+				Group newGroup = new Group(this, false);
+				addGroup(newGroup);
+				created ++;
+			}
 		}
 	}
 	
@@ -268,7 +262,7 @@ public class Center {
 		labor += 1;
 		if (group.getMigrant() == false) {
 			incEndemic();
-		}
+		} 
 	}
 	
 	public void removeGroup(Group group) {
@@ -310,7 +304,14 @@ public class Center {
 	public double getFecundityBase() {
 		return fecundityBase;
 	}
+	
+	public double getFecundityPromotiveLevel() {
+		return fecundityPromotiveLevel;
+	}
 
+	public double getFecundityDemotiveLevel() {
+		return fecundityPromotiveLevel;
+	}
 	// imports-related methods
 
 	public void decreaseImports() {
@@ -445,11 +446,4 @@ public class Center {
 		return pullFractions;
 	}
 	
-	public double getFPLshow() {
-		return fecundityBase + fecundityPromotiveLevel;
-	}
-	
-	public double getFDLshow() {
-		return fecundityBase -fecundityDemotiveLevel;
-	}
 }

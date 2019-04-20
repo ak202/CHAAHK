@@ -24,14 +24,14 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="disturbanceDelay" displayName="Disturbance Delay" type="int" 
-						defaultValue="0" 
+				<parameter name="fertility" displayName="Fertility" type="double" 
+						defaultValue="0.07" 
 						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="infert" displayName="Infertility" type="int" 
-						defaultValue="15" 
+				<parameter name="disturbanceDelay" displayName="Disturbance Delay" type="int" 
+						defaultValue="0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

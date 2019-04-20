@@ -24,14 +24,14 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="disturbanceDelay" displayName="Disturbance Delay" type="int" 
-						defaultValue="0" 
+				<parameter name="fertility" displayName="Fertility" type="double" 
+						defaultValue="0.07" 
 						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="infert" displayName="Infertility" type="int" 
-						defaultValue="15" 
+				<parameter name="disturbanceDelay" displayName="Disturbance Delay" type="int" 
+						defaultValue="0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
@@ -104,6 +104,13 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+				<parameter name="Variable for Histogram 1" displayName="histogram1" type="java.lang.String" 
+						defaultValue="Route_Weight" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$StringStringConverter"
+									values="Route_Weight "
+						
+		/>
 				<parameter name="trafficPromotiveShortCoefficient" displayName="Traffic Promotive Short Coefficient" type="double" 
 						defaultValue="0.2" 
 						isReadOnly="false" 
@@ -166,6 +173,12 @@
 		/>
 				<parameter name="randomSeed" displayName="Default Random Seed" type="int" 
 						defaultValue="__NULL__"
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+				<parameter name="observeWhatCenter" displayName="Observe What Center?" type="int" 
+						defaultValue="0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

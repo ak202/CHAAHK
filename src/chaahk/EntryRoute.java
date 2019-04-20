@@ -3,6 +3,8 @@ package chaahk;
 public class EntryRoute<T> extends Route<T> {
 	
 	private double weight;
+	private Center sourceCenter;
+	private Center targetCenter;
 	
 	protected EntryRoute(){
 	}
@@ -14,7 +16,9 @@ public class EntryRoute<T> extends Route<T> {
 	public EntryRoute(T source, T target, boolean directed, double weight) {
 		this.weight = weight;
 		this.source = source;
+		sourceCenter = (Center) source;
 		this.target = target;
+		targetCenter = (Center) target;
 	}
 	
 	public void calcWeight() {
@@ -47,6 +51,14 @@ public class EntryRoute<T> extends Route<T> {
 	
 	public double getCostDemotiveLevelShow() {
 		return 0;
+	}
+	
+	public Center getSourceCenter() {
+		return sourceCenter;
+	}
+
+	public Center getTargetCenter() {
+		return targetCenter;
 	}
 	
 	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
