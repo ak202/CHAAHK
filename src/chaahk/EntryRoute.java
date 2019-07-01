@@ -1,5 +1,8 @@
 package chaahk;
 
+// One of four Routes that are always weight = 10. A wormhole of sorts connecting the four gateways
+// to the extradimensional FakeCenter, which is used as a singular target to find the least cost path 
+// from each Center to its nearest gateway in Region.calculateTrafficLong().
 public class EntryRoute<T> extends Route<T> {
 	
 	private double weight;
@@ -25,23 +28,7 @@ public class EntryRoute<T> extends Route<T> {
 		return;
 	}
 	
-	public double getWeight() {
-		return 10;
-	}
-	
 	public double getWeightShow() {
-		return 0;
-	}
-	
-	public double getCostBase() {
-		return 0;
-	}
-	
-	public double getCostPromotiveLevel() {
-		return 0;
-	}
-	
-	public double getCostDemotiveLevel() {
 		return 0;
 	}
 	
@@ -60,191 +47,74 @@ public class EntryRoute<T> extends Route<T> {
 	public Center getTargetCenter() {
 		return targetCenter;
 	}
+
+	//---------   General Cost:    ------------
+	public double getWeight() {
+		return 10;
+	}
+	public double getCostBase() {
+		return 0;
+	}
+	//---------   Cost Promotive:    ------------
+	public double getCostPromotiveLevel() {
+		return 0;
+	}
+	public double getCostPromotiveMax() {
+		return 0;
+	}
+	//---------   Cost Demotive:    ------------
+	public double getCostDemotiveLevel() {
+		return 0;
+	}
+	public double getCostDemotiveMax() {
+		return 0;
+	}
+	//---------   General Traffic:    ------------
+	public double getTrafficLong() {
+		return 0;
+	}
+	public double getTrafficShort() {
+		return 0;
+	}
+	//---------  Traffic Promotive:    ------------
+	public double getTrafficPromotiveLong() {
+		return 0;
+	}
+	public double getTrafficPromotiveShort() {
+		return 0;
+	}
+	public double getTrafficPromtiveFinal() {
+		return 0;
+	}
+	//---------  Traffic Demotive:    ------------
+	public double getTrafficDemotiveLong() {
+		return 0;
+	}
+	public double getTrafficDemotiveShort() {
+		return 0;
+	}
+	public double getTrafficDemotiveFinal() {
+		return 0;
+	}
 	
-	//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-		//-----------------    Aggregate Data Getter Methods for...    --------------------------
-		//'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-		
-		//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-		//----------------    All Routes:         --------------------------
-		//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-		
-		//---------   General Cost:    ------------
-		public double getAllW() {
-			return weight;
-		}
-		public double getAllCb() {
-			return 0;
-		}
-		//---------   Cost Promotive:    ------------
-		public double getAllCpl() {
-			return 0;
-		}
-		public double getAllCplShow() {
-			return 0;
-		}
-		public double getAllCpm() {
-			return 0;
-		}
-		//---------   Cost Demotive:    ------------
-		public double getAllCdl() {
-			return 0;
-		}
-		public double getAllCdlShow() {
-			return 0;
-		}
-		public double getAllCdm() {
-			return 0;
-		}
-		//---------   General Traffic:    ------------
-		public double getAllTl() {
-			return 0;
-		}
-		public double getAllTs() {
-			return 0;
-		}
-		//---------  Traffic Promotive:    ------------
-		public double getAllTpl() {
-			return 0;
-		}
-		public double getAllTps() {
-			return 0;
-		}
-		public double getAllTpf() {
-			return 0;
-		}
-		//---------  Traffic Demotive:    ------------
-		public double getAllTdl() {
-			return 0;
-		}
-		public double getAllTds() {
-			return 0;
-		}
-		public double getAllTdf() {
-			return 0;
-		}
-		
-		
-		//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-		//----------------    *Type* Routes:         -----------------------
-		//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-				
-		//---------   General Cost:    ------------
-		public double getTypeW() {
-			return 0;
-		}
-		public double getTypeCb() {
-			return 0;
-		}
-		//---------   Cost Promotive:    ------------
-		public double getTypeCpl() {
-			return 0;
-		}
-		public double getTypeCplShow() {
-			return 0;
-		}
-		public double getTypeCpm() {
-			return 0;
-		}
-		//---------   Cost Demotive:    ------------
-		public double getTypeCdl() {
-			return 0;
-		}
-		public double getTypeCdlShow() {
-			return 0;
-		}
-		public double getTypeCdm() {
-			return 0;
-		}
-		//---------   General Traffic:    ------------
-		public double getTypeTs() {
-			return 0;
-		}
-		public double getTypeTl() {
-			return 0;
-		}
-		//---------  Traffic Promotive:    ------------
-		public double getTypeTpl(){
-			return 0;
-		}
-		public double getTypeTps(){
-			return 0;
-		}
-		public double getTypeTpf(){
-			return 0;
-		}
-		//---------  Traffic Demotive:    ------------
-		public double getTypeTdl(){
-			return 0;
-		}
-		public double getTypeTds(){
-			return 0;
-		}
-		public double getTypeTdf(){
-			return 0;
-		}
-		
-		//,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-		//----------------    Observed Route:         ----------------------
-		//''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-		
-		//---------   General Cost:    ------------
-		public double getObW(){
-			return 0;
-		}
-		public double getObCb(){
-			return 0;
-		}
-		//---------   Cost Promotive:    ------------
-		public double getObCpl(){
-			return 0;
-		}
-		public double getObCplShow(){
-			return 0;
-		}
-		public double getObCpm(){
-			return 0;
-		}
-		//---------   Cost Demotive:    ------------
-		public double getObCdl(){
-			return 0;
-		}
-		public double getObCdlShow(){
-			return 0;
-		}
-		public double getObCdm(){
-			return 0;
-		}
-		//---------   General Traffic:    ------------
-		public double getObTl(){
-			return 0;
-		}
-		public double getObTs(){
-			return 0;
-		}
-		//---------  Traffic Promotive:    ------------
-		public double getObTpl(){
-			return 0;
-		}
-		public double getObTps(){
-			return 0;
-		}
-		public double getObTpf(){
-			return 0;
-		}
-		//---------  Traffic Demotive:    ------------
-		public double getObTdl(){
-			return 0;
-		}
-		public double getObTds(){
-			return 0;
-		}
-		public double getObTdf(){
-			return 0;
-		}
-		
-		public String getType() {
-			return "entry";
-		}
+	public T getSource() {
+		return source;
+	}
 	
+	public T getTarget() {
+		return target;
+	}
+
+	public boolean isDirected() {
+		return directed;
+	}
+
+	protected void setDirected(boolean directed) {
+		this.directed = directed;
+	}
+
+	public String getType() {
+		return "entry";
+	}
+
 }

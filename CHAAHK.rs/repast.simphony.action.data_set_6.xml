@@ -1,67 +1,68 @@
-<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.6.0">
-  <name>Demographic Data of Observed Centers</name>
-  <type>AGGREGATE</type>
-  <inclTick>true</inclTick>
-  <inclBatchRun>false</inclBatchRun>
-  <inclRandomSeed>false</inclRandomSeed>
-  <scheduleParams>
-    <start>30.0</start>
-    <interval>20.0</interval>
-    <priority>-Infinity</priority>
-    <pType>LAST</pType>
-    <duration>-1.0</duration>
-    <frequency>REPEAT</frequency>
-    <hashCode>1555656193</hashCode>
-  </scheduleParams>
-  <atEnd>false</atEnd>
-  <methodDataSources class="linked-hash-map">
-    <entry>
-      <string>Groups Created</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Groups Created</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getCreated</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Groups Emigrated</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Groups Emigrated</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getEmigrations</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Removed Groups Lacking Imports</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Removed Groups Lacking Imports</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getImportRemovals</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Removed Groups Lacking Staples</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Removed Groups Lacking Staples</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getStapleRemovals</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Immigrant Groups Settled</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Immigrant Groups Settled</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getSettled</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-  </methodDataSources>
-  <countSources class="linked-hash-map"/>
-  <customNADataSources class="linked-hash-map"/>
-  <customAggDataSources class="linked-hash-map"/>
+<repast.simphony.data2.engine.DataSetDescriptor
+	simphonyVersion="2.6.0">
+	<name>Demographic Data of Observed Centers</name>
+	<type>AGGREGATE</type>
+	<inclTick>true</inclTick>
+	<inclBatchRun>false</inclBatchRun>
+	<inclRandomSeed>false</inclRandomSeed>
+	<scheduleParams>
+		<start>30.0</start>
+		<interval>20.0</interval>
+		<priority>-Infinity</priority>
+		<pType>LAST</pType>
+		<duration>-1.0</duration>
+		<frequency>REPEAT</frequency>
+		<hashCode>1555656193</hashCode>
+	</scheduleParams>
+	<atEnd>false</atEnd>
+	<methodDataSources class="linked-hash-map">
+		<entry>
+			<string>Groups Created</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Groups Created</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getCreated</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Groups Emigrated</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Groups Emigrated</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getEmigrations</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Removed Groups Lacking Imports</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Removed Groups Lacking Imports</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getImportRemovals</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Removed Groups Lacking Staples</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Removed Groups Lacking Staples</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getStapleRemovals</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Immigrant Groups Settled</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Immigrant Groups Settled</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getSettled</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+	</methodDataSources>
+	<countSources class="linked-hash-map" />
+	<customNADataSources class="linked-hash-map" />
+	<customAggDataSources class="linked-hash-map" />
 </repast.simphony.data2.engine.DataSetDescriptor>

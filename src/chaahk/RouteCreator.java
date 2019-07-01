@@ -2,8 +2,7 @@ package chaahk;
 import repast.simphony.space.graph.EdgeCreator;
 import repast.simphony.space.graph.RepastEdge;
 
-// this creates the imaginary Routes that allows Center.calculateImports() to give more central Centers
-// less imports
+// This EdgeCreator subclass creates the Edge subclasses feature in CHAAHK
 public class RouteCreator<T> implements EdgeCreator<Route<T>, T> {
 	
 	public Route<T> createEdge(T source, T target, boolean isDirected, double weight) {

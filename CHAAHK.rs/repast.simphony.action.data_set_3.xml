@@ -1,58 +1,59 @@
-<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.6.0">
-  <name>Fecundity Data of Observed Centers</name>
-  <type>AGGREGATE</type>
-  <inclTick>true</inclTick>
-  <inclBatchRun>false</inclBatchRun>
-  <inclRandomSeed>false</inclRandomSeed>
-  <scheduleParams>
-    <start>31.0</start>
-    <interval>20.0</interval>
-    <priority>-Infinity</priority>
-    <pType>LAST</pType>
-    <duration>-1.0</duration>
-    <frequency>REPEAT</frequency>
-    <hashCode>-344064542</hashCode>
-  </scheduleParams>
-  <atEnd>false</atEnd>
-  <methodDataSources class="linked-hash-map">
-    <entry>
-      <string>Fecundity Base (Fb)</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Fecundity Base (Fb)</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getFecundityBase</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Fb - Fecundity Demotive Level</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Fb - Fecundity Demotive Level</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getFbMinusFdl</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Fb + Fecundity Promotive Level</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Fb + Fecundity Promotive Level</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getFbPlusFpl</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Staples</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Staples</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getStaples</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-  </methodDataSources>
-  <countSources class="linked-hash-map"/>
-  <customNADataSources class="linked-hash-map"/>
-  <customAggDataSources class="linked-hash-map"/>
+<repast.simphony.data2.engine.DataSetDescriptor
+	simphonyVersion="2.6.0">
+	<name>Fecundity Data of Observed Centers</name>
+	<type>AGGREGATE</type>
+	<inclTick>true</inclTick>
+	<inclBatchRun>false</inclBatchRun>
+	<inclRandomSeed>false</inclRandomSeed>
+	<scheduleParams>
+		<start>31.0</start>
+		<interval>20.0</interval>
+		<priority>-Infinity</priority>
+		<pType>LAST</pType>
+		<duration>-1.0</duration>
+		<frequency>REPEAT</frequency>
+		<hashCode>-344064542</hashCode>
+	</scheduleParams>
+	<atEnd>false</atEnd>
+	<methodDataSources class="linked-hash-map">
+		<entry>
+			<string>Fecundity Base (Fb)</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Fecundity Base (Fb)</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getFecundityBase</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Fb - Fecundity Demotive Level</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Fb - Fecundity Demotive Level</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getFbMinusFdl</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Fb + Fecundity Promotive Level</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Fb + Fecundity Promotive Level</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getFbPlusFpl</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Staples</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Staples</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getStaples</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+	</methodDataSources>
+	<countSources class="linked-hash-map" />
+	<customNADataSources class="linked-hash-map" />
+	<customAggDataSources class="linked-hash-map" />
 </repast.simphony.data2.engine.DataSetDescriptor>

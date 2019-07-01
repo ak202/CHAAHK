@@ -5,6 +5,7 @@ import repast.simphony.parameter.Parameters;
 import repast.simphony.space.graph.Network;
 import repast.simphony.space.graph.RepastEdge;
 
+// detects invalid parameter entries and displays each error in a pop up window
 public class ParameterCheck{
 
 	public static boolean check(Parameters params, Network<Object> net) {

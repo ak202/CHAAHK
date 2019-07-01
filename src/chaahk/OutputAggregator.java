@@ -11,6 +11,7 @@ import repast.simphony.space.graph.Network;
 import repast.simphony.space.graph.RepastEdge;
 import repast.simphony.essentials.RepastEssentials;
 
+// this class allows for a more minimalistic simulation GUI to offer a broader selection of information to display.
 public class OutputAggregator {
 
 	private List<Route> observedRoutes;
@@ -25,7 +26,6 @@ public class OutputAggregator {
 		Parameters params = RunEnvironment.getInstance().getParameters();
 
 		observedRoutes = new ArrayList();
-		System.out.println("test");
 		String observedRouteType = (String)params.getValue("observedRouteType");
 		int observedRouteSourceID = 0;
 		int observedRouteTargetID = 0;
@@ -223,14 +223,6 @@ public class OutputAggregator {
 			sum += (double)center.getLabor();
 		}
 		return sum / (double)observedCenterCount;
-	}
-
-	public double getResSize() {
-		double sum = 0;
-		for (Center center : observedCenters) {
-			sum += center.getResSize();
-		}
-		return sum / observedCenterCount;
 	}
 	
 	public double getStaples(){

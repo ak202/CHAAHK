@@ -1,122 +1,123 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.6.0">
-  <name>Traffic Data of Observed Routes</name>
-  <dataSet>Traffic Data of Observed Routes</dataSet>
-  <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>Value</yAxisLabel>
-  <chartTitle>Traffic Data of Observed Routes</chartTitle>
-  <type>TIME_SERIES</type>
-  <background>
-    <red>255</red>
-    <green>255</green>
-    <blue>255</blue>
-    <alpha>255</alpha>
-  </background>
-  <gridLineColor>
-    <red>255</red>
-    <green>255</green>
-    <blue>255</blue>
-    <alpha>255</alpha>
-  </gridLineColor>
-  <showGrid>true</showGrid>
-  <showLegend>true</showLegend>
-  <seriesIds>
-    <entry>
-      <string>Ts Promotive</string>
-      <SeriesData>
-        <label>Ts Promotive</label>
-        <color>
-          <red>102</red>
-          <green>255</green>
-          <blue>102</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Tl Demotive</string>
-      <SeriesData>
-        <label>Tl Demotive</label>
-        <color>
-          <red>255</red>
-          <green>51</green>
-          <blue>51</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Traffic Long (Tl)</string>
-      <SeriesData>
-        <label>Traffic Long (Tl)</label>
-        <color>
-          <red>153</red>
-          <green>153</green>
-          <blue>153</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Ts Demotive</string>
-      <SeriesData>
-        <label>Ts Demotive</label>
-        <color>
-          <red>255</red>
-          <green>102</green>
-          <blue>102</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Tl Promotive</string>
-      <SeriesData>
-        <label>Tl Promotive</label>
-        <color>
-          <red>51</red>
-          <green>255</green>
-          <blue>51</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Traffic Promotive Final</string>
-      <SeriesData>
-        <label>Traffic Promotive Final</label>
-        <color>
-          <red>0</red>
-          <green>204</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Traffic Demotive Final</string>
-      <SeriesData>
-        <label>Traffic Demotive Final</label>
-        <color>
-          <red>204</red>
-          <green>0</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Traffic Short (Ts)</string>
-      <SeriesData>
-        <label>Traffic Short (Ts)</label>
-        <color>
-          <red>204</red>
-          <green>204</green>
-          <blue>204</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-  </seriesIds>
-  <dataValueIds/>
-  <plotRangeLength>-1</plotRangeLength>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor
+	simphonyVersion="2.6.0">
+	<name>Traffic Data of Observed Routes</name>
+	<dataSet>Traffic Data of Observed Routes</dataSet>
+	<xAxisLabel>Tick Count</xAxisLabel>
+	<yAxisLabel>Value</yAxisLabel>
+	<chartTitle>Traffic Data of Observed Routes</chartTitle>
+	<type>TIME_SERIES</type>
+	<background>
+		<red>255</red>
+		<green>255</green>
+		<blue>255</blue>
+		<alpha>255</alpha>
+	</background>
+	<gridLineColor>
+		<red>255</red>
+		<green>255</green>
+		<blue>255</blue>
+		<alpha>255</alpha>
+	</gridLineColor>
+	<showGrid>true</showGrid>
+	<showLegend>true</showLegend>
+	<seriesIds>
+		<entry>
+			<string>Ts Promotive</string>
+			<SeriesData>
+				<label>Ts Promotive</label>
+				<color>
+					<red>102</red>
+					<green>255</green>
+					<blue>102</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Tl Demotive</string>
+			<SeriesData>
+				<label>Tl Demotive</label>
+				<color>
+					<red>255</red>
+					<green>51</green>
+					<blue>51</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Traffic Long (Tl)</string>
+			<SeriesData>
+				<label>Traffic Long (Tl)</label>
+				<color>
+					<red>153</red>
+					<green>153</green>
+					<blue>153</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Ts Demotive</string>
+			<SeriesData>
+				<label>Ts Demotive</label>
+				<color>
+					<red>255</red>
+					<green>102</green>
+					<blue>102</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Tl Promotive</string>
+			<SeriesData>
+				<label>Tl Promotive</label>
+				<color>
+					<red>51</red>
+					<green>255</green>
+					<blue>51</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Traffic Promotive Final</string>
+			<SeriesData>
+				<label>Traffic Promotive Final</label>
+				<color>
+					<red>0</red>
+					<green>204</green>
+					<blue>0</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Traffic Demotive Final</string>
+			<SeriesData>
+				<label>Traffic Demotive Final</label>
+				<color>
+					<red>204</red>
+					<green>0</green>
+					<blue>0</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Traffic Short (Ts)</string>
+			<SeriesData>
+				<label>Traffic Short (Ts)</label>
+				<color>
+					<red>204</red>
+					<green>204</green>
+					<blue>204</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+	</seriesIds>
+	<dataValueIds />
+	<plotRangeLength>-1</plotRangeLength>
 </repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

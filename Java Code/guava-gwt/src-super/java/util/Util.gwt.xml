@@ -1,1 +1,3 @@
-<module><super-source path="super"/></module>
+<module>
+	<super-source path="super" />
+</module>

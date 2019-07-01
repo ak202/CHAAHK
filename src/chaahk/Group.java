@@ -39,9 +39,9 @@ public class Group {
 	}
 
 	// the Group will ultimately attept to consume both resources, but the order 
-	// in which they do is swapped each turn. if statements prevent Groups that are
+	// in which they do is swapped each turn. conditionals prevent Groups that are
 	// removed fron their first attempt from consuming further resources, which can cause
-	// an error (in addition to being simply onfair to the other Groups!).
+	// an error (in addition to being simply unfair to the other Groups!).
 	private void consumeResources() {
 		swapPrioritizedResource();
 		if (prioritizesImports) {
@@ -139,6 +139,7 @@ public class Group {
 		return migrantStatus; 
 	}
 	
+	// each Group will eventually change from migrant to endemic
 	private void acclimate() {
 		if (acclimation == 5) {
 			this.migrantStatus = false;

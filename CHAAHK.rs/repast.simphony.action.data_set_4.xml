@@ -1,49 +1,50 @@
-<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.6.0">
-  <name>Subsistence Data of Observed Centers</name>
-  <type>AGGREGATE</type>
-  <inclTick>true</inclTick>
-  <inclBatchRun>false</inclBatchRun>
-  <inclRandomSeed>false</inclRandomSeed>
-  <scheduleParams>
-    <start>31.0</start>
-    <interval>20.0</interval>
-    <priority>-Infinity</priority>
-    <pType>LAST</pType>
-    <duration>-1.0</duration>
-    <frequency>REPEAT</frequency>
-    <hashCode>-344064542</hashCode>
-  </scheduleParams>
-  <atEnd>false</atEnd>
-  <methodDataSources class="linked-hash-map">
-    <entry>
-      <string>Labor</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Labor</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getLabor</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Imports</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Imports</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getImports</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Staples</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Staples</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getStaples</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-  </methodDataSources>
-  <countSources class="linked-hash-map"/>
-  <customNADataSources class="linked-hash-map"/>
-  <customAggDataSources class="linked-hash-map"/>
+<repast.simphony.data2.engine.DataSetDescriptor
+	simphonyVersion="2.6.0">
+	<name>Subsistence Data of Observed Centers</name>
+	<type>AGGREGATE</type>
+	<inclTick>true</inclTick>
+	<inclBatchRun>false</inclBatchRun>
+	<inclRandomSeed>false</inclRandomSeed>
+	<scheduleParams>
+		<start>31.0</start>
+		<interval>20.0</interval>
+		<priority>-Infinity</priority>
+		<pType>LAST</pType>
+		<duration>-1.0</duration>
+		<frequency>REPEAT</frequency>
+		<hashCode>-344064542</hashCode>
+	</scheduleParams>
+	<atEnd>false</atEnd>
+	<methodDataSources class="linked-hash-map">
+		<entry>
+			<string>Labor</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Labor</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getLabor</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Imports</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Imports</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getImports</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Staples</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Staples</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getStaples</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+	</methodDataSources>
+	<countSources class="linked-hash-map" />
+	<customNADataSources class="linked-hash-map" />
+	<customAggDataSources class="linked-hash-map" />
 </repast.simphony.data2.engine.DataSetDescriptor>

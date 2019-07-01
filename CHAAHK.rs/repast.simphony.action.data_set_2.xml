@@ -1,58 +1,59 @@
-<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.6.0">
-  <name>Cost Data of Observed Routes</name>
-  <type>AGGREGATE</type>
-  <inclTick>true</inclTick>
-  <inclBatchRun>false</inclBatchRun>
-  <inclRandomSeed>false</inclRandomSeed>
-  <scheduleParams>
-    <start>20.0</start>
-    <interval>30.0</interval>
-    <priority>-Infinity</priority>
-    <pType>LAST</pType>
-    <duration>-1.0</duration>
-    <frequency>REPEAT</frequency>
-    <hashCode>-845898433</hashCode>
-  </scheduleParams>
-  <atEnd>false</atEnd>
-  <methodDataSources class="linked-hash-map">
-    <entry>
-      <string>Cb + Cost Promotive Level</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cb + Cost Promotive Level</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getCbMinusCpl</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cb + Cost Demotive Level</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cb + Cost Demotive Level</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getCbPlusCdl</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Weight</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Weight</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getWeight</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-    <entry>
-      <string>Cost Base (Cb)</string>
-      <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Cost Base (Cb)</id>
-        <className>chaahk.OutputAggregator</className>
-        <methodName>getCostBase</methodName>
-        <aggType>SUM</aggType>
-      </repast.simphony.data2.engine.MethodDataSourceDefinition>
-    </entry>
-  </methodDataSources>
-  <countSources class="linked-hash-map"/>
-  <customNADataSources class="linked-hash-map"/>
-  <customAggDataSources class="linked-hash-map"/>
+<repast.simphony.data2.engine.DataSetDescriptor
+	simphonyVersion="2.6.0">
+	<name>Cost Data of Observed Routes</name>
+	<type>AGGREGATE</type>
+	<inclTick>true</inclTick>
+	<inclBatchRun>false</inclBatchRun>
+	<inclRandomSeed>false</inclRandomSeed>
+	<scheduleParams>
+		<start>20.0</start>
+		<interval>30.0</interval>
+		<priority>-Infinity</priority>
+		<pType>LAST</pType>
+		<duration>-1.0</duration>
+		<frequency>REPEAT</frequency>
+		<hashCode>-845898433</hashCode>
+	</scheduleParams>
+	<atEnd>false</atEnd>
+	<methodDataSources class="linked-hash-map">
+		<entry>
+			<string>Cb + Cost Promotive Level</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Cb + Cost Promotive Level</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getCbMinusCpl</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Cb + Cost Demotive Level</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Cb + Cost Demotive Level</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getCbPlusCdl</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Weight</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Weight</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getWeight</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+		<entry>
+			<string>Cost Base (Cb)</string>
+			<repast.simphony.data2.engine.MethodDataSourceDefinition>
+				<id>Cost Base (Cb)</id>
+				<className>chaahk.OutputAggregator</className>
+				<methodName>getCostBase</methodName>
+				<aggType>SUM</aggType>
+			</repast.simphony.data2.engine.MethodDataSourceDefinition>
+		</entry>
+	</methodDataSources>
+	<countSources class="linked-hash-map" />
+	<customNADataSources class="linked-hash-map" />
+	<customAggDataSources class="linked-hash-map" />
 </repast.simphony.data2.engine.DataSetDescriptor>

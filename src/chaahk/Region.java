@@ -14,6 +14,7 @@ import repast.simphony.space.graph.Network;
 import repast.simphony.space.graph.RepastEdge;
 import repast.simphony.space.graph.ShortestPath;
 
+// This class controls much of the simulation's scheduling behavior and calls methods drawing on global information.
 public class Region {
 	
 	private List<Center> centers;
@@ -30,6 +31,7 @@ public class Region {
 	private int minPop;
 	private int maxPop;
 
+	// this object controls simulation-wide scheduling and behavior
 	public Region(List<Center> centers, Context<Object> context, Center exporter) {
 		
 		Parameters params = RunEnvironment.getInstance().getParameters();
@@ -62,7 +64,6 @@ public class Region {
 		minPop = 0;
 		maxPop = 0;
 	}
-
 	
 	@ScheduledMethod(start = 1, interval = 5)
 	public void calculateCenterResources() {
@@ -78,26 +79,28 @@ public class Region {
 		rankCenters();
 	}
 	
+	// calulates each Route's trafficLong and each Center's distanceToExporter via calculated the shortest
+	// path to the nearest gateway center (those at simulation's 4 corners)
 	private void calculateTrafficLong() {
 		for (RepastEdge<Object> e : net.getEdges()) {
 			Route<Object> m = (Route<Object>) e;
-			m.setTrafficLong(0);
+			m.resetTrafficLong();
 		}
 		for (Center c : centers) {
-			List<RepastEdge<Object>> path;
-			path = sp.getPath(c,exporter);
+			List<RepastEdge<Object>> pathToGateway;
+			pathToGateway = sp.getPath(c,exporter);
 			double distToExporter = 0;
-			for (RepastEdge<Object> e : path) {
-				distToExporter += e.getWeight();
+			for (RepastEdge<Object> e : pathToGateway) {
+				Route<Object> m = (Route<Object>) e;
+				distToExporter += m.getWeight();
+				m.addTrafficLong(c.getEndemic());
 			}
 			c.setDistanceToExporter(distToExporter);
-			for (RepastEdge<Object> e : path) {
-				Route<Object> m = (Route<Object>) e;
-				m.setTrafficLong(m.getTrafficLong() + c.getEndemic());
-			}
 		}
 	}
 	
+	// calculates each Center's pull (attraction to immigrants) and puts them in a list sorted according
+	// to these values
 	public void rankCenters() {
 		destinations = new Hashtable<Double, Center>(17);
 		pullFractions = new ArrayList<Double>();
@@ -123,6 +126,7 @@ public class Region {
 		}
 	}
 	
+	// this represents immigration from the external areas surrounding that represented in CHAAHK
 	private void immigrate() {
 		for (Center g : gateways) {
 				Group dude = new Group(g, true);
@@ -130,6 +134,7 @@ public class Region {
 		}
 	}
 	
+	// every time disturbance is called (each 5 steps) each Group has a disturbanceRemovalChance chance to be removed
 	private void disturbance() {
 		double tick = RunEnvironment.getInstance().getCurrentSchedule().getTickCount();
     		if (tick > 1000+disturbanceDelay & tick < 1100+disturbanceDelay) {
@@ -138,13 +143,13 @@ public class Region {
     				for (Group group : c.getResidents()) {
     					if (RandomHelper.nextDoubleFromTo(0, 1) < disturbanceRemovalChance) {
     						removalList.add(group);
+    					}
     				}
     			}
+    			for (Group group : removalList) {
+    				group.getHomeCenter().removeGroup(group);
+    			}
     		}
-    		for (Group group : removalList) {
-    			group.getHomeCenter().removeGroup(group);
-    		}
-    	}
 	}
 
 	@ScheduledMethod(start = 5, interval = 5)

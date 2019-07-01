@@ -1,62 +1,63 @@
-<repast.simphony.chart2.engine.TimeSeriesChartDescriptor simphonyVersion="2.6.0">
-  <name>Subsistence Data of Observed Centers</name>
-  <dataSet>Subsistence Data of Observed Centers</dataSet>
-  <xAxisLabel>Tick Count</xAxisLabel>
-  <yAxisLabel>Value</yAxisLabel>
-  <chartTitle>Subistence Data of Observed Centers</chartTitle>
-  <type>TIME_SERIES</type>
-  <background>
-    <red>192</red>
-    <green>192</green>
-    <blue>192</blue>
-    <alpha>255</alpha>
-  </background>
-  <gridLineColor>
-    <red>255</red>
-    <green>255</green>
-    <blue>255</blue>
-    <alpha>255</alpha>
-  </gridLineColor>
-  <showGrid>true</showGrid>
-  <showLegend>true</showLegend>
-  <seriesIds>
-    <entry>
-      <string>Staples</string>
-      <SeriesData>
-        <label>Staples</label>
-        <color>
-          <red>102</red>
-          <green>102</green>
-          <blue>255</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Imports</string>
-      <SeriesData>
-        <label>Imports</label>
-        <color>
-          <red>255</red>
-          <green>153</green>
-          <blue>51</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-    <entry>
-      <string>Labor</string>
-      <SeriesData>
-        <label>Labor</label>
-        <color>
-          <red>255</red>
-          <green>255</green>
-          <blue>0</blue>
-          <alpha>255</alpha>
-        </color>
-      </SeriesData>
-    </entry>
-  </seriesIds>
-  <dataValueIds/>
-  <plotRangeLength>-1</plotRangeLength>
+<repast.simphony.chart2.engine.TimeSeriesChartDescriptor
+	simphonyVersion="2.6.0">
+	<name>Subsistence Data of Observed Centers</name>
+	<dataSet>Subsistence Data of Observed Centers</dataSet>
+	<xAxisLabel>Tick Count</xAxisLabel>
+	<yAxisLabel>Value</yAxisLabel>
+	<chartTitle>Subistence Data of Observed Centers</chartTitle>
+	<type>TIME_SERIES</type>
+	<background>
+		<red>192</red>
+		<green>192</green>
+		<blue>192</blue>
+		<alpha>255</alpha>
+	</background>
+	<gridLineColor>
+		<red>255</red>
+		<green>255</green>
+		<blue>255</blue>
+		<alpha>255</alpha>
+	</gridLineColor>
+	<showGrid>true</showGrid>
+	<showLegend>true</showLegend>
+	<seriesIds>
+		<entry>
+			<string>Staples</string>
+			<SeriesData>
+				<label>Staples</label>
+				<color>
+					<red>102</red>
+					<green>102</green>
+					<blue>255</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Imports</string>
+			<SeriesData>
+				<label>Imports</label>
+				<color>
+					<red>255</red>
+					<green>153</green>
+					<blue>51</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+		<entry>
+			<string>Labor</string>
+			<SeriesData>
+				<label>Labor</label>
+				<color>
+					<red>255</red>
+					<green>255</green>
+					<blue>0</blue>
+					<alpha>255</alpha>
+				</color>
+			</SeriesData>
+		</entry>
+	</seriesIds>
+	<dataValueIds />
+	<plotRangeLength>-1</plotRangeLength>
 </repast.simphony.chart2.engine.TimeSeriesChartDescriptor>

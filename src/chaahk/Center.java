@@ -1,10 +1,9 @@
-package chaahk;
+package chaahk;   
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import repast.simphony.context.Context;
 import repast.simphony.engine.environment.RunEnvironment;
-import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
 import java.lang.Math;
@@ -13,17 +12,17 @@ public class Center {
 	
 //	MISC VARIABLES
 	
-	private int id;							//excluded
+	private int id;
 	private Context<Object> context;
 	private boolean upland;
 	private boolean water;
 	
 //	PEOPLE-RELATED
 	
-	private int labor; //L
-	private List<Group> residents; 			
-	private int groupsEndemic; //B
-	private double pull;				
+	private int labor;
+	private List<Group> residents; 
+	private int groupsEndemic;
+	private double pull;
 	private double pullFraction;
 	private Hashtable<Double, Center> destinations;
 	private ArrayList<Double> pullFractions;
@@ -48,11 +47,11 @@ public class Center {
 	
 //	IMPORTS-RELATED
 	
-	private double imports; //I				
+	private double imports;
 	private double importsCoefficient;
 	private double importsYIntercept;
-	private double distToExporter; //D
-	private List<Route<Object>> path;		//excluded
+	private double distToExporter;
+	private List<Route<Object>> pathToGateway;
 	
 //	ANALYTICAL METRICS
 	private int emigrations;
@@ -105,9 +104,9 @@ public class Center {
 		importsCoefficient = (Double)params.getValue("importsCoefficient");
 		importsYIntercept = (Double)params.getValue("importsYIntercept");
 		distToExporter = 0;
-		path = null;
+		pathToGateway = null;
 
-//		ANALYTICAL METRICS
+//		OUTPUT METRICS
 		
 		emigrations = 0;
 		stapleRemovals = 0;
@@ -120,46 +119,9 @@ public class Center {
 	public void calculateStaples() {
     	    	
 		if (water) return;
-		
-		// part 1 Fpl modified
- 
-				// incease
-		double fecundityPromotiveCarryingFactor = 1 - Math.pow(fecundityPromotiveLevel/fecundityPromotiveMax, 2);
-		fecundityPromotiveLevel += fecundityPromotiveCarryingFactor * labor * fecundityPromotiveIncRate;	
-				// decrease
-		double fecundityPromotiveUtilFraction;
-		if (labor < (int)fecundityPromotiveLevel) {
-			fecundityPromotiveUtilFraction = labor/fecundityPromotiveLevel;
-		} else {
-			fecundityPromotiveUtilFraction = 1;
-		}
-		double fecundityPromotiveResFactor = 1 - (fecundityPromotiveUtilFraction + (1 - fecundityPromotiveUtilFraction ) * fecundityPromotiveRes);
-		fecundityPromotiveLevel -= fecundityPromotiveResFactor * fecundityPromotiveDecRate;
-				// readjust	
-		if (fecundityPromotiveLevel < 0) {
-			fecundityPromotiveLevel = 0;
-		}
-		
-		//part 2 - Fdl modified
-		
-				//increase
-		double fecundityDemotiveCarryingFactor = 1 - Math.pow(fecundityDemotiveLevel/fecundityDemotiveMax, 2);
-		fecundityDemotiveLevel += fecundityDemotiveCarryingFactor * labor * fecundityDemotiveIncRate;
-				//decrease	
-		double fecundityDemotiveUtilFraction;
-		if (labor < (int)fecundityDemotiveLevel) {
-			fecundityDemotiveUtilFraction = labor/fecundityDemotiveLevel;
-		} else {
-			fecundityDemotiveUtilFraction = 1;
-		}
-		double fecundityDemotiveResFactor = 1 - (fecundityDemotiveUtilFraction + (1 - fecundityDemotiveUtilFraction ) * fecundityDemotiveRes);
-		fecundityDemotiveLevel -= fecundityDemotiveResFactor * fecundityDemotiveDecRate;
-	   			// readjust 
-		if (fecundityDemotiveLevel < 0) {
-			fecundityDemotiveLevel = 0;
-		}
 
-		// part 3 - staples is drawn away from fecundityBase depending on whether fpl or fdl is closer to their max (fpm, fdm)
+		modifyFpl();
+		modifyFdl();
 
 		double fecundityPromotiveFraction;
 		double fecundityDemotiveFraction;
@@ -184,6 +146,50 @@ public class Center {
 			fecundityDemotiveFraction = fecundityDemotiveFraction - fecundityPromotiveFraction;
 			staples = (int)(fecundityBase - fecundityDemotiveFraction * fecundityDemotiveMax);
 		} 
+	}
+	
+	private void modifyFpl() {
+
+			   	//increase
+		double fecundityPromotiveCarryingFactor = 1 - Math.pow(fecundityPromotiveLevel/fecundityPromotiveMax, 2);
+		fecundityPromotiveLevel += fecundityPromotiveCarryingFactor * labor * fecundityPromotiveIncRate;	
+
+				// decrease
+		double fecundityPromotiveUtilFraction;
+		if (labor < (int)fecundityPromotiveLevel) {
+			fecundityPromotiveUtilFraction = labor/fecundityPromotiveLevel;
+		} else {
+			fecundityPromotiveUtilFraction = 1;
+		}
+		double fecundityPromotiveResFactor = 1 - (fecundityPromotiveUtilFraction + (1 - fecundityPromotiveUtilFraction ) * fecundityPromotiveRes);
+		fecundityPromotiveLevel -= fecundityPromotiveResFactor * fecundityPromotiveDecRate;
+
+				// readjust	
+		if (fecundityPromotiveLevel < 0) {
+			fecundityPromotiveLevel = 0;
+		}
+	}
+	
+	private void modifyFdl() {
+		
+		                //increase
+		double fecundityDemotiveCarryingFactor = 1 - Math.pow(fecundityDemotiveLevel/fecundityDemotiveMax, 2);
+		fecundityDemotiveLevel += fecundityDemotiveCarryingFactor * labor * fecundityDemotiveIncRate;
+
+				//decrease
+		double fecundityDemotiveUtilFraction;
+		if (labor < (int)fecundityDemotiveLevel) {
+			fecundityDemotiveUtilFraction = labor/fecundityDemotiveLevel;
+		} else {
+			fecundityDemotiveUtilFraction = 1;
+		}
+		double fecundityDemotiveResFactor = 1 - (fecundityDemotiveUtilFraction + (1 - fecundityDemotiveUtilFraction ) * fecundityDemotiveRes);
+		fecundityDemotiveLevel -= fecundityDemotiveResFactor * fecundityDemotiveDecRate;
+
+	   			// readjust 
+		if (fecundityDemotiveLevel < 0) {
+			fecundityDemotiveLevel = 0;
+		}
 	}
     
 	// culmination of the much more involved Region.calculateTrafficLong() and Route.calculateWeight()
@@ -240,10 +246,6 @@ public class Center {
 		return this.labor;
 	}
 
-	public int getResSize() {
-		return residents.size();
-	}
-	
 	public void settle() {
 		settled ++;
 		incEndemic();
@@ -287,6 +289,36 @@ public class Center {
 		return residents;
 	}
     
+	public void incEndemic(){
+		groupsEndemic ++;
+	}
+
+	public void decEndemic(){
+		groupsEndemic --;
+	}
+	
+	public int getEndemic(){
+		return groupsEndemic;
+	}
+
+	public void setDestinations(Hashtable<Double, Center> destinations) {
+		Object dests = destinations.clone();
+		this.destinations = (Hashtable<Double, Center>) dests;
+	}
+
+	public Hashtable<Double, Center> getDestinations() {
+		return destinations;
+	}
+
+	public void setPullFractions(ArrayList<Double> pullFractions) {
+		Object pullfras = pullFractions.clone();
+		this.pullFractions = (ArrayList<Double>) pullfras;
+	}
+
+	public ArrayList<Double> getPullFractions() {
+		return pullFractions;
+	}
+
 	// Staple-related methods
 
 	public int getStaples(){
@@ -312,11 +344,8 @@ public class Center {
 	public double getFecundityDemotiveLevel() {
 		return fecundityPromotiveLevel;
 	}
-	// imports-related methods
 
-	public void decreaseImports() {
-		imports --;
-	}
+	// imports-related methods
 
 	public double getImports() {
 		return(imports);
@@ -326,6 +355,10 @@ public class Center {
 		return ((double)imports + 1)/((double)residents.size() + 1);
 	}
 	
+	public void decreaseImports() {
+		imports --;
+	}
+
 	public double getImportsPopulated() {
 		if (labor > 0 ) {
 			return(imports);
@@ -334,12 +367,12 @@ public class Center {
 		}
 	}
 	
-	public void setPath(List<Route<Object>> path) {
-		this.path = path;
+	public void setPathToGateway(List<Route<Object>> pathToGateway) {
+		this.pathToGateway = pathToGateway;
 	}
 
-	public List<Route<Object>> getPath() {
-		return path;
+	public List<Route<Object>> getPathToGateway() {
+		return pathToGateway;
 	}
 	
 	public double getDistToExporter() {
@@ -375,15 +408,9 @@ public class Center {
 	public int getLabor60() {
 		return this.labor * 60;
 	}	
+
 	public int getStayed() {
 		return stayed;
-	}
-
-	@ScheduledMethod(start = 30, interval = 999999999)
-	public void resetDeaths() {
-		emigrations = 0;
-		stapleRemovals = 0;
-		importRemovals = 0;
 	}
 
 	public double getEmigrations() {
@@ -416,34 +443,4 @@ public class Center {
 	public int getSettled() {
 		return settled;
 	}
-	
-	public void incEndemic(){
-		groupsEndemic ++;
-	}
-
-	public void decEndemic(){
-		groupsEndemic --;
-	}
-	
-	public int getEndemic(){
-		return groupsEndemic;
-	}
-	public void setDestinations(Hashtable<Double, Center> destinations) {
-		Object dests = destinations.clone();
-		this.destinations = (Hashtable<Double, Center>) dests;
-	}
-
-	public Hashtable<Double, Center> getDestinations() {
-		return destinations;
-	}
-
-	public void setPullFractions(ArrayList<Double> pullFractions) {
-		Object pullfras = pullFractions.clone();
-		this.pullFractions = (ArrayList<Double>) pullfras;
-	}
-
-	public ArrayList<Double> getPullFractions() {
-		return pullFractions;
-	}
-	
 }

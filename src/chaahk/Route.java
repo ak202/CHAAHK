@@ -14,6 +14,7 @@ public class Route<T> extends RepastEdge<T> {
 	private Center targetCenter;
 	protected boolean directed;
 	private String type;
+
 	
 //	WEIGHT-RELATED
 
@@ -80,10 +81,7 @@ public class Route<T> extends RepastEdge<T> {
         
 		
 		costDemotiveLevel    = 0;
-		costPromotiveMax     = (Double)params.getValue("costDemotiveMax") * weight;
 		costDemotiveRes      = (Double)params.getValue("costDemotiveRes");
-		costDemotiveIncRate  = (Double)params.getValue("costDemotiveIncRate") * costDemotiveMax;
-		costDemotiveDecRate  = (Double)params.getValue("costDemotiveDecRate") * costDemotiveMax;
 		trafficDemotiveShort             = 0;
 		trafficDemotiveShortCoefficient  = (Double)params.getValue("trafficDemotiveShortCoefficient") * costDemotiveMax;
 		trafficDemotiveLong              = 0;
@@ -98,16 +96,45 @@ public class Route<T> extends RepastEdge<T> {
 	@ScheduledMethod(start = 2, interval = 5)
 	public void calculateWeight() {
 
-		// part 1 - calulation of trafficShort. very simple gravity model using the labor of 2 adjacent Centers.
+		calculateTrafficShort(); 
+		modifyCpl(trafficShort);
+		modifyCdl(trafficShort);
+
+		double costPromotiveFraction;
+		double costDemotiveFraction;
 		
+				// calculate both relative levels
+		if (costPromotiveMax == 0) {
+			costPromotiveFraction = 0;
+		} else {
+			costPromotiveFraction = costPromotiveLevel/costPromotiveMax;
+		}
+		if (costDemotiveMax == 0) {
+			costDemotiveFraction = 0;
+		} else {
+			costDemotiveFraction = costDemotiveLevel/costDemotiveMax;
+		}
+		
+				// update weight
+		if (costPromotiveFraction > costDemotiveFraction) {
+			costPromotiveFraction = costPromotiveFraction - costDemotiveFraction;
+			weight = costBase - costPromotiveFraction * costPromotiveMax;
+		} else {
+			costDemotiveFraction = costDemotiveFraction - costPromotiveFraction;
+			weight = costBase + costDemotiveFraction * costDemotiveMax;
+		} 
+	
+	}
+
+	private void calculateTrafficShort() {
 		Center center1 = (Center) source;
 		Center center2 = (Center) target;
 		double pop1 = center1.getLabor();
 		double pop2 = center2.getLabor();
 		trafficShort = (pop1 + pop2) / costBase;
-		
-		
-		//part 2 - costPromotiveLevel is modified 
+	}
+
+	private void modifyCpl(double trafficShort) {
 
 				// calculate tpf
 		trafficPromotiveLong = trafficLong * trafficPromotiveLongCoefficient;
@@ -142,18 +169,18 @@ public class Route<T> extends RepastEdge<T> {
 		} else if (costPromotiveLevel > costPromotiveMax) {
 			costPromotiveLevel = costPromotiveMax;
 		}
-		
-		// part 3 - costDemotiveLevel is modified
+	}
+
+	private void modifyCdl(double trafficShort) {
 
 				// calculate tdf
 		trafficDemotiveLong = trafficLong * trafficDemotiveLongCoefficient;
 		trafficDemotiveShort = trafficShort * trafficDemotiveShortCoefficient;
 		trafficDemotiveFinal = trafficDemotiveLong + trafficDemotiveShort;
-		 
+
 				//increase
 		double costDemotiveCarryingFactor;
-		if (costDemotiveLevel < costDemotiveMax)
-		{
+		if (costDemotiveLevel < costDemotiveMax) {
 			costDemotiveCarryingFactor = 1 - costDemotiveLevel/costDemotiveMax;
 		} else {
 			costDemotiveCarryingFactor = 0;
@@ -179,33 +206,6 @@ public class Route<T> extends RepastEdge<T> {
 		} else if (costDemotiveLevel > costDemotiveMax) {
 			costDemotiveLevel = costDemotiveMax;
 		}
-		
-		// part 4 - weight is drawn away from costBase depending on whether cpl or cdl is closer to their max (cpm, cdm)
-
-		double costPromotiveFraction;
-		double costDemotiveFraction;
-		
-				// calculate both relative levels
-		if (costPromotiveMax == 0) {
-			costPromotiveFraction = 0;
-		} else {
-			costPromotiveFraction = costPromotiveLevel/costPromotiveMax;
-		}
-		if (costDemotiveMax == 0) {
-			costDemotiveFraction = 0;
-		} else {
-			costDemotiveFraction = costDemotiveLevel/costDemotiveMax;
-		}
-		
-				// update weight
-		if (costPromotiveFraction > costDemotiveFraction) {
-			costPromotiveFraction = costPromotiveFraction - costDemotiveFraction;
-			weight = costBase - costPromotiveFraction * costPromotiveMax;
-		} else {
-			costDemotiveFraction = costDemotiveFraction - costPromotiveFraction;
-			weight = costBase + costDemotiveFraction * costDemotiveMax;
-		} 
-	
 	}
 	
 	// displays a bajo Route lower than its costBase as more red, more green if higher.
@@ -246,6 +246,7 @@ public class Route<T> extends RepastEdge<T> {
 			type = "Upland";
 		}
 	}
+
 	// give route upland behavior
 	public void initUpland() {
 		costBase =  weight;
@@ -257,12 +258,14 @@ public class Route<T> extends RepastEdge<T> {
 		costDemotiveDecRate  = 0;
 		costDemotiveMax      = 0;
 	}
+
 	// makes route a nominal bajo
 	public void makeBajo() {
 		if (type == "none") {
 			type = "Bajo";
 		}
 	}
+
 	// give route bajo behavior
 	public void initBajo() {
 		weight = weight /5;
@@ -332,29 +335,6 @@ public class Route<T> extends RepastEdge<T> {
 	public double getTrafficDemotiveFinal() {
 		return trafficDemotiveFinal;
 	}
-	
-	public T getSource() {
-		return source;
-	}
-	
-	public T getTarget() {
-		return target;
-	}
-
-	public boolean isDirected() {
-		return directed;
-	}
-	protected void setDirected(boolean directed) {
-		this.directed = directed;
-	}
-
-	public void setWeight(double weight) {
-		this.weight = weight;
-	}
-
-	public void setTrafficLong(double tl){
-		trafficLong = tl;
-	}
 
 	public Center getSourceCenter() {
 		return sourceCenter;
@@ -362,6 +342,14 @@ public class Route<T> extends RepastEdge<T> {
 
 	public Center getTargetCenter() {
 		return targetCenter;
+	}
+
+	public void addTrafficLong(double tl){
+		trafficLong += tl;
+	}
+
+	public void resetTrafficLong() {
+		trafficLong = 0;
 	}
 
 }
