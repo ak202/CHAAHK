@@ -1,1 +1,6 @@
-This is the CHAAHK model. Please contact the developers for more information.
+This is version 1.1 of the Climatically Heightened but Anthropogenically Achieved Historical Kerplunk (CHAAHK) spatial simulation model. 
+This model was originally introduced in my masters thesis "CHAAHK: A Spatial Simulation Model of the Maya Elevated Core Region", and,
+despite some updates, 1.1 very closely represents the original formulation. These updates and their effects on the simulation's results
+are summarized in "Addendum to “CHAAHK: A Spatial Simulation Model of the Maya Elevated Core Region”. Both the original thesis and 
+later addendum are available on the author's website https://spatialawareness.blog/ as well as at
+https://www.researchgate.net/profile/Alex_Kara and https://uc.academia.edu/AlexKara
